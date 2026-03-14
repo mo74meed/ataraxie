@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ataraxie</string>
+    <string name="title_activity_main">Ataraxie</string>
+    <string name="package_name">com.ataraxie.medical</string>
+    <string name="custom_url_scheme">com.ataraxie.medical</string>
+</resources>
