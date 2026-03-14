@@ -338,6 +338,25 @@
     .stt:hover{background:var(--b500);color:#fff;border-color:transparent}
     .stt svg{width:16px;height:16px}
 
+    /* ── Compare Panel (Minimalist Right Sidebar) ── */
+    .cmp-panel{position:fixed;top:0;right:0;bottom:0;width:280px;background:var(--p1);border-left:1px solid var(--pb);z-index:45;transform:translateX(100%);transition:transform .3s var(--ease);display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(0,0,0,.04)}
+    .cmp-panel.open{transform:translateX(0)}
+    .cmp-head{padding:16px 14px;border-bottom:1px solid var(--pbs);display:flex;align-items:flex-start;justify-content:space-between}
+    .cmp-head h3{font-size:.78rem;font-weight:800;color:var(--t2);text-transform:uppercase;letter-spacing:.08em}
+    .cmp-sub{font-size:.68rem;color:var(--t4);margin-top:4px;line-height:1.4;font-weight:600}
+    .cmp-close{background:transparent;border:none;color:var(--t3);padding:2px;border-radius:4px;transition:all .15s ease;display:flex}
+    .cmp-close:hover{background:var(--p2);color:var(--t1)}
+    .cmp-close svg{width:16px;height:16px}
+    .cmp-body{flex:1;overflow-y:auto;padding:12px 0}
+    .cmp-item{display:flex;align-items:baseline;padding:3px 14px;font-family:'JetBrains Mono',monospace;font-size:.8rem;transition:background .15s ease}
+    .cmp-item:hover{background:var(--p2)}
+    .cmp-ans{color:var(--b600);font-weight:700;letter-spacing:.05em}
+    .cmp-empty{padding:20px 14px;text-align:center;font-size:.65rem;color:var(--t4)}
+
+    .ch-btn-cmp{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--p1);border:1.5px solid var(--pbs);color:var(--t2);transition:all .15s ease;box-shadow:var(--shadow-card);margin-left:4px}
+    .ch-btn-cmp:hover{border-color:var(--b400);color:var(--b600);box-shadow:0 4px 12px rgba(74,79,244,.15)}
+    .ch-btn-cmp svg{width:16px;height:16px}
+
     @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
     </style>
 </head>
@@ -345,6 +364,17 @@
     <svg style="position:absolute;width:0;height:0"><defs><linearGradient id="pg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="var(--b500)"/><stop offset="100%" stop-color="var(--g500)"/></linearGradient></defs></svg>
 
     <div class="overlay" id="ov"></div>
+
+    <div class="cmp-panel" id="cmp-panel">
+        <div class="cmp-head">
+            <div>
+                <h3>Réponses</h3>
+                <div class="cmp-sub" id="cmp-sub"></div>
+            </div>
+            <button class="cmp-close" id="cmp-close"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+        </div>
+        <div class="cmp-body" id="cmp-body"></div>
+    </div>
 
     <aside class="sidebar" id="sb">
         <div class="sb-brand"><div class="sb-logo">A</div><div><h1>Ataraxie</h1><p>Révisions Médecine</p></div></div>
@@ -408,6 +438,10 @@
         const stt=document.getElementById('stt');
         window.addEventListener('scroll',()=>stt.classList.toggle('vis',window.scrollY>400));
         stt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+        const cp=document.getElementById('cmp-panel');
+        document.getElementById('cmp-close').addEventListener('click',()=>cp.classList.remove('open'));
+        document.getElementById('ov').addEventListener('click',()=>{cp.classList.remove('open');});
     }
 
     /* ══════════ SIDEBAR (logic unchanged) ══════════ */
@@ -477,8 +511,12 @@
                     <span class="ch-pill-num" id="ch-val">${valC}</span>
                     <span>/ ${totC} validées</span>
                 </div>
+                <button class="ch-btn-cmp" id="btn-cmp" title="Comparer mes réponses">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                </button>
             </div>`;
         c.appendChild(banner);
+        document.getElementById('btn-cmp').addEventListener('click',()=>showCmp(entry));
 
         /* ── Question Stream ── */
         const stream=document.createElement('div');stream.className='q-stream';
@@ -635,8 +673,31 @@
             b.classList.toggle('mb-default',vq!==tq||tq===0);
         });
     }
-    function togMob(){const sb=document.getElementById('sb'),ov=document.getElementById('ov');const o=sb.classList.toggle('open');ov.classList.toggle('vis',o);document.body.style.overflow=o?'hidden':''}
+    function togMob(){const sb=document.getElementById('sb'),ov=document.getElementById('ov'),cp=document.getElementById('cmp-panel');if(cp.classList.contains('open')){cp.classList.remove('open');ov.classList.remove('vis');return;}const o=sb.classList.toggle('open');ov.classList.toggle('vis',o);document.body.style.overflow=o?'hidden':''}
     function esc(s){if(!s)return'';const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+    
+    function showCmp(e){
+        const b=document.getElementById('cmp-body');b.innerHTML='';
+        const sub=document.getElementById('cmp-sub');if(sub)sub.textContent=e.chapitre;
+        let hasQcm=false;
+        e.questions.forEach((q, idx)=>{
+            if(q.type==='qcm'){
+                hasQcm=true;
+                const ck=st.qcm[mk(e.module,e.chapitre,q.id)]||[];
+                let l=ck.map(i=>L[i]).sort().join('');
+                if(!l)l='-';
+                const d=document.createElement('div');d.className='cmp-item';
+                d.innerHTML=`<div class="cmp-ans">${idx + 1}-${l}</div>`;
+                b.appendChild(d);
+            }
+        });
+        if(!hasQcm){
+            b.innerHTML='<div class="cmp-empty">Aucun QCM</div>';
+        }
+        document.getElementById('cmp-panel').classList.add('open');
+        document.getElementById('ov').classList.add('vis');
+    }
+
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
     })();
     </script>
