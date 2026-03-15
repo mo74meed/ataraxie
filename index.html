@@ -1742,7 +1742,9 @@
                     try {
                         const d = JSON.parse(e.target.result);
                         if (d.qcm && d.red && d.val) {
-                            st = d; sv(); location.reload();
+                            st = d;
+                            localStorage.setItem(SK, JSON.stringify(st));
+                            location.reload();
                         } else alert("Fichier invalide.");
                     } catch (err) { alert("Erreur de lecture."); }
                 };
