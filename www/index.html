@@ -132,6 +132,40 @@
             transition: transform .35s var(--ease)
         }
 
+        .sb-actions {
+            padding: 12px 14px;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .sb-action-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px;
+            background: var(--s2);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            color: var(--ts);
+            font-size: .65rem;
+            font-weight: 600;
+            transition: all .2s ease;
+        }
+
+        .sb-action-btn:hover {
+            background: var(--s3);
+            color: #fff;
+            border-color: var(--b400);
+        }
+
+        .sb-action-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
         @media(max-width:1024px) {
             .sidebar {
                 transform: translateX(calc(-1*var(--sidebar-w)))
@@ -412,6 +446,253 @@
         .overlay.vis {
             opacity: 1;
             pointer-events: auto
+        }
+
+        /* ── Conflict Modal ── */
+        .conf-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            background: var(--p1);
+            border: 1px solid var(--pb);
+            border-radius: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s var(--ease);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .conf-panel.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .conf-head {
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--pbs);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .conf-head h2 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .conf-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px 32px;
+            background: var(--p0);
+        }
+
+        .conf-item {
+            background: var(--p1);
+            border: 1px solid var(--pb);
+            border-radius: 14px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+        }
+
+        .conf-item.collapsed .conf-grid {
+            display: none;
+        }
+
+        .conf-q-info {
+            padding: 16px 20px;
+            background: var(--p2);
+            border-bottom: 1px solid var(--pb);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--t2);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .conf-q-info::after {
+            content: '▼';
+            font-size: 0.6rem;
+            transition: transform 0.3s;
+            opacity: 0.5;
+        }
+
+        .conf-item:not(.collapsed) .conf-q-info::after {
+            transform: rotate(180deg);
+        }
+
+        .conf-val-item {
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .conf-val-item.add {
+            background: rgba(34, 197, 94, 0.1);
+            border-left: 3px solid var(--v500);
+        }
+
+        .conf-val-item.rem {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid #ef4444;
+        }
+
+        /* ── History Styles ── */
+        .dot-his {
+            display: none;
+            background: #f59e0b;
+            box-shadow: 0 0 8px #f59e0b;
+            margin-right: 8px;
+        }
+
+        .dot-his.on {
+            display: block;
+        }
+
+        .his-pop {
+            position: fixed;
+            z-index: 1000;
+            background: var(--p1);
+            border: 1px solid var(--pb);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: auto;
+            min-width: 400px;
+            max-width: 700px;
+            padding: 16px;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.2s ease;
+        }
+
+        .his-pop.vis {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .his-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .his-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .his-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--tsd);
+        }
+
+        .his-val {
+            font-size: 0.8rem;
+            padding: 8px;
+            border-radius: 6px;
+            background: var(--p2);
+            flex: 1;
+        }
+
+        .his-val.before {
+            border-left: 3px solid #ef4444;
+        }
+
+        .his-val.after {
+            border-left: 3px solid var(--v500);
+        }
+
+        .conf-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--pb);
+        }
+
+        .conf-side {
+            background: var(--p1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .conf-side:hover {
+            background: var(--b50);
+        }
+
+        .conf-side.selected {
+            background: var(--b50);
+            box-shadow: inset 0 0 0 2px var(--b400);
+            z-index: 1;
+        }
+
+        .conf-label {
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--tsd);
+            margin-bottom: 10px;
+        }
+
+        .conf-val {
+            font-size: 0.85rem;
+            color: var(--t1);
+            line-height: 1.5;
+        }
+
+        .conf-foot {
+            padding: 20px 32px;
+            border-top: 1px solid var(--pbs);
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            background: var(--p1);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .conf-btn {
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid var(--pb);
+            background: var(--p1);
+            color: var(--t2);
+            transition: all 0.2s ease;
+        }
+
+        .conf-btn-primary {
+            background: var(--b500);
+            color: #fff;
+            border-color: var(--b600);
+        }
+
+        .conf-btn-primary:hover {
+            background: var(--b600);
+            transform: translateY(-1px);
         }
 
         /* ══════════ MAIN LAYOUT ══════════ */
@@ -1298,6 +1579,26 @@
         <div class="cmp-body" id="cmp-body"></div>
     </div>
 
+    <div id="conf-panel" class="conf-panel">
+        <div class="conf-head">
+            <div>
+                <h2>Résolution de conflits</h2>
+                <p style="font-size: 0.7rem; color: var(--t3); margin-top: 2px;">Certaines réponses diffèrent de votre progression locale.</p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <button class="conf-btn" id="conf-all-local">Tout garder</button>
+                <button class="conf-btn" id="conf-all-imp">Tout importer</button>
+            </div>
+        </div>
+        <div id="conf-body" class="conf-body"></div>
+        <div class="conf-foot">
+            <button class="conf-btn" id="conf-cancel">Annuler</button>
+            <button class="conf-btn conf-btn-primary" id="conf-apply">Appliquer les choix</button>
+        </div>
+    </div>
+
+    <div id="his-pop" class="his-pop"></div>
+
     <aside class="sidebar" id="sb">
         <div class="sb-brand">
             <div class="sb-logo">A</div>
@@ -1311,6 +1612,23 @@
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg><input id="si" type="text" placeholder="Rechercher…"></div>
         <nav class="sb-nav sb-scroll" id="nav"></nav>
+        <div class="sb-actions">
+            <button class="sb-action-btn" id="btn-exp">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span>Exporter</span>
+            </button>
+            <button class="sb-action-btn" id="btn-imp">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                </svg>
+                <span>Importer</span>
+            </button>
+            <input type="file" id="fi-imp" style="display:none" accept=".json">
+        </div>
         <div class="sb-foot">
             <div class="dot"></div><span id="ft">Chargement…</span>
         </div>
@@ -1377,7 +1695,7 @@
             const SK = 'ataraxie_v3', CIRC = 2 * Math.PI * 17, L = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             let D = [], st = ld(), ak = st.ac || null, tQ = 0, sT = null;
 
-            function ld() { try { const r = localStorage.getItem(SK); if (r) return JSON.parse(r) } catch (e) { } return { qcm: {}, red: {}, val: {}, sb: {}, ac: null } }
+            function ld() { try { const r = localStorage.getItem(SK); if (r) { const d = JSON.parse(r); if (!d.his) d.his = {}; return d } } catch (e) { } return { qcm: {}, red: {}, val: {}, sb: {}, ac: null, his: {} } }
             function sv() { clearTimeout(sT); sT = setTimeout(() => { try { localStorage.setItem(SK, JSON.stringify(st)) } catch (e) { } }, 200) }
             function mk(m, c, q) { return m + '§' + c + (q !== undefined ? '§' + q : '') }
             function isAns(key, type) {
@@ -1394,6 +1712,11 @@
                 document.getElementById('hb').addEventListener('click', togMob);
                 document.getElementById('ov').addEventListener('click', togMob);
                 document.getElementById('si').addEventListener('input', filter);
+                document.getElementById('btn-exp').addEventListener('click', expProg);
+                document.getElementById('btn-imp').addEventListener('click', () => document.getElementById('fi-imp').click());
+                document.getElementById('fi-imp').addEventListener('change', (e) => {
+                    if (e.target.files.length) impProg(e.target.files[0]);
+                });
                 const stt = document.getElementById('stt');
                 window.addEventListener('scroll', () => stt.classList.toggle('vis', window.scrollY > 400));
                 stt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
@@ -1471,7 +1794,7 @@
                     <span>/ ${totC} validées</span>
                 </div>
                 <button class="ch-btn-cmp" id="btn-cmp" title="Comparer mes réponses">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
                 </button>
             </div>`;
                 c.appendChild(banner);
@@ -1510,15 +1833,16 @@
 
                     /* Head: meta row */
                     h += `<div class="qcard-head">
-                <div class="qcard-meta">
-                    <span class="qcard-type ${q.type}">${q.type === 'qcm' ? 'QCM' : 'Rédaction'}</span>
-                    <span class="qcard-qnum">Question ${q.id}</span>
-                    <div class="qcard-dots">
-                        <div class="status-dot dot-ans${_isAns ? ' on' : ''}" title="Répondue"></div>
-                        <div class="status-dot dot-val${isVal ? ' on' : ''}" title="Validée"></div>
-                    </div>
-                </div>
-            </div>`;
+                        <div class="qcard-meta">
+                            <div class="status-dot dot-his${st.his[key] ? ' on' : ''}" data-key="${key}" title="Historique (Importé)"></div>
+                            <span class="qcard-type ${q.type}">${q.type === 'qcm' ? 'QCM' : 'Rédaction'}</span>
+                            <span class="qcard-qnum">Question ${q.id}</span>
+                            <div class="qcard-dots">
+                                <div class="status-dot dot-ans${_isAns ? ' on' : ''}" title="Répondue"></div>
+                                <div class="status-dot dot-val${isVal ? ' on' : ''}" title="Validée"></div>
+                            </div>
+                        </div>
+                    </div>`;
 
                     /* Enonce */
                     h += `<div class="qcard-enonce">${esc(q.enonce)}</div>`;
@@ -1615,6 +1939,51 @@
                         sv(); upChStats(entry); upBadges();
                     });
                 });
+                c.querySelectorAll('.dot-his.on').forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                        const k = dot.dataset.key, h = st.his[k]; if (!h) return;
+                        const ep = document.getElementById('his-pop');
+                        const qObj = findQ(k);
+                        const card = dot.closest('.qcard');
+                        const div = card ? card.querySelector('.qcard-divider') : null;
+                        
+                        ep.innerHTML = `
+                            <div class="his-grid">
+                                <div class="his-col">
+                                    <div class="his-label">Avant l’import</div>
+                                    <div class="his-val before">${formatVal(h.before, qObj)}</div>
+                                </div>
+                                <div class="his-col">
+                                    <div class="his-label">Après l’import</div>
+                                    <div class="his-val after">${formatVal(h.after, qObj)}</div>
+                                </div>
+                            </div>
+                            <div style="font-size:0.6rem;color:var(--t4);text-align:right;margin-top:12px">Modifié le ${new Date(h.date).toLocaleDateString()}</div>
+                        `;
+                        
+                        const r = dot.getBoundingClientRect();
+                        const cardR = card.getBoundingClientRect();
+                        
+                        // Vertical positioning: below divider if found, else below dot
+                        let topPos = r.bottom + 10;
+                        if (div) {
+                            const divR = div.getBoundingClientRect();
+                            topPos = divR.bottom + 5;
+                        }
+
+                        ep.style.top = topPos + 'px';
+                        ep.style.left = (Math.min(window.innerWidth - ep.offsetWidth - 20, Math.max(20, cardR.left + (cardR.width - ep.offsetWidth) / 2))) + 'px';
+                        ep.classList.add('vis');
+                        
+                        // One-time reminder: remove after clicking
+                        delete st.his[k];
+                        dot.classList.remove('on');
+                        sv();
+
+                        e.stopPropagation();
+                    });
+                });
+                document.addEventListener('click', () => document.getElementById('his-pop').classList.remove('vis'));
             }
 
             /* ══════════ PROGRESS ══════════ */
@@ -1669,6 +2038,170 @@
                 document.getElementById('cmp-panel').classList.add('open');
                 document.getElementById('ov').classList.add('vis');
                 renderMath(document.getElementById('cmp-panel'));
+            }
+
+            function expProg() {
+                const d = JSON.stringify(st, null, 2);
+                const b = new Blob([d], { type: 'application/json' });
+                const u = URL.createObjectURL(b);
+                const a = document.createElement('a');
+                a.href = u; a.download = `ataraxie_save_${new Date().toISOString().split('T')[0]}.json`;
+                a.click(); URL.revokeObjectURL(u);
+            }
+
+            let pendingImp = null, resolutions = {};
+
+            function impProg(f) {
+                const r = new FileReader();
+                r.onload = (e) => {
+                    try {
+                        const d = JSON.parse(e.target.result);
+                        if (d.qcm && d.red && d.val) {
+                            const diffs = [];
+                            const check = (localMap, impMap, type) => {
+                                for (const k in impMap) {
+                                    if (localMap[k] !== undefined && JSON.stringify(localMap[k]) !== JSON.stringify(impMap[k])) {
+                                        diffs.push({ key: k, type, local: localMap[k], import: impMap[k] });
+                                    }
+                                }
+                            };
+                            check(st.qcm, d.qcm, 'qcm');
+                            check(st.red, d.red, 'red');
+                            check(st.val, d.val, 'val');
+
+                            if (diffs.length > 0) {
+                                pendingImp = d;
+                                showConf(diffs, d);
+                            } else {
+                                Object.assign(st.qcm, d.qcm);
+                                Object.assign(st.red, d.red);
+                                Object.assign(st.val, d.val);
+                                localStorage.setItem(SK, JSON.stringify(st));
+                                location.reload();
+                            }
+                        } else alert("Fichier invalide.");
+                    } catch (err) { alert("Erreur de lecture."); }
+                };
+                r.readAsText(f);
+            }
+
+            function showConf(diffs, d) {
+                const b = document.getElementById('conf-body'); b.innerHTML = '';
+                resolutions = {};
+                diffs.forEach((df, i) => {
+                    resolutions[df.key] = df.import; // Default to import
+                    const qObj = findQ(df.key);
+                    const item = document.createElement('div'); item.className = 'conf-item collapsed';
+                    let qText = qObj ? qObj.enonce : df.key;
+                    item.innerHTML = `
+                        <div class="conf-q-info"><span>${esc(qText)}</span></div>
+                        <div class="conf-grid">
+                            <div class="conf-side" data-key="${esc(df.key)}" data-side="local" id="conf-l-${i}">
+                                <div class="conf-label">Local (Sera supprimé si Importé choisi)</div>
+                                <div class="conf-val">${formatDiff(df.local, df.import, qObj, false)}</div>
+                            </div>
+                            <div class="conf-side selected" data-key="${esc(df.key)}" data-side="import" id="conf-i-${i}">
+                                <div class="conf-label">Importé (Nouveau)</div>
+                                <div class="conf-val">${formatDiff(df.import, df.local, qObj, true)}</div>
+                            </div>
+                        </div>
+                    `;
+                    b.appendChild(item);
+                    item.querySelector('.conf-q-info').onclick = () => item.classList.toggle('collapsed');
+                    const lSide = item.querySelector(`[data-side="local"]`);
+                    const iSide = item.querySelector(`[data-side="import"]`);
+                    lSide.addEventListener('click', () => { lSide.classList.add('selected'); iSide.classList.remove('selected'); resolutions[df.key] = df.local; });
+                    iSide.addEventListener('click', () => { iSide.classList.add('selected'); lSide.classList.remove('selected'); resolutions[df.key] = df.import; });
+                });
+                document.getElementById('conf-panel').classList.add('open');
+                document.getElementById('ov').classList.add('vis');
+
+                document.getElementById('conf-all-local').onclick = () => {
+                    diffs.forEach((df, idx) => {
+                        resolutions[df.key] = df.local;
+                        document.getElementById(`conf-l-${idx}`).classList.add('selected');
+                        document.getElementById(`conf-i-${idx}`).classList.remove('selected');
+                    });
+                };
+                document.getElementById('conf-all-imp').onclick = () => {
+                    diffs.forEach((df, idx) => {
+                        resolutions[df.key] = df.import;
+                        document.getElementById(`conf-i-${idx}`).classList.add('selected');
+                        document.getElementById(`conf-l-${idx}`).classList.remove('selected');
+                    });
+                };
+                document.getElementById('conf-cancel').onclick = () => {
+                    document.getElementById('conf-panel').classList.remove('open');
+                    document.getElementById('ov').classList.remove('vis');
+                };
+                document.getElementById('conf-apply').onclick = () => {
+                    // Record history for changes
+                    for (const k in resolutions) {
+                        const df = diffs.find(x => x.key === k);
+                        if (JSON.stringify(df.local) !== JSON.stringify(resolutions[k])) {
+                            st.his[k] = { before: df.local, after: resolutions[k], date: Date.now() };
+                        }
+                    }
+                    Object.assign(st.qcm, d.qcm);
+                    Object.assign(st.red, d.red);
+                    Object.assign(st.val, d.val);
+                    // Overwrite with chosen resolutions
+                    for (const k in resolutions) {
+                        const df = diffs.find(x => x.key === k);
+                        if (df.type === 'qcm') st.qcm[k] = resolutions[k];
+                        else if (df.type === 'red') st.red[k] = resolutions[k];
+                        else if (df.type === 'val') st.val[k] = resolutions[k];
+                    }
+                    localStorage.setItem(SK, JSON.stringify(st));
+                    location.reload();
+                };
+            }
+
+            function findQ(k) {
+                const p = k.split('§'); if (p.length < 3) return null;
+                const e = D.find(d => d.module === p[0] && d.chapitre === p[1]);
+                return e ? e.questions.find(q => q.id === p[2]) : null;
+            }
+
+            function formatDiff(v, other, q, isImp) {
+                if (Array.isArray(v)) {
+                    if (!v.length) return '<div class="conf-val-item"><span style="color:var(--t4)">Vide</span></div>';
+                    return v.map(idx => {
+                        let txt = q && q.options && q.options[idx] ? q.options[idx] : (L[idx] || idx);
+                        // Clean duplication: if txt starts with "X. ", don't prepend "X: "
+                        const label = L[idx] || idx;
+                        const prefix = label + '. ';
+                        let display = txt.startsWith(prefix) ? txt : (label + ': ' + txt);
+                        
+                        let cls = '';
+                        if (isImp && !other.includes(idx)) cls = ' add';
+                        if (!isImp && !other.includes(idx)) cls = ' rem';
+                        return `<div class="conf-val-item${cls}"><b>${esc(display)}</b></div>`;
+                    }).join('');
+                }
+                if (typeof v === 'boolean') {
+                    let cls = (v !== other) ? (isImp ? ' add' : ' rem') : '';
+                    return `<div class="conf-val-item${cls}">${v ? '<span style="color:var(--v500)">Validée</span>' : '<span style="color:var(--t4)">Non validée</span>'}</div>`;
+                }
+                if (!v || !v.trim()) return '<div class="conf-val-item"><span style="color:var(--t4)">Vide</span></div>';
+                let cls = (v !== other) ? (isImp ? ' add' : ' rem') : '';
+                return `<div class="conf-val-item${cls}">${esc(v)}</div>`;
+            }
+
+            function formatVal(v, q) {
+                if (Array.isArray(v)) {
+                    if (!v.length) return '<span style="color:var(--t4)">Vide</span>';
+                    return v.map(idx => {
+                        let txt = q && q.options && q.options[idx] ? q.options[idx] : (L[idx] || idx);
+                        const label = L[idx] || idx;
+                        const prefix = label + '. ';
+                        let display = txt.startsWith(prefix) ? txt : (label + ': ' + txt);
+                        return `<div style="margin-bottom:4px"><b>${esc(display)}</b></div>`;
+                    }).join('');
+                }
+                if (typeof v === 'boolean') return v ? '<span style="color:var(--v500)">Validée</span>' : '<span style="color:var(--t4)">Non validée</span>';
+                if (!v || !v.trim()) return '<span style="color:var(--t4)">Vide</span>';
+                return esc(v);
             }
 
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
