@@ -628,6 +628,29 @@
             background: var(--pb);
         }
 
+        @media (max-width: 640px) {
+            .conf-grid, .his-grid {
+                grid-template-columns: 1fr;
+            }
+            .conf-side {
+                padding: 16px;
+            }
+            .his-pop {
+                min-width: 280px;
+                width: 90vw;
+            }
+            .conf-panel {
+                width: 95%;
+                max-height: 90vh;
+            }
+            .conf-head {
+                padding: 16px 20px;
+            }
+            .conf-body {
+                padding: 16px 20px;
+            }
+        }
+
         .conf-side {
             background: var(--p1);
             padding: 20px;
@@ -1972,7 +1995,16 @@
                         }
 
                         ep.style.top = topPos + 'px';
-                        ep.style.left = (Math.min(window.innerWidth - ep.offsetWidth - 20, Math.max(20, cardR.left + (cardR.width - ep.offsetWidth) / 2))) + 'px';
+                        
+                        // Centering logic with viewport awareness
+                        const popW = Math.min(window.innerWidth - 40, ep.offsetWidth || 400);
+                        let leftPos = cardR.left + (cardR.width - popW) / 2;
+                        
+                        // Ensure it stays within screen bounds
+                        leftPos = Math.max(10, Math.min(window.innerWidth - popW - 10, leftPos));
+                        
+                        ep.style.left = leftPos + 'px';
+                        ep.style.width = popW + 'px';
                         ep.classList.add('vis');
                         
                         // One-time reminder: remove after clicking
