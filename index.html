@@ -1460,7 +1460,7 @@
         }
 
         .cmp-panel.wide {
-            width: 440px;
+            width: 480px;
             max-width: 100vw;
         }
 
@@ -1534,10 +1534,10 @@
         
         .cmp-diff-row-grid {
             display: grid;
-            grid-template-columns: 46px 1fr 1fr;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 14px;
+            grid-template-columns: 36px minmax(0, 1fr) minmax(0, 1fr);
+            align-items: start;
+            gap: 8px;
+            padding: 10px 14px;
             border-bottom: 1px solid var(--pbs);
             cursor: pointer;
             transition: background .15s ease;
@@ -1553,8 +1553,8 @@
 
         .cmp-diff-header {
             display: grid;
-            grid-template-columns: 46px 1fr 1fr;
-            gap: 12px;
+            grid-template-columns: 36px minmax(0, 1fr) minmax(0, 1fr);
+            gap: 8px;
             padding: 8px 14px;
             border-bottom: 2px solid var(--pbs);
             font-size: 0.65rem;
@@ -1606,9 +1606,9 @@
         
         .cmp-qnum-diff {
             font-weight: 800;
-            font-size: 0.75rem;
+            font-size: 0.68rem;
             color: var(--b600);
-            margin-bottom: 2px;
+            margin-bottom: 0;
         }
 
         .cmp-diff-line {
@@ -1627,18 +1627,22 @@
 
         .cmp-diff-letters {
             display: flex;
-            gap: 4px;
+            flex-wrap: wrap;
+            gap: 3px;
+            min-width: 0;
+            overflow: hidden;
         }
 
         .cmp-letter {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 22px;
-            height: 22px;
-            border-radius: 6px;
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.68rem;
+            flex-shrink: 0;
         }
 
         .cmp-letter.match {
@@ -2628,7 +2632,7 @@
         <div class="imp-choice-btns" id="imp-choice-btns"></div>
     </div>
 
-    <script src="data.js"></script>
+    <script src="ataraxie_s8_db.js"></script>
     <script>
         (function () {
             'use strict';
@@ -2882,8 +2886,37 @@
                 });
             }
 
+            function adaptDatabase(db) {
+                if (!db || !db.categories) return typeof QUESTIONS_DATA !== 'undefined' ? QUESTIONS_DATA : [];
+                const adapted = [];
+                db.categories.forEach(cat => {
+                    cat.submodules.forEach(subm => {
+                        // Prefix module with parent category for better grouping if desired, or just use module_name
+                        const modName = subm.submodule_name;
+                        subm.subjects.forEach(subj => {
+                            adapted.push({
+                                module: modName,
+                                chapitre: subj.subject_name.trim(),
+                                questions: subj.questions.map(q => ({
+                                    id: q.id,
+                                    type: (q.type === 'QCM') ? 'qcm' : 'redaction',
+                                    contexte: q.clinical_context || "",
+                                    enonce: q.question_text || "",
+                                    options: q.choices || [],
+                                    correction_officielle_validee: false
+                                }))
+                            });
+                        });
+                    });
+                });
+                return adapted;
+            }
+
             function init() {
-                D = (typeof QUESTIONS_DATA !== 'undefined') ? QUESTIONS_DATA : [];
+                D = (typeof ATARAXIE_S8_DB !== 'undefined') 
+                    ? adaptDatabase(ATARAXIE_S8_DB) 
+                    : ((typeof QUESTIONS_DATA !== 'undefined') ? QUESTIONS_DATA : []);
+                
                 tQ = D.reduce((s, d) => s + d.questions.length, 0);
                 document.getElementById('ft').textContent = tQ + ' questions • Auto-save';
                 buildSB(); upProg(); upProfileUI(); renderHistory();
@@ -2931,7 +2964,8 @@
                         const r = new FileReader();
                         r.onload = (ev) => {
                             try {
-                                const d = JSON.parse(ev.target.result);
+                                let d = JSON.parse(ev.target.result);
+                                d = migrateSaveData(d, D);
                                 if (d.qcm) {
                                     tempCmpData = d;
                                     document.getElementById('cmp-target-select').value = 'file_loaded';
@@ -3046,7 +3080,7 @@
                 const stream = document.createElement('div'); stream.className = 'q-stream';
                 let lastCtx = null, delay = 0;
 
-                entry.questions.forEach((q) => {
+                entry.questions.forEach((q, idx) => {
                     const key = mk(mod, chap, q.id);
 
                     /* Context */
@@ -3078,7 +3112,7 @@
                     let h = '';
 
                     // Extract Q number
-                    const qMatch = q.id.match(/_Q(\d+)$/i);
+                    const qMatch = q.id.match(/[_-]Q(\d+)$/i);
                     const qNumStr = qMatch ? 'Q' + qMatch[1] : ('Q' + (idx + 1));
                     
                     // Format subject text
@@ -3433,8 +3467,8 @@
                             const d = document.createElement('div'); d.className = 'cmp-diff-row-grid';
                             d.innerHTML = `
                                 <div class="cmp-qnum-diff">Q${idx + 1}</div>
-                                <div class="cmp-diff-letters" style="position:relative">${myHtml}${isMyVal ? '<span style="color:#10b981; font-weight:bold; margin-left:6px; font-size:1rem; line-height:1" title="Validée (Réponse Correcte)">✓</span>' : ''}</div>
-                                <div class="cmp-diff-letters" style="position:relative">${otherHtml}${isOthVal ? '<span style="color:#10b981; font-weight:bold; margin-left:6px; font-size:1rem; line-height:1" title="Validée (Réponse Correcte)">✓</span>' : ''}</div>
+                                <div class="cmp-diff-letters">${myHtml}${isMyVal ? '<span style="color:#10b981; font-weight:bold; font-size:.85rem; line-height:20px; flex-shrink:0" title="Validée (Réponse Correcte)">✓</span>' : ''}</div>
+                                <div class="cmp-diff-letters">${otherHtml}${isOthVal ? '<span style="color:#10b981; font-weight:bold; font-size:.85rem; line-height:20px; flex-shrink:0" title="Validée (Réponse Correcte)">✓</span>' : ''}</div>
                             `;
                             d.addEventListener('click', () => {
                                 document.getElementById('cmp-close').click();
@@ -3498,11 +3532,106 @@
 
             let pendingImp = null, resolutions = {};
 
+            function migrateSaveData(d, newD) {
+                const firstKey = Object.keys(d.qcm || {})[0] || Object.keys(d.red || {})[0];
+                if (!firstKey || !/_Q\d+$/.test(firstKey)) return d;
+
+                const translated = {
+                    qcm: {}, red: {}, val: {}, his: {},
+                    sb: {}, ac: null, recent: [], official: d.official || {}
+                };
+
+                const chapterMap = {};
+                newD.forEach(cat => {
+                    const normMod = cat.module.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+                    const normChap = cat.chapitre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+                    if (!chapterMap[normMod]) chapterMap[normMod] = {};
+                    chapterMap[normMod][normChap] = cat;
+                });
+
+                function cleanChap(c) {
+                    return c.replace(/^\d+(\.\d+)*\.\s*/, '').replace(/\s*:.*/, '').trim();
+                }
+                function normStr(s) {
+                    return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+                }
+
+                function getNewCat(oldMod, oldChap) {
+                    const nm = normStr(oldMod);
+                    let bestModCat = chapterMap[nm];
+                    if (!bestModCat) {
+                        for (let m in chapterMap) { if (nm.includes(m) || m.includes(nm)) { bestModCat = chapterMap[m]; break; } }
+                    }
+                    if (!bestModCat) return null;
+
+                    const nc = normStr(cleanChap(oldChap));
+                    let bestCat = bestModCat[nc];
+                    if (!bestCat) {
+                        for (let c in bestModCat) { if (nc.includes(c) || c.includes(nc)) { bestCat = bestModCat[c]; break; } }
+                    }
+                    return bestCat;
+                }
+
+                for (const t of ['qcm', 'red', 'val', 'his']) {
+                    if (!d[t]) continue;
+                    for (const k in d[t]) {
+                        const parts = k.split('§');
+                        if (parts.length < 3) continue;
+                        const cat = getNewCat(parts[0], parts[1]);
+                        if (cat) {
+                            const mk = parts[2].match(/_Q(\d+)$/);
+                            let qIndex = mk ? parseInt(mk[1], 10) - 1 : parseInt(parts[2].replace(/[^0-9]/g, '')) - 1;
+                            if (isNaN(qIndex) || qIndex < 0) qIndex = 0;
+                            const q = cat.questions[qIndex];
+                            if (q) translated[t][cat.module + '§' + cat.chapitre + '§' + q.id] = d[t][k];
+                        }
+                    }
+                }
+
+                if (d.sb) {
+                    for (const k in d.sb) {
+                        const nm = normStr(k);
+                        let nMod = null;
+                        for (let m in chapterMap) { if (nm.includes(m) || m.includes(nm)) { nMod = m; break; } }
+                        if (nMod) {
+                            const cat = newD.find(c => normStr(c.module) === nMod);
+                            if (cat) translated.sb[cat.module] = d.sb[k];
+                        }
+                    }
+                }
+
+                if (d.ac) {
+                    const parts = d.ac.split('§');
+                    if (parts.length >= 2) {
+                        const cat = getNewCat(parts[0], parts[1]);
+                        if (cat) translated.ac = cat.module + '§' + cat.chapitre;
+                    }
+                }
+
+                if (d.recent) {
+                    d.recent.forEach(r => {
+                        const oldMod = r.mod || r.module;
+                        const oldChap = r.chap || r.chapitre;
+                        const cat = getNewCat(oldMod, oldChap);
+                        if (cat) {
+                            translated.recent.push({
+                                ...r,
+                                module: cat.module,
+                                chapitre: cat.chapitre,
+                                key: cat.module + '§' + cat.chapitre
+                            });
+                        }
+                    });
+                }
+                return translated;
+            }
+
             function impProg(f) {
                 const r = new FileReader();
                 r.onload = (e) => {
                     try {
-                        const d = JSON.parse(e.target.result);
+                        let d = JSON.parse(e.target.result);
+                        d = migrateSaveData(d, D);
                         if (d.qcm && d.red && d.val) {
                             // Show import choice modal
                             const modal = document.getElementById('imp-choice-modal');

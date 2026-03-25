@@ -4523,7 +4523,7 @@ const QUESTIONS_DATA = [
           "D. Un tonus normal et réflexe de succion exagéré",
           "E. Un électroencéphalogramme perturbé",
           "F. Absence de crises convulsives",
-          "G. Un $\\mathsf { P H } > 7 { , } 2$ la première heure de vie",
+          "G. Un $\\mathsf{ P H }>7{,}2$ la première heure de vie",
           "H. Des crises convulsives précoces et constantes",
           "I. Une encéphalopathie sévère et précoce",
           "J. Un $\\mathsf { P H } < 7$ au sang du cordon sur l’artère ombilicale",
