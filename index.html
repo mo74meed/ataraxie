@@ -2326,6 +2326,34 @@
             transform: scale(1);
         }
 
+        /* ── Leave Blank Styling ── */
+        .opt-tile.opt-blank {
+            border-style: dashed;
+            background: rgba(0, 0, 0, 0.01);
+            margin-top: 8px;
+            opacity: 0.8;
+        }
+        .opt-tile.opt-blank:hover {
+            opacity: 1;
+            background: var(--p2);
+        }
+        .opt-tile.opt-blank.selected {
+            border-style: solid;
+            background: var(--b50);
+            border-color: var(--b400);
+            opacity: 1;
+        }
+        .opt-tile.opt-blank .opt-tile-letter {
+            background: transparent;
+            border-color: var(--pb);
+            color: var(--t3);
+        }
+        .opt-tile.opt-blank.selected .opt-tile-letter {
+            background: var(--b400);
+            border-color: var(--b400);
+            color: #fff;
+        }
+
         .qcard.official-readonly {
             opacity: .95;
         }
@@ -2675,7 +2703,7 @@
             function svNow() { clearTimeout(sT); try { localStorage.setItem(profileSK(activeProfileId), JSON.stringify(st)) } catch (e) { } }
             function mk(m, c, q) { return m + '§' + c + (q !== undefined ? '§' + q : '') }
             function isAns(key, type) {
-                if (type === 'qcm') return (st.qcm[key] && st.qcm[key].length > 0);
+                if (type === 'qcm') return (st.qcm[key] === "BLANK" || (st.qcm[key] && st.qcm[key].length > 0));
                 return (st.red[key] && st.red[key].trim().length > 0);
             }
 
@@ -3141,13 +3169,24 @@
                         const ck = isOfficialMode ? (officialAns || []) : (st.qcm[key] || []);
                         h += '<div class="qcard-options">';
                         q.options.forEach((o, oi) => {
-                            const isSel = ck.includes(oi);
+                            const isSel = Array.isArray(ck) && ck.includes(oi);
                             h += `<div class="opt-tile${isSel ? (isOfficialMode ? ' official-selected' : ' selected') : ''}" ${isOfficialMode ? '' : `data-key="${esc(key)}" data-oi="${oi}"`}>
                         <div class="opt-tile-letter">${L[oi] || oi}</div>
                         <div class="opt-tile-text">${esc(o)}</div>
                         <div class="opt-tile-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
                     </div>`;
                         });
+                        
+                        // "Leave Blank" option
+                        const isBlank = ck === 'BLANK';
+                        if (!isOfficialMode || isBlank) {
+                            h += `<div class="opt-tile opt-blank${isBlank ? (isOfficialMode ? ' official-selected selected' : ' selected') : ''}" ${isOfficialMode ? '' : `data-key="${esc(key)}" data-blank="true"`}>
+                                <div class="opt-tile-letter"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width:14px;height:14px"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg></div>
+                                <div class="opt-tile-text">Toutes les choix sont fausses</div>
+                                <div class="opt-tile-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+                            </div>`;
+                        }
+                        
                         h += '</div>';
                     } else if (q.type === 'redaction') {
                         const sv2 = isOfficialMode ? (officialAns || '') : (st.red[key] || '');
@@ -3207,14 +3246,37 @@
 
                 c.querySelectorAll('.opt-tile').forEach(tile => {
                     tile.addEventListener('click', () => {
-                        const key = tile.dataset.key, oi = parseInt(tile.dataset.oi);
-                        if (!st.qcm[key]) st.qcm[key] = [];
-                        const sel = tile.classList.toggle('selected');
-                        if (sel) { if (!st.qcm[key].includes(oi)) st.qcm[key].push(oi) }
-                        else { st.qcm[key] = st.qcm[key].filter(i => i !== oi) }
+                        const key = tile.dataset.key;
+                        const card = tile.closest('.qcard');
+                        const isBlankBtn = tile.dataset.blank === 'true';
+
+                        if (isBlankBtn) {
+                            const wasBlank = st.qcm[key] === "BLANK";
+                            if (wasBlank) {
+                                delete st.qcm[key];
+                                tile.classList.remove('selected');
+                            } else {
+                                st.qcm[key] = "BLANK";
+                                card.querySelectorAll('.opt-tile').forEach(t => t.classList.remove('selected'));
+                                tile.classList.add('selected');
+                            }
+                        } else {
+                            const oi = parseInt(tile.dataset.oi);
+                            if (st.qcm[key] === "BLANK") st.qcm[key] = [];
+                            if (!st.qcm[key]) st.qcm[key] = [];
+                            
+                            const sel = tile.classList.toggle('selected');
+                            if (sel) { 
+                                if (!st.qcm[key].includes(oi)) st.qcm[key].push(oi);
+                                // Remove blank selection if any regular option is selected
+                                const bBtn = card.querySelector('.opt-blank');
+                                if (bBtn) bBtn.classList.remove('selected');
+                            }
+                            else { st.qcm[key] = st.qcm[key].filter(i => i !== oi) }
+                        }
+
                         const qId = key.split('§')[2];
                         sv(); addRecent(mod, chap, qId);
-                        const card = tile.closest('.qcard');
                         const ans = isAns(key, 'qcm');
                         const dot = card.querySelector('.dot-ans'); if (dot) dot.classList.toggle('on', ans);
                         upProg(); upChStats(entry); upBadges();
@@ -3422,7 +3484,10 @@
                         const myAns = st.qcm[key] || [];
                         
                         if (!isCompare) {
-                            let l = myAns.map(i => L[i]).sort().join('');
+                            let l = '';
+                            if (myAns === "BLANK") l = 'VIDE';
+                            else l = myAns.map(i => L[i]).sort().join('');
+                            
                             if (!l) l = '-';
                             const d = document.createElement('div'); d.className = 'cmp-item';
                             d.innerHTML = `<div class="cmp-ans">${idx + 1}-${l}</div>`;
@@ -3435,34 +3500,50 @@
                             const isMyVal = st.val[key] === true;
                             const isOthVal = targetVal[key] === true;
                             
-                            const allOpts = [...new Set([...myAns, ...otherAns])].sort((a,b)=>a-b);
-                            if (allOpts.length === 0) {
-                                myHtml = '<span class="cmp-letter match">-</span>';
-                                otherHtml = '<span class="cmp-letter match">-</span>';
+                            if (myAns === "BLANK" || otherAns === "BLANK") {
+                                // Special handling for BLANK in comparison
+                                if (myAns === "BLANK" && otherAns === "BLANK") {
+                                    myHtml = '<span class="cmp-letter match">VIDE</span>';
+                                    otherHtml = '<span class="cmp-letter match">VIDE</span>';
+                                } else if (myAns === "BLANK") {
+                                    myHtml = `<span class="cmp-letter ${isOthVal ? 'diff-false' : 'mine-only'}">VIDE</span>`;
+                                    otherHtml = otherAns.map(i => `<span class="cmp-letter ${isOthVal ? 'match' : 'other-only'}">${L[i]}</span>`).join('');
+                                    if (!otherAns.length) otherHtml = '<span class="cmp-letter match">-</span>';
+                                } else if (otherAns === "BLANK") {
+                                    myHtml = myAns.map(i => `<span class="cmp-letter ${isMyVal ? 'match' : 'mine-only'}">${L[i]}</span>`).join('');
+                                    if (!myAns.length) myHtml = '<span class="cmp-letter match">-</span>';
+                                    otherHtml = `<span class="cmp-letter ${isMyVal ? 'diff-false' : 'other-only'}">VIDE</span>`;
+                                }
                             } else {
-                                allOpts.forEach(i => {
-                                    const letter = L[i];
-                                    const inMine = myAns.includes(i);
-                                    const inOther = otherAns.includes(i);
-                                    
-                                    if (inMine && inOther) {
-                                        myHtml += `<span class="cmp-letter match">${letter}</span>`;
-                                        otherHtml += `<span class="cmp-letter match">${letter}</span>`;
-                                    } else if (inMine && !inOther) {
-                                        let c = 'mine-only';
-                                        if (isMyVal && !isOthVal) c = 'diff-true';
-                                        if (isOthVal && !isMyVal) c = 'diff-false';
-                                        myHtml += `<span class="cmp-letter ${c}">${letter}</span>`;
-                                    } else if (!inMine && inOther) {
-                                        let c = 'other-only';
-                                        if (isOthVal && !isMyVal) c = 'diff-true';
-                                        if (isMyVal && !isOthVal) c = 'diff-false';
-                                        otherHtml += `<span class="cmp-letter ${c}">${letter}</span>`;
-                                    }
-                                });
+                                const allOpts = [...new Set([...myAns, ...otherAns])].sort((a,b)=>a-b);
+                                if (allOpts.length === 0) {
+                                    myHtml = '<span class="cmp-letter match">-</span>';
+                                    otherHtml = '<span class="cmp-letter match">-</span>';
+                                } else {
+                                    allOpts.forEach(i => {
+                                        const letter = L[i];
+                                        const inMine = myAns.includes(i);
+                                        const inOther = otherAns.includes(i);
+                                        
+                                        if (inMine && inOther) {
+                                            myHtml += `<span class="cmp-letter match">${letter}</span>`;
+                                            otherHtml += `<span class="cmp-letter match">${letter}</span>`;
+                                        } else if (inMine && !inOther) {
+                                            let c = 'mine-only';
+                                            if (isMyVal && !isOthVal) c = 'diff-true';
+                                            if (isOthVal && !isMyVal) c = 'diff-false';
+                                            myHtml += `<span class="cmp-letter ${c}">${letter}</span>`;
+                                        } else if (!inMine && inOther) {
+                                            let c = 'other-only';
+                                            if (isOthVal && !isMyVal) c = 'diff-true';
+                                            if (isMyVal && !isOthVal) c = 'diff-false';
+                                            otherHtml += `<span class="cmp-letter ${c}">${letter}</span>`;
+                                        }
+                                    });
+                                }
+                                if (!myAns.length && otherAns.length) myHtml = '<span class="cmp-letter match">-</span>';
+                                if (myAns.length && !otherAns.length) otherHtml = '<span class="cmp-letter match">-</span>';
                             }
-                            if (!myAns.length && otherAns.length) myHtml = '<span class="cmp-letter match">-</span>';
-                            if (myAns.length && !otherAns.length) otherHtml = '<span class="cmp-letter match">-</span>';
 
                             const d = document.createElement('div'); d.className = 'cmp-diff-row-grid';
                             d.innerHTML = `
@@ -3804,6 +3885,7 @@
             }
 
             function formatDiff(v, other, q, isImp) {
+                if (v === "BLANK") return '<div class="conf-val-item"><b><span style="color:var(--v500)">[ LAISSÉ VIDE ]</span></b></div>';
                 if (Array.isArray(v)) {
                     if (!v.length) return '<div class="conf-val-item"><span style="color:var(--t4)">Vide</span></div>';
                     return v.map(idx => {
@@ -3829,6 +3911,7 @@
             }
 
             function formatVal(v, q) {
+                if (v === "BLANK") return '<b><span style="color:var(--v500)">[ LAISSÉ VIDE ]</span></b>';
                 if (Array.isArray(v)) {
                     if (!v.length) return '<span style="color:var(--t4)">Vide</span>';
                     return v.map(idx => {
