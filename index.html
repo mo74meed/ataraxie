@@ -12,6 +12,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
     <link rel="stylesheet" href="katex/katex.min.css">
     <script defer src="katex/katex.min.js"></script>
     <script defer src="katex/contrib/auto-render.min.js"></script>
@@ -629,23 +631,30 @@
         }
 
         @media (max-width: 640px) {
-            .conf-grid, .his-grid {
+
+            .conf-grid,
+            .his-grid {
                 grid-template-columns: 1fr;
             }
+
             .conf-side {
                 padding: 16px;
             }
+
             .his-pop {
                 min-width: 280px;
                 width: 90vw;
             }
+
             .conf-panel {
                 width: 95%;
                 max-height: 90vh;
             }
+
             .conf-head {
                 padding: 16px 20px;
             }
+
             .conf-body {
                 padding: 16px 20px;
             }
@@ -1531,7 +1540,7 @@
         .cmp-select:focus {
             border-color: var(--b500);
         }
-        
+
         .cmp-diff-row-grid {
             display: grid;
             grid-template-columns: 36px minmax(0, 1fr) minmax(0, 1fr);
@@ -1566,26 +1575,31 @@
         .opt-glow {
             transition: all 0.3s ease;
         }
+
         .opt-glow.glow-red {
             background: rgba(239, 68, 68, 0.1) !important;
             border-color: rgba(239, 68, 68, 0.4) !important;
             box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
         }
+
         .opt-glow.glow-green {
             background: rgba(16, 185, 129, 0.1) !important;
             border-color: rgba(16, 185, 129, 0.4) !important;
             box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
         }
+
         .opt-glow.glow-blue {
             background: rgba(59, 130, 246, 0.1) !important;
             border-color: rgba(59, 130, 246, 0.4) !important;
             box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
         }
+
         .opt-glow.glow-purple {
             background: rgba(168, 85, 247, 0.1) !important;
             border-color: rgba(168, 85, 247, 0.4) !important;
             box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
         }
+
         .card-glow-focus {
             box-shadow: 0 0 0 2px var(--p2), 0 0 20px var(--p2) !important;
             transition: box-shadow 0.3s ease;
@@ -1603,7 +1617,7 @@
         .cmp-diff-row:last-child {
             border-bottom: none;
         }
-        
+
         .cmp-qnum-diff {
             font-weight: 800;
             font-size: 0.68rem;
@@ -2333,21 +2347,25 @@
             margin-top: 8px;
             opacity: 0.8;
         }
+
         .opt-tile.opt-blank:hover {
             opacity: 1;
             background: var(--p2);
         }
+
         .opt-tile.opt-blank.selected {
             border-style: solid;
             background: var(--b50);
             border-color: var(--b400);
             opacity: 1;
         }
+
         .opt-tile.opt-blank .opt-tile-letter {
             background: transparent;
             border-color: var(--pb);
             color: var(--t3);
         }
+
         .opt-tile.opt-blank.selected .opt-tile-letter {
             background: var(--b400);
             border-color: var(--b400);
@@ -2464,6 +2482,82 @@
             color: var(--t3);
             margin-top: 4px;
         }
+
+        /* ── Branding & Thanks ── */
+        .sb-logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            object-fit: contain;
+            background: #fff;
+            padding: 2px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .thanks-banner {
+            margin-top: auto;
+            padding: 20px 15px;
+            border-top: 1px solid var(--pbs);
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            opacity: 0.55;
+            background: var(--p0);
+        }
+
+        .thanks-loop {
+            position: relative;
+            min-height: 20px;
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .thanks-text {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--t3);
+            white-space: nowrap;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) translateY(3px);
+            opacity: 0;
+            transition: all 0.8s ease;
+            pointer-events: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .thanks-text.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) translateY(0);
+            pointer-events: auto;
+        }
+
+        .thanks-text strong {
+            color: var(--t2);
+            font-weight: 700;
+        }
+
+        @media (max-width: 640px) {
+            .thanks-banner {
+                padding: 15px 10px;
+                margin-top: 30px;
+            }
+
+            .thanks-text {
+                font-size: 0.58rem;
+                white-space: normal;
+                line-height: 1.4;
+            }
+        }
     </style>
 
 
@@ -2489,7 +2583,8 @@
                     <div class="cmp-sub" id="cmp-sub"></div>
                 </div>
                 <button class="cmp-close" id="cmp-close"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg></button>
             </div>
             <div style="margin-top:12px">
@@ -2506,7 +2601,8 @@
         <div class="conf-head">
             <div>
                 <h2>Résolution de conflits</h2>
-                <p style="font-size: 0.7rem; color: var(--t3); margin-top: 2px;">Certaines réponses diffèrent de votre progression locale.</p>
+                <p style="font-size: 0.7rem; color: var(--t3); margin-top: 2px;">Certaines réponses diffèrent de votre
+                    progression locale.</p>
             </div>
             <div style="display: flex; gap: 8px;">
                 <button class="conf-btn" id="conf-all-local">Tout garder</button>
@@ -2524,7 +2620,7 @@
 
     <aside class="sidebar" id="sb">
         <div class="sb-brand" id="sb-brand" title="Retour à l'accueil">
-            <div class="sb-logo">A</div>
+            <img src="logo.png" class="sb-logo-img" alt="Ataraxie">
             <div>
                 <h1>Ataraxie</h1>
                 <p>Révisions Médecine</p>
@@ -2565,7 +2661,9 @@
                 <div class="profile-label">Profil actif</div>
                 <div class="profile-name" id="profile-name">Default</div>
             </div>
-            <svg class="profile-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+            <svg class="profile-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+            </svg>
         </div>
         <div class="sb-foot">
             <div class="dot"></div><span id="ft">Chargement…</span>
@@ -2621,8 +2719,18 @@
             </div>
             <div id="qc" style="display:none"></div>
         </main>
-    </div>
 
+        <div class="thanks-banner">
+            <div class="thanks-loop" id="thanks-loop">
+                <div class="thanks-text active" data-lang="fr">
+                    Gratitude à l'équipe originale <strong>ATARAXIE</strong> — Support PDF d'origine.
+                </div>
+                <div class="thanks-text" data-lang="en">
+                    Thanks to the original <strong>ATARAXIE</strong> team — Source PDF.
+                </div>
+            </div>
+        </div>
+    </div>
     <button class="stt" id="stt" aria-label="Haut"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
         </svg></button>
@@ -2648,7 +2756,10 @@
     <div id="profile-modal" class="profile-modal">
         <div class="profile-modal-head">
             <h2>Gérer les profils</h2>
-            <button class="cmp-close" id="profile-modal-close"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+            <button class="cmp-close" id="profile-modal-close"><svg fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg></button>
         </div>
         <div class="profile-modal-body" id="profile-modal-body"></div>
     </div>
@@ -2670,13 +2781,13 @@
             let tempCmpData = null, currentCmpEntry = null;
 
             /* ══════════ PROFILE SYSTEM ══════════ */
-            function getProfiles() { try { const r = localStorage.getItem(PK); return r ? JSON.parse(r) : [] } catch(e) { return [] } }
+            function getProfiles() { try { const r = localStorage.getItem(PK); return r ? JSON.parse(r) : [] } catch (e) { return [] } }
             function saveProfiles(p) { localStorage.setItem(PK, JSON.stringify(p)) }
             function getActiveId() { return localStorage.getItem(APK) || null }
             function setActiveId(id) { localStorage.setItem(APK, id) }
             function profileSK(id) { return 'ataraxie_p_' + id }
             function genId() { return Date.now().toString(36) + Math.random().toString(36).substr(2, 5) }
-            function emptyState() { return { qcm:{}, red:{}, val:{}, sb:{}, ac:null, his:{}, recent:[], official:{} } }
+            function emptyState() { return { qcm: {}, red: {}, val: {}, sb: {}, ac: null, his: {}, recent: [], official: {} } }
 
             function migrateIfNeeded() {
                 let profiles = getProfiles();
@@ -2686,7 +2797,7 @@
                     profiles = [{ id, name: 'Default', createdAt: Date.now() }];
                     saveProfiles(profiles); setActiveId(id);
                     if (oldData) {
-                        try { const d = JSON.parse(oldData); if (!d.his) d.his = {}; if (!d.recent) d.recent = []; if (!d.official) d.official = {}; localStorage.setItem(profileSK(id), JSON.stringify(d)); } catch(e) { localStorage.setItem(profileSK(id), JSON.stringify(emptyState())); }
+                        try { const d = JSON.parse(oldData); if (!d.his) d.his = {}; if (!d.recent) d.recent = []; if (!d.official) d.official = {}; localStorage.setItem(profileSK(id), JSON.stringify(d)); } catch (e) { localStorage.setItem(profileSK(id), JSON.stringify(emptyState())); }
                     } else { localStorage.setItem(profileSK(id), JSON.stringify(emptyState())); }
                 }
                 if (!getActiveId() || !profiles.find(p => p.id === getActiveId())) {
@@ -2710,7 +2821,7 @@
             function switchProfile(id) {
                 svNow();
                 activeProfileId = id; setActiveId(id);
-                st = ld(); 
+                st = ld();
                 st.sb = {}; // Enforce completely collapsed navbar on switch
                 tempCmpData = null;
                 const cp = document.getElementById('cmp-panel'); if (cp) cp.classList.remove('open');
@@ -2810,9 +2921,9 @@
                 document.getElementById('reset-tab-subject').onclick = () => showResetTab('subject');
                 document.getElementById('reset-cancel').onclick = closeResetModal;
             }
-            function closeResetModal() { 
-                document.getElementById('reset-modal').classList.remove('open'); 
-                document.getElementById('ov').classList.remove('vis'); 
+            function closeResetModal() {
+                document.getElementById('reset-modal').classList.remove('open');
+                document.getElementById('ov').classList.remove('vis');
                 document.body.style.overflow = '';
             }
             function showResetTab(tab) {
@@ -2860,9 +2971,9 @@
                 document.body.style.overflow = 'hidden';
                 renderProfileList();
             }
-            function closeProfileModal() { 
-                document.getElementById('profile-modal').classList.remove('open'); 
-                document.getElementById('ov').classList.remove('vis'); 
+            function closeProfileModal() {
+                document.getElementById('profile-modal').classList.remove('open');
+                document.getElementById('ov').classList.remove('vis');
                 document.body.style.overflow = '';
             }
             function renderProfileList() {
@@ -2885,14 +2996,14 @@
                     <button class="profile-add-btn" id="add-profile-btn" style="margin-top:10px">Créer</button>
                 </div>`;
                 body.innerHTML = h;
-            body.querySelectorAll('.profile-card').forEach(card => {
-                card.addEventListener('click', (e) => {
-                    if (e.target.closest('[data-action]')) return;
-                    const id = card.dataset.id; 
-                    if (id !== activeProfileId) switchProfile(id); 
-                    closeProfileModal();
+                body.querySelectorAll('.profile-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        if (e.target.closest('[data-action]')) return;
+                        const id = card.dataset.id;
+                        if (id !== activeProfileId) switchProfile(id);
+                        closeProfileModal();
+                    });
                 });
-            });
                 body.querySelectorAll('[data-action="rename"]').forEach(btn => {
                     btn.addEventListener('click', (e) => { e.stopPropagation(); const n = prompt('Nouveau nom:'); if (n && n.trim()) { renameProfile(btn.dataset.id, n.trim()); renderProfileList(); } });
                 });
@@ -2904,10 +3015,10 @@
                 });
                 document.getElementById('add-profile-btn').addEventListener('click', () => {
                     const inp = document.getElementById('new-profile-name'), n = inp.value.trim();
-                    if (n) { 
+                    if (n) {
                         let data = emptyState();
-                        const newId = createProfile(n, data); 
-                        inp.value = ''; 
+                        const newId = createProfile(n, data);
+                        inp.value = '';
                         switchProfile(newId);
                         closeProfileModal();
                     }
@@ -2941,16 +3052,16 @@
             }
 
             function init() {
-                D = (typeof ATARAXIE_S8_DB !== 'undefined') 
-                    ? adaptDatabase(ATARAXIE_S8_DB) 
+                D = (typeof ATARAXIE_S8_DB !== 'undefined')
+                    ? adaptDatabase(ATARAXIE_S8_DB)
                     : ((typeof QUESTIONS_DATA !== 'undefined') ? QUESTIONS_DATA : []);
-                
+
                 tQ = D.reduce((s, d) => s + d.questions.length, 0);
                 document.getElementById('ft').textContent = tQ + ' questions • Auto-save';
-                buildSB(); upProg(); upProfileUI(); renderHistory();
+                buildSB(); upProg(); upProfileUI(); renderHistory(); startThanksLoop();
                 // Always start on home — do NOT auto-restore ak
                 document.getElementById('hb').addEventListener('click', togMob);
-                
+
                 document.getElementById('si').addEventListener('input', filter);
                 document.getElementById('btn-exp').addEventListener('click', expProg);
                 document.getElementById('btn-imp').addEventListener('click', () => document.getElementById('fi-imp').click());
@@ -2982,7 +3093,7 @@
                     } else if (val !== 'file_loaded') {
                         const pData = localStorage.getItem(profileSK(val));
                         if (pData) {
-                            try { tempCmpData = JSON.parse(pData); if (currentCmpEntry) renderCmpList(currentCmpEntry); } catch(err) {}
+                            try { tempCmpData = JSON.parse(pData); if (currentCmpEntry) renderCmpList(currentCmpEntry); } catch (err) { }
                         }
                     }
                 });
@@ -3014,19 +3125,32 @@
                     e.target.value = '';
                 });
 
-                document.getElementById('ov').addEventListener('click', () => { 
+                document.getElementById('ov').addEventListener('click', () => {
                     const sb = document.getElementById('sb');
                     if (sb.classList.contains('open')) {
                         sb.classList.remove('open');
                     }
-                    cp.classList.remove('open'); 
-                    closeResetModal(); 
-                    closeProfileModal(); 
-                    document.getElementById('imp-choice-modal').classList.remove('open'); 
+                    cp.classList.remove('open');
+                    closeResetModal();
+                    closeProfileModal();
+                    document.getElementById('imp-choice-modal').classList.remove('open');
                     document.getElementById('conf-panel').classList.remove('open');
                     document.getElementById('ov').classList.remove('vis');
                     document.body.style.overflow = '';
                 });
+            }
+
+            function startThanksLoop() {
+                const loop = document.getElementById('thanks-loop');
+                if (!loop) return;
+                const texts = loop.querySelectorAll('.thanks-text');
+                if (texts.length < 2) return;
+                let cur = 0;
+                setInterval(() => {
+                    texts[cur].classList.remove('active');
+                    cur = (cur + 1) % texts.length;
+                    texts[cur].classList.add('active');
+                }, 5000);
             }
 
             /* ══════════ SIDEBAR (logic unchanged) ══════════ */
@@ -3075,7 +3199,7 @@
                 document.getElementById('ht').textContent = chap;
                 document.getElementById('hs').textContent = mod;
                 document.getElementById('ws').style.display = 'none';
-                
+
                 const c = document.getElementById('qc'); c.style.display = ''; c.innerHTML = '';
                 const ansC = cntChAns(entry), valC = cntChVal(entry), totC = entry.questions.length;
 
@@ -3142,7 +3266,7 @@
                     // Extract Q number
                     const qMatch = q.id.match(/[_-]Q(\d+)$/i);
                     const qNumStr = qMatch ? 'Q' + qMatch[1] : ('Q' + (idx + 1));
-                    
+
                     // Format subject text
                     let subjectStr = entry.chapitre.replace(/\s*:\s*\(\s*\d+\s*questions?\s*\)$/i, '');
                     subjectStr = subjectStr.replace(/^(\d+)\s*\.\s*/, (m, n) => n.padStart(2, '0') + '. ');
@@ -3176,7 +3300,7 @@
                         <div class="opt-tile-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
                     </div>`;
                         });
-                        
+
                         // "Leave Blank" option
                         const isBlank = ck === 'BLANK';
                         if (!isOfficialMode || isBlank) {
@@ -3186,7 +3310,7 @@
                                 <div class="opt-tile-check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
                             </div>`;
                         }
-                        
+
                         h += '</div>';
                     } else if (q.type === 'redaction') {
                         const sv2 = isOfficialMode ? (officialAns || '') : (st.red[key] || '');
@@ -3209,7 +3333,7 @@
                 c.appendChild(stream);
                 wire(c, entry);
                 renderMath(c);
-                
+
                 if (targetQId) {
                     const k = mk(mod, chap, targetQId);
                     const el = document.querySelector(`.qcard[data-key="${esc(k)}"]`);
@@ -3264,9 +3388,9 @@
                             const oi = parseInt(tile.dataset.oi);
                             if (st.qcm[key] === "BLANK") st.qcm[key] = [];
                             if (!st.qcm[key]) st.qcm[key] = [];
-                            
+
                             const sel = tile.classList.toggle('selected');
-                            if (sel) { 
+                            if (sel) {
                                 if (!st.qcm[key].includes(oi)) st.qcm[key].push(oi);
                                 // Remove blank selection if any regular option is selected
                                 const bBtn = card.querySelector('.opt-blank');
@@ -3318,7 +3442,7 @@
                         const qObj = findQ(k);
                         const card = dot.closest('.qcard');
                         const div = card ? card.querySelector('.qcard-divider') : null;
-                        
+
                         ep.innerHTML = `
                             <div class="his-grid">
                                 <div class="his-col">
@@ -3332,10 +3456,10 @@
                             </div>
                             <div style="font-size:0.6rem;color:var(--t4);text-align:right;margin-top:12px">Modifié le ${new Date(h.date).toLocaleDateString()}</div>
                         `;
-                        
+
                         const r = dot.getBoundingClientRect();
                         const cardR = card.getBoundingClientRect();
-                        
+
                         // Vertical positioning: below divider if found, else below dot
                         let topPos = r.bottom + 10;
                         if (div) {
@@ -3344,18 +3468,18 @@
                         }
 
                         ep.style.top = topPos + 'px';
-                        
+
                         // Centering logic with viewport awareness
                         const popW = Math.min(window.innerWidth - 40, ep.offsetWidth || 400);
                         let leftPos = cardR.left + (cardR.width - popW) / 2;
-                        
+
                         // Ensure it stays within screen bounds
                         leftPos = Math.max(10, Math.min(window.innerWidth - popW - 10, leftPos));
-                        
+
                         ep.style.left = leftPos + 'px';
                         ep.style.width = popW + 'px';
                         ep.classList.add('vis');
-                        
+
                         // One-time reminder: remove after clicking
                         delete st.his[k];
                         dot.classList.remove('on');
@@ -3395,12 +3519,12 @@
                     b.classList.toggle('mb-default', vq !== tq || tq === 0);
                 });
             }
-            function togMob() { 
+            function togMob() {
                 const sb = document.getElementById('sb'), ov = document.getElementById('ov');
-                const o = sb.classList.toggle('open'); 
+                const o = sb.classList.toggle('open');
                 const anyModalOpen = document.querySelector('.open[id$="-modal"], .open[id$="-panel"]');
                 if (!anyModalOpen) {
-                    ov.classList.toggle('vis', o); 
+                    ov.classList.toggle('vis', o);
                     document.body.style.overflow = o ? 'hidden' : '';
                 }
             }
@@ -3409,16 +3533,16 @@
             function showCmp(e) {
                 currentCmpEntry = e;
                 const sub = document.getElementById('cmp-sub'); if (sub) sub.textContent = e.chapitre;
-                
+
                 const sel = document.getElementById('cmp-target-select');
                 const curVal = sel.value;
                 let h = '<option value="none">Mes réponses (Seul)</option>';
-                
+
                 const hasOfficial = e.questions.some(q => st.official[mk(e.module, e.chapitre, q.id)]);
                 if (hasOfficial) {
                     h += '<option value="official">🌟 Corrections Officielles</option>';
                 }
-                
+
                 getProfiles().forEach(p => {
                     if (p.id !== activeProfileId) {
                         h += `<option value="${p.id}">Profil: ${esc(p.name)}</option>`;
@@ -3429,7 +3553,7 @@
                     h += '<option value="file_loaded" hidden>Fichier importé</option>';
                 }
                 sel.innerHTML = h;
-                
+
                 if (curVal === 'file_loaded' && tempCmpData) sel.value = 'file_loaded';
                 else if (curVal === 'official' && hasOfficial) sel.value = 'official';
                 else if (curVal !== 'file' && curVal !== 'file_loaded' && curVal !== 'none' && curVal !== 'official') {
@@ -3442,7 +3566,7 @@
                 document.getElementById('cmp-panel').classList.add('open');
                 document.getElementById('ov').classList.add('vis');
                 document.body.style.overflow = 'hidden';
-                
+
                 renderCmpList(e);
             }
 
@@ -3450,11 +3574,11 @@
                 const b = document.getElementById('cmp-body'); b.innerHTML = '';
                 let hasQcm = false;
                 const selVal = document.getElementById('cmp-target-select').value;
-                
+
                 let isCompare = false;
                 let targetQcm = {};
                 let targetVal = {};
-                
+
                 if (selVal === 'official') {
                     isCompare = true;
                     targetQcm = st.official || {};
@@ -3482,12 +3606,12 @@
                         hasQcm = true;
                         const key = mk(e.module, e.chapitre, q.id);
                         const myAns = st.qcm[key] || [];
-                        
+
                         if (!isCompare) {
                             let l = '';
                             if (myAns === "BLANK") l = 'VIDE';
                             else l = myAns.map(i => L[i]).sort().join('');
-                            
+
                             if (!l) l = '-';
                             const d = document.createElement('div'); d.className = 'cmp-item';
                             d.innerHTML = `<div class="cmp-ans">${idx + 1}-${l}</div>`;
@@ -3499,7 +3623,7 @@
 
                             const isMyVal = st.val[key] === true;
                             const isOthVal = targetVal[key] === true;
-                            
+
                             if (myAns === "BLANK" || otherAns === "BLANK") {
                                 // Special handling for BLANK in comparison
                                 if (myAns === "BLANK" && otherAns === "BLANK") {
@@ -3515,7 +3639,7 @@
                                     otherHtml = `<span class="cmp-letter ${isMyVal ? 'diff-false' : 'other-only'}">VIDE</span>`;
                                 }
                             } else {
-                                const allOpts = [...new Set([...myAns, ...otherAns])].sort((a,b)=>a-b);
+                                const allOpts = [...new Set([...myAns, ...otherAns])].sort((a, b) => a - b);
                                 if (allOpts.length === 0) {
                                     myHtml = '<span class="cmp-letter match">-</span>';
                                     otherHtml = '<span class="cmp-letter match">-</span>';
@@ -3524,7 +3648,7 @@
                                         const letter = L[i];
                                         const inMine = myAns.includes(i);
                                         const inOther = otherAns.includes(i);
-                                        
+
                                         if (inMine && inOther) {
                                             myHtml += `<span class="cmp-letter match">${letter}</span>`;
                                             otherHtml += `<span class="cmp-letter match">${letter}</span>`;
@@ -3558,15 +3682,15 @@
                                     setTimeout(() => {
                                         const hdrOffset = 80;
                                         window.scrollTo({ top: qcard.getBoundingClientRect().top + window.pageYOffset - hdrOffset, behavior: 'smooth' });
-                                        
+
                                         document.querySelectorAll('.opt-glow').forEach(el => el.classList.remove('opt-glow', 'glow-red', 'glow-green', 'glow-blue', 'glow-purple'));
-                                        
+
                                         qcard.querySelectorAll('.opt-tile').forEach(tile => {
                                             const oi = parseInt(tile.dataset.oi);
                                             tile.classList.add('opt-glow');
                                             const inMine = myAns.includes(oi);
                                             const inOth = otherAns.includes(oi);
-                                            
+
                                             if (inMine && !inOth) {
                                                 if (isMyVal && !isOthVal) tile.classList.add('glow-green');
                                                 else if (isOthVal && !isMyVal) tile.classList.add('glow-red');
@@ -3599,15 +3723,15 @@
                 const b = new Blob([d], { type: 'application/json' });
                 const u = URL.createObjectURL(b);
                 const a = document.createElement('a');
-                
+
                 // Get active profile name for the file
                 const profiles = getProfiles();
                 const active = profiles.find(p => p.id === activeProfileId);
                 const pName = active ? active.name.replace(/[^a-z0-9]/gi, '_').toLowerCase() : 'export';
-                
-                a.href = u; 
+
+                a.href = u;
                 a.download = `${pName}-${new Date().toISOString().split('T')[0]}.json`;
-                a.click(); 
+                a.click();
                 URL.revokeObjectURL(u);
             }
 
@@ -3894,7 +4018,7 @@
                         const label = L[idx] || idx;
                         const prefix = label + '. ';
                         let display = txt.startsWith(prefix) ? txt : (label + ': ' + txt);
-                        
+
                         let cls = '';
                         if (isImp && !other.includes(idx)) cls = ' add';
                         if (!isImp && !other.includes(idx)) cls = ' rem';
