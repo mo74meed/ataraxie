@@ -264,6 +264,12 @@
             margin-bottom: 1px
         }
 
+        .sb-mod-head {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
         .sb-mod-btn {
             width: 100%;
             display: flex;
@@ -278,6 +284,40 @@
             font-weight: 600;
             text-align: left;
             transition: all .15s ease
+        }
+
+        .sb-mod-head .sb-mod-btn {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sb-sort-btn {
+            width: auto;
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 999px;
+            background: var(--s2);
+            color: var(--tsd);
+            font-size: .55rem;
+            font-weight: 700;
+            padding: 0 8px;
+            min-height: 18px;
+            align-self: center;
+            line-height: 1;
+            transition: all .15s ease;
+        }
+
+        .sb-sort-btn:hover {
+            background: var(--s-hover);
+            color: var(--tsb)
+        }
+
+        .sb-sort-btn.active {
+            background: rgba(74, 79, 244, .14);
+            color: var(--b200)
         }
 
         .sb-mod-btn:hover {
@@ -1963,9 +2003,14 @@
 
         .hist-empty {
             text-align: center;
-            padding: 32px 20px;
-            color: var(--t4);
-            font-size: .75rem;
+            padding: 40px 24px;
+            color: var(--t3);
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.35;
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
         }
 
         .sb-brand {
@@ -2885,7 +2930,7 @@
             function setActiveId(id) { localStorage.setItem(APK, id) }
             function profileSK(id) { return 'ataraxie_p_' + id }
             function genId() { return Date.now().toString(36) + Math.random().toString(36).substr(2, 5) }
-            function emptyState() { return { qcm: {}, red: {}, val: {}, sb: {}, ac: null, his: {}, recent: [], official: {} } }
+            function emptyState() { return { qcm: {}, red: {}, val: {}, sb: {}, sortChildren: {}, ac: null, his: {}, recent: [], official: {} } }
 
             function migrateIfNeeded() {
                 let profiles = getProfiles();
@@ -2907,7 +2952,7 @@
             let activeProfileId = getActiveId();
             let st = ld(), ak = null;
 
-            function ld() { try { const r = localStorage.getItem(profileSK(activeProfileId)); if (r) { const d = JSON.parse(r); if (!d.his) d.his = {}; if (!d.recent) d.recent = []; if (!d.official) d.official = {}; return d } } catch (e) { } return emptyState() }
+            function ld() { try { const r = localStorage.getItem(profileSK(activeProfileId)); if (r) { const d = JSON.parse(r); if (!d.his) d.his = {}; if (!d.recent) d.recent = []; if (!d.official) d.official = {}; if (!d.sortChildren) d.sortChildren = {}; return d } } catch (e) { } return emptyState() }
             function sv() { clearTimeout(sT); sT = setTimeout(() => { try { localStorage.setItem(profileSK(activeProfileId), JSON.stringify(st)) } catch (e) { } }, 200) }
             function svNow() { clearTimeout(sT); try { localStorage.setItem(profileSK(activeProfileId), JSON.stringify(st)) } catch (e) { } }
             function mk(m, c, q) { return m + '§' + c + (q !== undefined ? '§' + q : '') }
@@ -3258,12 +3303,30 @@
                 mods.forEach((ents, mn) => {
                     const tq = ents.reduce((s, e) => s + e.questions.length, 0); if (tq === 0) return;
                     const op = st.sb[mn] === true, vq = cntModAns(ents);
+                    const sortEnabled = st.sortChildren && st.sortChildren[mn] === true;
                     const w = document.createElement('div'); w.className = 'sb-mod'; w.dataset.module = mn;
+                    const head = document.createElement('div'); head.className = 'sb-mod-head';
                     const btn = document.createElement('button');
                     btn.className = 'sb-mod-btn' + (op ? ' exp' : '');
                     btn.innerHTML = `<svg class="arr" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg><span class="mname">${esc(mn)}</span><span class="mb ${vq === tq && tq > 0 ? 'mb-done' : 'mb-default'}" data-mb="${esc(mn)}">${vq}/${tq}</span>`;
+                    const sortBtn = document.createElement('button');
+                    sortBtn.type = 'button';
+                    sortBtn.className = 'sb-sort-btn' + (sortEnabled ? ' active' : '');
+                    sortBtn.title = sortEnabled ? 'Retour à l’ordre par défaut' : 'Trier les chapitres du plus grand nombre de questions au plus petit';
+                    sortBtn.textContent = '↔';
+                    sortBtn.addEventListener('click', (ev) => {
+                        ev.stopPropagation();
+                        st.sortChildren = st.sortChildren || {};
+                        st.sortChildren[mn] = !st.sortChildren[mn];
+                        sv();
+                        buildSB();
+                        const si = document.getElementById('si');
+                        if (si) filter({ target: si });
+                        hlAct();
+                    });
                     const cl = document.createElement('div'); cl.className = 'sb-chaps' + (op ? ' open' : '');
-                    ents.forEach(e => {
+                    const sortedEnts = sortEnabled ? ents.slice().sort((a, b) => b.questions.length - a.questions.length || ents.indexOf(a) - ents.indexOf(b)) : ents;
+                    sortedEnts.forEach(e => {
                         const ck = mk(e.module, e.chapitre), vc = cntChAns(e);
                         const cb = document.createElement('button');
                         cb.className = 'sb-ch' + (ak === ck ? ' active' : ''); cb.dataset.ck = ck;
@@ -3272,7 +3335,9 @@
                         cl.appendChild(cb);
                     });
                     btn.addEventListener('click', () => { const o = cl.classList.toggle('open'); btn.classList.toggle('exp', o); st.sb[mn] = o; sv() });
-                    w.appendChild(btn); w.appendChild(cl); nav.appendChild(w);
+                    head.appendChild(btn);
+                    head.appendChild(sortBtn);
+                    w.appendChild(head); w.appendChild(cl); nav.appendChild(w);
                 });
             }
             function cntModAns(ents) { let c = 0; ents.forEach(e => e.questions.forEach(q => { if (isAns(mk(e.module, e.chapitre, q.id), q.type)) c++ })); return c }
@@ -3325,6 +3390,15 @@
             </div>`;
                 c.appendChild(banner);
                 document.getElementById('btn-cmp').addEventListener('click', () => { showCmp(entry); });
+
+                if (totC === 0) {
+                    const empty = document.createElement('div');
+                    empty.className = 'hist-empty';
+                    empty.textContent = 'Aucune question n\'est disponible pour ce sujet.';
+                    c.appendChild(empty);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
 
                 /* ── Question Stream ── */
                 const stream = document.createElement('div'); stream.className = 'q-stream';
