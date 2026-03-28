@@ -1315,37 +1315,135 @@
             transform: scale(1)
         }
 
-        /* ── Textarea ── */
+        /* ── Rich Editor ── */
         .qcard-ta-wrap {
             padding: 14px 16px 6px
         }
 
-        .qcard-ta {
+        .qcard-editor-shell {
+            border: 1px solid rgba(74, 79, 244, .10);
+            border-radius: 16px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(240, 239, 236, .96));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .75), 0 10px 24px rgba(15, 23, 42, .04);
+            padding: 12px;
+        }
+
+        .qcard-editor-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .qcard-editor-tool {
+            border: 1px solid rgba(74, 79, 244, .10);
+            background: linear-gradient(180deg, #fff, #f7f7fb);
+            color: var(--t2);
+            border-radius: 10px;
+            padding: 7px 11px;
+            font-size: .70rem;
+            font-weight: 700;
+            line-height: 1;
+            transition: all .18s ease;
+            min-width: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+        }
+
+        .qcard-editor-tool:hover {
+            border-color: rgba(74, 79, 244, .22);
+            color: var(--b600);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(74, 79, 244, .10);
+        }
+
+        .qcard-editor-tool.active {
+            border-color: transparent;
+            color: #fff;
+            background: linear-gradient(135deg, var(--b500), var(--b400));
+            box-shadow: 0 6px 14px rgba(74, 79, 244, .24);
+        }
+
+        .qcard-editor-tools .tool-group-sep {
+            width: 1px;
+            background: rgba(92, 94, 106, .12);
+            margin: 2px 2px 2px 0;
+        }
+
+        .qcard-editor-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 0 2px 8px;
+            font-size: .62rem;
+            color: var(--t3);
+            letter-spacing: .02em;
+            text-transform: uppercase;
+        }
+
+        .qcard-editor-hint {
+            font-size: .6rem;
+            color: var(--tsd);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-weight: 700;
+        }
+
+        .qcard-editor {
             width: 100%;
-            min-height: 140px;
-            resize: none;
-            overflow: hidden;
-            border: 1.5px solid var(--pbs);
-            border-radius: 12px;
-            padding: 16px 18px;
+            min-height: 180px;
+            overflow-y: auto;
+            border: 1.2px solid rgba(92, 94, 106, .12);
+            border-radius: 14px;
+            padding: 16px 18px 18px;
             font-family: inherit;
             font-size: .82rem;
             color: var(--t1);
-            line-height: 1.7;
+            line-height: 1.72;
             background: var(--p2);
             outline: none;
-            transition: all .25s ease;
+            transition: border-color .18s ease, box-shadow .18s ease, background .18s ease, transform .18s ease;
+            white-space: normal;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65);
         }
 
-        .qcard-ta::placeholder {
+        .qcard-editor ul,
+        .qcard-editor ol {
+            padding-left: 1.4rem;
+            margin: .4rem 0;
+        }
+
+        .qcard-editor li {
+            margin: .12rem 0;
+        }
+
+        .qcard-editor p {
+            margin: 0 0 .45rem;
+        }
+
+        .qcard-editor p:last-child {
+            margin-bottom: 0;
+        }
+
+        .qcard-editor:empty::after {
+            content: attr(data-placeholder);
             color: var(--t4);
-            font-weight: 400
         }
 
-        .qcard-ta:focus {
+        .qcard-editor-edit[data-empty="true"]::before {
+            content: attr(data-placeholder);
+            color: var(--t4);
+            font-weight: 400;
+            pointer-events: none;
+        }
+
+        .qcard-editor:focus {
             border-color: var(--b400);
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(74, 79, 244, .06)
+            box-shadow: 0 0 0 3px rgba(74, 79, 244, .08), 0 10px 20px rgba(74, 79, 244, .08)
         }
 
         /* ── Card Footer ── */
@@ -2330,7 +2428,7 @@
             opacity: .95;
         }
 
-        .qcard.official-readonly .qcard-ta {
+        .qcard.official-readonly .qcard-editor {
             pointer-events: none;
             background: var(--g50);
             border-color: var(--g400);
@@ -2676,7 +2774,7 @@
             function mk(m, c, q) { return m + '§' + c + (q !== undefined ? '§' + q : '') }
             function isAns(key, type) {
                 if (type === 'qcm') return (st.qcm[key] && st.qcm[key].length > 0);
-                return (st.red[key] && st.red[key].trim().length > 0);
+                return getPlainTextFromHtml(st.red[key]).length > 0;
             }
 
             function switchProfile(id) {
@@ -3150,8 +3248,22 @@
                         });
                         h += '</div>';
                     } else if (q.type === 'redaction') {
-                        const sv2 = isOfficialMode ? (officialAns || '') : (st.red[key] || '');
-                        h += `<div class="qcard-ta-wrap"><textarea class="qcard-ta" placeholder="Rédigez votre réponse ici…" data-key="${esc(key)}" ${isOfficialMode ? 'readonly' : ''}>${esc(sv2)}</textarea></div>`;
+                        const sv2 = normalizeEditorHtml(isOfficialMode ? (officialAns || '') : (st.red[key] || ''));
+                        const tools = isOfficialMode ? '' : `<div class="qcard-editor-tools" aria-label="Outils de mise en forme">
+                            <button type="button" class="qcard-editor-tool" data-action="bold" title="Gras"><strong>B</strong></button>
+                            <button type="button" class="qcard-editor-tool" data-action="italic" title="Italique"><em>I</em></button>
+                            <span class="tool-group-sep" aria-hidden="true"></span>
+                            <button type="button" class="qcard-editor-tool" data-action="ul" title="Liste a puces">• List</button>
+                            <button type="button" class="qcard-editor-tool" data-action="ol" title="Liste numerotee">1. List</button>
+                            <span class="tool-group-sep" aria-hidden="true"></span>
+                            <button type="button" class="qcard-editor-tool" data-action="indent" title="Niveau enfant">↳</button>
+                            <button type="button" class="qcard-editor-tool" data-action="outdent" title="Niveau parent">↰</button>
+                        </div>`;
+                        if (isOfficialMode) {
+                            h += `<div class="qcard-ta-wrap"><div class="qcard-editor-shell"><div class="qcard-editor-meta"><span>Réponse formatée</span><span>Lecture seule</span></div><div class="qcard-editor">${sv2}</div></div></div>`;
+                        } else {
+                            h += `<div class="qcard-ta-wrap"><div class="qcard-editor-shell"><div class="qcard-editor-meta"><span>Réponse enrichie</span><span>Ctrl+B / Ctrl+I</span></div>${tools}<div class="qcard-editor qcard-editor-edit" contenteditable="true" spellcheck="true" data-placeholder="Rédigez votre réponse ici…" data-key="${esc(key)}">${sv2}</div></div></div>`;
+                        }
                     }
 
                     /* Footer */
@@ -3201,6 +3313,125 @@
                 }
             }
 
+            function sanitizeEditorHtml(raw) {
+                const tpl = document.createElement('template');
+                tpl.innerHTML = raw || '';
+                const allowed = new Set(['B', 'STRONG', 'I', 'EM', 'UL', 'OL', 'LI', 'P', 'BR']);
+
+                function scrub(node) {
+                    Array.from(node.childNodes).forEach(child => {
+                        if (child.nodeType === Node.ELEMENT_NODE) {
+                            const tag = child.tagName.toUpperCase();
+
+                            if (tag === 'DIV') {
+                                const p = document.createElement('p');
+                                while (child.firstChild) p.appendChild(child.firstChild);
+                                child.replaceWith(p);
+                                scrub(p);
+                                return;
+                            }
+
+                            if (!allowed.has(tag)) {
+                                while (child.firstChild) node.insertBefore(child.firstChild, child);
+                                child.remove();
+                                return;
+                            }
+
+                            Array.from(child.attributes).forEach(attr => child.removeAttribute(attr.name));
+                            scrub(child);
+                            return;
+                        }
+
+                        if (child.nodeType === Node.COMMENT_NODE) child.remove();
+                    });
+                }
+
+                scrub(tpl.content);
+                return tpl.innerHTML.trim();
+            }
+
+            function normalizeEditorHtml(value) {
+                if (!value) return '';
+                if (/<\/?[a-z][\s\S]*>/i.test(value)) return sanitizeEditorHtml(value);
+                return esc(value).replace(/\n/g, '<br>');
+            }
+
+            function getPlainTextFromHtml(html) {
+                const box = document.createElement('div');
+                box.innerHTML = html || '';
+                return (box.textContent || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+            }
+
+            function hasEditorContent(html) {
+                return getPlainTextFromHtml(html).length > 0;
+            }
+
+            function extractEditorStateHtml(editor) {
+                const safe = sanitizeEditorHtml(editor.innerHTML);
+                return hasEditorContent(safe) ? safe : '';
+            }
+
+            function updateEditorEmptyState(editor) {
+                const isEmpty = !hasEditorContent(editor.innerHTML);
+                editor.dataset.empty = isEmpty ? 'true' : 'false';
+            }
+
+            function refreshEditorToolbar(editor) {
+                const wrap = editor.closest('.qcard-ta-wrap');
+                if (!wrap) return;
+
+                function setActive(action, state) {
+                    const btn = wrap.querySelector(`.qcard-editor-tool[data-action="${action}"]`);
+                    if (btn) btn.classList.toggle('active', !!state);
+                }
+
+                setActive('bold', document.queryCommandState('bold'));
+                setActive('italic', document.queryCommandState('italic'));
+                setActive('ul', document.queryCommandState('insertUnorderedList'));
+                setActive('ol', document.queryCommandState('insertOrderedList'));
+            }
+
+            function isSelectionInsideListItem(editor) {
+                const sel = window.getSelection();
+                if (!sel || !sel.rangeCount) return false;
+                let node = sel.anchorNode;
+                if (!node) return false;
+                if (node.nodeType === Node.TEXT_NODE) node = node.parentElement;
+                return !!(node && node.closest && node.closest('li') && editor.contains(node));
+            }
+
+            function applyEditorCommand(editor, action) {
+                if (!editor) return;
+
+                const map = {
+                    bold: 'bold',
+                    italic: 'italic',
+                    ul: 'insertUnorderedList',
+                    ol: 'insertOrderedList',
+                    indent: 'indent',
+                    outdent: 'outdent'
+                };
+
+                const cmd = map[action];
+                if (!cmd) return;
+
+                editor.focus();
+                document.execCommand(cmd, false, null);
+                updateEditorEmptyState(editor);
+                editor.dispatchEvent(new Event('input', { bubbles: true }));
+                refreshEditorToolbar(editor);
+            }
+
+            function insertCleanPaste(editor, html, text) {
+                const safe = sanitizeEditorHtml(html || '');
+                const payload = safe || esc(text || '').replace(/\n/g, '<br>');
+                editor.focus();
+                document.execCommand('insertHTML', false, payload);
+                updateEditorEmptyState(editor);
+                editor.dispatchEvent(new Event('input', { bubbles: true }));
+                refreshEditorToolbar(editor);
+            }
+
             /* ══════════ WIRE EVENTS ══════════ */
             function wire(c, entry) {
                 const mod = entry.module, chap = entry.chapitre;
@@ -3221,15 +3452,53 @@
                     });
                 });
 
-                c.querySelectorAll('.qcard-ta').forEach(ta => {
-                    const as = () => { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px' }; as();
-                    ta.addEventListener('input', () => {
-                        const qId = ta.dataset.key.split('§')[2];
-                        as(); st.red[ta.dataset.key] = ta.value; sv(); addRecent(mod, chap, qId);
-                        const card = ta.closest('.qcard');
-                        const ans = isAns(ta.dataset.key, 'redaction');
+                c.querySelectorAll('.qcard-editor-edit').forEach(editor => {
+                    updateEditorEmptyState(editor);
+
+                    editor.addEventListener('input', () => {
+                        const qId = editor.dataset.key.split('§')[2];
+                        st.red[editor.dataset.key] = extractEditorStateHtml(editor); sv(); addRecent(mod, chap, qId);
+                        updateEditorEmptyState(editor);
+                        const card = editor.closest('.qcard');
+                        const ans = isAns(editor.dataset.key, 'redaction');
                         const dot = card.querySelector('.dot-ans'); if (dot) dot.classList.toggle('on', ans);
                         upProg(); upChStats(entry); upBadges();
+                    });
+
+                    editor.addEventListener('keydown', (e) => {
+                        const k = e.key.toLowerCase();
+
+                        if ((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && (k === 'b' || k === 'i')) {
+                            e.preventDefault();
+                            applyEditorCommand(editor, k === 'b' ? 'bold' : 'italic');
+                            return;
+                        }
+
+                        if (e.key === 'Tab' && isSelectionInsideListItem(editor)) {
+                            e.preventDefault();
+                            applyEditorCommand(editor, e.shiftKey ? 'outdent' : 'indent');
+                        }
+                    });
+
+                    editor.addEventListener('paste', (e) => {
+                        e.preventDefault();
+                        const clipboard = e.clipboardData || window.clipboardData;
+                        const html = clipboard ? clipboard.getData('text/html') : '';
+                        const text = clipboard ? clipboard.getData('text/plain') : '';
+                        insertCleanPaste(editor, html, text);
+                    });
+
+                    ['focus', 'keyup', 'mouseup'].forEach(evt => {
+                        editor.addEventListener(evt, () => refreshEditorToolbar(editor));
+                    });
+                });
+
+                c.querySelectorAll('.qcard-editor-tool').forEach(btn => {
+                    btn.addEventListener('mousedown', (e) => e.preventDefault());
+                    btn.addEventListener('click', () => {
+                        const wrap = btn.closest('.qcard-ta-wrap');
+                        const editor = wrap ? wrap.querySelector('.qcard-editor-edit') : null;
+                        applyEditorCommand(editor, btn.dataset.action);
                     });
                 });
 
@@ -3823,9 +4092,10 @@
                     let cls = (v !== other) ? (isImp ? ' add' : ' rem') : '';
                     return `<div class="conf-val-item${cls}">${v ? '<span style="color:var(--v500)">Validée</span>' : '<span style="color:var(--t4)">Non validée</span>'}</div>`;
                 }
-                if (!v || !v.trim()) return '<div class="conf-val-item"><span style="color:var(--t4)">Vide</span></div>';
+                const normalized = normalizeEditorHtml(v);
+                if (!normalized || !hasEditorContent(normalized)) return '<div class="conf-val-item"><span style="color:var(--t4)">Vide</span></div>';
                 let cls = (v !== other) ? (isImp ? ' add' : ' rem') : '';
-                return `<div class="conf-val-item${cls}">${esc(v)}</div>`;
+                return `<div class="conf-val-item${cls}">${normalized}</div>`;
             }
 
             function formatVal(v, q) {
@@ -3840,8 +4110,9 @@
                     }).join('');
                 }
                 if (typeof v === 'boolean') return v ? '<span style="color:var(--v500)">Validée</span>' : '<span style="color:var(--t4)">Non validée</span>';
-                if (!v || !v.trim()) return '<span style="color:var(--t4)">Vide</span>';
-                return esc(v);
+                const normalized = normalizeEditorHtml(v);
+                if (!normalized || !hasEditorContent(normalized)) return '<span style="color:var(--t4)">Vide</span>';
+                return normalized;
             }
 
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
