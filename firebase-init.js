@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-lite.js";
 
 const firebaseConfig = {
@@ -39,9 +39,20 @@ window.FirebaseAuthManager = {
     login: async function() {
         const provider = new GoogleAuthProvider();
         try {
-            await signInWithPopup(auth, provider);
+            // Mobile browsers automatically block popups. We use Redirect for mobile, Popup for desktop.
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                await signInWithRedirect(auth, provider);
+            } else {
+                await signInWithPopup(auth, provider);
+            }
         } catch (error) {
             console.error("Login failed", error);
+            // If popup is somehow mapped or blocked on desktop, fallback to redirect
+            if (error.code === 'auth/popup-blocked') {
+                await signInWithRedirect(auth, provider);
+            }
         }
     },
     
