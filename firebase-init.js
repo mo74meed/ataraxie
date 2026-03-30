@@ -208,5 +208,49 @@ window.FirebaseAuthManager = {
                 await set(ref(db, 'users/' + currentUser.uid + '/data'), fullData);
             } catch(e) { console.error("Firebase Sync Error", e); }
         }
+    },
+
+    // Forces a manual pull from the cloud to overwrite local data and refresh UI
+    pullNow: async function() {
+        if (!currentUser) return;
+        try {
+            const syncStatusIcon = document.getElementById('auth-sync-status');
+            if (syncStatusIcon) {
+                syncStatusIcon.style.color = "var(--p500)";
+                syncStatusIcon.textContent = "↻ Syncing...";
+            }
+            
+            const dbRef = ref(db);
+            const snapshot = await get(child(dbRef, `users/${currentUser.uid}`));
+            if (snapshot.exists()) {
+                const docData = snapshot.val();
+                const cloudData = docData.data || {};
+                
+                let keysToRemove = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    let key = localStorage.key(i);
+                    if (key && key.startsWith('ataraxie_')) {
+                        keysToRemove.push(key);
+                    }
+                }
+                keysToRemove.forEach(k => localStorage.removeItem(k));
+
+                for (let key in cloudData) {
+                    if (key.startsWith('ataraxie_')) {
+                        localStorage.setItem(key, cloudData[key]);
+                    }
+                }
+                
+                // If Capacitor App, we can't easily trigger the index.html closures nicely, so a reload is the safest and cleanest way to reset the DOM tree
+                location.reload();
+            }
+        } catch(e) {
+            console.error("Firebase Pull Error", e);
+            const syncStatusIcon = document.getElementById('auth-sync-status');
+            if (syncStatusIcon) {
+                syncStatusIcon.style.color = "var(--red)";
+                syncStatusIcon.textContent = "✖ Failed";
+            }
+        }
     }
 };

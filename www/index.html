@@ -2841,7 +2841,7 @@
                         <img id="auth-pfp" src="" style="width: 24px; height: 24px; border-radius: 50%; display: none; border: 1px solid var(--pb);">
                         <div style="display: flex; flex-direction: column;">
                             <span id="auth-email" style="font-size: 0.70rem; color: var(--t2); font-weight: 500; line-height: 1;"></span>
-                            <span style="font-size: 0.6rem; color: var(--g500); font-weight: 600; line-height: 1; margin-top: 2px;">● Synced</span>
+                            <span id="auth-sync-status" onclick="if(window.FirebaseAuthManager) window.FirebaseAuthManager.pullNow()" style="font-size: 0.6rem; color: var(--g500); font-weight: 600; line-height: 1; margin-top: 2px; cursor: pointer;" title="Cliquez pour forcer la synchronisation avec le cloud">● Synced</span>
                         </div>
                     </div>
                     <button class="btn" id="login-btn" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 500; background: var(--b500); color: white; border-radius: 6px; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: var(--shadow-opt-sel); transition: background 0.2s;">
