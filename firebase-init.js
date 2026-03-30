@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-lite.js";
 
 const firebaseConfig = {
@@ -22,7 +22,17 @@ const db = getFirestore(app);
 let currentUser = null;
 
 window.FirebaseAuthManager = {
-    init: function(onUserLoadCallback) {
+    init: async function(onUserLoadCallback) {
+        // Essential for mobile: catch the returning user after a redirect!
+        try {
+            const redirectResult = await getRedirectResult(auth);
+            if (redirectResult && redirectResult.user) {
+                console.log("User signed in via redirect:", redirectResult.user.email);
+            }
+        } catch (error) {
+            console.error("Redirect login error:", error);
+        }
+
         onAuthStateChanged(auth, async (user) => {
             currentUser = user;
             if (user) {
