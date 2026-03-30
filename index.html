@@ -4390,6 +4390,19 @@
                     Object.assign(st.qcm, d.qcm);
                     Object.assign(st.red, d.red);
                     Object.assign(st.val, d.val);
+                    if (d.his) Object.assign(st.his, d.his);
+                    if (d.recent) {
+                        const allRecents = [...(d.recent || []), ...(st.recent || [])];
+                        const uniqueRecents = [];
+                        const seenKeys = new Set();
+                        for (const r of allRecents) {
+                            if (!seenKeys.has(r.key)) {
+                                seenKeys.add(r.key);
+                                uniqueRecents.push(r);
+                            }
+                        }
+                        st.recent = uniqueRecents.sort((a,b) => b.ts - a.ts).slice(0, 25);
+                    }
                     extractOfficial(d);
                     svNow()?.then(() => { location.reload(); });
                 }
@@ -4476,6 +4489,19 @@
                     Object.assign(st.qcm, d.qcm);
                     Object.assign(st.red, d.red);
                     Object.assign(st.val, d.val);
+                    if (d.his) Object.assign(st.his, d.his);
+                    if (d.recent) {
+                        const allRecents = [...(d.recent || []), ...(st.recent || [])];
+                        const uniqueRecents = [];
+                        const seenKeys = new Set();
+                        for (const r of allRecents) {
+                            if (!seenKeys.has(r.key)) {
+                                seenKeys.add(r.key);
+                                uniqueRecents.push(r);
+                            }
+                        }
+                        st.recent = uniqueRecents.sort((a,b) => b.ts - a.ts).slice(0, 25);
+                    }
                     // Overwrite with chosen resolutions
                     for (const k in resolutions) {
                         const df = diffs.find(x => x.key === k);
