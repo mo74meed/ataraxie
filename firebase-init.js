@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+import { getDatabase, ref, set, get, child, update } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBbPwpQsTdrfPi6WvfhFVhmhpeYzp5Wn0g",
@@ -171,12 +171,25 @@ window.FirebaseAuthManager = {
         }
     },
     
-    // Legacy mapping + generic save that grabs the whole local picture
+    // Optimized Delta Sync: Only uploads the exact profile that was modified, not the whole database!
     saveProgress: async function(profileSK, stateObject) {
         if (profileSK && stateObject) {
-            localStorage.setItem(profileSK, JSON.stringify(stateObject));
+            const jsonState = JSON.stringify(stateObject);
+            localStorage.setItem(profileSK, jsonState);
+            
+            if (currentUser) {
+                try {
+                    // Instantly patch ONLY this specific profile in the cloud database
+                    const updates = {};
+                    updates[profileSK] = jsonState;
+                    await update(ref(db, 'users/' + currentUser.uid + '/data'), updates);
+                } catch(e) { 
+                    console.error("Firebase Fast-Sync Error", e); 
+                }
+            }
+        } else {
+            await this.forceSync();
         }
-        await this.forceSync();
     },
 
     // Completely synchronizes everything to the cloud immediately in one bundle
