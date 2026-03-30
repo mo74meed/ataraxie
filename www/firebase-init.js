@@ -66,10 +66,11 @@ window.FirebaseAuthManager = {
                 // 2. Pass Android token to Firebase
                 const credential = GoogleAuthProvider.credential(googleUser.authentication.idToken);
                 await signInWithCredential(auth, credential);
-                return;
+                return; // Stop here if native worked
             } catch (error) {
                 console.error("Native Capacitor Auth Error:", error);
-                // If it fails, fallback to standard web flow
+                alert("Erreur de connexion native: " + JSON.stringify(error));
+                return; // DO NOT FALLBACK. The web fallback breaks Capacitor because Capacitor doesn't handle redirects well.
             }
         }
 
