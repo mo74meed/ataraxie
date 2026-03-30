@@ -56,10 +56,19 @@ window.FirebaseAuthManager = {
     login: async function() {
         const provider = new GoogleAuthProvider();
         provider.setCustomParameters({ prompt: 'select_account' }); // Prevent infinite loops
+        
+        // Use regex strictly for mobile detection to avoid desktop popups firing and failing late
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
         try {
-            await signInWithPopup(auth, provider);
+            if (isMobile) {
+                // Instantly redirect on mobile devices without attempting a popup
+                await signInWithRedirect(auth, provider);
+            } else {
+                await signInWithPopup(auth, provider);
+            }
         } catch (error) {
-            console.error("Popup blocked/failed, falling back to redirect:", error);
+            console.error("Login failed or popup blocked. Falling back to redirect:", error);
             await signInWithRedirect(auth, provider);
         }
     },
@@ -68,36 +77,15 @@ window.FirebaseAuthManager = {
         try {
             await signOut(auth);
             
-            // Restore offline backup if it exists
-            const offlineBackupStr = localStorage.getItem('ataraxie_offline_backup');
-            if (offlineBackupStr) {
-                const offlineBackup = JSON.parse(offlineBackupStr);
-                
-                // Clear all current online data first
-                let keysToRemove = [];
-                for (let i = 0; i < localStorage.length; i++) {
-                    let key = localStorage.key(i);
-                    if (key && key.startsWith('ataraxie_')) {
-                        keysToRemove.push(key);
-                    }
+            // Clear all local data so the next session/offline mode is clean
+            let keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key && key.startsWith('ataraxie_')) {
+                    keysToRemove.push(key);
                 }
-                keysToRemove.forEach(k => localStorage.removeItem(k));
-                
-                // Re-inject the pristine offline data
-                for (let key in offlineBackup) {
-                    localStorage.setItem(key, offlineBackup[key]);
-                }
-            } else {
-                // If they never had offline data, just clear the cloud data so next user starts fresh
-                let keysToRemove = [];
-                for (let i = 0; i < localStorage.length; i++) {
-                    let key = localStorage.key(i);
-                    if (key && key.startsWith('ataraxie_') && key !== 'ataraxie_offline_backup') {
-                        keysToRemove.push(key);
-                    }
-                }
-                keysToRemove.forEach(k => localStorage.removeItem(k));
             }
+            keysToRemove.forEach(k => localStorage.removeItem(k));
             
             location.reload(); 
         } catch (error) {
@@ -115,17 +103,13 @@ window.FirebaseAuthManager = {
         const dbRef = ref(db);
         const snapshot = await get(child(dbRef, `users/${user.uid}`));
 
-        // 1. MAKE AN OFFLINE BACKUP BEFORE WE DO ANYTHING
+        // 1. Gather any existing local data (useful if they are logging in for the VERY FIRST TIME)
         let localDataDump = {};
         for (let i = 0; i < localStorage.length; i++) {
             let key = localStorage.key(i);
-            if (key && key.startsWith('ataraxie_') && key !== 'ataraxie_offline_backup') {
+            if (key && key.startsWith('ataraxie_')) {
                 localDataDump[key] = localStorage.getItem(key);
             }
-        }
-        // Only save backup if there's actually something to save, and we haven't already backed it up
-        if (Object.keys(localDataDump).length > 0 && !localStorage.getItem('ataraxie_offline_backup')) {
-            localStorage.setItem('ataraxie_offline_backup', JSON.stringify(localDataDump));
         }
 
         if (!snapshot.exists()) {
@@ -146,7 +130,7 @@ window.FirebaseAuthManager = {
             let keysToRemove = [];
             for (let i = 0; i < localStorage.length; i++) {
                 let key = localStorage.key(i);
-                if (key && key.startsWith('ataraxie_') && key !== 'ataraxie_offline_backup') {
+                if (key && key.startsWith('ataraxie_')) {
                     keysToRemove.push(key);
                 }
             }
