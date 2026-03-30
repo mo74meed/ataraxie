@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "490683199342",
+    "firebase_url": "https://e-taraxie-default-rtdb.firebaseio.com",
+    "project_id": "e-taraxie",
+    "storage_bucket": "e-taraxie.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490683199342:android:af6b465459aac5bf4cdb7f",
+        "android_client_info": {
+          "package_name": "com.ataraxie.medical"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490683199342-k5t3t68esrl262i1jfshldcf2tho7ave.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTSBydivEcRxzZ3_S2TfwgZ9XnziLLREI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490683199342-k5t3t68esrl262i1jfshldcf2tho7ave.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

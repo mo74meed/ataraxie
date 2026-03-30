@@ -1,5 +1,12 @@
 {
   "appId": "com.ataraxie.medical",
   "appName": "Ataraxie",
-  "webDir": "www"
+  "webDir": "www",
+  "plugins": {
+    "GoogleAuth": {
+      "scopes": ["profile", "email"],
+      "serverClientId": "490683199342-k5t3t68esrl262i1jfshldcf2tho7ave.apps.googleusercontent.com",
+      "forceCodeForRefreshToken": true
+    }
+  }
 }

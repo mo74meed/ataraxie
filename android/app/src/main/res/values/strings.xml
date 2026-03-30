@@ -4,4 +4,5 @@
     <string name="title_activity_main">Ataraxie</string>
     <string name="package_name">com.ataraxie.medical</string>
     <string name="custom_url_scheme">com.ataraxie.medical</string>
+    <string name="server_client_id">490683199342-k5t3t68esrl262i1jfshldcf2tho7ave.apps.googleusercontent.com</string>
 </resources>

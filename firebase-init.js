@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut, onAuthStateChanged, signInWithCredential } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child, update } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -54,15 +54,34 @@ window.FirebaseAuthManager = {
     },
     
     login: async function() {
+        // Check if running directly inside the compiled Android/iOS Capacitor app
+        if (window.Capacitor && window.Capacitor.isNativePlatform()) {
+            try {
+                // Initialize plugin just in case
+                window.Capacitor.Plugins.GoogleAuth.initialize();
+                
+                // 1. Native Bottom-Sheet Google Prompt
+                const googleUser = await window.Capacitor.Plugins.GoogleAuth.signIn();
+                
+                // 2. Pass Android token to Firebase
+                const credential = GoogleAuthProvider.credential(googleUser.authentication.idToken);
+                await signInWithCredential(auth, credential);
+                return;
+            } catch (error) {
+                console.error("Native Capacitor Auth Error:", error);
+                // If it fails, fallback to standard web flow
+            }
+        }
+
+        // --- Standard Web / GitHub Pages Flow Below ---
         const provider = new GoogleAuthProvider();
         provider.setCustomParameters({ prompt: 'select_account' }); // Prevent infinite loops
         
-        // Use regex strictly for mobile detection to avoid desktop popups firing and failing late
+        // Use regex strictly for mobile browser detection (like Chrome on phone)
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         
         try {
             if (isMobile) {
-                // Instantly redirect on mobile devices without attempting a popup
                 await signInWithRedirect(auth, provider);
             } else {
                 await signInWithPopup(auth, provider);
@@ -77,6 +96,11 @@ window.FirebaseAuthManager = {
         try {
             await signOut(auth);
             
+            // If native, also sign out from the Android Google Account UI picker cache
+            if (window.Capacitor && window.Capacitor.isNativePlatform()) {
+                await window.Capacitor.Plugins.GoogleAuth.signOut();
+            }
+
             // Clear all local data so the next session/offline mode is clean
             let keysToRemove = [];
             for (let i = 0; i < localStorage.length; i++) {
