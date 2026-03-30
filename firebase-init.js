@@ -84,40 +84,71 @@ window.FirebaseAuthManager = {
         const userRef = doc(db, "users", user.uid);
         const docSnap = await getDoc(userRef);
 
-        const APK = 'ataraxie_active_profile';
-        const activeId = localStorage.getItem(APK);
-        let activeProfileSK = activeId ? 'ataraxie_p_' + activeId : null;
-
         if (!docSnap.exists()) {
-            let stateToSync = {};
-            if (activeProfileSK) {
-                const localData = localStorage.getItem(activeProfileSK);
-                if (localData) stateToSync = JSON.parse(localData);
+            // First login: upload all local profiles and data up to the cloud
+            let fullData = {};
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key && key.startsWith('ataraxie_')) {
+                    fullData[key] = localStorage.getItem(key);
+                }
             }
             const payload = {
                 metadata: { email: user.email, linkedAt: Date.now() },
-                state: stateToSync
+                data: fullData
             };
             await setDoc(userRef, payload);
-            return stateToSync; 
+            return fullData; 
         } else {
+            // Existing cloud account: download and inject everything into localStorage
             const docData = docSnap.data();
-            const cloudData = docData.state || {};
-            if (activeProfileSK) {
-                localStorage.setItem(activeProfileSK, JSON.stringify(cloudData));
+            const cloudData = docData.data || {};
+
+            // Failsafe migration for old accounts that only had "state" but no "data"
+            if (Object.keys(cloudData).length === 0 && docData.state) {
+                let fullData = {};
+                for (let i = 0; i < localStorage.length; i++) {
+                    let key = localStorage.key(i);
+                    if (key && key.startsWith('ataraxie_')) {
+                        fullData[key] = localStorage.getItem(key);
+                    }
+                }
+                await setDoc(userRef, { data: fullData }, { merge: true });
+                return fullData;
+            }
+            
+            // Normal sync: Overwrite local with whatever cloud has.
+            for (let key in cloudData) {
+                if (key.startsWith('ataraxie_')) {
+                    localStorage.setItem(key, cloudData[key]);
+                }
             }
             return cloudData;
         }
     },
     
+    // Legacy mapping + generic save that grabs the whole local picture
     saveProgress: async function(profileSK, stateObject) {
-        localStorage.setItem(profileSK, JSON.stringify(stateObject));
-        
+        if (profileSK && stateObject) {
+            localStorage.setItem(profileSK, JSON.stringify(stateObject));
+        }
+        this.forceSync();
+    },
+
+    // Completely synchronizes everything to the cloud immediately in one bundle
+    forceSync: async function() {
         if (currentUser) {
             try {
+                let fullData = {};
+                for (let i = 0; i < localStorage.length; i++) {
+                    let key = localStorage.key(i);
+                    if (key && key.startsWith('ataraxie_')) {
+                        fullData[key] = localStorage.getItem(key);
+                    }
+                }
                 const userRef = doc(db, "users", currentUser.uid);
-                await setDoc(userRef, { state: stateObject }, { merge: true });
-            } catch(e) { console.error("Firebase Save Error", e); }
+                await setDoc(userRef, { data: fullData }, { merge: true });
+            } catch(e) { console.error("Firebase Sync Error", e); }
         }
     }
 };

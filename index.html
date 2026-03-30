@@ -2945,10 +2945,11 @@
             function getProfiles() { try { const r = localStorage.getItem(PK); return r ? JSON.parse(r) : [] } catch (e) { return [] } }
             function saveProfiles(p) { localStorage.setItem(PK, JSON.stringify(p)) }
             function getActiveId() { return localStorage.getItem(APK) || null }
-            function setActiveId(id) { localStorage.setItem(APK, id) }
+            function setActiveId(id) { localStorage.setItem(APK, id); syncCloud(); }
             function profileSK(id) { return 'ataraxie_p_' + id }
             function genId() { return Date.now().toString(36) + Math.random().toString(36).substr(2, 5) }
             function emptyState() { return { qcm: {}, red: {}, val: {}, sb: {}, sortChildren: {}, ac: null, his: {}, recent: [], official: {} } }
+            function syncCloud() { if(window.FirebaseAuthManager) window.FirebaseAuthManager.forceSync(); }
 
             function migrateIfNeeded() {
                 let profiles = getProfiles();
@@ -3024,16 +3025,18 @@
                 profiles.push({ id, name, createdAt: Date.now() });
                 saveProfiles(profiles);
                 localStorage.setItem(profileSK(id), JSON.stringify(data || emptyState()));
+                syncCloud();
                 return id;
             }
             function deleteProfile(id) {
                 let profiles = getProfiles().filter(p => p.id !== id);
                 saveProfiles(profiles); localStorage.removeItem(profileSK(id));
+                syncCloud();
                 if (activeProfileId === id) { switchProfile(profiles[0].id); }
             }
             function renameProfile(id, name) {
                 const profiles = getProfiles(); const p = profiles.find(x => x.id === id);
-                if (p) { p.name = name; saveProfiles(profiles); upProfileUI(); }
+                if (p) { p.name = name; saveProfiles(profiles); upProfileUI(); syncCloud(); }
             }
             function duplicateProfile(id) {
                 if (id === activeProfileId) svNow();
@@ -3271,10 +3274,11 @@
                             }
                             
                             // Hot-reload state from localStorage which was updated by firebase-init
+                            activeProfileId = getActiveId(); // Re-fetch in case a different profile was active on the cloud device
                             st = ld(); 
                             
                             // Re-render UI components with synced data
-                            buildSB(); upProg(); renderHistory();
+                            upProfileUI(); buildSB(); upProg(); renderHistory();
                             if (ak) { 
                                 const ps = ak.split('§'); 
                                 loadChap(ps[0], ps[1]); 
