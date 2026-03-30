@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-lite.js";
+import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBbPwpQsTdrfPi6WvfhFVhmhpeYzp5Wn0g",
@@ -9,15 +9,16 @@ const firebaseConfig = {
   storageBucket: "e-taraxie.firebasestorage.app",
   messagingSenderId: "490683199342",
   appId: "1:490683199342:web:b3c6df504994c01d4cdb7f",
-  measurementId: "G-NWJ26Y115H"
+  measurementId: "G-NWJ26Y115H",
+  // Crucial for RTDB: You MUST specify the databaseURL if it doesn't auto-detect
+  databaseURL: "https://e-taraxie-default-rtdb.firebaseio.com"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Use the Firestore Lite SDK which utilizes only standard REST fetches (no WebChannels or WebSockets).
-// This guarantees zero issues with AdBlockers that block long-polling or streams.
-const db = getFirestore(app);
+// Use Realtime Database instead of Firestore to bypass daily 'Save Count' quotas
+const db = getDatabase(app);
 
 let currentUser = null;
 
@@ -87,10 +88,11 @@ window.FirebaseAuthManager = {
     
     syncAndLoadData: async function(user) {
         if (!user) return null;
-        const userRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(userRef);
+        
+        const dbRef = ref(db);
+        const snapshot = await get(child(dbRef, `users/${user.uid}`));
 
-        if (!docSnap.exists()) {
+        if (!snapshot.exists()) {
             // First login: upload all local profiles and data up to the cloud
             let fullData = {};
             for (let i = 0; i < localStorage.length; i++) {
@@ -103,11 +105,11 @@ window.FirebaseAuthManager = {
                 metadata: { email: user.email, linkedAt: Date.now() },
                 data: fullData
             };
-            await setDoc(userRef, payload);
+            await set(ref(db, 'users/' + user.uid), payload);
             return fullData; 
         } else {
             // Existing cloud account: download and inject everything into localStorage
-            const docData = docSnap.data();
+            const docData = snapshot.val();
             const cloudData = docData.data || {};
 
             // Failsafe migration for old accounts that only had "state" but no "data"
@@ -119,7 +121,11 @@ window.FirebaseAuthManager = {
                         fullData[key] = localStorage.getItem(key);
                     }
                 }
-                await setDoc(userRef, { data: fullData }, { merge: true });
+                // RTDB Set overwrites the node, so we include the metadata again
+                await set(ref(db, 'users/' + user.uid), {
+                    metadata: docData.metadata || { email: user.email, linkedAt: Date.now() },
+                    data: fullData
+                });
                 return fullData;
             }
             
@@ -152,8 +158,9 @@ window.FirebaseAuthManager = {
                         fullData[key] = localStorage.getItem(key);
                     }
                 }
-                const userRef = doc(db, "users", currentUser.uid);
-                await setDoc(userRef, { data: fullData }, { merge: true });
+                
+                // Only update the 'data' node of the specific user without overwriting metadata
+                await set(ref(db, 'users/' + currentUser.uid + '/data'), fullData);
             } catch(e) { console.error("Firebase Sync Error", e); }
         }
     }
