@@ -2700,142 +2700,6 @@
                 white-space: normal;
                 line-height: 1.4;
             }
-        .auth-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-left: auto; /* Push to the right */
-            padding-left: 16px;
-            border-left: 1px solid var(--pb);
-            height: 100%;
-            min-height: 48px;
-        }
-
-        .auth-loading-spinner {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--pbs);
-            border-top: 2px solid var(--b500);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .auth-login-btn {
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            background: linear-gradient(135deg, var(--b500), var(--b400));
-            color: white;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: var(--shadow-opt-sel);
-            transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
-        }
-
-        .auth-login-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(74, 79, 244, 0.25);
-        }
-
-        .auth-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 4px 10px 4px 4px;
-            background: var(--p0);
-            border: 1px solid var(--pb);
-            border-radius: 20px;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .auth-avatar {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--pb);
-            background: var(--pbs);
-        }
-
-        .auth-info-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .auth-name {
-            font-size: 0.75rem;
-            color: var(--t1);
-            font-weight: 600;
-            line-height: 1.1;
-            max-width: 100px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .auth-status {
-            font-size: 0.65rem;
-            color: var(--t3);
-            font-weight: 500;
-            line-height: 1.1;
-            margin-top: 2px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .auth-status-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--g500);
-            border-radius: 50%;
-            box-shadow: 0 0 4px var(--g400);
-            animation: pulse-dot 2s infinite;
-        }
-
-        @keyframes pulse-dot {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
-        }
-
-        .auth-logout-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: transparent;
-            color: var(--t3);
-            border: 1px solid transparent;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .auth-logout-btn:hover {
-            color: var(--t1);
-            background: var(--p2);
-            border-color: var(--pb);
-        }
-
-        .fade-in {
-            animation: fadeIn 0.4s ease-in forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 
@@ -2972,29 +2836,21 @@
                                 stroke-dashoffset="106.81" />
                         </svg></div>
                 </div>
-                <div class="auth-container" id="auth-box">
-                    <!-- Loading State (Spinner while Firebase checks auth) -->
-                    <div id="auth-loading" style="display: flex; align-items: center; justify-content: center; width: 60px;">
-                        <div class="auth-loading-spinner"></div>
+                <div class="auth-box" style="display:flex; gap: 8px; align-items: center; margin-left: 12px; padding-left: 12px; border-left: 1px solid var(--pb);">
+                    <div id="auth-info" style="display: none; align-items: center; gap: 8px;">
+                        <img id="auth-pfp" src="" style="width: 24px; height: 24px; border-radius: 50%; display: none; border: 1px solid var(--pb);">
+                        <div style="display: flex; flex-direction: column;">
+                            <span id="auth-email" style="font-size: 0.70rem; color: var(--t2); font-weight: 500; line-height: 1;"></span>
+                            <span style="font-size: 0.6rem; color: var(--g500); font-weight: 600; line-height: 1; margin-top: 2px;">● Synced</span>
+                        </div>
                     </div>
-
-                    <!-- Logged Out State -->
-                    <button class="btn auth-login-btn" id="login-btn" style="display: none;">
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H6v-2h5V7l5 5-5 5z"/></svg>
+                    <button class="btn" id="login-btn" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 500; background: var(--b500); color: white; border-radius: 6px; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: var(--shadow-opt-sel); transition: background 0.2s;">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H6v-2h5V7l5 5-5 5z"/></svg>
                         Log in
                     </button>
-
-                    <!-- Logged In State -->
-                    <div id="auth-info" class="auth-profile" style="display: none;">
-                        <img id="auth-pfp" class="auth-avatar" src="" style="display: none;">
-                        <div class="auth-info-text">
-                            <span id="auth-email" class="auth-name"></span>
-                            <span class="auth-status"><div class="auth-status-dot"></div> Cloud Synced</span>
-                        </div>
-                        <button class="auth-logout-btn" id="logout-btn" title="Log out">
-                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                        </button>
-                    </div>
+                    <button class="btn" id="logout-btn" style="display: none; padding: 6px; font-size: 0.8rem; background: transparent; color: var(--t3); border-radius: 6px; border: 1px solid var(--pb); cursor: pointer; transition: all 0.2s;" title="Log out">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    </button>
                 </div>
             </div>
         </header>
@@ -3400,17 +3256,10 @@
                     document.getElementById('logout-btn').addEventListener('click', () => window.FirebaseAuthManager.logout());
                     
                     window.FirebaseAuthManager.init((cloudState, user) => {
-                        const loadingEl = document.getElementById('auth-loading');
-                        const loginBtn = document.getElementById('login-btn');
-                        const profileEl = document.getElementById('auth-info');
-
-                        // Hide loading spinner instantly on first load
-                        if (loadingEl) loadingEl.style.display = 'none';
-
                         if (user) {
-                            loginBtn.style.display = 'none';
-                            profileEl.style.display = 'flex';
-                            profileEl.classList.add('fade-in'); // Add smooth entry animation
+                            document.getElementById('login-btn').style.display = 'none';
+                            document.getElementById('logout-btn').style.display = 'flex';
+                            document.getElementById('auth-info').style.display = 'flex';
                             
                             // Make it look pretty: Display name or shorten email
                             let displayName = user.displayName || user.email.split('@')[0];
@@ -3433,10 +3282,9 @@
                                 goHome();
                             }
                         } else {
-                            profileEl.style.display = 'none';
-                            profileEl.classList.remove('fade-in');
-                            loginBtn.style.display = 'flex';
-                            loginBtn.classList.add('fade-in'); // Smooth entry for login button
+                            document.getElementById('login-btn').style.display = 'flex';
+                            document.getElementById('logout-btn').style.display = 'none';
+                            document.getElementById('auth-info').style.display = 'none';
                             document.getElementById('auth-pfp').style.display = 'none';
                             document.getElementById('auth-pfp').src = '';
                         }
