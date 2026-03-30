@@ -51,6 +51,47 @@ window.FirebaseAuthManager = {
                 onUserLoadCallback(null, null);
             }
         });
+
+        // Listen for when device comes back online
+        window.addEventListener('online', async () => {
+            if (currentUser) {
+                console.log("Network returned online. Checking for offline data...");
+                let localDataDump = {};
+                for (let i = 0; i < localStorage.length; i++) {
+                    let key = localStorage.key(i);
+                    if (key && key.startsWith('ataraxie_')) {
+                        localDataDump[key] = localStorage.getItem(key);
+                    }
+                }
+
+                if (Object.keys(localDataDump).length > 0) {
+                    const dbRef = ref(db);
+                    const snapshot = await get(child(dbRef, `users/${currentUser.uid}`));
+                    if (snapshot.exists()) {
+                        const cloudData = snapshot.val().data || {};
+                        let hasDifferences = false;
+                        for (let k in localDataDump) {
+                            if (localDataDump[k] !== cloudData[k]) { hasDifferences = true; break; }
+                        }
+                        for (let k in cloudData) {
+                            if (cloudData[k] !== localDataDump[k]) { hasDifferences = true; break; }
+                        }
+
+                        if (hasDifferences) {
+                            const keepLocal = confirm("Vous êtes de nouveau en ligne ! Des changements hors ligne ont été détectés.\nVoulez-vous sauvegarder ces modifications sur le cloud (OK) ou les annuler (Annuler) ?");
+                            if (keepLocal) {
+                                // Push offline data to cloud
+                                await update(ref(db, 'users/' + currentUser.uid + '/data'), localDataDump);
+                                alert("Données sauvegardées avec succès.");
+                            } else {
+                                // Re-pull from cloud
+                                window.FirebaseAuthManager.pullNow();
+                            }
+                        }
+                    }
+                }
+            }
+        });
     },
     
     login: async function() {
@@ -149,6 +190,26 @@ window.FirebaseAuthManager = {
             // Existing cloud account: download and inject everything into localStorage
             const docData = snapshot.val();
             const cloudData = docData.data || {};
+
+            // Check if there are local offline differences
+            let hasDifferences = false;
+            if (Object.keys(localDataDump).length > 0) {
+                for (let k in localDataDump) {
+                    if (localDataDump[k] !== cloudData[k]) { hasDifferences = true; break; }
+                }
+                for (let k in cloudData) {
+                    if (cloudData[k] !== localDataDump[k]) { hasDifferences = true; break; }
+                }
+            }
+
+            if (hasDifferences) {
+                const keepLocal = confirm("Des données sauvegardées localement ont été détectées.\n\nVoulez-vous garder ces données (Ok) ou télécharger celles du Cloud (Annuler) ?");
+                if (keepLocal) {
+                    // Update Cloud with Local Data
+                    await update(ref(db, 'users/' + user.uid + '/data'), localDataDump);
+                    return localDataDump; // Keep local data and skip cloud overwrite
+                }
+            }
 
             // Normal sync: Overwrite local with whatever cloud has.
             // First, delete current local state to prevent mixing old ghost profiles with clean cloud state
