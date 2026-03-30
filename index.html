@@ -3265,7 +3265,7 @@
                             document.getElementById('auth-info').style.display = 'flex';
                             
                             // Make it look pretty: Display name or shorten email
-                            let displayName = user.displayName || user.email.split('@')[0];
+                            let displayName = user.displayName || (user.email ? user.email.split('@')[0] : 'User');
                             document.getElementById('auth-email').textContent = displayName;
                             
                             if (user.photoURL) {

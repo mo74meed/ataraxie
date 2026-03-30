@@ -22,23 +22,29 @@ const db = getFirestore(app);
 let currentUser = null;
 
 window.FirebaseAuthManager = {
-    init: async function(onUserLoadCallback) {
+    init: function(onUserLoadCallback) {
         // Essential for mobile: catch the returning user after a redirect!
-        try {
-            const redirectResult = await getRedirectResult(auth);
+        // We do not await it here so it doesn't block onAuthStateChanged loading.
+        getRedirectResult(auth).then((redirectResult) => {
             if (redirectResult && redirectResult.user) {
                 console.log("User signed in via redirect:", redirectResult.user.email);
             }
-        } catch (error) {
+        }).catch((error) => {
             console.error("Redirect login error:", error);
-        }
+        });
 
         onAuthStateChanged(auth, async (user) => {
             currentUser = user;
             if (user) {
                 console.log("User signed in:", user.email);
-                const cloudData = await this.syncAndLoadData(user);
-                onUserLoadCallback(cloudData, user);
+                try {
+                    const cloudData = await this.syncAndLoadData(user);
+                    onUserLoadCallback(cloudData, user);
+                } catch (err) {
+                    console.error("Failed to sync and load data:", err);
+                    // Fallback to null cloudData but still authenticate the user
+                    onUserLoadCallback(null, user);
+                }
             } else {
                 console.log("No user signed in.");
                 onUserLoadCallback(null, null);
