@@ -53,24 +53,18 @@ window.FirebaseAuthManager = {
         });
     },
     
-    login: async function() {
+    login: function() {
         const provider = new GoogleAuthProvider();
-        try {
-            // Mobile browsers automatically block popups. We use Redirect for mobile, Popup for desktop.
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                await signInWithRedirect(auth, provider);
-            } else {
-                await signInWithPopup(auth, provider);
-            }
-        } catch (error) {
-            console.error("Login failed", error);
-            // If popup is somehow mapped or blocked on desktop, fallback to redirect
+        // Always attempt Popup first (fastest, keeps state). Mobile Chrome actually allows this if it's from a direct click.
+        signInWithPopup(auth, provider).catch((error) => {
+            console.error("Popup Error:", error);
             if (error.code === 'auth/popup-blocked') {
-                await signInWithRedirect(auth, provider);
+                alert("Your browser blocked the Google Login popup. We will redirect you instead.");
+                signInWithRedirect(auth, provider);
+            } else {
+                alert("Login failed: " + error.message);
             }
-        }
+        });
     },
     
     logout: async function() {
