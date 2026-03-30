@@ -53,23 +53,61 @@ window.FirebaseAuthManager = {
         });
     },
     
-    login: function() {
+    login: async function() {
         const provider = new GoogleAuthProvider();
-        // Always attempt Popup first (fastest, keeps state). Mobile Chrome actually allows this if it's from a direct click.
-        signInWithPopup(auth, provider).catch((error) => {
-            console.error("Popup Error:", error);
-            if (error.code === 'auth/popup-blocked') {
-                alert("Your browser blocked the Google Login popup. We will redirect you instead.");
-                signInWithRedirect(auth, provider);
+        try {
+            // Mobile browsers automatically block popups. We use Redirect for mobile, Popup for desktop.
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                await signInWithRedirect(auth, provider);
             } else {
-                alert("Login failed: " + error.message);
+                await signInWithPopup(auth, provider);
             }
-        });
+        } catch (error) {
+            console.error("Login failed", error);
+            // If popup is somehow mapped or blocked on desktop, fallback to redirect
+            if (error.code === 'auth/popup-blocked') {
+                await signInWithRedirect(auth, provider);
+            }
+        }
     },
     
     logout: async function() {
         try {
             await signOut(auth);
+            
+            // Restore offline backup if it exists
+            const offlineBackupStr = localStorage.getItem('ataraxie_offline_backup');
+            if (offlineBackupStr) {
+                const offlineBackup = JSON.parse(offlineBackupStr);
+                
+                // Clear all current online data first
+                let keysToRemove = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    let key = localStorage.key(i);
+                    if (key && key.startsWith('ataraxie_')) {
+                        keysToRemove.push(key);
+                    }
+                }
+                keysToRemove.forEach(k => localStorage.removeItem(k));
+                
+                // Re-inject the pristine offline data
+                for (let key in offlineBackup) {
+                    localStorage.setItem(key, offlineBackup[key]);
+                }
+            } else {
+                // If they never had offline data, just clear the cloud data so next user starts fresh
+                let keysToRemove = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    let key = localStorage.key(i);
+                    if (key && key.startsWith('ataraxie_') && key !== 'ataraxie_offline_backup') {
+                        keysToRemove.push(key);
+                    }
+                }
+                keysToRemove.forEach(k => localStorage.removeItem(k));
+            }
+            
             location.reload(); 
         } catch (error) {
             console.error("Logout failed", error);
@@ -86,44 +124,44 @@ window.FirebaseAuthManager = {
         const dbRef = ref(db);
         const snapshot = await get(child(dbRef, `users/${user.uid}`));
 
+        // 1. MAKE AN OFFLINE BACKUP BEFORE WE DO ANYTHING
+        let localDataDump = {};
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            if (key && key.startsWith('ataraxie_') && key !== 'ataraxie_offline_backup') {
+                localDataDump[key] = localStorage.getItem(key);
+            }
+        }
+        // Only save backup if there's actually something to save, and we haven't already backed it up
+        if (Object.keys(localDataDump).length > 0 && !localStorage.getItem('ataraxie_offline_backup')) {
+            localStorage.setItem('ataraxie_offline_backup', JSON.stringify(localDataDump));
+        }
+
         if (!snapshot.exists()) {
             // First login: upload all local profiles and data up to the cloud
-            let fullData = {};
-            for (let i = 0; i < localStorage.length; i++) {
-                let key = localStorage.key(i);
-                if (key && key.startsWith('ataraxie_')) {
-                    fullData[key] = localStorage.getItem(key);
-                }
-            }
             const payload = {
                 metadata: { email: user.email, linkedAt: Date.now() },
-                data: fullData
+                data: localDataDump
             };
             await set(ref(db, 'users/' + user.uid), payload);
-            return fullData; 
+            return localDataDump; 
         } else {
             // Existing cloud account: download and inject everything into localStorage
             const docData = snapshot.val();
             const cloudData = docData.data || {};
 
-            // Failsafe migration for old accounts that only had "state" but no "data"
-            if (Object.keys(cloudData).length === 0 && docData.state) {
-                let fullData = {};
-                for (let i = 0; i < localStorage.length; i++) {
-                    let key = localStorage.key(i);
-                    if (key && key.startsWith('ataraxie_')) {
-                        fullData[key] = localStorage.getItem(key);
-                    }
-                }
-                // RTDB Set overwrites the node, so we include the metadata again
-                await set(ref(db, 'users/' + user.uid), {
-                    metadata: docData.metadata || { email: user.email, linkedAt: Date.now() },
-                    data: fullData
-                });
-                return fullData;
-            }
-            
             // Normal sync: Overwrite local with whatever cloud has.
+            // First, delete current local state to prevent mixing old ghost profiles with clean cloud state
+            let keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key && key.startsWith('ataraxie_') && key !== 'ataraxie_offline_backup') {
+                    keysToRemove.push(key);
+                }
+            }
+            keysToRemove.forEach(k => localStorage.removeItem(k));
+
+            // Inject the new pure cloud state
             for (let key in cloudData) {
                 if (key.startsWith('ataraxie_')) {
                     localStorage.setItem(key, cloudData[key]);
