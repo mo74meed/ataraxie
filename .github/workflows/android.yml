@@ -33,6 +33,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x android/gradlew
 
+      - name: Generate Static Keystore For Google Auth
+        run: |
+          mkdir -p ~/.config/.android
+          keytool -genkey -v -keystore ~/.config/.android/debug.keystore -storepass android -alias AndroidDebugKey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "C=US, O=Android, CN=Android Debug"
+
       - name: Generate Signing Report (Fetch SHA-1 & SHA-256)
         run: cd android && ./gradlew signingReport
 
