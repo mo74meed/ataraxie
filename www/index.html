@@ -2836,6 +2836,22 @@
                                 stroke-dashoffset="106.81" />
                         </svg></div>
                 </div>
+                <div class="auth-box" style="display:flex; gap: 8px; align-items: center; margin-left: 12px; padding-left: 12px; border-left: 1px solid var(--pb);">
+                    <div id="auth-info" style="display: none; align-items: center; gap: 8px;">
+                        <img id="auth-pfp" src="" style="width: 24px; height: 24px; border-radius: 50%; display: none; border: 1px solid var(--pb);">
+                        <div style="display: flex; flex-direction: column;">
+                            <span id="auth-email" style="font-size: 0.70rem; color: var(--t2); font-weight: 500; line-height: 1;"></span>
+                            <span style="font-size: 0.6rem; color: var(--g500); font-weight: 600; line-height: 1; margin-top: 2px;">● Synced</span>
+                        </div>
+                    </div>
+                    <button class="btn" id="login-btn" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 500; background: var(--b500); color: white; border-radius: 6px; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: var(--shadow-opt-sel); transition: background 0.2s;">
+                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H6v-2h5V7l5 5-5 5z"/></svg>
+                        Log in
+                    </button>
+                    <button class="btn" id="logout-btn" style="display: none; padding: 6px; font-size: 0.8rem; background: transparent; color: var(--t3); border-radius: 6px; border: 1px solid var(--pb); cursor: pointer; transition: all 0.2s;" title="Log out">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    </button>
+                </div>
             </div>
         </header>
         <main class="content" id="mc">
@@ -2914,6 +2930,8 @@
         <div class="imp-choice-btns" id="imp-choice-btns"></div>
     </div>
 
+    <!-- Inject Firebase Helper Module -->
+    <script type="module" src="firebase-init.js"></script>
     <script src="ataraxie_s8_db.js"></script>
     <script>
         (function () {
@@ -2927,10 +2945,11 @@
             function getProfiles() { try { const r = localStorage.getItem(PK); return r ? JSON.parse(r) : [] } catch (e) { return [] } }
             function saveProfiles(p) { localStorage.setItem(PK, JSON.stringify(p)) }
             function getActiveId() { return localStorage.getItem(APK) || null }
-            function setActiveId(id) { localStorage.setItem(APK, id) }
+            function setActiveId(id) { localStorage.setItem(APK, id); syncCloud(); }
             function profileSK(id) { return 'ataraxie_p_' + id }
             function genId() { return Date.now().toString(36) + Math.random().toString(36).substr(2, 5) }
             function emptyState() { return { qcm: {}, red: {}, val: {}, sb: {}, sortChildren: {}, ac: null, his: {}, recent: [], official: {} } }
+            function syncCloud() { if(window.FirebaseAuthManager) window.FirebaseAuthManager.forceSync(); }
 
             function migrateIfNeeded() {
                 let profiles = getProfiles();
@@ -2952,9 +2971,39 @@
             let activeProfileId = getActiveId();
             let st = ld(), ak = null;
 
-            function ld() { try { const r = localStorage.getItem(profileSK(activeProfileId)); if (r) { const d = JSON.parse(r); if (!d.his) d.his = {}; if (!d.recent) d.recent = []; if (!d.official) d.official = {}; if (!d.sortChildren) d.sortChildren = {}; return d } } catch (e) { } return emptyState() }
-            function sv() { clearTimeout(sT); sT = setTimeout(() => { try { localStorage.setItem(profileSK(activeProfileId), JSON.stringify(st)) } catch (e) { } }, 200) }
-            function svNow() { clearTimeout(sT); try { localStorage.setItem(profileSK(activeProfileId), JSON.stringify(st)) } catch (e) { } }
+            function ld() { 
+                try { 
+                    const r = localStorage.getItem(profileSK(activeProfileId)); 
+                    if (r) { 
+                        const d = JSON.parse(r); 
+                        if (!d.qcm) d.qcm = {}; if (!d.red) d.red = {}; if (!d.val) d.val = {}; 
+                        if (!d.his) d.his = {}; if (!d.recent) d.recent = []; 
+                        if (!d.official) d.official = {}; if (!d.sortChildren) d.sortChildren = {}; 
+                        if (!d.sb) d.sb = {};
+                        return d; 
+                    } 
+                } catch (e) { } 
+                return emptyState(); 
+            }
+            function sv() { 
+                clearTimeout(sT); 
+                sT = setTimeout(() => { 
+                    try { 
+                        if (window.FirebaseAuthManager) { window.FirebaseAuthManager.saveProgress(profileSK(activeProfileId), st); }
+                        else { localStorage.setItem(profileSK(activeProfileId), JSON.stringify(st)) }
+                    } catch (e) { } 
+                }, 200) 
+            }
+            function svNow() { 
+                clearTimeout(sT); 
+                try { 
+                    if (window.FirebaseAuthManager) { return window.FirebaseAuthManager.saveProgress(profileSK(activeProfileId), st); }
+                    else { 
+                        localStorage.setItem(profileSK(activeProfileId), JSON.stringify(st)); 
+                        return Promise.resolve();
+                    }
+                } catch (e) { return Promise.resolve(); } 
+            }
             function mk(m, c, q) { return m + '§' + c + (q !== undefined ? '§' + q : '') }
             function isAns(key, type) {
                 if (type === 'qcm') return (st.qcm[key] === "BLANK" || (st.qcm[key] && st.qcm[key].length > 0));
@@ -2976,16 +3025,18 @@
                 profiles.push({ id, name, createdAt: Date.now() });
                 saveProfiles(profiles);
                 localStorage.setItem(profileSK(id), JSON.stringify(data || emptyState()));
+                syncCloud();
                 return id;
             }
             function deleteProfile(id) {
                 let profiles = getProfiles().filter(p => p.id !== id);
                 saveProfiles(profiles); localStorage.removeItem(profileSK(id));
+                syncCloud();
                 if (activeProfileId === id) { switchProfile(profiles[0].id); }
             }
             function renameProfile(id, name) {
                 const profiles = getProfiles(); const p = profiles.find(x => x.id === id);
-                if (p) { p.name = name; saveProfiles(profiles); upProfileUI(); }
+                if (p) { p.name = name; saveProfiles(profiles); upProfileUI(); syncCloud(); }
             }
             function duplicateProfile(id) {
                 if (id === activeProfileId) svNow();
@@ -3077,7 +3128,7 @@
                     foot.style.display = 'none';
                     body.innerHTML = '<div class="reset-all-section"><p>Cette action supprimera toutes vos réponses, validations et historique pour ce profil. Cette action est irréversible.</p><button class="reset-danger-btn" id="reset-all-btn">Tout effacer</button></div>';
                     document.getElementById('reset-all-btn').onclick = () => {
-                        if (confirm('Êtes-vous sûr de vouloir tout effacer ?')) { st = emptyState(); svNow(); closeResetModal(); location.reload(); }
+                        if (confirm('Êtes-vous sûr de vouloir tout effacer ?')) { st = emptyState(); svNow()?.then(() => { closeResetModal(); location.reload(); }); }
                     };
                 } else {
                     foot.style.display = '';
@@ -3102,7 +3153,7 @@
                             for (const k in st.his) if (k.startsWith(ck + '§')) delete st.his[k];
                             st.recent = (st.recent || []).filter(r => mk(r.module, r.chapitre) !== ck);
                         });
-                        svNow(); closeResetModal(); location.reload();
+                        svNow()?.then(() => { closeResetModal(); location.reload(); });
                     };
                 }
             }
@@ -3201,6 +3252,49 @@
 
                 tQ = D.reduce((s, d) => s + d.questions.length, 0);
                 document.getElementById('ft').textContent = tQ + ' questions • Auto-save';
+
+                // Setup Firebase Auth
+                if (window.FirebaseAuthManager) {
+                    document.getElementById('login-btn').addEventListener('click', () => window.FirebaseAuthManager.login());
+                    document.getElementById('logout-btn').addEventListener('click', () => window.FirebaseAuthManager.logout());
+                    
+                    window.FirebaseAuthManager.init((cloudState, user) => {
+                        if (user) {
+                            document.getElementById('login-btn').style.display = 'none';
+                            document.getElementById('logout-btn').style.display = 'flex';
+                            document.getElementById('auth-info').style.display = 'flex';
+                            
+                            // Make it look pretty: Display name or shorten email
+                            let displayName = user.displayName || (user.email ? user.email.split('@')[0] : 'User');
+                            document.getElementById('auth-email').textContent = displayName;
+                            
+                            if (user.photoURL) {
+                                document.getElementById('auth-pfp').src = user.photoURL;
+                                document.getElementById('auth-pfp').style.display = 'block';
+                            }
+                            
+                            // Hot-reload state from localStorage which was updated by firebase-init
+                            activeProfileId = getActiveId(); // Re-fetch in case a different profile was active on the cloud device
+                            st = ld(); 
+                            
+                            // Re-render UI components with synced data
+                            upProfileUI(); buildSB(); upProg(); renderHistory();
+                            if (ak) { 
+                                const ps = ak.split('§'); 
+                                loadChap(ps[0], ps[1]); 
+                            } else {
+                                goHome();
+                            }
+                        } else {
+                            document.getElementById('login-btn').style.display = 'flex';
+                            document.getElementById('logout-btn').style.display = 'none';
+                            document.getElementById('auth-info').style.display = 'none';
+                            document.getElementById('auth-pfp').style.display = 'none';
+                            document.getElementById('auth-pfp').src = '';
+                        }
+                    });
+                }
+
                 buildSB(); upProg(); upProfileUI(); renderHistory(); startThanksLoop();
                 // Always start on home — do NOT auto-restore ak
                 document.getElementById('hb').addEventListener('click', togMob);
@@ -3247,8 +3341,11 @@
                         r.onload = (ev) => {
                             try {
                                 let d = JSON.parse(ev.target.result);
+                                d.qcm = d.qcm || {};
+                                d.red = d.red || {};
+                                d.val = d.val || {};
                                 d = migrateSaveData(d, D);
-                                if (d.qcm) {
+                                if (typeof d === 'object') {
                                     tempCmpData = d;
                                     document.getElementById('cmp-target-select').value = 'file_loaded';
                                     if (currentCmpEntry) renderCmpList(currentCmpEntry);
@@ -4074,16 +4171,15 @@
 
                 a.href = u;
                 a.download = `${pName}-${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(a);
                 a.click();
-                URL.revokeObjectURL(u);
+                document.body.removeChild(a);
+                setTimeout(() => URL.revokeObjectURL(u), 100);
             }
 
             let pendingImp = null, resolutions = {};
 
             function migrateSaveData(d, newD) {
-                const firstKey = Object.keys(d.qcm || {})[0] || Object.keys(d.red || {})[0];
-                if (!firstKey || !/_Q\d+$/.test(firstKey)) return d;
-
                 const translated = {
                     qcm: {}, red: {}, val: {}, his: {},
                     sb: {}, ac: null, recent: [], official: d.official || {}
@@ -4124,7 +4220,18 @@
                     if (!d[t]) continue;
                     for (const k in d[t]) {
                         const parts = k.split('§');
-                        if (parts.length < 3) continue;
+                        if (parts.length < 3) {
+                            translated[t][k] = d[t][k];
+                            continue;
+                        }
+                        
+                        // If it doesn't look like an old key, keep it as is
+                        if (!/_Q\d+$/.test(parts[2])) {
+                            translated[t][k] = d[t][k];
+                            continue;
+                        }
+
+                        // It's an old key -> attempt migration
                         const cat = getNewCat(parts[0], parts[1]);
                         if (cat) {
                             const mk = parts[2].match(/_Q(\d+)$/);
@@ -4132,6 +4239,9 @@
                             if (isNaN(qIndex) || qIndex < 0) qIndex = 0;
                             const q = cat.questions[qIndex];
                             if (q) translated[t][cat.module + '§' + cat.chapitre + '§' + q.id] = d[t][k];
+                        } else {
+                            // Fallback if category not found
+                            translated[t][k] = d[t][k];
                         }
                     }
                 }
@@ -4144,6 +4254,9 @@
                         if (nMod) {
                             const cat = newD.find(c => normStr(c.module) === nMod);
                             if (cat) translated.sb[cat.module] = d.sb[k];
+                            else translated.sb[k] = d.sb[k]; // fallback
+                        } else {
+                            translated.sb[k] = d.sb[k];
                         }
                     }
                 }
@@ -4153,7 +4266,8 @@
                     if (parts.length >= 2) {
                         const cat = getNewCat(parts[0], parts[1]);
                         if (cat) translated.ac = cat.module + '§' + cat.chapitre;
-                    }
+                        else translated.ac = d.ac;
+                    } else translated.ac = d.ac;
                 }
 
                 if (d.recent) {
@@ -4168,9 +4282,33 @@
                                 chapitre: cat.chapitre,
                                 key: cat.module + '§' + cat.chapitre
                             });
+                        } else {
+                            translated.recent.push(r);
                         }
                     });
                 }
+                
+                // Keep official data safely
+                if (d.official) {
+                    for (const k in d.official) {
+                        const parts = k.split('§');
+                        if (parts.length < 3 || !/_Q\d+$/.test(parts[2])) {
+                            translated.official[k] = d.official[k];
+                            continue;
+                        }
+                        const cat = getNewCat(parts[0], parts[1]);
+                        if (cat) {
+                            const mk = parts[2].match(/_Q(\d+)$/);
+                            let qIndex = mk ? parseInt(mk[1], 10) - 1 : parseInt(parts[2].replace(/[^0-9]/g, '')) - 1;
+                            if (isNaN(qIndex) || qIndex < 0) qIndex = 0;
+                            const q = cat.questions[qIndex];
+                            if (q) translated.official[cat.module + '§' + cat.chapitre + '§' + q.id] = d.official[k];
+                        } else {
+                            translated.official[k] = d.official[k];
+                        }
+                    }
+                }
+
                 return translated;
             }
 
@@ -4179,8 +4317,15 @@
                 r.onload = (e) => {
                     try {
                         let d = JSON.parse(e.target.result);
+                        d.qcm = d.qcm || {};
+                        d.red = d.red || {};
+                        d.val = d.val || {};
+                        d.his = d.his || {};
+                        d.recent = d.recent || [];
+                        d.official = d.official || {};
+                        
                         d = migrateSaveData(d, D);
-                        if (d.qcm && d.red && d.val) {
+                        if (typeof d === 'object') {
                             // Show import choice modal
                             const modal = document.getElementById('imp-choice-modal');
                             const btns = document.getElementById('imp-choice-btns');
@@ -4245,9 +4390,21 @@
                     Object.assign(st.qcm, d.qcm);
                     Object.assign(st.red, d.red);
                     Object.assign(st.val, d.val);
+                    if (d.his) Object.assign(st.his, d.his);
+                    if (d.recent) {
+                        const allRecents = [...(d.recent || []), ...(st.recent || [])];
+                        const uniqueRecents = [];
+                        const seenKeys = new Set();
+                        for (const r of allRecents) {
+                            if (!seenKeys.has(r.key)) {
+                                seenKeys.add(r.key);
+                                uniqueRecents.push(r);
+                            }
+                        }
+                        st.recent = uniqueRecents.sort((a,b) => b.ts - a.ts).slice(0, 25);
+                    }
                     extractOfficial(d);
-                    svNow();
-                    location.reload();
+                    svNow()?.then(() => { location.reload(); });
                 }
             }
 
@@ -4332,6 +4489,19 @@
                     Object.assign(st.qcm, d.qcm);
                     Object.assign(st.red, d.red);
                     Object.assign(st.val, d.val);
+                    if (d.his) Object.assign(st.his, d.his);
+                    if (d.recent) {
+                        const allRecents = [...(d.recent || []), ...(st.recent || [])];
+                        const uniqueRecents = [];
+                        const seenKeys = new Set();
+                        for (const r of allRecents) {
+                            if (!seenKeys.has(r.key)) {
+                                seenKeys.add(r.key);
+                                uniqueRecents.push(r);
+                            }
+                        }
+                        st.recent = uniqueRecents.sort((a,b) => b.ts - a.ts).slice(0, 25);
+                    }
                     // Overwrite with chosen resolutions
                     for (const k in resolutions) {
                         const df = diffs.find(x => x.key === k);
@@ -4340,8 +4510,7 @@
                         else if (df.type === 'val') st.val[k] = resolutions[k];
                     }
                     extractOfficial(d);
-                    svNow();
-                    location.reload();
+                    svNow()?.then(() => { location.reload(); });
                 };
             }
 
