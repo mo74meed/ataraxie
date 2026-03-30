@@ -176,7 +176,7 @@ window.FirebaseAuthManager = {
         if (profileSK && stateObject) {
             localStorage.setItem(profileSK, JSON.stringify(stateObject));
         }
-        this.forceSync();
+        await this.forceSync();
     },
 
     // Completely synchronizes everything to the cloud immediately in one bundle
