@@ -14,7 +14,7 @@
         rel="stylesheet">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4a4ff4">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
@@ -2705,34 +2705,111 @@
                 line-height: 1.4;
             }
         }
-            .sync-modal-overlay {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.7); display: none;
-            align-items: center; justify-content: center;
-            z-index: 10000; backdrop-filter: blur(4px);
+
+        /* ══════════ SYNC CLOUD MODAL (Modernized) ══════════ */
+        .sync-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(12, 14, 20, .6);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
         }
+
         .sync-modal {
-            background: var(--s2, #191c28); border-radius: 12px; padding: 24px;
-            max-width: 400px; width: 90%; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            color: var(--p0, #f7f6f3); border: 1px solid var(--s3, #212536);
-            text-align: center; font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--p1);
+            border: 1px solid var(--pb);
+            border-radius: 20px;
+            padding: 32px 28px 24px;
+            max-width: 420px;
+            width: 90%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
+            color: var(--t1);
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            animation: modalIn .3s var(--ease) both;
         }
-        .sync-modal h3 { margin-top: 0; margin-bottom: 12px; font-size: 1.1rem;}
-        .sync-modal p { color: var(--p1, #ffffff); font-size: 0.95rem; margin-bottom: 24px; line-height:1.5;}
-        .sync-modal-actions {
-            display: flex; gap: 12px; justify-content: center;
+
+        .sync-modal-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: var(--b50);
+            color: var(--b500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
         }
-        .sync-modal-btn {
-            padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 0.9rem; transition: background 0.2s;
+
+        .sync-modal h3 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -.02em;
         }
-        .sync-modal-btn.cancel {
-            background: var(--s3, #212536); color: var(--p0, #f7f6f3);
-        }
-        .sync-modal-btn.cancel:hover { background: var(--s-hover, #282d42); }
-        .sync-modal-btn.confirm {
-            background: var(--p500, #3e8ed0); color: white;
-        }
-        .sync-modal-btn.confirm:hover { background: var(--p600, #2b6fa6); }
+
+        .sync-modal p { color: var(--t3); font-size: .78rem; margin-bottom: 24px; line-height: 1.6; white-space: pre-line; }
+        .sync-modal-actions { display: flex; gap: 10px; justify-content: center; }
+        .sync-modal-btn { flex: 1; padding: 11px 18px; border-radius: 12px; font-weight: 700; font-family: inherit; font-size: .78rem; cursor: pointer; border: none; transition: all .2s ease; }
+        .sync-modal-btn.cancel { background: var(--p2); color: var(--t2); border: 1px solid var(--pb); }
+        .sync-modal-btn.cancel:hover { background: var(--pb); color: var(--t1); }
+        .sync-modal-btn.confirm { background: var(--b500); color: #fff; box-shadow: 0 2px 8px rgba(74, 79, 244, .25); }
+        .sync-modal-btn.confirm:hover { background: var(--b600); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(74, 79, 244, .3); }
+        .offline-sync-overlay { position: fixed; inset: 0; background: rgba(12, 14, 20, .6); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 10000; }
+        .offline-sync-modal { background: var(--p1); border: 1px solid var(--pb); border-radius: 20px; max-width: 480px; width: 92%; max-height: 85vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0, 0, 0, .2); animation: modalIn .3s var(--ease) both; }
+        .offline-sync-head { padding: 24px 24px 16px; display: flex; align-items: flex-start; gap: 14px; border-bottom: 1px solid var(--pbs); }
+        .offline-sync-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--b50), rgba(16, 185, 129, .06)); color: var(--b500); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .offline-sync-head h3 { font-size: .95rem; font-weight: 800; letter-spacing: -.02em; margin: 0; color: var(--t1); }
+        .offline-sync-subtitle { font-size: .7rem; color: var(--t3); line-height: 1.5; margin: 4px 0 0; }
+        .offline-sync-summary { padding: 14px 24px; background: var(--p2); border-bottom: 1px solid var(--pbs); display: flex; gap: 16px; flex-wrap: wrap; }
+        .offline-sync-stat { display: flex; align-items: center; gap: 8px; }
+        .offline-sync-stat-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; }
+        .offline-sync-stat-icon.local { background: var(--b50); color: var(--b600); }
+        .offline-sync-stat-icon.cloud { background: var(--g50); color: var(--g600); }
+        .offline-sync-stat-text { font-size: .68rem; color: var(--t2); font-weight: 600; }
+        .offline-sync-stat-text small { display: block; font-size: .58rem; color: var(--t4); font-weight: 500; }
+        .offline-sync-section { padding: 16px 24px; border-bottom: 1px solid var(--pbs); }
+        .offline-sync-label { display: block; font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--tsd); margin-bottom: 10px; }
+        .offline-sync-actions-grid { display: flex; flex-direction: column; gap: 8px; }
+        .offline-sync-action-card { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid var(--pbs); background: var(--p1); cursor: pointer; transition: all .2s ease; text-align: left; font-family: inherit; }
+        .offline-sync-action-card:hover { border-color: var(--b200); background: var(--b50); }
+        .offline-sync-action-card.active { border-color: var(--b400); background: var(--b50); box-shadow: 0 2px 8px rgba(74, 79, 244, .12); }
+        .offline-sync-action-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .offline-sync-action-icon.merge-icon { background: var(--b50); color: var(--b500); }
+        .offline-sync-action-icon.discard-icon { background: rgba(239, 68, 68, .08); color: #ef4444; }
+        .offline-sync-action-text strong { display: block; font-size: .78rem; font-weight: 700; color: var(--t1); margin-bottom: 2px; }
+        .offline-sync-action-text small { font-size: .65rem; color: var(--t3); line-height: 1.4; font-weight: 500; }
+        .offline-sync-select { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--pbs); background: var(--p1); color: var(--t1); font-size: .76rem; font-family: inherit; font-weight: 600; outline: none; cursor: pointer; transition: border-color .2s ease; }
+        .offline-sync-select:focus { border-color: var(--b500); box-shadow: 0 0 0 3px rgba(74, 79, 244, .1); }
+        .offline-sync-new-profile { margin-top: 10px; }
+        .offline-sync-new-input { width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--pbs); background: var(--p2); color: var(--t1); font-size: .76rem; font-family: inherit; outline: none; transition: all .2s ease; }
+        .offline-sync-new-input:focus { border-color: var(--b400); background: #fff; }
+        .offline-sync-foot { padding: 16px 24px; display: flex; justify-content: flex-end; gap: 10px; }
+        .offline-sync-btn { padding: 10px 22px; border-radius: 12px; font-size: .78rem; font-weight: 700; font-family: inherit; cursor: pointer; border: none; transition: all .2s ease; }
+        .offline-sync-btn.secondary { background: var(--p2); color: var(--t2); border: 1px solid var(--pb); }
+        .offline-sync-btn.secondary:hover { background: var(--pb); }
+        .offline-sync-btn.primary { background: var(--b500); color: #fff; box-shadow: 0 2px 8px rgba(74, 79, 244, .25); }
+        .offline-sync-btn.primary:hover { background: var(--b600); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(74, 79, 244, .3); }
+        @media (max-width: 640px) { .offline-sync-modal { width: 95%; max-height: 90vh; } .offline-sync-summary { flex-direction: column; gap: 10px; } }
+        .loading-logo-wrap { position: relative; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; }
+        .loading-spinner { position: absolute; inset: -4px; border: 2.5px solid rgba(74, 79, 244, .1); border-top-color: var(--b500); border-radius: 50%; animation: spin .8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes modalIn { from { opacity: 0; transform: scale(.95) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .custom-modal-overlay { position: fixed; inset: 0; background: rgba(12, 14, 20, .6); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 10000; }
+        .custom-modal-box { background: var(--p1); border: 1px solid var(--pb); border-radius: 20px; padding: 28px 24px 22px; width: 340px; max-width: 92%; box-shadow: 0 20px 50px rgba(0, 0, 0, .2); display: flex; flex-direction: column; gap: 14px; animation: modalIn .3s var(--ease) both; }
+        .custom-modal-box h3 { margin: 0; font-size: 1rem; font-weight: 800; color: var(--t1); letter-spacing: -.02em; }
+        .custom-modal-message { margin: 0; font-size: .8rem; color: var(--t3); line-height: 1.5; }
+        .custom-modal-input { padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--pbs); background: var(--p2); color: var(--t1); font-family: inherit; font-size: .8rem; outline: none; transition: all .2s ease; }
+        .custom-modal-input:focus { border-color: var(--b500); background: #fff; box-shadow: 0 0 0 3px rgba(74, 79, 244, .1); }
+        .custom-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 4px; }
+        .custom-modal-btn { padding: 9px 18px; border-radius: 10px; font-family: inherit; font-size: .76rem; font-weight: 700; cursor: pointer; border: none; transition: all .2s ease; }
+        .custom-modal-btn.secondary { background: var(--p2); color: var(--t2); border: 1px solid var(--pb); }
+        .custom-modal-btn.secondary:hover { background: var(--pb); }
+        .custom-modal-btn.primary { background: var(--b500); color: #fff; }
+        .custom-modal-btn.primary:hover { background: var(--b600); transform: translateY(-1px); }
     </style>
 
 
@@ -3036,6 +3113,44 @@
                     }
                 } catch (e) { return Promise.resolve(); } 
             }
+            
+            function showInlinePrompt(title, defaultVal="") {
+                return new Promise(resolve => {
+                    const ov = document.getElementById('customPromptOverlay');
+                    document.getElementById('customPromptTitle').innerText = title;
+                    const inp = document.getElementById('customPromptInput');
+                    inp.value = defaultVal;
+                    ov.style.display = 'flex';
+                    inp.focus();
+                    
+                    const cleanup = () => { ov.style.display = 'none'; btnC.removeEventListener('click', onCancel); btnO.removeEventListener('click', onOk); };
+                    const onCancel = () => { cleanup(); resolve(null); };
+                    const onOk = () => { cleanup(); resolve(inp.value.trim()); };
+                    
+                    const btnC = document.getElementById('customPromptCancel');
+                    const btnO = document.getElementById('customPromptConfirm');
+                    btnC.addEventListener('click', onCancel);
+                    btnO.addEventListener('click', onOk);
+                });
+            }
+            function showInlineConfirm(title, message) {
+                return new Promise(resolve => {
+                    const ov = document.getElementById('customConfirmOverlay');
+                    document.getElementById('customConfirmTitle').innerText = title;
+                    document.getElementById('customConfirmText').innerText = message;
+                    ov.style.display = 'flex';
+                    
+                    const cleanup = () => { ov.style.display = 'none'; btnC.removeEventListener('click', onCancel); btnO.removeEventListener('click', onOk); };
+                    const onCancel = () => { cleanup(); resolve(false); };
+                    const onOk = () => { cleanup(); resolve(true); };
+                    
+                    const btnC = document.getElementById('customConfirmCancel');
+                    const btnO = document.getElementById('customConfirmConfirm');
+                    btnC.addEventListener('click', onCancel);
+                    btnO.addEventListener('click', onOk);
+                });
+            }
+        
             function mk(m, c, q) { return m + '§' + c + (q !== undefined ? '§' + q : '') }
             function isAns(key, type) {
                 if (type === 'qcm') return (st.qcm[key] === "BLANK" || (st.qcm[key] && st.qcm[key].length > 0));
@@ -3100,7 +3215,21 @@
             };
 
             /* ══════════ HOME / HISTORY ══════════ */
-            function goHome() {
+            function refreshUI() {
+                    activeProfileId = getActiveId();
+                    st = ld();
+                    upProfileUI();
+                    buildSB();
+                    upProg();
+                    renderHistory();
+                    if (ak) {
+                        const ps = ak.split('§');
+                        render(ps[0], ps[1]);
+                    } else {
+                        goHome();
+                    }
+                }
+                function goHome() {
                 ak = null; st.ac = null; sv();
                 document.getElementById('ws').style.display = '';
                 document.getElementById('qc').style.display = 'none';
@@ -3258,7 +3387,7 @@
                     });
                 });
                 body.querySelectorAll('[data-action="rename"]').forEach(btn => {
-                    btn.addEventListener('click', (e) => { e.stopPropagation(); const n = prompt('Nouveau nom:'); if (n && n.trim()) { renameProfile(btn.dataset.id, n.trim()); renderProfileList(); } });
+                    btn.addEventListener('click', async (e) => { e.stopPropagation(); const n = prompt('Nouveau nom:'); if (n && n.trim()) { renameProfile(btn.dataset.id, n.trim()); renderProfileList(); } });
                 });
                 body.querySelectorAll('[data-action="dup"]').forEach(btn => {
                     btn.addEventListener('click', (e) => { e.stopPropagation(); duplicateProfile(btn.dataset.id); renderProfileList(); });
@@ -3305,14 +3434,45 @@
             }
 
             function init() {
+                // Loading overlay failsafe: dismiss after 6s regardless
+                setTimeout(() => {
+                    const lo = document.getElementById('loading-overlay');
+                    if (lo && lo.style.display !== 'none' && lo.style.opacity !== '0') {
+                        lo.style.opacity = '0';
+                        setTimeout(() => { lo.style.display = 'none'; }, 400);
+                        console.warn('Loading overlay dismissed by failsafe timer.');
+                    }
+                }, 6000);
+
                 D = (typeof ATARAXIE_S8_DB !== 'undefined')
                     ? adaptDatabase(ATARAXIE_S8_DB)
                     : ((typeof QUESTIONS_DATA !== 'undefined') ? QUESTIONS_DATA : []);
+                    
+                if (!D || D.length === 0) {
+                    document.getElementById('ws').innerHTML = `
+                    <div class="w-icon" style="background:rgba(239,68,68,.08)"><svg style="color:#ef4444" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="34" height="34"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div>
+                    <h2>Base de données introuvable</h2>
+                    <p>Le fichier de questions n'a pas pu être chargé. Vérifiez votre connexion et rechargez la page.</p>
+                    `;
+                    const loader = document.getElementById('loading-overlay');
+                    if(loader) { loader.style.opacity = '0'; setTimeout(()=>loader.remove(), 400); }
+                    return;
+                }
 
                 tQ = D.reduce((s, d) => s + d.questions.length, 0);
                 document.getElementById('ft').textContent = tQ + ' questions • Auto-save';
 
                 // Setup Firebase Auth
+                // Fallback: If Firebase fails to initialize within 5 seconds, remove the loading screen
+                setTimeout(() => {
+                    const loader = document.getElementById('loading-overlay');
+                    if (loader && loader.style.display !== 'none') {
+                        loader.style.opacity = '0';
+                        setTimeout(() => loader.style.display = 'none', 400);
+                        console.warn('Firebase initialization timed out or was skipped. Proceeding offline.');
+                    }
+                }, 5000);
+
                 if (window.FirebaseAuthManager) {
                     document.getElementById('login-btn').addEventListener('click', () => window.FirebaseAuthManager.login());
                     document.getElementById('logout-btn').addEventListener('click', () => window.FirebaseAuthManager.logout());
@@ -3381,6 +3541,9 @@
                 const stt = document.getElementById('stt');
                 window.addEventListener('scroll', () => stt.classList.toggle('vis', window.scrollY > 400));
                 stt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+                // Global his-pop dismiss (registered once here, not in wire())
+                document.addEventListener('click', () => document.getElementById('his-pop').classList.remove('vis'));
 
                 const cp = document.getElementById('cmp-panel');
                 document.getElementById('cmp-close').addEventListener('click', () => {
@@ -3705,10 +3868,6 @@
             }
 
             function renderMath(el) {
-                if (typeof renderMathInElement !== 'function') {
-                    window.addEventListener('load', () => renderMath(el), { once: true });
-                    return;
-                } {
                 if (typeof renderMathInElement === 'function') {
                     renderMathInElement(el, {
                         delimiters: [
@@ -3717,6 +3876,8 @@
                         ],
                         throwOnError: false
                     });
+                } else {
+                    window.addEventListener('load', () => renderMath(el), { once: true });
                 }
             }
 
@@ -4001,7 +4162,6 @@
                         e.stopPropagation();
                     });
                 });
-                document.addEventListener('click', () => document.getElementById('his-pop').classList.remove('vis'));
             }
 
             /* ══════════ PROGRESS ══════════ */
@@ -4118,7 +4278,6 @@
                     if (q.type === 'qcm' || q.type === 'redaction') {
                         const isQcm = q.type === 'qcm';
                         hasQcm = true;
-                        hasQcm = true;
                         const key = mk(e.module, e.chapitre, q.id);
                         const myAns = st.qcm[key] || [];
 
@@ -4227,7 +4386,7 @@
                         }
                     }
                 });
-                if (false) {
+                if (!hasQcm) {
                     b.innerHTML = '<div class="cmp-empty">Aucun QCM</div>';
                 }
                 renderMath(document.getElementById('cmp-panel'));
@@ -4643,8 +4802,15 @@
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
         })();
     </script>
+
+    <!-- ══════════ SYNC CLOUD MODAL (Modernized) ══════════ -->
     <div id="syncModalOverlay" class="sync-modal-overlay">
         <div class="sync-modal">
+            <div class="sync-modal-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="28" height="28">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+                </svg>
+            </div>
             <h3 id="syncModalTitle">Synchronisation Cloud</h3>
             <p id="syncModalMessage">Message goes here</p>
             <div class="sync-modal-actions">
@@ -4653,19 +4819,94 @@
             </div>
         </div>
     </div>
-    
-    <div id="loading-overlay" style="position:fixed;inset:0;z-index:9999;background:var(--s0);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;transition:opacity .4s ease">
-        <div style="width:36px;height:36px;border-radius:10px;background:var(--p500);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.9rem">A</div>
-        <p style="font-size:.75rem;color:var(--t3);font-weight:500">Synchronisation en cours…</p>
+
+    <!-- ══════════ OFFLINE SYNC RESOLUTION MODAL (NEW) ══════════ -->
+    <div id="offlineSyncOverlay" class="offline-sync-overlay">
+        <div class="offline-sync-modal">
+            <div class="offline-sync-head">
+                <div class="offline-sync-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Données hors ligne détectées</h3>
+                    <p class="offline-sync-subtitle">Vous êtes de nouveau en ligne. Des modifications ont été faites hors connexion.</p>
+                </div>
+            </div>
+            <div class="offline-sync-summary" id="offlineSyncSummary">
+                <!-- Dynamically filled -->
+            </div>
+            <div class="offline-sync-section">
+                <label class="offline-sync-label">Action</label>
+                <div class="offline-sync-actions-grid" id="offlineSyncActions">
+                    <button class="offline-sync-action-card active" data-action="merge" id="offlineSyncMerge">
+                        <div class="offline-sync-action-icon merge-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                        </div>
+                        <div class="offline-sync-action-text">
+                            <strong>Fusionner avec le cloud</strong>
+                            <small>Les modifications locales seront combinées avec les données en ligne.</small>
+                        </div>
+                    </button>
+                    <button class="offline-sync-action-card" data-action="discard" id="offlineSyncDiscard">
+                        <div class="offline-sync-action-icon discard-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                        </div>
+                        <div class="offline-sync-action-text">
+                            <strong>Supprimer les données locales</strong>
+                            <small>Écrase tout avec la dernière version cloud.</small>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="offline-sync-section" id="offlineSyncProfileSection">
+                <label class="offline-sync-label">Profil cible</label>
+                <select class="offline-sync-select" id="offlineSyncProfileSelect">
+                    <!-- Dynamically filled -->
+                </select>
+                <div class="offline-sync-new-profile" id="offlineSyncNewProfileWrap" style="display:none;">
+                    <input type="text" class="offline-sync-new-input" id="offlineSyncNewProfileName" placeholder="Nom du nouveau profil…">
+                </div>
+            </div>
+            <div class="offline-sync-foot">
+                <button class="offline-sync-btn secondary" id="offlineSyncCancel">Annuler</button>
+                <button class="offline-sync-btn primary" id="offlineSyncApply">Appliquer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════ LOADING OVERLAY (Fixed & Modernized) ══════════ -->
+    <div id="loading-overlay" style="position:fixed;inset:0;z-index:9999;background:var(--s0);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;transition:opacity .4s ease;">
+        <div class="loading-logo-wrap">
+            <img src="logo.png" alt="Ataraxie" style="width:40px;height:40px;border-radius:12px;object-fit:contain;background:#fff;padding:2px;">
+            <div class="loading-spinner"></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--tsd);font-weight:500;letter-spacing:.02em;">Chargement…</p>
+    </div>
+
+    <!-- ══════════ CUSTOM PROMPT MODAL (IDs Fixed + Styled) ══════════ -->
+    <div id="customPromptOverlay" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <h3 id="customPromptTitle">Titre</h3>
+            <input type="text" id="customPromptInput" class="custom-modal-input" />
+            <div class="custom-modal-actions">
+                <button id="customPromptCancel" class="custom-modal-btn secondary">Annuler</button>
+                <button id="customPromptConfirm" class="custom-modal-btn primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════ CUSTOM CONFIRM MODAL (IDs Fixed + Styled) ══════════ -->
+    <div id="customConfirmOverlay" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <h3 id="customConfirmTitle">Confirmation</h3>
+            <p id="customConfirmText" class="custom-modal-message">Message</p>
+            <div class="custom-modal-actions">
+                <button id="customConfirmCancel" class="custom-modal-btn secondary">Annuler</button>
+                <button id="customConfirmConfirm" class="custom-modal-btn primary">OK</button>
+            </div>
+        </div>
     </div>
 </body>
-
 </html>
-
-
-
-
-
-
-
-

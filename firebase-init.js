@@ -1,8 +1,7 @@
+import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app-check.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut, onAuthStateChanged, signInWithCredential } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child, update } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
-import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app-check.js";
-import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app-check.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBbPwpQsTdrfPi6WvfhFVhmhpeYzp5Wn0g",
@@ -17,16 +16,18 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// UNCOMMENT AND ADD YOUR RECAPTCHA SITE KEY ONCE SET UP IN FIREBASE CONSOLE
-// initializeAppCheck(app, {
-//   provider: new ReCaptchaV3Provider('YOUR_RECAPTCHA_V3_SITE_KEY_HERE'),
-//   isTokenAutoRefreshEnabled: true
-// });
+
+ initializeAppCheck(app, {
+   provider: new ReCaptchaV3Provider('6LcJDKAsAAAAABrgFjTSx5rhWXnYLbTxRa1Et7Cg'),
+   isTokenAutoRefreshEnabled: true
+ });
 
 const auth = getAuth(app);
 
 // Use Realtime Database instead of Firestore to bypass daily 'Save Count' quotas
 const db = getDatabase(app);
+
+let currentUser = null;
 
 function setSyncStatus(state) {
     const el = document.getElementById('auth-sync-status');
@@ -41,21 +42,6 @@ function setSyncStatus(state) {
         el.textContent = map[state].text;
         el.style.color = map[state].color;
     }
-}
-
-let currentUser = null;
-
-function setSyncStatus(state) {
-    const el = document.getElementById('auth-sync-status');
-    if (!el) return;
-    const map = {
-      syncing: { text: '↻ Sync...', color: 'var(--a500)' },
-      synced:  { text: '● Synced', color: 'var(--g500)' },
-      error:   { text: '✖ Erreur', color: '#ef4444' },
-      offline: { text: '○ Hors ligne', color: 'var(--t4)' }
-    };
-    el.textContent = map[state].text;
-    el.style.color = map[state].color;
 }
 
 window.addEventListener('offline', () => setSyncStatus('offline'));
@@ -92,6 +78,108 @@ function showSyncModal(message, okText = "OK", cancelText = "Annuler") {
         btnConfirm.addEventListener('click', onConfirm);
         btnCancel.addEventListener('click', onCancel);
     });
+}
+
+// ══════════ OFFLINE SYNC RESOLUTION MODAL ══════════
+function showOfflineSyncModal(localProfiles, cloudProfiles, localAnswers) {
+    return new Promise((resolve) => {
+        const overlay = document.getElementById('offlineSyncOverlay');
+        if (!overlay) {
+            // Fallback to basic sync modal if new UI not available
+            showSyncModal(
+                `Données hors ligne détectées.\n${localProfiles} profil(s) local, ${cloudProfiles} profil(s) cloud.\n\nFusionner avec le cloud ?`,
+                'Fusionner', 'Supprimer'
+            ).then(keep => resolve({ action: keep ? 'merge' : 'discard' }));
+            return;
+        }
+
+        // Populate summary
+        const summary = document.getElementById('offlineSyncSummary');
+        summary.innerHTML = `
+            <div class="offline-sync-stat">
+                <div class="offline-sync-stat-icon local">${localProfiles}</div>
+                <div class="offline-sync-stat-text">Profil(s) local<small>${localAnswers} réponse(s)</small></div>
+            </div>
+            <div class="offline-sync-stat">
+                <div class="offline-sync-stat-icon cloud">${cloudProfiles}</div>
+                <div class="offline-sync-stat-text">Profil(s) cloud<small>Dernière sync</small></div>
+            </div>
+        `;
+
+        // Populate profile selector
+        const profileSelect = document.getElementById('offlineSyncProfileSelect');
+        const profileSection = document.getElementById('offlineSyncProfileSection');
+        const newProfileWrap = document.getElementById('offlineSyncNewProfileWrap');
+
+        let profilesHtml = '';
+        try {
+            const profilesList = JSON.parse(localStorage.getItem('ataraxie_profiles') || '[]');
+            const activeId = localStorage.getItem('ataraxie_active_profile');
+            profilesHtml = profilesList.map(p =>
+                `<option value="${p.id}"${p.id === activeId ? ' selected' : ''}>${p.name}</option>`
+            ).join('');
+        } catch(e) {}
+        profilesHtml += '<option value="__new__">+ Créer un nouveau profil</option>';
+        profileSelect.innerHTML = profilesHtml;
+
+        profileSelect.addEventListener('change', function handler() {
+            newProfileWrap.style.display = profileSelect.value === '__new__' ? '' : 'none';
+        });
+        newProfileWrap.style.display = 'none';
+
+        // Action card toggle
+        let selectedAction = 'merge';
+        const mergeCard = document.getElementById('offlineSyncMerge');
+        const discardCard = document.getElementById('offlineSyncDiscard');
+
+        function setAction(action) {
+            selectedAction = action;
+            mergeCard.classList.toggle('active', action === 'merge');
+            discardCard.classList.toggle('active', action === 'discard');
+            // Hide profile section for discard
+            profileSection.style.display = action === 'merge' ? '' : 'none';
+        }
+
+        mergeCard.onclick = () => setAction('merge');
+        discardCard.onclick = () => setAction('discard');
+        setAction('merge');
+
+        // Show modal
+        overlay.style.display = 'flex';
+
+        const cleanup = () => {
+            overlay.style.display = 'none';
+            profileSelect.removeEventListener('change', profileSelect._handler);
+        };
+
+        document.getElementById('offlineSyncCancel').onclick = () => {
+            cleanup();
+            resolve({ action: 'cancel' });
+        };
+
+        document.getElementById('offlineSyncApply').onclick = () => {
+            cleanup();
+            resolve({
+                action: selectedAction,
+                targetProfile: profileSelect.value,
+                newProfileName: document.getElementById('offlineSyncNewProfileName')?.value?.trim() || ''
+            });
+        };
+    });
+}
+
+// ══════════ SYNC NOTIFICATION (non-blocking toast) ══════════
+function showSyncNotification(message, type) {
+    const syncStatus = document.getElementById('auth-sync-status');
+    if (syncStatus) {
+        const prevContent = syncStatus.textContent;
+        syncStatus.style.color = type === 'error' ? '#ef4444' : 'var(--b500)';
+        syncStatus.textContent = message;
+        setTimeout(() => {
+            syncStatus.textContent = prevContent;
+            syncStatus.style.color = '';
+        }, 3000);
+    }
 }
 
 window.FirebaseAuthManager = {
@@ -165,75 +253,94 @@ window.FirebaseAuthManager = {
                 console.log("User signed in:", user.email);
                 try {
                     const cloudData = await this.syncAndLoadData(user);
+                    
+                    
                     onUserLoadCallback(cloudData, user);
                 } catch (err) {
                     console.error("Failed to sync and load data:", err);
                     // Fallback to null cloudData but still authenticate the user
+                    
+                    
                     onUserLoadCallback(null, user);
                 }
             } else {
                 console.log("No user signed in.");
+                
+                
                 onUserLoadCallback(null, null);
             }
         });
 
         // Listen for when device comes back online
         window.addEventListener('online', async () => {
-            if (currentUser) {
-                console.log("Network returned online. Checking for offline data...");
-                let localDataDump = {};
-                for (let i = 0; i < localStorage.length; i++) {
-                    let key = localStorage.key(i);
-                    if (key && key.startsWith('ataraxie_')) {
-                        localDataDump[key] = localStorage.getItem(key);
+            if (!currentUser) return;
+            console.log("Network returned online. Checking for offline data...");
+
+            let localDataDump = {};
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key && key.startsWith('ataraxie_')) {
+                    localDataDump[key] = localStorage.getItem(key);
+                }
+            }
+
+            if (Object.keys(localDataDump).length === 0) return;
+
+            try {
+                const dbRef = ref(db);
+                const snapshot = await get(child(dbRef, `users/${currentUser.uid}`));
+                if (!snapshot.exists()) return;
+
+                const cloudData = snapshot.val().data || {};
+                let hasDifferences = false;
+                for (let k in localDataDump) {
+                    if (localDataDump[k] !== cloudData[k]) { hasDifferences = true; break; }
+                }
+                if (!hasDifferences) {
+                    for (let k in cloudData) {
+                        if (cloudData[k] !== localDataDump[k]) { hasDifferences = true; break; }
                     }
                 }
 
-                if (Object.keys(localDataDump).length > 0) {
-                    const dbRef = ref(db);
-                    const snapshot = await get(child(dbRef, `users/${currentUser.uid}`));
-                    if (snapshot.exists()) {
-                        const cloudData = snapshot.val().data || {};
-                        let hasDifferences = false;
-                        for (let k in localDataDump) {
-                            if (localDataDump[k] !== cloudData[k]) { hasDifferences = true; break; }
-                        }
-                        for (let k in cloudData) {
-                            if (cloudData[k] !== localDataDump[k]) { hasDifferences = true; break; }
-                        }
+                if (!hasDifferences) return;
 
-                        if (hasDifferences) {
-                            const keepLocal = await showSyncModal(
-                                "Vous êtes de nouveau en ligne ! Des changements hors ligne ont été détectés.\n\nVoulez-vous sauvegarder ces modifications sur le cloud, ou les supprimer pour éviter tout conflit avec vos autres appareils ?", 
-                                "Sauvegarder", 
-                                "Supprimer"
-                            );
-                            if (keepLocal) {
-                                // Merge and Push offline data safely to cloud
-                                const mergedData = window.FirebaseAuthManager.mergeDataSets(cloudData, localDataDump);
-                                await update(ref(db, 'users/' + currentUser.uid + '/data'), mergedData);
-                                
-                                for (let key in mergedData) {
-                                    if (key.startsWith('ataraxie_')) {
-                                        localStorage.setItem(key, mergedData[key]);
-                                    }
-                                }
-
-                                // Non blocking notification instead of alert:
-                                const syncStatusIcon = document.getElementById('auth-sync-status');
-                                if(syncStatusIcon) {
-                                  let prevSyncContent = syncStatusIcon.textContent;
-                                  syncStatusIcon.style.color = "var(--p500)";
-                                  syncStatusIcon.textContent = "✔ Sauvegardé";
-                                  setTimeout(() => { syncStatusIcon.textContent = prevSyncContent; }, 3000);
-                                }
-                            } else {
-                                // Re-pull from cloud
-                                window.FirebaseAuthManager.pullNow();
-                            }
-                        }
+                // Count profiles for summary display
+                let localProfiles = 0, cloudProfiles = 0, localAnswers = 0;
+                for (let k in localDataDump) {
+                    if (k.startsWith('ataraxie_p_')) {
+                        localProfiles++;
+                        try {
+                            const pd = JSON.parse(localDataDump[k]);
+                            localAnswers += Object.keys(pd.qcm || {}).length + Object.keys(pd.red || {}).length;
+                        } catch(e) {}
                     }
                 }
+                for (let k in cloudData) {
+                    if (k.startsWith('ataraxie_p_')) cloudProfiles++;
+                }
+
+                // Show the new offline sync resolution modal
+                const result = await showOfflineSyncModal(localProfiles, cloudProfiles, localAnswers);
+
+                if (result.action === 'merge') {
+                    const mergedData = window.FirebaseAuthManager.mergeDataSets(cloudData, localDataDump);
+                    await update(ref(db, 'users/' + currentUser.uid + '/data'), mergedData);
+                    for (let key in mergedData) {
+                        if (key.startsWith('ataraxie_')) {
+                            localStorage.setItem(key, mergedData[key]);
+                        }
+                    }
+                    showSyncNotification('✔ Données fusionnées', 'success');
+                } else if (result.action === 'discard') {
+                    window.FirebaseAuthManager.pullNow();
+                    showSyncNotification('✔ Données cloud restaurées', 'success');
+                }
+
+                if (typeof refreshUI === 'function') refreshUI();
+
+            } catch(err) {
+                console.error("Online sync error:", err);
+                showSyncNotification('Erreur de synchronisation', 'error');
             }
         });
     },
@@ -297,7 +404,7 @@ window.FirebaseAuthManager = {
             }
             keysToRemove.forEach(k => localStorage.removeItem(k));
             
-            location.reload(); 
+            location.reload();
         } catch (error) {
             console.error("Logout failed", error);
         }
@@ -347,10 +454,16 @@ window.FirebaseAuthManager = {
             }
 
             if (hasDifferences) {
+                
+                let localCount = 0;
+                for (let k in localDataDump) if (k.startsWith('ataraxie_p_')) localCount++;
+                let cloudCount = 0;
+                for (let k in cloudData) if (k.startsWith('ataraxie_p_')) cloudCount++;
+                
                 const keepLocal = await showSyncModal(
-                    "Des données sauvegardées localement ont été détectées sur cet appareil.\n\nVoulez-vous synchroniser ces données avec le Cloud (les conserver) ou télécharger les dernières données en ligne (et écraser les données locales) ?", 
+                    `Des données sauvegardées localement ont été détectées.\n\nLocale : ${localCount} profil(s)\nCloud : ${cloudCount} profil(s)\n\nVoulez-vous synchroniser ces données avec le Cloud (les conserver) ou télécharger les dernières données en ligne (et écraser les données locales) ?`, 
                     "Conserver (Cloud ↑)", 
-                    "Jeter et Télécharger (Cloud ↓)"
+                    "Télécharger (Cloud ↓)"
                 );
                 if (keepLocal) {
                     // Update Cloud with securely merged Data
@@ -443,7 +556,7 @@ window.FirebaseAuthManager = {
         try {
             const syncStatusIcon = document.getElementById('auth-sync-status');
             if (syncStatusIcon) {
-                syncStatusIcon.style.color = "var(--p500)";
+                syncStatusIcon.style.color = "var(--b500)";
                 syncStatusIcon.textContent = "↻ Syncing...";
             }
             
@@ -479,12 +592,13 @@ window.FirebaseAuthManager = {
             console.error("Firebase Pull Error", e);
             const syncStatusIcon = document.getElementById('auth-sync-status');
             if (syncStatusIcon) {
-                syncStatusIcon.style.color = "var(--red)";
+                syncStatusIcon.style.color = "#ef4444";
                 syncStatusIcon.textContent = "✖ Failed";
             }
         }
     }
 };
+
 
 
 
