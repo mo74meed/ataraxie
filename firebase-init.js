@@ -233,6 +233,23 @@ window.FirebaseAuthManager = {
                 merged[key] = localData[key];
             }
         }
+
+        // Clean up orphaned ataraxie_p_* keys not referenced in ataraxie_profiles registry
+        try {
+            const registeredIds = new Set(
+                JSON.parse(merged['ataraxie_profiles'] || '[]').map(p => p.id)
+            );
+            for (const key in merged) {
+                if (key.startsWith('ataraxie_p_')) {
+                    const profileId = key.replace('ataraxie_p_', '');
+                    if (!registeredIds.has(profileId)) {
+                        console.log('mergeDataSets: pruning orphaned profile data:', key);
+                        delete merged[key];
+                    }
+                }
+            }
+        } catch(e) { console.warn('mergeDataSets: orphan cleanup skipped', e); }
+
         return merged;
     },
 
@@ -304,19 +321,17 @@ window.FirebaseAuthManager = {
 
                 if (!hasDifferences) return;
 
-                // Count profiles for summary display
+                // Count REAL profiles from the registry, not orphaned ataraxie_p_* keys
                 let localProfiles = 0, cloudProfiles = 0, localAnswers = 0;
+                try { localProfiles = JSON.parse(localDataDump['ataraxie_profiles'] || '[]').length; } catch(e) {}
+                try { cloudProfiles = JSON.parse(cloudData['ataraxie_profiles'] || '[]').length; } catch(e) {}
                 for (let k in localDataDump) {
                     if (k.startsWith('ataraxie_p_')) {
-                        localProfiles++;
                         try {
                             const pd = JSON.parse(localDataDump[k]);
                             localAnswers += Object.keys(pd.qcm || {}).length + Object.keys(pd.red || {}).length;
                         } catch(e) {}
                     }
-                }
-                for (let k in cloudData) {
-                    if (k.startsWith('ataraxie_p_')) cloudProfiles++;
                 }
 
                 // Show the new offline sync resolution modal
@@ -455,10 +470,10 @@ window.FirebaseAuthManager = {
 
             if (hasDifferences) {
                 
-                let localCount = 0;
-                for (let k in localDataDump) if (k.startsWith('ataraxie_p_')) localCount++;
-                let cloudCount = 0;
-                for (let k in cloudData) if (k.startsWith('ataraxie_p_')) cloudCount++;
+                // Count REAL profiles from the registry, not orphaned ataraxie_p_* keys
+                let localCount = 0, cloudCount = 0;
+                try { localCount = JSON.parse(localDataDump['ataraxie_profiles'] || '[]').length; } catch(e) {}
+                try { cloudCount = JSON.parse(cloudData['ataraxie_profiles'] || '[]').length; } catch(e) {}
                 
                 const keepLocal = await showSyncModal(
                     `Des données sauvegardées localement ont été détectées.\n\nLocale : ${localCount} profil(s)\nCloud : ${cloudCount} profil(s)\n\nVoulez-vous synchroniser ces données avec le Cloud (les conserver) ou télécharger les dernières données en ligne (et écraser les données locales) ?`, 
