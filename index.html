@@ -2890,19 +2890,6 @@
             border-color: var(--b200); 
         }
 
-        /* Loading Spinner */
-        .loading-logo-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
-        .loading-spinner {
-            position: absolute;
-            width: 56px;
-            height: 56px;
-            border: 3px solid transparent;
-            border-top-color: var(--b500);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
         /* Custom Modals */
         .custom-modal-overlay {
             position: fixed; inset: 0; z-index: 9999;
@@ -5056,7 +5043,7 @@
     <!-- ══════════ LOADING OVERLAY (Fixed & Modernized) ══════════ -->
     <div id="loading-overlay" style="position:fixed;inset:0;z-index:9999;background:var(--p0);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;transition:opacity .4s ease;">
         <div class="loading-logo-wrap">
-            <img src="logo.png" alt="Ataraxie" style="width:40px;height:40px;border-radius:12px;object-fit:contain;background:#fff;padding:2px;box-shadow:0 4px 10px rgba(0,0,0,0.05);z-index:2;">
+            <img src="logo.png" alt="Ataraxie" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:12px;object-fit:contain;background:#fff;padding:2px;box-shadow:0 4px 10px rgba(0,0,0,0.05);z-index:2;">
             <div class="loading-spinner"></div>
         </div>
         <p style="font-size:.75rem;color:var(--tsd);font-weight:600;letter-spacing:.02em;margin-top:10px;">Chargement…</p>
