@@ -2701,6 +2701,34 @@
                 line-height: 1.4;
             }
         }
+            .sync-modal-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7); display: none;
+            align-items: center; justify-content: center;
+            z-index: 10000; backdrop-filter: blur(4px);
+        }
+        .sync-modal {
+            background: var(--s2, #191c28); border-radius: 12px; padding: 24px;
+            max-width: 400px; width: 90%; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            color: var(--p0, #f7f6f3); border: 1px solid var(--s3, #212536);
+            text-align: center; font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .sync-modal h3 { margin-top: 0; margin-bottom: 12px; font-size: 1.1rem;}
+        .sync-modal p { color: var(--p1, #ffffff); font-size: 0.95rem; margin-bottom: 24px; line-height:1.5;}
+        .sync-modal-actions {
+            display: flex; gap: 12px; justify-content: center;
+        }
+        .sync-modal-btn {
+            padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 0.9rem; transition: background 0.2s;
+        }
+        .sync-modal-btn.cancel {
+            background: var(--s3, #212536); color: var(--p0, #f7f6f3);
+        }
+        .sync-modal-btn.cancel:hover { background: var(--s-hover, #282d42); }
+        .sync-modal-btn.confirm {
+            background: var(--p500, #3e8ed0); color: white;
+        }
+        .sync-modal-btn.confirm:hover { background: var(--p600, #2b6fa6); }
     </style>
 
 
@@ -3065,6 +3093,12 @@
             function addRecent(mod, chap, targetQId = null) {
                 const key = mk(mod, chap);
                 if (!st.recent) st.recent = [];
+                const entry = D.find(d => d.module === mod && d.chapitre === chap);
+                if (entry && cntChAns(entry) === 0) {
+                    st.recent = st.recent.filter(r => r.key !== key);
+                    sv();
+                    return;
+                }
                 const existR = st.recent.find(r => r.key === key);
                 const lastQ = targetQId || (existR ? existR.lastQId : null);
                 st.recent = st.recent.filter(r => r.key !== key);
@@ -3081,7 +3115,13 @@
             }
             function renderHistory() {
                 const c = document.getElementById('home-history');
-                if (!st.recent || st.recent.length === 0) { c.innerHTML = '<div class="hist-empty">Aucun historique pour le moment. Sélectionnez un chapitre pour commencer.</div>'; return; }
+                if (!st.recent) st.recent = [];
+                st.recent = st.recent.filter(r => {
+                    const entry = D.find(d => d.module === r.module && d.chapitre === r.chapitre);
+                    return entry && cntChAns(entry) > 0;
+                });
+                
+                if (st.recent.length === 0) { c.innerHTML = '<div class="hist-empty">Aucun historique pour le moment. Sélectionnez un chapitre pour commencer.</div>'; return; }
                 let h = '<div class="home-history-title">Reprendre où vous en étiez</div><div class="hist-list">';
                 st.recent.forEach(r => {
                     const entry = D.find(d => d.module === r.module && d.chapitre === r.chapitre);
@@ -4568,6 +4608,16 @@
             if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
         })();
     </script>
+    <div id="syncModalOverlay" class="sync-modal-overlay">
+        <div class="sync-modal">
+            <h3 id="syncModalTitle">Synchronisation Cloud</h3>
+            <p id="syncModalMessage">Message goes here</p>
+            <div class="sync-modal-actions">
+                <button id="syncModalBtnCancel" class="sync-modal-btn cancel">Annuler</button>
+                <button id="syncModalBtnConfirm" class="sync-modal-btn confirm">OK</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

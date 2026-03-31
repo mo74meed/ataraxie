@@ -22,6 +22,38 @@ const db = getDatabase(app);
 
 let currentUser = null;
 
+function showSyncModal(message, okText = "OK", cancelText = "Annuler") {
+    return new Promise((resolve) => {
+        const overlay = document.getElementById('syncModalOverlay');
+        const msgEl = document.getElementById('syncModalMessage');
+        const btnCancel = document.getElementById('syncModalBtnCancel');
+        const btnConfirm = document.getElementById('syncModalBtnConfirm');
+
+        if (!overlay) {
+            resolve(confirm(message));
+            return;
+        }
+
+        msgEl.innerText = message;
+        btnConfirm.innerText = okText;
+        btnCancel.innerText = cancelText;
+
+        overlay.style.display = 'flex';
+
+        const cleanup = () => {
+            overlay.style.display = 'none';
+            btnConfirm.removeEventListener('click', onConfirm);
+            btnCancel.removeEventListener('click', onCancel);
+        };
+
+        const onConfirm = () => { cleanup(); resolve(true); };
+        const onCancel = () => { cleanup(); resolve(false); };
+
+        btnConfirm.addEventListener('click', onConfirm);
+        btnCancel.addEventListener('click', onCancel);
+    });
+}
+
 window.FirebaseAuthManager = {
     init: function(onUserLoadCallback) {
         // Essential for mobile: catch the returning user after a redirect!
@@ -78,11 +110,22 @@ window.FirebaseAuthManager = {
                         }
 
                         if (hasDifferences) {
-                            const keepLocal = confirm("Vous êtes de nouveau en ligne ! Des changements hors ligne ont été détectés.\nVoulez-vous sauvegarder ces modifications sur le cloud (OK) ou les annuler (Annuler) ?");
+                            const keepLocal = await showSyncModal(
+                                "Vous êtes de nouveau en ligne ! Des changements hors ligne ont été détectés.\n\nVoulez-vous sauvegarder ces modifications sur le cloud, ou les supprimer pour éviter tout conflit avec vos autres appareils ?", 
+                                "Sauvegarder", 
+                                "Supprimer"
+                            );
                             if (keepLocal) {
                                 // Push offline data to cloud
                                 await update(ref(db, 'users/' + currentUser.uid + '/data'), localDataDump);
-                                alert("Données sauvegardées avec succès.");
+                                // Non blocking notification instead of alert:
+                                const syncStatusIcon = document.getElementById('auth-sync-status');
+                                if(syncStatusIcon) {
+                                  let prevSyncContent = syncStatusIcon.textContent;
+                                  syncStatusIcon.style.color = "var(--p500)";
+                                  syncStatusIcon.textContent = "✔ Sauvegardé";
+                                  setTimeout(() => { syncStatusIcon.textContent = prevSyncContent; }, 3000);
+                                }
                             } else {
                                 // Re-pull from cloud
                                 window.FirebaseAuthManager.pullNow();
@@ -203,7 +246,11 @@ window.FirebaseAuthManager = {
             }
 
             if (hasDifferences) {
-                const keepLocal = confirm("Des données sauvegardées localement ont été détectées.\n\nVoulez-vous garder ces données (Ok) ou télécharger celles du Cloud (Annuler) ?");
+                const keepLocal = await showSyncModal(
+                    "Des données sauvegardées localement ont été détectées sur cet appareil.\n\nVoulez-vous synchroniser ces données avec le Cloud (les conserver) ou télécharger les dernières données en ligne (et écraser les données locales) ?", 
+                    "Conserver (Cloud ↑)", 
+                    "Jeter et Télécharger (Cloud ↓)"
+                );
                 if (keepLocal) {
                     // Update Cloud with Local Data
                     await update(ref(db, 'users/' + user.uid + '/data'), localDataDump);
