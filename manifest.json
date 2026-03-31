@@ -1,0 +1,9 @@
+{
+    "name": "Ataraxie — Révisions Médicales",
+    "short_name": "Ataraxie",
+    "start_url": "/ataraxie/",
+    "display": "standalone",
+    "background_color": "#f7f6f3",
+    "theme_color": "#4a4ff4",
+    "icons": [{ "src": "logo.png", "sizes": "192x192", "type": "image/png" }]
+}

@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut, onAuthStateChanged, signInWithCredential } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child, update } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app-check.js";
+import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app-check.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBbPwpQsTdrfPi6WvfhFVhmhpeYzp5Wn0g",
@@ -10,17 +12,55 @@ const firebaseConfig = {
   messagingSenderId: "490683199342",
   appId: "1:490683199342:web:b3c6df504994c01d4cdb7f",
   measurementId: "G-NWJ26Y115H",
-  // Crucial for RTDB: You MUST specify the databaseURL if it doesn't auto-detect
   databaseURL: "https://e-taraxie-default-rtdb.firebaseio.com"
 };
 
 const app = initializeApp(firebaseConfig);
+
+// UNCOMMENT AND ADD YOUR RECAPTCHA SITE KEY ONCE SET UP IN FIREBASE CONSOLE
+// initializeAppCheck(app, {
+//   provider: new ReCaptchaV3Provider('YOUR_RECAPTCHA_V3_SITE_KEY_HERE'),
+//   isTokenAutoRefreshEnabled: true
+// });
+
 const auth = getAuth(app);
 
 // Use Realtime Database instead of Firestore to bypass daily 'Save Count' quotas
 const db = getDatabase(app);
 
+function setSyncStatus(state) {
+    const el = document.getElementById('auth-sync-status');
+    if (!el) return;
+    const map = {
+      syncing: { text: '↻ Sync...', color: 'var(--a500)' },
+      synced:  { text: '● Synced', color: 'var(--g500)' },
+      error:   { text: '✖ Erreur', color: '#ef4444' },
+      offline: { text: '○ Hors ligne', color: 'var(--t4)' }
+    };
+    if(map[state]) {
+        el.textContent = map[state].text;
+        el.style.color = map[state].color;
+    }
+}
+
 let currentUser = null;
+
+function setSyncStatus(state) {
+    const el = document.getElementById('auth-sync-status');
+    if (!el) return;
+    const map = {
+      syncing: { text: '↻ Sync...', color: 'var(--a500)' },
+      synced:  { text: '● Synced', color: 'var(--g500)' },
+      error:   { text: '✖ Erreur', color: '#ef4444' },
+      offline: { text: '○ Hors ligne', color: 'var(--t4)' }
+    };
+    el.textContent = map[state].text;
+    el.style.color = map[state].color;
+}
+
+window.addEventListener('offline', () => setSyncStatus('offline'));
+window.addEventListener('online', () => setSyncStatus('syncing'));
+
 
 function showSyncModal(message, okText = "OK", cancelText = "Annuler") {
     return new Promise((resolve) => {
@@ -55,6 +95,59 @@ function showSyncModal(message, okText = "OK", cancelText = "Annuler") {
 }
 
 window.FirebaseAuthManager = {
+    mergeDataSets: function(cloudData, localData) {
+        const merged = { ...cloudData };
+        for (const key in localData) {
+            if (key === 'ataraxie_profiles') {
+                try {
+                    let cP = cloudData[key] ? JSON.parse(cloudData[key]) : [];
+                    let lP = localData[key] ? JSON.parse(localData[key]) : [];
+                    let pMap = new Map();
+                    cP.forEach(p => pMap.set(p.id, p));
+                    lP.forEach(p => pMap.set(p.id, p));
+                    merged[key] = JSON.stringify(Array.from(pMap.values()));
+                } catch(e) {
+                    merged[key] = localData[key];
+                }
+                continue;
+            }
+            if (key.startsWith('ataraxie_p_')) {
+                try {
+                    const cloud = cloudData[key] ? JSON.parse(cloudData[key]) : null;
+                    const local = localData[key] ? JSON.parse(localData[key]) : null;
+                    if (!cloud) { merged[key] = localData[key]; continue; }
+                    if (!local) continue;
+                    
+                    const result = { ...cloud };
+                    for (const subKey of ['qcm', 'red', 'val', 'his', 'recent']) {
+                        if (local[subKey]) {
+                            result[subKey] = result[subKey] || (Array.isArray(local[subKey]) ? [] : {});
+                            if (Array.isArray(local[subKey])) {
+                                // For things like 'recent' arrays
+                                result[subKey] = [...local[subKey], ...result[subKey]];
+                                // deduplicate by key if it's the recent array
+                                if (subKey === 'recent') {
+                                    const seen = new Set();
+                                    result[subKey] = result[subKey].filter(r => {
+                                        const duplicate = seen.has(r.key);
+                                        seen.add(r.key);
+                                        return !duplicate;
+                                    });
+                                }
+                            } else {
+                                Object.assign(result[subKey], local[subKey]);
+                            }
+                        }
+                    }
+                    merged[key] = JSON.stringify(result);
+                } catch(e) { merged[key] = localData[key]; }
+            } else {
+                merged[key] = localData[key];
+            }
+        }
+        return merged;
+    },
+
     init: function(onUserLoadCallback) {
         // Essential for mobile: catch the returning user after a redirect!
         // We do not await it here so it doesn't block onAuthStateChanged loading.
@@ -116,8 +209,16 @@ window.FirebaseAuthManager = {
                                 "Supprimer"
                             );
                             if (keepLocal) {
-                                // Push offline data to cloud
-                                await update(ref(db, 'users/' + currentUser.uid + '/data'), localDataDump);
+                                // Merge and Push offline data safely to cloud
+                                const mergedData = window.FirebaseAuthManager.mergeDataSets(cloudData, localDataDump);
+                                await update(ref(db, 'users/' + currentUser.uid + '/data'), mergedData);
+                                
+                                for (let key in mergedData) {
+                                    if (key.startsWith('ataraxie_')) {
+                                        localStorage.setItem(key, mergedData[key]);
+                                    }
+                                }
+
                                 // Non blocking notification instead of alert:
                                 const syncStatusIcon = document.getElementById('auth-sync-status');
                                 if(syncStatusIcon) {
@@ -252,9 +353,17 @@ window.FirebaseAuthManager = {
                     "Jeter et Télécharger (Cloud ↓)"
                 );
                 if (keepLocal) {
-                    // Update Cloud with Local Data
-                    await update(ref(db, 'users/' + user.uid + '/data'), localDataDump);
-                    return localDataDump; // Keep local data and skip cloud overwrite
+                    // Update Cloud with securely merged Data
+                    const mergedData = this.mergeDataSets(cloudData, localDataDump);
+                    await update(ref(db, 'users/' + user.uid + '/data'), mergedData);
+                    
+                    // Inject back to localStorage cleanly
+                    for (let key in mergedData) {
+                        if (key.startsWith('ataraxie_')) {
+                            localStorage.setItem(key, mergedData[key]);
+                        }
+                    }
+                    return mergedData; 
                 }
             }
 
@@ -281,8 +390,14 @@ window.FirebaseAuthManager = {
     
     // Optimized Delta Sync: Only uploads the exact profile that was modified, not the whole database!
     saveProgress: async function(profileSK, stateObject) {
-        if (profileSK && stateObject) {
+        if (!profileSK || typeof profileSK !== 'string' || !profileSK.startsWith('ataraxie_')) {
+            console.warn('saveProgress: invalid profileSK', profileSK);
+            return;
+        }
+        
+        if (stateObject) {
             const jsonState = JSON.stringify(stateObject);
+            setSyncStatus('syncing');
             localStorage.setItem(profileSK, jsonState);
             
             if (currentUser) {
@@ -291,8 +406,10 @@ window.FirebaseAuthManager = {
                     const updates = {};
                     updates[profileSK] = jsonState;
                     await update(ref(db, 'users/' + currentUser.uid + '/data'), updates);
+                    setSyncStatus('synced');
                 } catch(e) { 
                     console.error("Firebase Fast-Sync Error", e); 
+                    setSyncStatus('error'); 
                 }
             }
         } else {
@@ -304,6 +421,7 @@ window.FirebaseAuthManager = {
     forceSync: async function() {
         if (currentUser) {
             try {
+                setSyncStatus('syncing');
                 let fullData = {};
                 for (let i = 0; i < localStorage.length; i++) {
                     let key = localStorage.key(i);
@@ -312,9 +430,10 @@ window.FirebaseAuthManager = {
                     }
                 }
                 
-                // Only update the 'data' node of the specific user without overwriting metadata
-                await set(ref(db, 'users/' + currentUser.uid + '/data'), fullData);
-            } catch(e) { console.error("Firebase Sync Error", e); }
+                // Only update the 'data' node of the specific user without overwriting metadata (Fix F2)
+                await update(ref(db, 'users/' + currentUser.uid + '/data'), fullData);
+                setSyncStatus('synced');
+            } catch(e) { console.error("Firebase Sync Error", e); setSyncStatus('error'); }
         }
     },
 
@@ -350,7 +469,11 @@ window.FirebaseAuthManager = {
                 }
                 
                 // If Capacitor App, we can't easily trigger the index.html closures nicely, so a reload is the safest and cleanest way to reset the DOM tree
-                location.reload();
+                if (typeof window.refreshUI === 'function') {
+                    window.refreshUI();
+                } else {
+                    location.reload();
+                }
             }
         } catch(e) {
             console.error("Firebase Pull Error", e);
@@ -362,3 +485,10 @@ window.FirebaseAuthManager = {
         }
     }
 };
+
+
+
+
+
+
+

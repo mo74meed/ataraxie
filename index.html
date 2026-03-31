@@ -12,11 +12,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4a4ff4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     <link rel="stylesheet" href="katex/katex.min.css">
-    <script defer src="katex/katex.min.js"></script>
-    <script defer src="katex/contrib/auto-render.min.js"></script>
+    <script src="katex/katex.min.js"></script>
+    <script src="katex/contrib/auto-render.min.js"></script>
 
 
     <style>
@@ -3080,6 +3084,21 @@
                 if (active && nameEl) { nameEl.textContent = active.name; avatarEl.textContent = active.name.charAt(0).toUpperCase(); }
             }
 
+            window.refreshUI = function() {
+                activeProfileId = getActiveId();
+                st = ld();
+                upProfileUI();
+                buildSB();
+                upProg();
+                renderHistory();
+                if (ak) {
+                    const ps = ak.split('§');
+                    render(ps[0], ps[1]);
+                } else {
+                    goHome();
+                }
+            };
+
             /* ══════════ HOME / HISTORY ══════════ */
             function goHome() {
                 ak = null; st.ac = null; sv();
@@ -3168,7 +3187,7 @@
                     foot.style.display = 'none';
                     body.innerHTML = '<div class="reset-all-section"><p>Cette action supprimera toutes vos réponses, validations et historique pour ce profil. Cette action est irréversible.</p><button class="reset-danger-btn" id="reset-all-btn">Tout effacer</button></div>';
                     document.getElementById('reset-all-btn').onclick = () => {
-                        if (confirm('Êtes-vous sûr de vouloir tout effacer ?')) { st = emptyState(); svNow()?.then(() => { closeResetModal(); location.reload(); }); }
+                        if (confirm('Êtes-vous sûr de vouloir tout effacer ?')) { st = emptyState(); svNow()?.then(() => { closeResetModal(); refreshUI(); }); }
                     };
                 } else {
                     foot.style.display = '';
@@ -3193,7 +3212,7 @@
                             for (const k in st.his) if (k.startsWith(ck + '§')) delete st.his[k];
                             st.recent = (st.recent || []).filter(r => mk(r.module, r.chapitre) !== ck);
                         });
-                        svNow()?.then(() => { closeResetModal(); location.reload(); });
+                        svNow()?.then(() => { closeResetModal(); refreshUI(); });
                     };
                 }
             }
@@ -3286,7 +3305,12 @@
             }
 
             function init() {
-                D = (typeof ATARAXIE_S8_DB !== 'undefined')
+                D = (typeof ATARAXIE_S8_DB !== 'undefined') {
+                    document.getElementById('ws').innerHTML = `<div class="w-icon" style="background:rgba(239,68,68,.08)"><svg style="color:#ef4444" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="34" height="34"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div>
+                    <h2>Base de données introuvable</h2>
+                    <p>Le fichier de questions n'a pas pu être chargé. Vérifiez votre connexion et rechargez la page.</p>`;
+                    return;
+                }
                     ? adaptDatabase(ATARAXIE_S8_DB)
                     : ((typeof QUESTIONS_DATA !== 'undefined') ? QUESTIONS_DATA : []);
 
@@ -3299,6 +3323,12 @@
                     document.getElementById('logout-btn').addEventListener('click', () => window.FirebaseAuthManager.logout());
                     
                     window.FirebaseAuthManager.init((cloudState, user) => {
+                        const loader = document.getElementById('loading-overlay');
+                        if (loader) {
+                            loader.style.opacity = '0';
+                            setTimeout(() => loader.style.display = 'none', 400);
+                        }
+
                         if (user) {
                             document.getElementById('login-btn').style.display = 'none';
                             document.getElementById('logout-btn').style.display = 'flex';
@@ -3321,7 +3351,7 @@
                             upProfileUI(); buildSB(); upProg(); renderHistory();
                             if (ak) { 
                                 const ps = ak.split('§'); 
-                                loadChap(ps[0], ps[1]); 
+                                render(ps[0], ps[1]); 
                             } else {
                                 goHome();
                             }
@@ -3339,7 +3369,11 @@
                 // Always start on home — do NOT auto-restore ak
                 document.getElementById('hb').addEventListener('click', togMob);
 
-                document.getElementById('si').addEventListener('input', filter);
+                let filterTimer;
+            document.getElementById('si').addEventListener('input', (e) => {
+                clearTimeout(filterTimer);
+                filterTimer = setTimeout(() => filter(e), 150);
+            });
                 document.getElementById('btn-exp').addEventListener('click', expProg);
                 document.getElementById('btn-imp').addEventListener('click', () => document.getElementById('fi-imp').click());
                 document.getElementById('fi-imp').addEventListener('change', (e) => {
@@ -3676,6 +3710,10 @@
             }
 
             function renderMath(el) {
+                if (typeof renderMathInElement !== 'function') {
+                    window.addEventListener('load', () => renderMath(el), { once: true });
+                    return;
+                } {
                 if (typeof renderMathInElement === 'function') {
                     renderMathInElement(el, {
                         delimiters: [
@@ -4082,7 +4120,9 @@
                 }
 
                 e.questions.forEach((q, idx) => {
-                    if (q.type === 'qcm') {
+                    if (q.type === 'qcm' || q.type === 'redaction') {
+                        const isQcm = q.type === 'qcm';
+                        hasQcm = true;
                         hasQcm = true;
                         const key = mk(e.module, e.chapitre, q.id);
                         const myAns = st.qcm[key] || [];
@@ -4192,7 +4232,7 @@
                         }
                     }
                 });
-                if (!hasQcm) {
+                if (false) {
                     b.innerHTML = '<div class="cmp-empty">Aucun QCM</div>';
                 }
                 renderMath(document.getElementById('cmp-panel'));
@@ -4444,7 +4484,7 @@
                         st.recent = uniqueRecents.sort((a,b) => b.ts - a.ts).slice(0, 25);
                     }
                     extractOfficial(d);
-                    svNow()?.then(() => { location.reload(); });
+                    svNow()?.then(() => { refreshUI(); });
                 }
             }
 
@@ -4550,7 +4590,7 @@
                         else if (df.type === 'val') st.val[k] = resolutions[k];
                     }
                     extractOfficial(d);
-                    svNow()?.then(() => { location.reload(); });
+                    svNow()?.then(() => { refreshUI(); });
                 };
             }
 
@@ -4618,6 +4658,19 @@
             </div>
         </div>
     </div>
+    
+    <div id="loading-overlay" style="position:fixed;inset:0;z-index:9999;background:var(--s0);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;transition:opacity .4s ease">
+        <div style="width:36px;height:36px;border-radius:10px;background:var(--p500);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.9rem">A</div>
+        <p style="font-size:.75rem;color:var(--t3);font-weight:500">Synchronisation en cours…</p>
+    </div>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
