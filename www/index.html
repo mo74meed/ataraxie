@@ -5072,5 +5072,61 @@
             </div>
         </div>
     </div>
+
+                <!-- Highlight Script Added -->
+    <script>
+    function handleHighlight(e, delay) {
+        setTimeout(function() {
+            const sel = window.getSelection();
+            if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+            
+            if (e.target.closest('input, textarea, button, .custom-modal-box')) return;
+            
+            let range = sel.getRangeAt(0);
+            let container = range.commonAncestorContainer;
+            if (container.nodeType === 3) container = container.parentElement;
+            
+            function isYellow(col) {
+                return col === 'yellow' || col === 'rgb(255, 255, 0)';
+            }
+
+            function getYellowParent(node) {
+                let p = node;
+                while(p && p !== document.body) {
+                    if(p.style && isYellow(p.style.backgroundColor)) return p;
+                    p = p.parentElement;
+                }
+                return null;
+            }
+
+            let yellowNode = getYellowParent(sel.anchorNode) || getYellowParent(sel.focusNode);
+            let overlapNodes = [];
+            
+            if (yellowNode) {
+                overlapNodes.push(yellowNode);
+            } else {
+                let marks = container.querySelectorAll ? container.querySelectorAll('[style*=background-color]') : [];
+                for(let i=0; i<marks.length; i++) {
+                    if (isYellow(marks[i].style.backgroundColor) && sel.containsNode(marks[i], true)) {
+                        overlapNodes.push(marks[i]);
+                    }
+                }
+            }
+
+            if (overlapNodes.length > 0) {
+                overlapNodes.forEach(function(n) {
+                    n.style.backgroundColor = 'transparent';
+                });
+            } else {
+                document.designMode = 'on';
+                document.execCommand('backColor', false, 'yellow');
+                document.designMode = 'off';
+            }
+            sel.removeAllRanges();
+        }, delay);
+    }
+    document.addEventListener('mouseup', function(e) { handleHighlight(e, 10); });
+    document.addEventListener('touchend', function(e) { handleHighlight(e, 50); });
+    </script>
 </body>
 </html>
