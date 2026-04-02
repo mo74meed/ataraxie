@@ -1,3 +1,13 @@
+// ABSOLUTE LOADER FAILSAFE: Never strand the user on the white screen
+setTimeout(() => {
+    const loaderFn = document.getElementById('loading-overlay');
+    if (loaderFn) {
+        loaderFn.style.opacity = '0';
+        setTimeout(() => loaderFn.style.display = 'none', 400);
+        console.warn("Loader was forcibly removed by 4s failsafe timer.");
+    }
+}, 4000);
+
 
         (function () {
             'use strict';
@@ -551,10 +561,10 @@
                 const __uiLoader = document.getElementById('loading-overlay');
                 if (__uiLoader && __uiLoader.style.display !== 'none') {
                     // Let the UI paint visually for 50ms before triggering the CSS transition to ensure smoothness
-                    requestAnimationFrame(() => {
+                    setTimeout(() => {
                         __uiLoader.style.opacity = '0';
                         setTimeout(() => __uiLoader.style.display = 'none', 400);
-                    });
+                    }, 50);
                 }
 
                 document.getElementById('ov').addEventListener('click', () => {
