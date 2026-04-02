@@ -4211,9 +4211,12 @@
                     updateEditorEmptyState(editor);
 
                     editor.addEventListener('input', () => {
+                        updateEditorEmptyState(editor);
+                    });
+
+                    editor.addEventListener('blur', () => {
                         const qId = editor.dataset.key.split('§')[2];
                         st.red[editor.dataset.key] = extractEditorStateHtml(editor); sv(); addRecent(mod, chap, qId);
-                        updateEditorEmptyState(editor);
                         const card = editor.closest('.qcard');
                         const ans = isAns(editor.dataset.key, 'redaction');
                         const dot = card.querySelector('.dot-ans'); if (dot) dot.classList.toggle('on', ans);

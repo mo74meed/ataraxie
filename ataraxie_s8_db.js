@@ -202,7 +202,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-DIG-01-Q14",
                   "clinical_context": null,
-                  "question_text": "Amine, nourrisson de 5 mois sous allaitement mixte, qui présente des vomissements chroniques postprandiaux précoces depuis la naissance avec stagnation pondérale\\nQuelles sont les propositions justes ?",
+                  "question_text": "Amine, nourrisson de 5 mois sous allaitement mixte, qui présente des vomissements chroniques postprandiaux précoces depuis la naissance avec stagnation pondérale",
                   "type": "QCM",
                   "choices": [
                     "Le premier diagnostic à évoquer est la sténose hypertrophique du pylore",
@@ -230,7 +230,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-DIG-01-Q16",
                   "clinical_context": null,
-                  "question_text": "Chez ce même malade, on retrouve cette notion de cri au moment des tétés, il est anémique et hypotrophe\\nOn retient le (ou les) diagnostic(s) suivantes) :",
+                  "question_text": "Chez ce même malade, on retrouve cette notion de cri au moment des tétés, il est anémique et hypotrophe",
                   "type": "QCM",
                   "choices": [
                     "une infection urinaire",
@@ -626,7 +626,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-DIG-03-Q14",
                   "clinical_context": null,
-                  "question_text": "Vous recevez aux urgences un nourrisson de 10 mois pour diarrhée liquidienne remontant à 2 jours à raison de 6 selles/j, il vomit 3 fois/j. il n'est pas fébrile\\nA l'examen clinique vous le trouvez en assez bon état général, sans pli de déshydratation, sa fontanelle antérieure est normalement tendue, que faites-vous?",
+                  "question_text": "Vous recevez aux urgences un nourrisson de 10 mois pour diarrhée liquidienne remontant à 2 jours à raison de 6 selles/j, il vomit 3 fois/j. il n'est pas fébrile",
                   "type": "QCM",
                   "choices": [
                     "Vous l'hospitalisez pour une perfusion",
@@ -1052,7 +1052,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-DIG-04-Q21",
                   "clinical_context": null,
-                  "question_text": "Enfant de 4 ans, sans ATCD pathologiques particuliers qui consulte une diarrhée chronique\\nSon examen clinique note une pâleur cutanéo-muqueuse modérée, un poids à 12 kg et une taille à 88 cm\\nQuels sont les diagnostics probables pour lui:",
+                  "question_text": "Enfant de 4 ans, sans ATCD pathologiques particuliers qui consulte une diarrhée chronique",
                   "type": "QCM",
                   "choices": [
                     "Un déficit immunitaire",
@@ -1196,8 +1196,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-HEM-05-Q09",
-                  "clinical_context": null,
-                  "question_text": "Le bilan biologique a objectivé: Hb= 5 g/dl, VGM= 50 µ3, CCMH= 25%, GB= 8700/mm3, PNN = 5000/mm3, Lymph = 3200/mm3, PQ = 350000/mm3, Réticulocytes = 160000/mm3\\nLe diagnostic le plus probable est :",
+                  "clinical_context": "Garçon âgé de 3 ans, ayant comme antécédents des hémarthroses à répétition, admis aux urgences pour hématome de la cuisse.",
+                  "question_text": "Le diagnostic le plus probable est :",
                   "type": "QCM",
                   "choices": [
                     "Leucémie aiguë",
@@ -1253,7 +1253,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-HEM-05-Q13",
                   "clinical_context": null,
-                  "question_text": "Le médecin traitant a demandé une ferritinémie dont le résultat a objectivé un taux de 200ng/ml (VN 30-300)\\nLe diagnostic le plus probable chez cet enfant est:",
+                  "question_text": "Le médecin traitant a demandé une ferritinémie dont le résultat a objectivé un taux de 200ng/ml (VN 30-300)",
                   "type": "QCM",
                   "choices": [
                     "Une anémie par carence martiale",
@@ -1581,7 +1581,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-HEM-07-Q06",
                   "clinical_context": "AA.La transfusion de PFC peut être nécessaire dans les formes graves",
-                  "question_text": "En cas de syndrome hémorragique survenant spontanément chez un enfant sans antécédents particuliers, les premiers bilans à demander sont :",
+                  "question_text": "En cas de syndrome hémorragique survenant spontanément chez un enfant sans antécédents",
                   "type": "QCM",
                   "choices": [
                     "Numération plaquettaire",
@@ -1595,7 +1595,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-HEM-07-Q07",
                   "clinical_context": "particuliers, les premiers bilans à demander sont :",
-                  "question_text": "Le diagnostic à évoquer en cas de syndrome hémorragique avec un Temps de prothrombine (TP) bas, un Temps de céphaline activé (TCA) normale et un taux des plaquettes normal est:",
+                  "question_text": "Le diagnostic à évoquer en cas de syndrome hémorragique avec un Temps de prothrombine (TP) bas,",
                   "type": "QCM",
                   "choices": [
                     "Une hémophilie",
@@ -1623,7 +1623,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-HEM-07-Q09",
                   "clinical_context": null,
-                  "question_text": "Ahmed, garçon âgé de 3 ans, ayant comme antécédents des ecchymoses récidivantes, admis aux urgences pédiatriques pour des épistaxis de grande abondance\\nLe bilan de première intention chez cet enfant inclut :",
+                  "question_text": "Ahmed, garçon âgé de 3 ans, ayant comme antécédents des ecchymoses récidivantes, admis aux urgences pédiatriques pour des épistaxis de grande abondance",
                   "type": "QCM",
                   "choices": [
                     "Numération des plaquettes",
@@ -1636,8 +1636,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-HEM-07-Q10",
-                  "clinical_context": null,
-                  "question_text": "L'exploration de l'hémostase chez un enfant présentant un syndrome hémorragique a objectivé un TP bas avec un TCA normal, et un taux des plaquettes normal\\nLe diagnostic le plus probable est :",
+                  "clinical_context": "Garçon âgé de 3 ans, ayant comme antécédents des hémarthroses à répétition, admis aux urgences pour hématome de la cuisse.",
+                  "question_text": "Le diagnostic le plus probable est :",
                   "type": "QCM",
                   "choices": [
                     "Un déficit en facteur VII",
@@ -1877,7 +1877,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-HEM-09-Q08",
                   "clinical_context": null,
-                  "question_text": "Mouad, 5 ans, sans ATCD particulier, consulte pour augmentation progressive de son volume abdominal depuis 20 jours\\nIl fait de la fièvre (non chiffrée) et il est asthénique\\nA l’examen clinique, vous trouvez une pâleur, une splénomégalie à 2 TDD. une hépatomégalie à 12 cm, il a des adénopathies cervicales fixes, dures et dont la plus grande mesure 2 cm\\nLe reste de l‘examen est sans particularité\\nVous pensez d’abord à une leucémie aiguë devant :",
+                  "question_text": "Mouad, 5 ans, sans ATCD particulier, consulte pour augmentation progressive de son volume abdominal depuis 20 jours",
                   "type": "QCM",
                   "choices": [
                     "Sa fréquence comme pathologie maligne à cet âge",
@@ -2050,7 +2050,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-HEM-10-Q12",
                   "clinical_context": null,
-                  "question_text": "L’hémogramme de cet enfant a montré : Hb = 6 g/dl, VGM = 85 µ3, CCMH = 32%, GB = 3800/mm3, PNN = 600/mm3, lymphocytes = 3100/mm3, PQ = 60000/mm3\\nLe bilan doit être complété par :",
+                  "question_text": "L’hémogramme de cet enfant a montré : Hb = 6 g/dl, VGM = 85 µ3, CCMH = 32%, GB = 3800/mm3, PNN = 600/mm3, lymphocytes = 3100/mm3, PQ = 60000/mm3",
                   "type": "QCM",
                   "choices": [
                     "Un dosage du taux de réticulocytes",
@@ -2092,7 +2092,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-HEM-10-Q15",
                   "clinical_context": null,
-                  "question_text": "L’hémogramme de cet enfant a monté : Hb = 6g/dl, VGM = 85µ3, CCMH = 32%, GB = 3800/mm3, PNN = 900/mm3, lymphocytes = 2700/mm3\\nPQ = 60000/mm3\\nIl s’agit d’une :",
+                  "question_text": "L’hémogramme de cet enfant a monté : Hb = 6g/dl, VGM = 85µ3, CCMH = 32%, GB = 3800/mm3, PNN = 900/mm3, lymphocytes = 2700/mm3",
                   "type": "QCM",
                   "choices": [
                     "Pancytopénie",
@@ -2176,7 +2176,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-HEM-10-Q21",
                   "clinical_context": null,
-                  "question_text": "Le bilan biologique de cet enfant a montré : Hb = 6 g/dl\\nVGM = 55 µ3, CCMH = 22%\\nGB = 9800/mm3, PQ= 360000/mm3, réticulocytes = 200000/mm3\\nLa VS est à 20 mm\\nProtidémie est à 57 g/l\\nLe fer sérique augmenté\\nIl s’agit d'une :",
+                  "question_text": "Le bilan biologique de cet enfant a montré : Hb = 6 g/dl",
                   "type": "QCM",
                   "choices": [
                     "Anémie normochrome normocytaire régénérative",
@@ -2288,7 +2288,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-HEM-10-Q29",
                   "clinical_context": null,
-                  "question_text": "Vous avez trouvé chez ce même malade, un taux d'Hb à 8 g/dl. un taux de GB à 2000 éléments/mm3 avec un taux de PNN à 900 éléments/mm3 et des plaquettes à 80 000 éléments/mm3\\nLe myélogramme a trouvé des corps de leishmanie, quelle serait votre conduite à tenir :",
+                  "question_text": "Vous avez trouvé chez ce même malade, un taux d'Hb à 8 g/dl. un taux de GB à 2000",
                   "type": "QCM",
                   "choices": [
                     "Vous commencez d’emblée le traitement par Glucantime R",
@@ -2433,7 +2433,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-11-Q10",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson âgé de 9 mois est admis pour une diarrhée liquidienne et des vomissements évoluant depuis 48 heures dans un contexte fébrile\\nIl est hospitalisé aux urgences pour crise convulsive hémi-corporelle droite\\nQuels seraient les mécanismes possibles de la crise convulsive ?",
+                  "question_text": "Un nourrisson âgé de 9 mois est admis pour une diarrhée liquidienne et des vomissements évoluant depuis 48 heures dans un contexte fébrile",
                   "type": "QCM",
                   "choices": [
                     "Hématome sous-dural",
@@ -2447,7 +2447,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-11-Q11",
                   "clinical_context": null,
-                  "question_text": "Houda âgée de 7 ans, consulte pour un déclin scolaire récent\\nLes enseignants parlent d’un trouble de concentration en classe\\nLes parents rapportent des pertes de contact brèves pluriquotidiennes. l’enfant n’a pas d’ATCD particulières\\nElle a un développement neurologique et un examen clinique strictement normaux. vous pensez à un syndrome épileptique :",
+                  "question_text": "Houda âgée de 7 ans, consulte pour un déclin scolaire récent",
                   "type": "QCM",
                   "choices": [
                     "Il s’agit d’une épilepsie absences",
@@ -2461,7 +2461,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-11-Q12",
                   "clinical_context": null,
-                  "question_text": "Laila, 7 ans, est reçue aux urgences pédiatriques pour une première crise convulsive, survenue dans un contexte apyrétique\\nLes étiologies à évoquer sont :",
+                  "question_text": "Laila, 7 ans, est reçue aux urgences pédiatriques pour une première crise convulsive, survenue dans un contexte apyrétique",
                   "type": "QCM",
                   "choices": [
                     "Une méningite",
@@ -2475,7 +2475,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-11-Q13",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson âgé de 15 mois, ayant un bon développement psychomoteur, est admis pour une convulsion généralisée brève (inférieur à 5 min) survenue dans un contexte fébrile\\nDevant un examen neurologique rassurant et après la réalisation d’une ponction lombaire, vous avez pu éliminer l’infection neuro-méningée.",
+                  "question_text": "Un nourrisson âgé de 15 mois, ayant un bon développement psychomoteur, est admis pour une convulsion généralisée brève (inférieur à 5 min) survenue dans un contexte fébrile",
                   "type": "QCM",
                   "choices": [
                     "Vous retenez le diagnostic d’une convulsion fébrile.",
@@ -2489,7 +2489,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-11-Q14",
                   "clinical_context": null,
-                  "question_text": "Amine. 8 mois, sans antécédents neurologiques, est admis aux urgences pour une crise convulsive d’une durée de 7 minutes, survenue dans un contexte fébrile\\nL'examen est strictement normal en post critique\\nEn faveur d’une crise convulsive compliquée, nous retenons :",
+                  "question_text": "Amine. 8 mois, sans antécédents neurologiques, est admis aux urgences pour une crise convulsive d’une durée de 7 minutes, survenue dans un contexte fébrile",
                   "type": "QCM",
                   "choices": [
                     "L'âge du nourrisson",
@@ -2703,7 +2703,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-12-Q13",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson âgé de 4 mois est admis pour une fièvre aigue évoluant depuis 24 heures, associée à un refus de téter et une hypotonie axiale\\nUn syndrome méningé est évoqué\\nQuels sont les signes de gravité à relever ?",
+                  "question_text": "Un nourrisson âgé de 4 mois est admis pour une fièvre aigue évoluant depuis 24 heures, associée à un refus de téter et une hypotonie axiale",
                   "type": "QCM",
                   "choices": [
                     "Une fontanelle bombante.",
@@ -2745,7 +2745,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-12-Q16",
                   "clinical_context": "Ahmed âgé de 12 ans. est admis pour une fièvre évoluant depuis 13 jours avec des céphalées. L’examen clinique trouve une raideur méningée. L'examen du LCR montre : GB 160 éléments/mm3 (lymphocytes $85 \\%$ ), glycorachie $_ { 0 , 2 \\mathfrak { g } / 1 }$ , protéinorachie $1 . 5 \\ : { \\mathsf { g } } / { \\mathsf { L } }$ . La CRP est à $1 0 \\mathrm { m g } / \\vert$ .",
-                  "question_text": "Yassine est un enfant âgé de 5 ans admis pour syndrome méningé évoluant depuis 24 heures\\nUn traitement non précisé est prescrit 12 heures auparavant\\nL'examen du LCR montre : GB 80 éléments/mm3 (lymphocytes - , PNN - ), GR 50 éléments/mm3. glycorachie 0,6 g/l, protéinorachie 0,35 g/l\\nLa CRP est à 20 mg/l.Les résultats biologiques sont en faveur d’une :",
+                  "question_text": "Les résultats biologiques sont en faveur d’une :",
                   "type": "QCM",
                   "choices": [
                     "Méningite tuberculeuse",
@@ -2759,7 +2759,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-12-Q17",
                   "clinical_context": null,
-                  "question_text": "Un enfant âgé de 5 ans est admis aux urgences pour un trouble de conscience fébrile\\nL’examen clinique trouve une raideur de la nuque. un purpura nécrotique avec des extrémités froides.",
+                  "question_text": "Un enfant âgé de 5 ans est admis aux urgences pour un trouble de conscience fébrile",
                   "type": "QCM",
                   "choices": [
                     "La ponction lombaire doit être réalisée sans délai",
@@ -2787,7 +2787,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-12-Q19",
                   "clinical_context": null,
-                  "question_text": "Un patient âgé de 6 ans, fébrile depuis 48 heures avec notion de vomissements et de céphalées\\nA l'examen, raideur méningée\\nA l'examen du LCR, liquide trouble, cytologie 950 GB - polynucléaires), glycorachie: 0.22 g/l et protéinorachie: 1.85 g/l\\nA l'examen direct: diplocoques gram négatif\\nIl s'agit d'une méningite :",
+                  "question_text": "Un patient âgé de 6 ans, fébrile depuis 48 heures avec notion de vomissements et de céphalées",
                   "type": "QCM",
                   "choices": [
                     "virale.",
@@ -2815,7 +2815,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-12-Q21",
                   "clinical_context": null,
-                  "question_text": "Sami 6 mois, est admis pour une méningite bactérienne\\nAprès 5 jours de traitement, il reste fébrile et son PC augmente de taille\\nQuelles sont les deux principales complications à craindre ?",
+                  "question_text": "Sami 6 mois, est admis pour une méningite bactérienne",
                   "type": "QCM",
                   "choices": [
                     "Hémorragie méningée",
@@ -2829,7 +2829,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-12-Q22",
                   "clinical_context": null,
-                  "question_text": "Un Nourrisson âgé de 4 mois est hospitalisé pour une méningite bactérienne à pneumocoque et il est mis sous ceftriaxone\\nAprès 6 jours du traitement, il reste fébrile et continue à avoir des vomissements.",
+                  "question_text": "Un Nourrisson âgé de 4 mois est hospitalisé pour une méningite bactérienne à pneumocoque et il est mis sous ceftriaxone",
                   "type": "QCM",
                   "choices": [
                     "On peut rassurer les parents et prolonger la durée du traitement.",
@@ -2857,7 +2857,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-12-Q24",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson âgé de 6 mois est admis pour méningite purulente à germe non identifié; il est mis sous ceftriaxone 80mg/Kg/j\\nIl reste symptomatique (fébrile avec rejet de la tête en AR) après cinq jours de traitement.",
+                  "question_text": "Un nourrisson âgé de 6 mois est admis pour méningite purulente à germe non identifié; il est mis sous ceftriaxone 80mg/Kg/j",
                   "type": "QCM",
                   "choices": [
                     "On peut craindre une ventriculite",
@@ -2891,7 +2891,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-13-Q02",
                   "clinical_context": null,
-                  "question_text": "Un enfant de 4 ans est amené à la consultation pour un retard du langage\\nC'est un enfant qui a acquis la marche à 15 mois\\nLes parents le qualifient d'enfant sociable et il présente un bon contact à l'examen clinique avec absence de signes neurologiques\\nLes diagnostics possibles sont :",
+                  "question_text": "Un enfant de 4 ans est amené à la consultation pour un retard du langage",
                   "type": "QCM",
                   "choices": [
                     "Un trouble du spectre autistique.",
@@ -2905,7 +2905,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-13-Q03",
                   "clinical_context": null,
-                  "question_text": "Un enfant de 6 ans est reçu à la consultation pour un retard de langage\\nII peut s'agir :",
+                  "question_text": "Un enfant de 6 ans est reçu à la consultation pour un retard de langage",
                   "type": "QCM",
                   "choices": [
                     "D’un trouble du spectre autistique",
@@ -2919,7 +2919,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-13-Q04",
                   "clinical_context": null,
-                  "question_text": "Salma est âgée de 18 mois, consulte pour un retard moteur important\\nElle a une histoire périnatale sans particularités et présente, à l’examen, une hypotonie axiale et périphérique des réflexes abolis contrastant avec un bon contact et une ébauche de langage",
+                  "question_text": "Salma est âgée de 18 mois, consulte pour un retard moteur important",
                   "type": "QCM",
                   "choices": [
                     "Il s’agit d’une atteinte du système nerveux périphérique",
@@ -2938,7 +2938,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-14-Q01",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson âgé de 18 mois est admis pour un épisode fébrile évoluant depuis 24 heures avec survenue de crises convulsives facio-brachiales droites et des troubles de conscience\\nL’examen du LCR révèle un liquide clair avec les résultats suivants : Cytologie : 45 globules blancs - lymphocytes), 60 Globules rouges\\nGlycorachie : 0,75 g par litre\\nProtéinorachie : 0,60 g par litre\\nExamen direct négatif.",
+                  "question_text": "Un nourrisson âgé de 18 mois est admis pour un épisode fébrile évoluant depuis 24 heures avec survenue de crises convulsives facio-brachiales droites et des troubles de conscience",
                   "type": "QCM",
                   "choices": [
                     "Il s’agit très probablement d’une tuberculose neuro-méningée.",
@@ -2966,7 +2966,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-14-Q03",
                   "clinical_context": null,
-                  "question_text": "Yasser, nourrisson de 4 mois qui présente depuis 2 jours une fièvre à 48°C avec une crise convulsive tonico-clonique généralisée\\nUne hypotonie a été retrouvée à l’examen clinique avec une fontanelle antérieure bombante\\nL’étude du LCR montre des GB à 5000 elts/mm3 à prédominance PNN avec une hypoglycorachie. il s’agit d’une :",
+                  "question_text": "Yasser, nourrisson de 4 mois qui présente depuis 2 jours une fièvre à 48°C avec une crise convulsive tonico-clonique généralisée",
                   "type": "QCM",
                   "choices": [
                     "Méningite bactérienne",
@@ -2994,7 +2994,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-14-Q05",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson âgé de 18 mois est admis pour fièvre, troubles de conscience et convulsions brachio-faciales droites\\nL’examen du LCR révèle : cellularité : 60GB, 80 GR. glycorachie à 0,7g/L ( pour une glycémie à 1.2g/L) protéinorachie à 0.6 g/L et examen direct négatif.",
+                  "question_text": "Un nourrisson âgé de 18 mois est admis pour fièvre, troubles de conscience et convulsions brachio-faciales droites",
                   "type": "QCM",
                   "choices": [
                     "C’est le profil clinico-biologique d’une méningo-encéphalite bactérienne.",
@@ -3008,7 +3008,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEU-14-Q06",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson âgé de 6 mois est admis pour une convulsion généralisée d'une durée de 8 minutes dans un contexte fébrile\\nL'examen clinique est normal en dehors d'une pharyngite",
+                  "question_text": "Un nourrisson âgé de 6 mois est admis pour une convulsion généralisée d'une durée de 8 minutes dans un contexte fébrile",
                   "type": "QCM",
                   "choices": [
                     "Il s'agit d'une convulsion fébrile simple.",
@@ -3306,7 +3306,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NPH-15-Q20",
                   "clinical_context": null,
-                  "question_text": "Ayman, est âgé de 5 ans, son poids est de 20kg, Il a présenté d’une façon brutale un œdème des membres inférieurs avec bouffissure du visage la bandelette urinaire retrouve : Albuminurie : +++ et des GR: +++ et la protéinurie de 24 heures est de 1g\\nLa diurèse est de 200 cc/24h\\nVotre complément de prise en charg comportera obligatoirement :",
+                  "question_text": "Ayman, est âgé de 5 ans, son poids est de 20kg, Il a présenté d’une façon brutale un œdème des membres inférieurs avec bouffissure du visage la bandelette urinaire retrouve : Albuminurie : +++ et des GR: +++ et la protéinurie de 24 heures est de 1g",
                   "type": "QCM",
                   "choices": [
                     "une prise de tension artérielle",
@@ -3856,7 +3856,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-18-Q05",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né admis à la naissance pour prématurité\\nLa maman est primigeste primipare âgée de 30 ans\\nLa grossesse était suivie et a été menée à 32 semaines d'aménorrhée\\nL'accouchement a été fait par césarienne pour menace d’accouchement prématurée avec bradycardie fœtale\\nL’ECBU de la maman était positif à E.Coli\\nLe score d’Apgar à la naissance était 5/10 à 1 minute et puis 8/10 à 5 minute\\nLe poids de naissance était de 1400g et le nouveau-né a présenté une détresse respiratoire avec un geignement audible.",
+                  "question_text": "Un nouveau-né admis à la naissance pour prématurité",
                   "type": "QCM",
                   "choices": [
                     "La corticothérapie postnatale pouvait améliorer la détresse respiratoire chez ce malade",
@@ -3870,7 +3870,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-18-Q06",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né admis à la naissance pour prématurité\\nLa maman est primigeste primipare âgée de 30 ans\\nLa grossesse était suivie et a été menée à 30 semaines d'aménorrhée\\nL'accouchement a été fait par césarienne dont l'indication était une éclampsie maternelle\\nLe score d'Apgar à la naissance était 5/10 à 1 minute et puis 8/10 à 5 minutes\\nLe poids de naissance était de 1200g et le nné a présenté une détresse respiratoire avec un geignement audible.",
+                  "question_text": "Un nouveau-né admis à la naissance pour prématurité",
                   "type": "QCM",
                   "choices": [
                     "La corticothérapie anténatale pouvait améliorer la détresse respiratoire chez ce malade",
@@ -4378,7 +4378,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-20-Q23",
                   "clinical_context": "Un nouveau-né prématuré à 32 SA, vu à la maternité pour détresse respiratoire installée depuis la naissance avec geignement expiratoire audible à l'oreille et tirage sous costal marqué. Corticothérapie non reçue. Naissance par césarienne en urgence pour éclampsie maternelle",
-                  "question_text": "Un nouveau-né à terme, Accouchement à domicile avec bonne adaptation à la vie extra-utérine\\nIl est ramené par la famille à J3 de vie pour détresse respiratoire d’installation brutale\\nSa Sa02 était à - à l’air ambiant et 70% sous 4 L d’oxygène Quel est votre premier diagnostic ?",
+                  "question_text": "Quel est votre premier diagnostic ?",
                   "type": "QCM",
                   "choices": [
                     "Inhalation du liquide amniotique méconial",
@@ -4804,7 +4804,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-22-Q17",
                   "clinical_context": null,
-                  "question_text": "Vous recevez en consultation un bébé à H18 de vie pour un ictère cutanéomuqueux intéressant tout le corps\\nMaman G3P2 (avec antécédent de fausse couche).",
+                  "question_text": "Vous recevez en consultation un bébé à H18 de vie pour un ictère cutanéomuqueux intéressant tout le corps",
                   "type": "QCM",
                   "choices": [
                     "Cet ictère est qualifié d'ictère modéré",
@@ -4818,7 +4818,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-22-Q18",
                   "clinical_context": null,
-                  "question_text": "Un nné à terme a été vu en consultation à J3 de vie pour ictère apparu à H 45 heures de vie\\nL'interrogatoire a objectivé l'antécédent d'un ictère néonatal dans la fratrie traité par 3 séances de photothérapie et le groupage de la maman est O positif\\nL'examen clinique a trouvé un nné ictérique jusqu'aux plantes des pieds avec hypertonie axiale\\nLe taux de bilirubine totale sanguine est de 500mmol/L",
+                  "question_text": "Un nné à terme a été vu en consultation à J3 de vie pour ictère apparu à H 45 heures de vie",
                   "type": "QCM",
                   "choices": [
                     "L'ictère chez ce malade est d'allure physiologie",
@@ -4832,7 +4832,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-22-Q19",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né à terme a été vu en consultation à J3 de vie pour ictère apparu à H 48 heures de vie\\nL'interrogatoire révèle l’antécédent d’un ictère néonatal dans la fratrie traité par 3 séances de photothérapie et le groupage de la maman est O positif.L'examen clinique trouve un nouveau-né ictérique jusqu'aux plantes des pieds avec une hypertonie axiale\\nLe taux de la bilirubine totale sanguine était à 500 mmol/L",
+                  "question_text": "Un nouveau-né à terme a été vu en consultation à J3 de vie pour ictère apparu à H 48 heures de vie",
                   "type": "QCM",
                   "choices": [
                     "L'ictère chez ce malade est d'allure physiologique",
@@ -4846,7 +4846,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-22-Q20",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né est né à 36SA\\nII a présenté un ictère à H 12 de vie\\nLa maman est G3P3 et l'interrogatoire a objectivé l'antécédent d'un ictère néonatal chez le deuxième bébé traité par 3 séances de photothérapie et le groupage de la maman est inconnu\\nL'examen clinique a trouvé un nouveau-né ictérique sur un fond de pâleur.",
+                  "question_text": "Un nouveau-né est né à 36SA",
                   "type": "QCM",
                   "choices": [
                     "L'ictère chez ce malade est d'allure physiologique",
@@ -4916,7 +4916,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-22-Q25",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né à terme est vu en consultation à J3 de vie pour ictère apparu à 48 heures de vie\\nL'interrogatoire révèle l'antécédent d'un ictère néonatal dans la fratrie traité par 3 séances de photothérapie et le groupage de la maman est O positif\\nL'examen clinique trouve un nouveau-né ictérique jusqu'aux plantes des pieds avec une hypertonie axiale et pâleur cutanéo-muqueuse\\nLe taux de la bilirubine totale sanguine était à 500 umol/L",
+                  "question_text": "Un nouveau-né à terme est vu en consultation à J3 de vie pour ictère apparu à 48 heures de vie",
                   "type": "QCM",
                   "choices": [
                     "L'ictère chez ce malade est d'allure physiologique",
@@ -5217,8 +5217,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-NEO-23-Q18",
-                  "clinical_context": null,
-                  "question_text": "Le nouveau-né avait une bonne adaptation à la vie extra-utérine avec examen clinique normal\\nVotre conduite à tenir chez le nouveau-né est de :",
+                  "clinical_context": "Une maman est admise à la maternité pour accouchement. L’âge gestationnel est à 39 SA, RPM de 18 heures et liquide amniotique clair. Poids de naissance 3000 g, Cri immédiat puis installation d’une détresse respiratoire avec SS à 4/10.",
+                  "question_text": "Votre conduite à tenir chez le nouveau-né est de :",
                   "type": "QCM",
                   "choices": [
                     "Hospitaliser et faire une hémoculture",
@@ -5232,7 +5232,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-23-Q19",
                   "clinical_context": null,
-                  "question_text": "Une maman est admise à la maternité pour menace d’accouchement\\nL’âge gestationnel est à 32 SA, RPM de 6 heures et liquide amniotique clair\\nLa conduite à tenir consiste en :",
+                  "question_text": "Une maman est admise à la maternité pour menace d’accouchement",
                   "type": "QCM",
                   "choices": [
                     "La pratique d’une césarienne en urgence",
@@ -5245,8 +5245,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-NEO-23-Q20",
-                  "clinical_context": "SA, RPM de 6 heures et liquide amniotique clair. La conduite à tenir consiste en :",
-                  "question_text": "La maman a accouché après 48 heures\\nLe nouveau-né avait une bonne adaptation à la vie extra-utérine avec une détresse respiratoire modérée\\nVotre conduite à tenir chez le nouveau-né est de :",
+                  "clinical_context": "Une maman est admise à la maternité pour accouchement. L’âge gestationnel est à 39 SA, RPM de 18 heures et liquide amniotique clair. Poids de naissance 3000 g, Cri immédiat puis installation d’une détresse respiratoire avec SS à 4/10.",
+                  "question_text": "Votre conduite à tenir chez le nouveau-né est de :",
                   "type": "QCM",
                   "choices": [
                     "Hospitaliser et faire une hémoculture",
@@ -5260,7 +5260,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-23-Q21",
                   "clinical_context": null,
-                  "question_text": "Une maman est admise à la maternité pour accouchement\\nL'âge gestationnel est à 39 SA, prélèvement vaginal positif à streptocoque B\\nLa conduite à tenir consiste en:",
+                  "question_text": "Une maman est admise à la maternité pour accouchement",
                   "type": "QCM",
                   "choices": [
                     "La pratique d'une césarienne en urgence",
@@ -5273,8 +5273,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-NEO-23-Q22",
-                  "clinical_context": null,
-                  "question_text": "Le nouveau-né avait une bonne adaptation à la vie extra-utérine avec examen clinique normal\\nVotre conduite à tenir chez le nouveau-né est de :",
+                  "clinical_context": "Une maman est admise à la maternité pour accouchement. L’âge gestationnel est à 39 SA, RPM de 18 heures et liquide amniotique clair. Poids de naissance 3000 g, Cri immédiat puis installation d’une détresse respiratoire avec SS à 4/10.",
+                  "question_text": "Votre conduite à tenir chez le nouveau-né est de :",
                   "type": "QCM",
                   "choices": [
                     "Hospitaliser et faire une hémoculture",
@@ -5288,7 +5288,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-23-Q23",
                   "clinical_context": null,
-                  "question_text": "Une maman admise pour accouchement\\nLa grossesse était bien suivie, menée à terme et prélèvement vaginal était positif au streptocoque B, Votre conduite à tenir sera:",
+                  "question_text": "Une maman admise pour accouchement",
                   "type": "QCM",
                   "choices": [
                     "Une antibiothérapie maternelle à base d'Amoxicilline 2g par voie intraveineuse puis 1g toutes les 4 heures",
@@ -5365,7 +5365,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-25-Q01",
                   "clinical_context": null,
-                  "question_text": "Nouveau-né à terme vu à la naissance dont sa maman avait fait une rupture prolongée des membranes de 24 heures avec un liquide amniotique teinté\\nL’Apgar était 10/10 à 1 min et l’examen clinique du nouveau-né était normal, Votre conduite à tenir sera :",
+                  "question_text": "Nouveau-né à terme vu à la naissance dont sa maman avait fait une rupture prolongée des membranes de 24 heures avec un liquide amniotique teinté",
                   "type": "QCM",
                   "choices": [
                     "Une antibiothérapie intraveineuse immédiate",
@@ -5378,8 +5378,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-NEO-25-Q02",
-                  "clinical_context": null,
-                  "question_text": "Vous venez de recevoir un nouveau-né pour une cyanose sous aire réfractaire à l'oxygène, pas de détresse respiratoire\\nLes pouls fémoraux normaux et pas de souffle\\nQuel est votre diagnostic ?",
+                  "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois. Le début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ . L’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $&gt; 5$ sec.",
+                  "question_text": "Quel est votre diagnostic ?",
                   "type": "QCM",
                   "choices": [
                     "Communication inter ventriculaire",
@@ -5393,7 +5393,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-25-Q03",
                   "clinical_context": null,
-                  "question_text": "Vous êtes amenés à examiner un nouveau-né de 7 jours de vie, né à terme et eutrophique, pour une détresse respiratoire, les pouls fémoraux sont mal perçus alors que les pouls huméraux sont bien palpés\\nLa pression artérielle systolique est à 75 mmHg au membre supérieur droit pour 55 mmHg au membre inférieur droit, la saturation mesurée au membre supérieur droit est à 99% sous 100% d’oxygène pour - au membre inférieur droit\\nUn seul diagnostic est valable est :",
+                  "question_text": "Vous êtes amenés à examiner un nouveau-né de 7 jours de vie, né à terme et eutrophique, pour une détresse respiratoire, les pouls fémoraux sont mal perçus alors que les pouls huméraux sont bien palpés",
                   "type": "QCM",
                   "choices": [
                     "Infection néonatale",
@@ -5491,7 +5491,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-25-Q10",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né vu en consultation le 3ème jour de vie et chez qui on a objectivé une cyanose à l'air ambiant réfractaire à l’oxygène sans signes de lutte\\nLes pouls fémoraux sont normaux et pas de souffle à l'auscultation cardiaque\\nQuel est ou quels sont vos diagnostics ?",
+                  "question_text": "Un nouveau-né vu en consultation le 3ème jour de vie et chez qui on a objectivé une cyanose à l'air ambiant réfractaire à l’oxygène sans signes de lutte",
                   "type": "QCM",
                   "choices": [
                     "Inhalation du liquide amniotique méconial",
@@ -5505,7 +5505,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-25-Q11",
                   "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois. Le début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ . L’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $&gt; 5$ sec.",
-                  "question_text": "Un nouveau-né vu en maternité à 2 heures de vie et chez qui on a objectivé une cyanose à l'air ambiant avec une saturation artérielle en oxygène à - et 70% sous 2L d'oxygène\\nLa fréquence respiratoire à 40 cycles /min et le score de Silverman à 0/10\\nLes pouls fémoraux sont présents et symétriques et pas de souffle à l'auscultation cardiaque\\nQuel est votre diagnostic ?",
+                  "question_text": "Quel est votre diagnostic ?",
                   "type": "QCM",
                   "choices": [
                     "Inhalation du liquide amniotique méconial",
@@ -5519,7 +5519,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-25-Q12",
                   "clinical_context": null,
-                  "question_text": "Vous êtes appelé à la maternité pour l’accueil d’un nouveau-né à terme\\nLa maman est primipare primigeste\\nLa grossesse était bien suivie avec un bilan infectieux négatif\\nL’accouchement était fait par voie basse avec double circulaire du cordon\\nL’apgar était à 2/10 à 1 minute de vie et 5/10 à 5 minutes de vie\\nVous évoquez en premier chez ce malade",
+                  "question_text": "Vous êtes appelé à la maternité pour l’accueil d’un nouveau-né à terme",
                   "type": "QCM",
                   "choices": [
                     "Une cardiopathie congénitale",
@@ -5533,7 +5533,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-25-Q13",
                   "clinical_context": null,
-                  "question_text": "Vous accueillez un nouveau né à H1 de vie pour une détresse respiratoire cotée à 4/10\\nLe bébé est par voie haute à 35 SA pour indication de placenta praevia hémorragique\\nLe liquide amniotique était clair\\nApgar était de 8 à 1 min puis 9 à 10 min.",
+                  "question_text": "Vous accueillez un nouveau né à H1 de vie pour une détresse respiratoire cotée à 4/10",
                   "type": "QCM",
                   "choices": [
                     "La détresse respiratoire peut être en rapport avec une inhalation méconiale.",
@@ -5856,7 +5856,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-RSP-26-Q21",
                   "clinical_context": null,
-                  "question_text": "Mohammed, 18 mois, bronchopneumopathies à répétition depuis l’âge de 8 mois à raison d’un épisode fébrile par mois, ces épisodes répondent aux traitements antibiotiques prescrits à plusieurs reprises, pd à 9kg (-2DS), taille à 73 cm (-2DS)\\nVous pensez à :",
+                  "question_text": "Mohammed, 18 mois, bronchopneumopathies à répétition depuis l’âge de 8 mois à raison d’un épisode fébrile par mois, ces épisodes répondent aux traitements antibiotiques prescrits à plusieurs reprises, pd à 9kg (-2DS), taille à 73 cm (-2DS)",
                   "type": "QCM",
                   "choices": [
                     "Un déficit immunitaire",
@@ -5870,7 +5870,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-RSP-26-Q22",
                   "clinical_context": null,
-                  "question_text": "Sami âgé de 5 ans présente un tableau de pneumonie aigue\\nQuelles sont les propositions justes ?",
+                  "question_text": "Sami âgé de 5 ans présente un tableau de pneumonie aigue",
                   "type": "QCM",
                   "choices": [
                     "La pneumonie est une maladie infectieuse qui provoque l’inflammation des poumons, causée par une bactérie ou un virus",
@@ -5999,7 +5999,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-RSP-27-Q07",
                   "clinical_context": null,
-                  "question_text": "Vous pensez à une miliaire tuberculeuse chez un nourrisson de 12 mois qui s’est présenté pour détresse respiratoire fébrile remontant à 10 jours\\nVotre conduite à tenir serait :",
+                  "question_text": "Vous pensez à une miliaire tuberculeuse chez un nourrisson de 12 mois qui s’est présenté pour détresse respiratoire fébrile remontant à 10 jours",
                   "type": "QCM",
                   "choices": [
                     "De chercher une autre localisation",
@@ -6184,7 +6184,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-RSP-28-Q12",
                   "clinical_context": null,
-                  "question_text": "Ahmed, 8 ans, présente depuis 2 jours une toux et des rhinorrhées, admis aux urgences pour dyspnée aiguë expiratoire et wheezing\\nVous évoquez un des diagnostics suivants :",
+                  "question_text": "Ahmed, 8 ans, présente depuis 2 jours une toux et des rhinorrhées, admis aux urgences pour dyspnée aiguë expiratoire et wheezing",
                   "type": "QCM",
                   "choices": [
                     "Une pleuro-pneumopathie",
@@ -6261,8 +6261,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-LOC-29-Q05",
-                  "clinical_context": null,
-                  "question_text": "Hassan est un enfant de 10 ans qui se plaint depuis 4 mois de douleurs articulaires des deux genoux et des deux poignets, il y a 10 jours il accuse une chute de l'acuité visuelle\\nL'interrogatoire ne note pas d'autres signes fonctionnels pathologiques\\nL'auscultation cardiaque est sans anomalie Quel est votre premier diagnostic à évoquer ?",
+                  "clinical_context": "Enfant de 8 ans, présentant une masse médiastinale antérieure. L'examen histologique de la biopsie réalisée a montré une prolifération diffuse faite de lymphocytes de taille moyenne avec des mitoses fréquentes.",
+                  "question_text": "Quel est votre premier diagnostic à évoquer ?",
                   "type": "QCM",
                   "choices": [
                     "Rhumatisme articulaire aiguë mineur",
@@ -6332,7 +6332,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-LOC-29-Q10",
                   "clinical_context": null,
-                  "question_text": "Enfant âgé de 5 ans, consulte pour des polyarthralgies fugaces et migratrices évoluant depuis 8 semaines, associées à une asthénie et une fièvre non chiffrée\\nL'examen clinique note un enfant très pale, algique, altérée, fébrile à 38.5\\nSon médecin traitant a retenu le diagnostic de RAA et l'a mis sous amoxicilline et acide acétyl salicylique.",
+                  "question_text": "Enfant âgé de 5 ans, consulte pour des polyarthralgies fugaces et migratrices évoluant depuis 8 semaines, associées à une asthénie et une fièvre non chiffrée",
                   "type": "QCM",
                   "choices": [
                     "Le tableau est évocateur d'un RAA",
@@ -6370,7 +6370,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-LOC-29-Q14",
                   "clinical_context": "Vous êtes appelés à voir en consultation Ahmed, un enfant de 6 ans d’un haut niveau socio-économique qui présente des douleurs des deux membres inférieurs et des deux membres supérieurs évoluant depuis 1 an et s’exacerbant surtout en fin de journée. Votre examen note l’absence de signes inflammatoires locaux, et la normalité du reste de l’examen. Les parents vous disent que l’enfant se porte très bien sans aucune limitation de l’activité. Vous notez la notion d’angines à répétition traitées, il n’y a pas de cas similaire dans la famille. Un bilan fait montre des ASLO à 1200 UI puis 1060 UI à 3 mois d’intervalle, une VS:10/24, une NFS normale.",
-                  "question_text": "Si l'hypothèse d'un Rhumatisme Articulaire Aigue est soulevée chez Ahmed ; quels seraient les arguments pour ce diagnostic \\nSi vous êtes contre ce diagnostic, vos arguments ? (citer vos arguments sous forme d'items avec des tirés).",
+                  "question_text": "Si l'hypothèse d'un Rhumatisme Articulaire Aigue est soulevée chez Ahmed ; quels seraient les arguments pour ce diagnostic ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -6378,7 +6378,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-LOC-29-Q15",
                   "clinical_context": null,
-                  "question_text": "Si l’hypothèse d'une Arthrite Juvénile Idiopathique est évoquée, quels seraient les arguments pour ce diagnostic)\\nSi vous êtes contre ce diagnostic, vos arguments ? (citer vos arguments sous forme d'items avec des tirés)",
+                  "question_text": "Si l’hypothèse d'une Arthrite Juvénile Idiopathique est évoquée, quels seraient les arguments pour ce diagnostic)",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -6526,7 +6526,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-LOC-30-Q10",
                   "clinical_context": null,
-                  "question_text": "Vous recevez un nourrisson de 18 mois pour déformation thoracique, retard de la fermeture de la fontanelle antérieure avec retard d’apparition dentaire, vous pensez à un rachitisme carentiel\\nQue chercherez-vous encore au bilan clinique et paraclinique :",
+                  "question_text": "Vous recevez un nourrisson de 18 mois pour déformation thoracique, retard de la fermeture de la fontanelle antérieure avec retard d’apparition dentaire, vous pensez à un rachitisme carentiel",
                   "type": "QCM",
                   "choices": [
                     "Des crises de tétanie",
@@ -6884,7 +6884,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-33-Q09",
                   "clinical_context": null,
-                  "question_text": "Alia, fille de 13 ans qui présente une hyperglycémie supérieure à 3 g/l et une HbA1c à 10%\\nSes parents sont connus diabétiques de type 2\\nQuels sont les critères anamnestiques qui pourraient appuyer l’hypothèse de la nature du diabète de type 2 chez Alia ?",
+                  "question_text": "Alia, fille de 13 ans qui présente une hyperglycémie supérieure à 3 g/l et une HbA1c à 10%",
                   "type": "QCM",
                   "choices": [
                     "L’évolution insidieuse et lente des symptômes du diabète",
@@ -6898,7 +6898,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-33-Q10",
                   "clinical_context": null,
-                  "question_text": "Rayane , garçon de 3 ans qui présente un diabète sucré inaugural\\nQuels sont les critères permettant d’affirmer la nature auto-immune du diabète ?",
+                  "question_text": "Rayane , garçon de 3 ans qui présente un diabète sucré inaugural",
                   "type": "QCM",
                   "choices": [
                     "Le mode de présentation rapide et aigu",
@@ -6912,7 +6912,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-33-Q11",
                   "clinical_context": null,
-                  "question_text": "Mounir, garçon de 6 ans, est hospitalisé pour un diabète sucré\\nQuels sont les signes cliniques qui alertent l’apparition du diabète de type 1 chez l’enfant?",
+                  "question_text": "Mounir, garçon de 6 ans, est hospitalisé pour un diabète sucré",
                   "type": "QCM",
                   "choices": [
                     "Un syndrome polyuro-polydipsique avec amaigrissement, polyphagie et asthénie",
@@ -6926,7 +6926,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-33-Q12",
                   "clinical_context": null,
-                  "question_text": "Mounir, garçon de 2 ans, est hospitalisé pour un diabète sucré\\nQuels sont les signes cliniques qui alertent l’apparition du diabète chez l’enfant?",
+                  "question_text": "Mounir, garçon de 2 ans, est hospitalisé pour un diabète sucré",
                   "type": "QCM",
                   "choices": [
                     "un syndrome polyuro-polydipsique avec amaigrissement, polyphagie et asthénie",
@@ -6940,7 +6940,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-33-Q13",
                   "clinical_context": null,
-                  "question_text": "Aymane est un jeune adolescent de 14 ans qui présente un diabète de type 1 déséquilibré depuis 2 ans\\nDepuis 2 jours, il présente un tableau de vomissements avec perte de poids et déshydratation faisant craindre une acidocétose diabétique\\nQuelles sont les réponses justes ?",
+                  "question_text": "Aymane est un jeune adolescent de 14 ans qui présente un diabète de type 1 déséquilibré depuis 2 ans",
                   "type": "QCM",
                   "choices": [
                     "L'acidocétose diabétique est la cause la plus fréquente de mortalité chez l'enfant DT 1.",
@@ -6954,7 +6954,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-33-Q14",
                   "clinical_context": null,
-                  "question_text": "Amal est une fille de 12 ans qui présente un syndrome polyuro-polydipsique depuis dix jours avec amaigrissement\\nLa glycémie capillaire est objectivée à 4 g/l, une bandelette urinaire montre une glycosurie à 3 croix et une acétonurie à 2 croix\\nUne glycémie veineuse au laboratoire à 3g/l, Quelles sont les informations justes à transmettre aux parents d’Amal :",
+                  "question_text": "Amal est une fille de 12 ans qui présente un syndrome polyuro-polydipsique depuis dix jours avec amaigrissement",
                   "type": "QCM",
                   "choices": [
                     "il faut effectuer une glycémie 2H après une charge orale de glucose pour confirmer le diabète",
@@ -6968,7 +6968,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-33-Q15",
                   "clinical_context": null,
-                  "question_text": "Lina est une fille de 13 ans, connue diabétique depuis 6 mois sous insuline en deux injections matin et soir avec un mélange insulinique rapide et NPH\\nQuelles sont les propositions qui sont justes ?",
+                  "question_text": "Lina est une fille de 13 ans, connue diabétique depuis 6 mois sous insuline en deux injections matin et soir avec un mélange insulinique rapide et NPH",
                   "type": "QCM",
                   "choices": [
                     "Le diabète de l’enfant est exclusivement de nature auto-immune à tous les âges",
@@ -6982,7 +6982,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-33-Q16",
                   "clinical_context": null,
-                  "question_text": "Dounia est une fille de 12ans qui présente un syndrome polyuro-polydipsique depuis 10j avec amaigrissement\\nLa glycémie capillaire est objectivée à 4g/l, une bandelette urinaire montre une glycémie à 3 croix et une acétonurie à 2 croix\\nUne glycémie veineuse au laboratoire est à 3g/l\\nQuelles sont les informations justes à transmettre aux parents de Dounia.",
+                  "question_text": "Dounia est une fille de 12ans qui présente un syndrome polyuro-polydipsique depuis 10j avec amaigrissement",
                   "type": "QCM",
                   "choices": [
                     "Dounia ne présente pas encore de diabète, il faut effectuer une glycémie 2H après une charge orale de glucose pour confirmer le diabète",
@@ -7107,7 +7107,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q08",
                   "clinical_context": null,
-                  "question_text": "Manal fille de 20 mois pèse 13 kg et une taille de 80 cm\\nLa taille de son père est de 160 cm et de sa mère 155 cm\\nQuelles sont les propositions justes?",
+                  "question_text": "Manal fille de 20 mois pèse 13 kg et une taille de 80 cm",
                   "type": "QCM",
                   "choices": [
                     "Sa taille doit se mesurer en position couchée",
@@ -7121,7 +7121,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q09",
                   "clinical_context": null,
-                  "question_text": "Mounir ; garçon de 8 ans qui présente un retard staturo-pondéral ; avec un poids de 20 kg et une taille de 120 cm\\nLa taille de son père est de 160 cm et de sa mère 155 cm\\nQuels sont les paramètres calculés justes qui concernent Mounir ?",
+                  "question_text": "Mounir ; garçon de 8 ans qui présente un retard staturo-pondéral ; avec un poids de 20 kg et une taille de 120 cm",
                   "type": "QCM",
                   "choices": [
                     "La taille cible se calcule par la moyenne des tailles parentales (en cm) + 6,5",
@@ -7135,7 +7135,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q10",
                   "clinical_context": null,
-                  "question_text": "Imane, fille de 12 ans qui consulte pour une petite taille < -3DS\\nSon âge osseux est de 10 ans, Quelles sont les étiologies du retard à écarter dans cette situation?",
+                  "question_text": "Imane, fille de 12 ans qui consulte pour une petite taille < -3DS",
                   "type": "QCM",
                   "choices": [
                     "Une maladie coeliaque",
@@ -7151,7 +7151,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q11",
                   "clinical_context": null,
-                  "question_text": "Salma est une fille de 5 ans qui consulte pour un retard de croissance, les tailles respectives de son père et sa mère sont 175cm et 165cm\\nQuelles sont les propositions justes à ce stade?",
+                  "question_text": "Salma est une fille de 5 ans qui consulte pour un retard de croissance, les tailles respectives de son père et sa mère sont 175cm et 165cm",
                   "type": "QCM",
                   "choices": [
                     "La taille à cet âge peut être encore mesurée en position couchée",
@@ -7165,7 +7165,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q12",
                   "clinical_context": null,
-                  "question_text": "Nour, fille de 10 ans qui consulte pour une petite taille < -3DS\\nSon âge osseux est de 7 ans\\nQuelles sont les étiologies possibles dans cette situation?",
+                  "question_text": "Nour, fille de 10 ans qui consulte pour une petite taille < -3DS",
                   "type": "QCM",
                   "choices": [
                     "Une maladie cœliaque",
@@ -7207,7 +7207,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q15",
                   "clinical_context": null,
-                  "question_text": "Ahmed, garçon de 7 ans qui consulte pour un retard statural à -3DS, son âge osseux est de 4 ans\\nQuels sont les diagnostics possibles dans cette situation?",
+                  "question_text": "Ahmed, garçon de 7 ans qui consulte pour un retard statural à -3DS, son âge osseux est de 4 ans",
                   "type": "QCM",
                   "choices": [
                     "Une maladie cœliaque même en l’absence de signes digestifs",
@@ -7221,7 +7221,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q16",
                   "clinical_context": null,
-                  "question_text": "Ali est né le 04/10/2015, présente à l’examen clinique un poids de 11 Kg (-3DS) et mesure 88 (-3DS) cm. il est asymptomatique\\nCependant, ses parents qui sont de grande taille, sont inquiets par rapport à sa croissance\\nSon âge osseux est de 12 mois\\nAprès analyse de sa courbe de croissance, quelle serait votre conduite ?",
+                  "question_text": "Ali est né le 04/10/2015, présente à l’examen clinique un poids de 11 Kg (-3DS) et mesure 88 (-3DS) cm. il est asymptomatique",
                   "type": "QCM",
                   "choices": [
                     "Rassurer les parents et revoir Ali après la puberté pour contrôle.",
@@ -7235,7 +7235,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q17",
                   "clinical_context": null,
-                  "question_text": "Zahra, fille de 10 ans qui se présente avec une petite taille, l’examen clinique trouve, un retard statural à -3DS, sans dysmorphie\\nUn bilan initial a objectivé un âge osseux à 7 ans\\nQuelles peuvent être vos orientations diagnostiques à ce stade?",
+                  "question_text": "Zahra, fille de 10 ans qui se présente avec une petite taille, l’examen clinique trouve, un retard statural à -3DS, sans dysmorphie",
                   "type": "QCM",
                   "choices": [
                     "Une maladie coeliaque",
@@ -7249,7 +7249,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q18",
                   "clinical_context": null,
-                  "question_text": "Ahmed, garçon de 5 ans qui présente depuis 6 mois un fléchissement de la courbe staturale. l’interrogatoire relève la notion de troubles visuels, de céphalées et de vomissements\\nQuel est l'examen paraclinique en 1er intention à demander ?",
+                  "question_text": "Ahmed, garçon de 5 ans qui présente depuis 6 mois un fléchissement de la courbe staturale. l’interrogatoire relève la notion de troubles visuels, de céphalées et de vomissements",
                   "type": "QCM",
                   "choices": [
                     "L’IGF1 plasmatique",
@@ -7263,7 +7263,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-END-34-Q19",
                   "clinical_context": null,
-                  "question_text": "Farah est une fille de 6 ans qui consulte pour une petite taille, elle était née à terme avec un poids de naissance à 3 kg et une période néonatale sans anomalie, son mode alimentaire est correct et elle n’a pas d’ATCD pathologiques particuliers\\nSon examen clinique objective un retard statural à -3DS mais ne révèle pas d'anomalie spécifique\\nOn peut suspecter comme cause de son retard statural:",
+                  "question_text": "Farah est une fille de 6 ans qui consulte pour une petite taille, elle était née à terme avec un poids de naissance à 3 kg et une période néonatale sans anomalie, son mode alimentaire est correct et elle n’a pas d’ATCD pathologiques particuliers",
                   "type": "QCM",
                   "choices": [
                     "Une hypothyroïdie",
@@ -7695,7 +7695,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URG-05-Q04",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né admis en néonatologie à H2 de vie pour détresse respiratoire\\nL'examen clinique trouve un bébé polypnéique à 60 cycles/ min, avec une cyanose à l'air ambiant et des signes de lutte\\nL'auscultation thoracique révèle des bruits respiratoires absents du côté gauche\\nLe médecin de garde suspecte une hernie diaphragmatique gauche.",
+                  "question_text": "Un nouveau-né admis en néonatologie à H2 de vie pour détresse respiratoire",
                   "type": "QCM",
                   "choices": [
                     "L'examen clinique doit rechercher un hémithorax gauche bombe et immobile, contrastant avec un abdomen plat et rétracté, avec un aspect creusé de l'abdomen.",
@@ -7709,7 +7709,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URG-05-Q05",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né admis aux urgences à H16 de vie pour détresse respiratoire\\nL’examen clinique trouve un bébé polypnéique à 60 cycles/min\\nLa radiographie thoraco abdominale objective une hernie diaphragmatique droite.",
+                  "question_text": "Un nouveau-né admis aux urgences à H16 de vie pour détresse respiratoire",
                   "type": "QCM",
                   "choices": [
                     "L’examen clinique recherche un hémithorax gauche bombé et immobile.",
@@ -7737,7 +7737,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URG-05-Q07",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né admis en néonatologie à H6 de vie pour détresse respiratoire\\nL'examen clinique trouve un bébé polypnéique à 50 cycles/ min, une cyanose à l'air ambiant et des signes de lutte\\nPar ailleurs, l'hémithorax gauche bombé et immobile, contrastant avec un abdomen plat et rétracté, avec un aspect creusé de l'abdomen\\nL'auscultation thoracique révèle des bruits respiratoires absents du côté gauche",
+                  "question_text": "Un nouveau-né admis en néonatologie à H6 de vie pour détresse respiratoire",
                   "type": "QCM",
                   "choices": [
                     "L'oxygénation de ce bébé doit se faire au masque pour augmenter les apports en oxygène.",
@@ -7770,7 +7770,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URG-05-Q09",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né admis en néonatologie à J1 de vie pour détresse respiratoire progressive\\nL’examen clinique trouve un bébé polypnéique à 56 cycles/ min. avec une cyanose à l’air ambiant.",
+                  "question_text": "Un nouveau-né admis en néonatologie à J1 de vie pour détresse respiratoire progressive",
                   "type": "QCM",
                   "choices": [
                     "L’aspect d’un pseudo pneumothorax à la radiographie thoraco-abdominale est évocateur d’un emphysème lobaire géant.",
@@ -7853,7 +7853,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-06-Q03",
                   "clinical_context": null,
-                  "question_text": "Nouveau-né se présente pour une détresse respiratoire suite à l’allaitement maternel, une radiographie thoraco-abdominale montre un foyer pulmonaire\\nUne atrésie de I' œsophage est suspectée :",
+                  "question_text": "Nouveau-né se présente pour une détresse respiratoire suite à l’allaitement maternel, une radiographie thoraco-abdominale montre un foyer pulmonaire",
                   "type": "QCM",
                   "choices": [
                     "Avait besoin d'une épreuve à la sonde oeso-gastrique bien avant à la salle d'accouchement",
@@ -7952,7 +7952,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-06-Q10",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né vu à la naissance, avec une échographie anténatale du troisième trimestre, mentionne un hydramnios\\nA l’examen en salle d’accouchement, le médecin réalise le test à seringue qui trouve l’absence des bruits aériques en épigastrique :",
+                  "question_text": "Un nouveau-né vu à la naissance, avec une échographie anténatale du troisième trimestre, mentionne un hydramnios",
                   "type": "QCM",
                   "choices": [
                     "Il faut faire une radiographie thoraco abdominale sonde nasogastrique en place",
@@ -8094,7 +8094,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-08-Q03",
                   "clinical_context": null,
-                  "question_text": "Un nouveau-né de 26 jours qui présente un ictère néonatal remontant à 15 jours avec des selles décolorées et des urines foncées\\nLe nouveau-né est en bon état général, apyrétique\\nLe bilan Biologie non spécifique objective un ictère à bilirubine conjuguée élevé.",
+                  "question_text": "Un nouveau-né de 26 jours qui présente un ictère néonatal remontant à 15 jours avec des selles décolorées et des urines foncées",
                   "type": "QCM",
                   "choices": [
                     "Le diagnostic le plus probable est une lithiase des voies biliaires.",
@@ -8164,7 +8164,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-08-Q08",
                   "clinical_context": null,
-                  "question_text": "Karim, âgé de 18 mois, se présente pour un ictère fluctuant d'allure cholestatique avec des douleurs abdominales\\nL'examen physique trouve une masse au niveau de l'hypochondre droit.",
+                  "question_text": "Karim, âgé de 18 mois, se présente pour un ictère fluctuant d'allure cholestatique avec des douleurs abdominales",
                   "type": "QCM",
                   "choices": [
                     "Le diagnostic de dilatation kystique du cholédoque est le plus probable et un scanner abdominal est indispensable pour poser le diagnostic.",
@@ -8336,7 +8336,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-10-Q09",
                   "clinical_context": null,
-                  "question_text": "Nouveau-né à j2 de vie admis aux urgences pour un ballonnement abdominal important avec absence d’émission de méconium et des vomissements bilieux\\nDepuis 6 heures.",
+                  "question_text": "Nouveau-né à j2 de vie admis aux urgences pour un ballonnement abdominal important avec absence d’émission de méconium et des vomissements bilieux",
                   "type": "QCM",
                   "choices": [
                     "L’épreuve à la sonde rectale est systématiquement réalisée devant ce tableau clinique.",
@@ -8392,7 +8392,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-10-Q13",
                   "clinical_context": null,
-                  "question_text": "Nouveau né à j1 de vie, admis aux urgences pour vomissements bilieux depuis la naissance, sans notion d'intervalle libre\\nL'examen clinique trouve un bébé en assez bon état général, un ventre ballonné.",
+                  "question_text": "Nouveau né à j1 de vie, admis aux urgences pour vomissements bilieux depuis la naissance, sans notion d'intervalle libre",
                   "type": "QCM",
                   "choices": [
                     "L'épreuve à la sonde rectale est systématiquement réalisée devant ce tableau clinique.",
@@ -8434,7 +8434,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-10-Q16",
                   "clinical_context": null,
-                  "question_text": "Nouveau né à J1 de vie admis aux urgences pour vomissements bilieux depuis la naissance, sans notion d’intervalle libre\\nL’examen clinique trouve un bébé en assez bon état général avec un faciès trisomique (trisomie 21) et un ventre plat.",
+                  "question_text": "Nouveau né à J1 de vie admis aux urgences pour vomissements bilieux depuis la naissance, sans notion d’intervalle libre",
                   "type": "QCM",
                   "choices": [
                     "L’image en double bulle peut être détectée à l’échographie anténatale à partir de la 14ème semaine d’aménorrhée.",
@@ -8462,7 +8462,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-10-Q18",
                   "clinical_context": null,
-                  "question_text": "Nouveau-né de 15 jours, sans antécédents particuliers, se présente pour des vomissements bilieux avec un arrêt des matières et des gaz associé à des rectorragies\\nLe diagnostic à évoquer est un volvulus sur mésentère commun, votre conduite à tenir comporte :",
+                  "question_text": "Nouveau-né de 15 jours, sans antécédents particuliers, se présente pour des vomissements bilieux avec un arrêt des matières et des gaz associé à des rectorragies",
                   "type": "QCM",
                   "choices": [
                     "mise en place d’une sonde rectale",
@@ -8522,7 +8522,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-11-Q03",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson âgé de 2 mois qui présente une constipation depuis la naissance avec des épisodes sub-occlusifs\\nLes selles sont obtenues uniquement après stimulation ou des lavements évacuateurs.",
+                  "question_text": "Un nourrisson âgé de 2 mois qui présente une constipation depuis la naissance avec des épisodes sub-occlusifs",
                   "type": "QCM",
                   "choices": [
                     "La maladie de Hirschsprung est parmi les diagnostics à évoquer.",
@@ -8536,7 +8536,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-11-Q04",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson âgé de 3 mois qui présente une constipation depuis la naissance avec des épisodes sub-occlusifs\\nLes selles sont obtenues uniquement après stimulation ou des lavements évacuateurs.",
+                  "question_text": "Un nourrisson âgé de 3 mois qui présente une constipation depuis la naissance avec des épisodes sub-occlusifs",
                   "type": "QCM",
                   "choices": [
                     "La maladie de Hirschsprung est très probable.",
@@ -8709,7 +8709,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-12-Q11",
                   "clinical_context": null,
-                  "question_text": "Nouveau-né de sexe masculin à J3 de vie qui présente un ballonnement abdominal avec des vomissements bilieux, l’examen clinique trouve une malformation anorectale\\nQue faut-il chercher ?",
+                  "question_text": "Nouveau-né de sexe masculin à J3 de vie qui présente un ballonnement abdominal avec des vomissements bilieux, l’examen clinique trouve une malformation anorectale",
                   "type": "QCM",
                   "choices": [
                     "une fistule périnéale",
@@ -8722,8 +8722,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "CHV-DIG-12-Q12",
-                  "clinical_context": null,
-                  "question_text": "Un nouveau-né de 6 heures, né à terme, présente des vomissements bilieux\\nL'examen clinique retrouve un abdomen plat, souple, sans défense\\nIl n'a pas encore émis de méconium\\nQuel est le diagnostic le plus probable?",
+                  "clinical_context": "Amina une fille âgée de 11 ans qui se présente aux urgences pédiatriques pour une hématurie macroscopique évoluant depuis 2 jours avec oligurie. l'examen clinique retrouve une Température à 37,5 ; TA 15/9; un poids à 35kg; des oedèmes discrets au niveau des paupières et des membres inférieurs ne prenant pas le godet; BU protéines à $^ { 2 + }$ et GR à $\\hphantom { 0 } 3 + + +$ ; le reste de l'examen est sans particularité.",
+                  "question_text": "Quel est le diagnostic le plus probable?",
                   "type": "QCM",
                   "choices": [
                     "Sténose hypertrophique du pylore",
@@ -8834,7 +8834,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-13-Q06",
                   "clinical_context": null,
-                  "question_text": "Nouveau-né à H8 de vie, issu d’une grossesse mal suivie\\nL’examen clinique trouve des anses intestinales herniées à travers un orifice para-ombilical droit.",
+                  "question_text": "Nouveau-né à H8 de vie, issu d’une grossesse mal suivie",
                   "type": "QCM",
                   "choices": [
                     "Le laparoschisis est le diagnostic à évoquer devant ce tableau clinique.",
@@ -8852,7 +8852,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-13-Q07",
                   "clinical_context": null,
-                  "question_text": "Nouveau né issu d'une grossesse mal suivie, accouchement à terme par voie basse puis référé aux urgences\\nA l’examen : les anses intestinales sont à l’extérieur de l’abdomen, le cordon ombilical est normalement inséré au niveau ombilical.",
+                  "question_text": "Nouveau né issu d'une grossesse mal suivie, accouchement à terme par voie basse puis référé aux urgences",
                   "type": "QCM",
                   "choices": [
                     "Ça peut être une omphalocèle rompue.",
@@ -8866,7 +8866,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-13-Q08",
                   "clinical_context": null,
-                  "question_text": "Nouveau-né à j1 de vie, issu d'une grossesse suivie, avec une échographie anténatale qui objective un défect pariétal complet de la région ombilicale\\nL'examen post-natal retrouve une masse médiane contenant des anses grêles, recouverte d'une membrane translucide, son diamètre fait 9cm et son collet fait 5 cm.",
+                  "question_text": "Nouveau-né à j1 de vie, issu d'une grossesse suivie, avec une échographie anténatale qui objective un défect pariétal complet de la région ombilicale",
                   "type": "QCM",
                   "choices": [
                     "L'échographie foetale apprécie : le volume des organes herniés, leur nature ainsi que la taille du défect pariétal.",
@@ -8880,7 +8880,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-13-Q09",
                   "clinical_context": null,
-                  "question_text": "Nouveau-né à j1 de vie issu d'une grossesse mal suivie, accouchement à terme par voie basse\\nA l'examen : les anses intestinales sont à l'extérieur de l'abdomen à travers un orifice para-ombilical.",
+                  "question_text": "Nouveau-né à j1 de vie issu d'une grossesse mal suivie, accouchement à terme par voie basse",
                   "type": "QCM",
                   "choices": [
                     "le diagnostic probable est un laparoschisis.",
@@ -8908,7 +8908,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-13-Q11",
                   "clinical_context": null,
-                  "question_text": "Nouveau-né à J1 de vie, issu d’une grossesse suivie, avec un diagnostic anténatal d’une énorme masse siégeant sur la paroi abdominale\\nL’ examen post-natal retrouve une masse médiane contenant des anses grêles, recouverte d'une membrane translucide, son diamètre fait 6cm et son collet fait 3 cm.",
+                  "question_text": "Nouveau-né à J1 de vie, issu d’une grossesse suivie, avec un diagnostic anténatal d’une énorme masse siégeant sur la paroi abdominale",
                   "type": "QCM",
                   "choices": [
                     "Le diagnostic à évoquer est le laparoschisis.",
@@ -9067,7 +9067,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-14-Q06",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson de 14 mois qui consulte pour une masse du flanc droit découverte par la maman à l’occasion d’un bain\\nL’examen clinique trouve une masse de 10 cm siège au niveau de la fosse lombaire droite, lisse avec un contact lombaire positif.",
+                  "question_text": "Un nourrisson de 14 mois qui consulte pour une masse du flanc droit découverte par la maman à l’occasion d’un bain",
                   "type": "QCM",
                   "choices": [
                     "Le diagnostic le plus probable est le néphroblastome.",
@@ -9123,7 +9123,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-14-Q10",
                   "clinical_context": null,
-                  "question_text": "Fille de 14 ans. admise pour masse abdomino pelvienne\\nLa radiographie de l’abdomen sans préparation a montré des calcifications organoïdes.",
+                  "question_text": "Fille de 14 ans. admise pour masse abdomino pelvienne",
                   "type": "QCM",
                   "choices": [
                     "Le toucher rectal est systématique",
@@ -9151,7 +9151,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-14-Q12",
                   "clinical_context": null,
-                  "question_text": "Nourisson de 2 mois est admis aux urgences pour une exophtalmie gauche sans notion de traumatisme\\nQue faut-il chercher à l'examen :",
+                  "question_text": "Nourisson de 2 mois est admis aux urgences pour une exophtalmie gauche sans notion de traumatisme",
                   "type": "QCM",
                   "choices": [
                     "une hépatomégalie",
@@ -9240,7 +9240,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-15-Q03",
                   "clinical_context": null,
-                  "question_text": "Nourrisson de trois semaines admis pour des vomissements faites de lait, évoluant depuis 7 jours, sans fièvre, ni troubles de transit et dont l’examen trouve un bébé affamé, déshydraté, dénutri\\nParmi les diagnostics à évoquer :",
+                  "question_text": "Nourrisson de trois semaines admis pour des vomissements faites de lait, évoluant depuis 7 jours, sans fièvre, ni troubles de transit et dont l’examen trouve un bébé affamé, déshydraté, dénutri",
                   "type": "QCM",
                   "choices": [
                     "Une invagination intestinale",
@@ -9282,7 +9282,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-DIG-15-Q06",
                   "clinical_context": null,
-                  "question_text": "Un nourrisson de 6 mois qui présente des cris paroxystiques avec des périodes d'accalmie depuis 24 h avec notion de vomissements alimentaires\\nL'examen clinique trouve un bébé en bon état général.",
+                  "question_text": "Un nourrisson de 6 mois qui présente des cris paroxystiques avec des périodes d'accalmie depuis 24 h avec notion de vomissements alimentaires",
                   "type": "QCM",
                   "choices": [
                     "L'absence de rectorragie permet d'éliminer le diagnostic d'invagination intestinale.",
@@ -9398,7 +9398,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URO-16-Q03",
                   "clinical_context": null,
-                  "question_text": "Fille de 6 mois, ayant dans ses ATCD 2 épisodes d'infections urinaires\\nLa fonction rénale est normale.",
+                  "question_text": "Fille de 6 mois, ayant dans ses ATCD 2 épisodes d'infections urinaires",
                   "type": "QCM",
                   "choices": [
                     "L'échographie permet de rechercher un reflux vésico-urétéral.",
@@ -9627,7 +9627,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URO-20-Q03",
                   "clinical_context": null,
-                  "question_text": "Nourrisson de 3 mois consulte pour une masse inguinale depuis la naissance, indolore réductible\\nQuel est votre diagnostic",
+                  "question_text": "Nourrisson de 3 mois consulte pour une masse inguinale depuis la naissance, indolore réductible",
                   "type": "QCM",
                   "choices": [
                     "une cryptorchidie",
@@ -9669,7 +9669,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URO-20-Q06",
                   "clinical_context": null,
-                  "question_text": "Un garçon de 1 an consulte aux urgences pour douleur scrotale gauche d’installation brutale remontant à 3 heures\\nLa douleur est unilatérale, intense, rapidement progressive, accompagnée de vomissements\\nL’examen clinique trouve un nourrisson apyrétique\\nLe scrotum gauche inflammé, avec un testicule ascensionné et horizontalisé\\nEt les orifices herniaires sont libres.",
+                  "question_text": "Un garçon de 1 an consulte aux urgences pour douleur scrotale gauche d’installation brutale remontant à 3 heures",
                   "type": "QCM",
                   "choices": [
                     "Le premier diagnostic à évoquer est la hernie étranglée.",
@@ -9760,7 +9760,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URO-21-Q02",
                   "clinical_context": null,
-                  "question_text": "garçon de 15 ans se présente aux urgences pour une douleur de la bourse droite brutale l’ayant réveillé à 6h du matin\\nA quoi pensez-vous",
+                  "question_text": "garçon de 15 ans se présente aux urgences pour une douleur de la bourse droite brutale l’ayant réveillé à 6h du matin",
                   "type": "QCM",
                   "choices": [
                     "une orchiépididymite",
@@ -9788,7 +9788,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URO-21-Q04",
                   "clinical_context": null,
-                  "question_text": "Un patient de 13 ans qui consulte aux urgences pour douleur scrotale gauche d’installation brutale remontant à 5 heures au cours du sommeil \\nLa douleur est brutale, unilatérale, intense, rapidement progressive\\nL’enfant rapporte des épisodes similaires spontanément résolutifs.L’examen clinique trouve un testicule induré, douloureux, ascensionné et horizontalisé.",
+                  "question_text": "Un patient de 13 ans qui consulte aux urgences pour douleur scrotale gauche d’installation brutale remontant à 5 heures au cours du sommeil ",
                   "type": "QCM",
                   "choices": [
                     "Le premier diagnostic à évoquer est l’orchiépididymite.",
@@ -9802,7 +9802,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHV-URO-21-Q05",
                   "clinical_context": null,
-                  "question_text": "Mohamed âgé de 12 ans admis aux urgences pour une grosse bourse aigue douloureuse évoluant depuis 5 heures avec un seul épisode de vomissements sans notion de fièvre\\nL'examen physique trouve une bourse droite augmentée de volume avec un signe de Prehn négatif, un signe de Gouverneur positif et un réflexe crémastérien abolis.",
+                  "question_text": "Mohamed âgé de 12 ans admis aux urgences pour une grosse bourse aigue douloureuse évoluant depuis 5 heures avec un seul épisode de vomissements sans notion de fièvre",
                   "type": "QCM",
                   "choices": [
                     "La torsion du cordon spermatique étant le diagnostic le plus probable, mais une hernie inguino scrotale compliquée devrait être éliminée par un examen de l'orifice inguinal profond.",
@@ -9867,8 +9867,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "CHV-URO-22-Q04",
-                  "clinical_context": null,
-                  "question_text": "Une fille de 3 mois consulte pour infection urinaire à répétition; l'échographie abdominale a objectivé une dilatation urétéro-pyélo-calicielle \\nLe diagnostic le plus probable est :",
+                  "clinical_context": "Garçon âgé de 3 ans, ayant comme antécédents des hémarthroses à répétition, admis aux urgences pour hématome de la cuisse.",
+                  "question_text": "Le diagnostic le plus probable est :",
                   "type": "QCM",
                   "choices": [
                     "Syndrome de jonction pyélo-urétérale",
@@ -10369,7 +10369,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHO-TRA-02-Q05",
                   "clinical_context": null,
-                  "question_text": "a\\nEnumérer les différentes fractures du coude chez l'enfant :",
+                  "question_text": "a",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -10679,7 +10679,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHO-HAN-06-Q03",
                   "clinical_context": "(Symboles internationaux : Arbre généalogique) <div> <table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table> </div> QR 7 :",
-                  "question_text": "a\\nDéfinir la maladie de Legg-Calve-Perthes et détailler les stades évolutifs b\\nQuelles en sont les complications ?",
+                  "question_text": "Définir",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -10768,7 +10768,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHO-HAN-08-Q02",
                   "clinical_context": null,
-                  "question_text": "Un enfant de 6 ans est amené aux urgences le soir par ses parents qui sont inquiets de le voir boiter douloureusement depuis le matin\\nDe plus, il a de la fièvre à 39° depuis l’après-midi, et il a mal à la hanche \\nCette hanche est douloureuse à la mobilisation.",
+                  "question_text": "Un enfant de 6 ans est amené aux urgences le soir par ses parents qui sont inquiets de le voir boiter douloureusement depuis le matin",
                   "type": "QCM",
                   "choices": [
                     "Le diagnostic de fracture du col du fémur est le premier diagnostic à évoquer.",
@@ -11002,7 +11002,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHO-INF-11-Q02",
                   "clinical_context": null,
-                  "question_text": "Garçon de 8 ans, ayant eu un traumatisme de la jambe droite il y a une semaine, qui présente depuis 48h une douleur métaphysaire tibiale proximale avec fièvre, le genou est libre\\nNous évoquerons comme diagnostic:",
+                  "question_text": "Garçon de 8 ans, ayant eu un traumatisme de la jambe droite il y a une semaine, qui présente depuis 48h une douleur métaphysaire tibiale proximale avec fièvre, le genou est libre",
                   "type": "QCM",
                   "choices": [
                     "Une arthrite du genou",
@@ -11030,7 +11030,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHO-INF-11-Q04",
                   "clinical_context": null,
-                  "question_text": "Rachid. Âgé de 8 ans, présente depuis 2 jours une douleur de la cuisse gauche avec fièvre\\nDans ses Antécédents, on trouve un traumatisme direct de la cuisse gauche par coup de pierre il y’a 4 jours",
+                  "question_text": "Rachid. Âgé de 8 ans, présente depuis 2 jours une douleur de la cuisse gauche avec fièvre",
                   "type": "QCM",
                   "choices": [
                     "Je suspecte une ostéomyélite aiguë en premier",
@@ -11222,7 +11222,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q02",
                   "clinical_context": null,
-                  "question_text": "Dans le cancer du sein : 2.a\\nQuelles sont les lésions bénignes associées à un risque plus important de développer un cancer ? 2.b\\nQuels sont les facteurs pronostics histologiques ? 2.c\\nQuels sont les éléments clés à rechercher dans un compte rendu d'anatomopathologie d'une pièce de mastectomie pour cancer du sein avec curage ganglionnaire ?",
+                  "question_text": "Dans le cancer du sein : 2.a",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11548,7 +11548,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q27",
                   "clinical_context": "Patiente de 54 ans sans antécédents pathologiques notables, consulte pour des microcalcifications retrouvées lors d'une mammographie de dépistage.",
-                  "question_text": "Quelles sont vos hypothèses diagnostiques \\nLa patiente a bénéficié d'une macrobiopsie\\nL’examen histologique montrait des canaux dilatés comblés par une prolifération de cellules luminales atypiques centrées de nécrose, étendue sur 6 mm.",
+                  "question_text": "Quelles sont vos hypothèses diagnostiques ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11556,7 +11556,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q28",
                   "clinical_context": "La patiente a bénéficié d'une macrobiopsie. L’examen histologique montrait des canaux dilatés comblés par une prolifération de cellules luminales atypiques centrées de nécrose, étendue sur 6 mm.",
-                  "question_text": "Quelle est votre hypothèse diagnostique \\nJustifier.",
+                  "question_text": "Quelle est votre hypothèse diagnostique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11572,7 +11572,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q30",
                   "clinical_context": "Patiente de 28 ans, consulte pour un nodule du sein classe T4d. L'échographie plus la mammographie montrait une lésion ACR5.",
-                  "question_text": "Que faut-il faire après \\nLe compte-rendu anatomo-pathologique parlait d'une prolifération tumorale faite de 20% de tubes et de glandes, des atypies sévères et 40 mitoses par 10 champs au fort grossissement.",
+                  "question_text": "Que faut-il faire après ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11580,7 +11580,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q31",
                   "clinical_context": "Le compte-rendu anatomo-pathologique parlait d'une prolifération tumorale faite de $20 \\%$ de tubes et de glandes, des atypies sévères et 40 mitoses par 10 champs au fort grossissement.",
-                  "question_text": "Quel est votre diagnostic anatomo-pathologique \\nQue faut-il demander par la suite \\nLa tumeur n'exprimait pas les récepteurs hormonaux et la recherche de la surexpression de la protéine HER2 était négative.",
+                  "question_text": "Quel est votre diagnostic anatomo-pathologique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11620,7 +11620,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q36",
                   "clinical_context": null,
-                  "question_text": "La classification moléculaire a montré que la tumeur est de phénotype HER2\\nComment sont-ils les autres marqueurs ?",
+                  "question_text": "La classification moléculaire a montré que la tumeur est de phénotype HER2",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11636,7 +11636,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q38",
                   "clinical_context": "Patiente de 30 ans sans antécédents pathologiques notables, consulte pour un nodule du sein gauche classé ACR5 à la mammographie.",
-                  "question_text": "Quelles sont vos hypothèses diagnostiques \\nLa patiente a bénéficié d'une microbiopsie\\nL'examen histologique montrait une prolifération tumorale disposée en tubes ( 5 % ) et en travées avec des atypies sévères et 25 mitoses / 10 champs au fort grossissement\\nCette prolifération tumorale est dissociée par un stroma réaction fibro-inflammatoire Présence d'une prolifération intra-canalaire étendue sur 8 mm  , faite de cellules atypiques avec un pléomorphisme important, centrée de nécrose.",
+                  "question_text": "Quelles sont vos hypothèses diagnostiques ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": true
@@ -11644,7 +11644,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q39",
                   "clinical_context": "La patiente a bénéficié d'une microbiopsie. L'examen histologique montrait une prolifération tumorale disposée en tubes $( 5 \\% )$ et en travées avec des atypies sévères et 25 mitoses / 10 champs au fort grossissement. Cette prolifération tumorale est dissociée par un stroma réaction fibro-inflammatoire Présence d'une prolifération intra-canalaire étendue sur $8 \\mathsf { m m }$ , faite de cellules atypiques avec un pléomorphisme important, centrée de nécrose.",
-                  "question_text": "Quel est votre diagnostic \\nJustifier",
+                  "question_text": "Quel est votre diagnostic ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11667,8 +11667,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "ANA-GYN-01-Q42",
-                  "clinical_context": "Patiente de 38 ans consulte pour un nodule de sein classe ACR4. L’examen histologique trouvait une prolifération à double composante épithéliale et mésenchymateuse .La composante épithéliale montrait des canaux étirés entourés de cellules fibroblastiques régulières de densité minime",
-                  "question_text": "Quel est votre diagnostic histologique ? justifier\\nAprès deux mois le nodule augmente de taille et le radiologue le reclasse en ACRAc .L’examen histologique montrait le même aspect précédemment décrit avec un contingent mésenchymateux de densité plus élevée et un aspect foliacé des canaux",
+                  "clinical_context": "La biopsie du col utérin faite sous colposcopie montrait une prolifération tumorale infiltrante faite de massifs et de cordons de cellules polygonales, des cadres claires et des globes cornés.",
+                  "question_text": "Quel est votre diagnostic histologique ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11676,7 +11676,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q43",
                   "clinical_context": "Après deux mois le nodule augmente de taille et le radiologue le reclasse en ACRAc .L’examen histologique montrait le même aspect précédemment décrit avec un contingent mésenchymateux de densité plus élevée et un aspect foliacé des canaux",
-                  "question_text": "Quel est votre diagnostic\\nJustifiez Une tumorectomie a été réalisée\\nLes canaux montraient localement une prolifération des cellules épithéliales avec comblement des lumières et la résection a été faite à 1 mm de toutes les limites",
+                  "question_text": "Quel est votre diagnostic",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11692,7 +11692,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q45",
                   "clinical_context": null,
-                  "question_text": "La résection passe-t-elle en zone saine ? justifier 46- Quel est le pronostic de ce type de tumeur \\nJustifier",
+                  "question_text": "La résection passe-t-elle en zone saine ? justifier 46- Quel est le pronostic de ce type de tumeur ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11779,7 +11779,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-02-Q04",
                   "clinical_context": null,
-                  "question_text": "Une jeune femme de 20 ans, sous contraception orale, vous demande quelques explications sur le cancer du col utérin\\nConfirmez-vous les affirmations suivantes ?",
+                  "question_text": "Une jeune femme de 20 ans, sous contraception orale, vous demande quelques explications sur le cancer du col utérin",
                   "type": "QCM",
                   "choices": [
                     "Ce cancer concerne les femmes qui n'ont pas d'activité génitale.",
@@ -11962,7 +11962,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-02-Q19",
                   "clinical_context": null,
-                  "question_text": "Quel est l'examen de choix pour le dépistage du cancer du col de l'utérus \\nLa patiente a eu une analyse cytologique qui a montré des atypies cellulaires de haut grade.",
+                  "question_text": "Quel est l'examen de choix pour le dépistage du cancer du col de l'utérus ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11970,7 +11970,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-02-Q20",
                   "clinical_context": "La patiente a eu une analyse cytologique qui a montré des atypies cellulaires de haut grade.",
-                  "question_text": "Quelle est votre conduite à tenir \\nLa patiente a eu un examen histologique\\nIl a montré une prolifération tumorale disposée en travées avec une stroma réaction fibro-inflammatoire\\nLes cellules tumorales sont polygonales avec des limites nettes et un noyau vésiculeux\\nPrésence de globes cornés.",
+                  "question_text": "Quelle est votre conduite à tenir ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11978,7 +11978,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-02-Q21",
                   "clinical_context": "La patiente a eu un examen histologique. Il a montré une prolifération tumorale disposée en travées avec une stroma réaction fibro-inflammatoire. Les cellules tumorales sont polygonales avec des limites nettes et un noyau vésiculeux. Présence de globes cornés.",
-                  "question_text": "Quel est votre diagnostic anatomopathologique à partir de cette description histologique \\nJustifier",
+                  "question_text": "Quel est votre diagnostic anatomopathologique à partir de cette description histologique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11986,7 +11986,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-02-Q22",
                   "clinical_context": "Patiente de 35 ans, consulte pour des leucorrhées. Son médecin traitant lui avait prescrit un FCV. L'examen cytologique montrait des lésions H-SIL.",
-                  "question_text": "Quel est la CAT \\nLa biopsie du col utérin faite sous colposcopie montrait une prolifération tumorale infiltrante faite de massifs et de cordons de cellules polygonales, des cadres claires et des globes cornés.",
+                  "question_text": "Quel est la CAT ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12049,7 +12049,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-03-Q04",
                   "clinical_context": "Une femme de 70 ans présente un saignement vaginal. Elle est de petite taille et maigre. L'examen histologique après curetage de l'endomètre révèle une prolifération tumorale d'architecture papillaire avec des cellules cubiques et calcosphérites.",
-                  "question_text": "Vrai ou Faux \\nCe cancer est :",
+                  "question_text": "Vrai ou Faux ",
                   "type": "QCM",
                   "choices": [
                     "Directement lié à l'obésité ?",
@@ -12063,7 +12063,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-03-Q05",
                   "clinical_context": "Femme de 55 ans, ménopausée, sans antécédents pathologiques, consulte pour des métrorragies de moyenne abondance.",
-                  "question_text": "A ce stade, vous proposez quel examen complémentaire pour explorer l'origine des métrorragies \\nLe gynécologue après les résultats de son examen a décidé de faire un curetage biopsique de l'endomètre\\nLe pathologiste trouve des glandes endométriales adossées avec des aspects complexes\\nLes noyaux deviennent arrondis avec un nucléole\\nIl s'y associe quelques mitoses\\nFocalement le chorio cytogène persiste autour de quelques glandes et absent dans le reste de la prolifération.",
+                  "question_text": "A ce stade, vous proposez quel examen complémentaire pour explorer l'origine des métrorragies ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12270,8 +12270,8 @@ const ATARAXIE_S8_DB = {
               "questions": [
                 {
                   "id": "ANA-GYN-05-Q01",
-                  "clinical_context": "Cas clinique 1:",
-                  "question_text": "Une femme de 65 ans nulligeste consulte pour métrorragies post-ménopausiques\\nElle est obèse, hypertendue et diabétique\\nL'examen constate seulement un écoulement de sang assez peu abondant par le col utérin\\nQuel est le diagnostic le plus probable ?",
+                  "clinical_context": "Enfant de 6 ans, notion de traumatisme du membre inférieur droit il y'a 12 jours. L'examen de l'enfant trouve une fièvre à 39.5, une impotence fonctionnelle totale, des signes inflammatoires au niveau de l'extrémité supérieure de la jambe :",
+                  "question_text": "Quel est le diagnostic le plus probable ?",
                   "type": "QCM",
                   "choices": [
                     "Carcinome de l'ovaire",
@@ -12285,7 +12285,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-05-Q02",
                   "clinical_context": "Cas clinique 2: Patiente de 50 ans, consulte pour un nodule mammaire palpable classé ACR 5.",
-                  "question_text": "Qu'elle est l'étape suivante \\nL'analyse histologique met en évidence une prolifération tumorale disposée en travées avec peu de glandes\\nLes cellules montrent des atypies sévères avec des mitoses estimées à 30 mitoses par 10 champs au fort grossissement\\nLes lymphocytes infiltrants la tumeur sont estimés à 10% .",
+                  "question_text": "Qu'elle est l'étape suivante ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12301,7 +12301,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-05-Q04",
                   "clinical_context": null,
-                  "question_text": "Quels sont les éléments qui manquent dans cette description histologique \\nLa patiente a été mise sous hormonothérapie et anti HER2 en néoadjuvant.",
+                  "question_text": "Quels sont les éléments qui manquent dans cette description histologique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12309,7 +12309,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-05-Q05",
                   "clinical_context": "La patiente a été mise sous hormonothérapie et anti HER2 en néoadjuvant.",
-                  "question_text": "Quel est le profil moléculaire de la tumeur chez cette patiente ? 6 mois plus tard, elle consulte pour un saignement anormal.",
+                  "question_text": "Quel est le profil moléculaire de la tumeur chez cette patiente ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12317,7 +12317,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-05-Q06",
                   "clinical_context": "6 mois plus tard, elle consulte pour un saignement anormal.",
-                  "question_text": "Quels sont les examens à réaliser chez cette patiente \\nQuelle est votre hypothèse diagnostique \\nL'examen histologique du produit de curetage montre une prolifération tumorale glandulaire sans chorion cytogène avec des atypies modérées à sévères.",
+                  "question_text": "Quels sont les examens à réaliser chez cette patiente ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12357,7 +12357,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-05-Q11",
                   "clinical_context": null,
-                  "question_text": "Quels sont les facteurs pronostiques chez cette patiente ? quels sont les autres facteurs pronostiques \\nCette patiente a reçu une hormonothérapie, et au cours de la surveillance elle a présenté des métrorragies\\nL’hystéroscopie a montré une tumeur bourgeonnante de l’endomètre\\nL'examen anatomo-pathologique a montré une prolifération tumorale faite de glandes tumorales avec 20% de zones solides.",
+                  "question_text": "Quels sont les facteurs pronostiques chez cette patiente ? quels sont les autres facteurs pronostiques ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12365,7 +12365,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-05-Q12",
                   "clinical_context": "Cette patiente a reçu une hormonothérapie, et au cours de la surveillance elle a présenté des métrorragies. L’hystéroscopie a montré une tumeur bourgeonnante de l’endomètre. L'examen anatomo-pathologique a montré une prolifération tumorale faite de glandes tumorales avec $20 \\%$ de zones solides.",
-                  "question_text": "De quel type de tumeur s'agit-il \\nEt quel est le grade \\nDans le cadre du bilan préopératoire. un FCV a été réalisé et a montré des lésions L-SIL.",
+                  "question_text": "De quel type de tumeur s'agit-il ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12461,7 +12461,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-06-Q06",
                   "clinical_context": "Patient de 55ans. Présente depuis 1 an? une grosse bourse. L'examen clinique trouve une masse testiculaire droite indolore et mobile sans signe inflammatoire en regard. Le bilan biologique trouve une augmentation de LDE et de béta-HCG. Le dosage de l’alpha-foetoproteine est normal. Le patient a bénéficié d'une orchidectomie droite. On a reçu au laboratoire d'anatomie pathologique un testicule droit qui mesure 9x7x5cm. A la coupe, on note la présence d'une tumeur de 6x4cm rouge foncé hétérogène. L'étude microscopique montre une prolifération tumorale maligne faite d'une double composante : - La première est cytotrophoblastique faite de cellules éosinophiles aux limites cytoplasmique nettes. - La deuxième est syncytiotrophoblastique aux cellules multinucléées irrégulières et aux noyaux hyperchromatiques.",
-                  "question_text": "Quel est le diagnostic à évoquer\\nJustifier votre réponse.",
+                  "question_text": "Quel est le diagnostic à évoquer",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12477,7 +12477,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-06-Q08",
                   "clinical_context": "Patient de 45 ans présente depuis 6 mois une grosse bourse. L'examen clinique trouve une masse testiculaire droite, indolore et mobile sans signes inflammatoire en regard. Le bilan biologique trouve une augmentation de LDH et de l'alpha foetoprotéine. Par ailleurs, le dosage de beta HCG est négatif. Le patient a bénéficié d'une orchidectomie droite. On a reçu au laboratoire un testicule droit mesurant 10x6x5cm montrant à la coupe une tumeur de 7x5cm bien limitée homogène. L'étude microscopique montre une prolifération tumorale polymorphe, d'architecture tantôt réticulé tantôt glandulaire et fusocellulaire. Les cellules tumorales sont polygonales au cytoplasme réduit éosinophile. Il n'y avait par ailleurs ni atypie ni figures de mitoses. De nombreux globules hyalins et plusieurs corps de Shiller-Duval sont présents.",
-                  "question_text": "Quel est le diagnostic à évoquer en se basant sur les données cliniques, biologiques et histologiques \\nJustifier votre réponse.",
+                  "question_text": "Quel est le diagnostic à évoquer en se basant sur les données cliniques, biologiques et histologiques ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12493,7 +12493,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-06-Q10",
                   "clinical_context": "Patient de 33 ans, sans ATCDs pathologiques notables, qui présente depuis 6 mois une masse scrotale indolore. L'échographie a objectivé la présence d'une masse testiculaire d'allure tumorale et d'aspect hétérogène. Le bilan biologique a montré une augmentation de l'alpha-fœto-protéine, de la B-HCG et de la LDH.",
-                  "question_text": "A la lumière des données cliniques et biologiques, quels sont les diagnostics histologiques à évoquer \\nUne orchidectomie totale a été réalisée\\nL'examen histologique a montré la présence d'une prolifération tumorale hétérogène faite de plusieurs composantes : Composante \\boldsymbol n   °\\boldsymbol 1   : Prolifération d'architecture polymorphe ; Réticulaire, papillaire, glandulaire et solide avec des corps de shiller-duvaI et des boules hyalines\\nComposante n  °2 : Prolifération des cytotrophoblastiques et syncytiotrophoblastiques\\nComposante \\boldsymbol n   °3 : Prolifération faite de tissu cutané, osseux et intestinal mature.",
+                  "question_text": "A la lumière des données cliniques et biologiques, quels sont les diagnostics histologiques à évoquer ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": true
@@ -12501,7 +12501,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-06-Q11",
                   "clinical_context": "Une orchidectomie totale a été réalisée. L'examen histologique a montré la présence d'une prolifération tumorale hétérogène faite de plusieurs composantes : Composante $\\boldsymbol { \\mathsf { n } } ^ { \\circ } \\boldsymbol { \\mathsf { 1 } }$ : Prolifération d'architecture polymorphe ; Réticulaire, papillaire, glandulaire et solide avec des corps de shiller-duvaI et des boules hyalines. Composante $\\mathsf { n } ^ { \\circ } 2$ : Prolifération des cytotrophoblastiques et syncytiotrophoblastiques. Composante $\\boldsymbol { \\mathsf { n } } ^ { \\circ } 3$ : Prolifération faite de tissu cutané, osseux et intestinal mature.",
-                  "question_text": "Quel est le type histologique correspondant à chaque contingent décrit \\nComposante \\boldsymbol n   °\\boldsymbol 1   : Composante n  °2 : Composante \\boldsymbol n   °3 Une étude immunohistochimique est envisagée dans ce cas pour confirmer la nature des composantes n°1 et n  °2 .",
+                  "question_text": "Quel est le type histologique correspondant à chaque contingent décrit ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": true
@@ -12509,7 +12509,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-06-Q12",
                   "clinical_context": "Composante $\\boldsymbol { \\mathsf { n } } ^ { \\circ } \\boldsymbol { \\mathsf { 1 } }$ : Composante $\\mathsf { n } ^ { \\circ } 2$ : Composante $\\boldsymbol { \\mathsf { n } } ^ { \\circ } 3$ Une étude immunohistochimique est envisagée dans ce cas pour confirmer la nature des composantes n°1 et $\\mathsf { n } ^ { \\circ } 2$ .",
-                  "question_text": "Quels sont les AC à utiliser pour les composantes (n°1 et n°2) que vous avez évoquées dans la question 2 \\nComposante n°1 : Composante n  °2 :",
+                  "question_text": "Quels sont les AC à utiliser pour les composantes (n°1 et n°2) que vous avez évoquées dans la question 2 ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": true
@@ -12817,7 +12817,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-08-Q15",
                   "clinical_context": "Homme de 70 ans, tabagique chronique, consulte pour une hématurie macroscopique. La cystoscopie a mis en évidence une masse exophytique qui a été réséquée L'examen histologique montrait une prolifération tumorale disposée en papilles adossées. Elles sont tapissées par 7 assises cellulaires montrant des atypies sévères et des mitoses. Présence de travées tumorales au niveau du chorion.",
-                  "question_text": "Quel est votre diagnostic \\nJustifier",
+                  "question_text": "Quel est votre diagnostic ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12849,7 +12849,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-08-Q19",
                   "clinical_context": "Patient de 70 ans, consulte pour une hématurie macroscopique. Il est tabagique chronique et tanneur de profession.",
-                  "question_text": "Quels sont les FDR chez ce patient \\nL'examen histologique montrait une prolifération tumorale faite de papilles coalescentes avec des atypies sévères et de nombreuses mitoses.",
+                  "question_text": "Quels sont les FDR chez ce patient ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12938,7 +12938,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-09-Q03",
                   "clinical_context": null,
-                  "question_text": "À l'optique, on note la présence de nombreuses cellules inflammatoires (>3) dans les capillaires glomérulaires\\nS'agit-il d'une :",
+                  "question_text": "À l'optique, on note la présence de nombreuses cellules inflammatoires (>3) dans les capillaires glomérulaires",
                   "type": "QCM",
                   "choices": [
                     "Prolifération extracapillaire ?",
@@ -12952,7 +12952,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-09-Q04",
                   "clinical_context": null,
-                  "question_text": "Toujours à l'optique, on note la présence de plusieurs assises de cellules épithéliales au niveau de la chambre urinaire\\nS'agit-il",
+                  "question_text": "Toujours à l'optique, on note la présence de plusieurs assises de cellules épithéliales au niveau de la chambre urinaire",
                   "type": "QCM",
                   "choices": [
                     "D'une prolifération cellulaire ?",
@@ -12966,7 +12966,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-09-Q05",
                   "clinical_context": null,
-                  "question_text": "Ces cellules inflammatoires et épithéliales sont retrouvées focalement dans 5 glomérules sur un total de 15\\nS'agit-il ?",
+                  "question_text": "Ces cellules inflammatoires et épithéliales sont retrouvées focalement dans 5 glomérules sur un total de 15",
                   "type": "QCM",
                   "choices": [
                     "De lésions segmentaires et diffuses",
@@ -13022,7 +13022,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-09-Q09",
                   "clinical_context": "Jeune de 10 ans, consulte pour hématurie, protéinurie avec HTA. Le néphrologue décide de faire une biopsie rénale.",
-                  "question_text": "Comment étudier une biopsie rénale \\nL'immunofluorescence a mis en évidence des dépôts mésangiaux des IgA au niveau de tous les glomérules de façon homogène.",
+                  "question_text": "Comment étudier une biopsie rénale ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13137,7 +13137,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-10-Q09",
                   "clinical_context": null,
-                  "question_text": "Citer les éléments du compte rendu d'un carcinome à cellules claires du rein\\n- Les éléments du compte rendu anatomo-pathologique pour un carcinome à cellules claires du rein chez l’adulte",
+                  "question_text": "Citer les éléments du compte rendu d'un carcinome à cellules claires du rein",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13169,7 +13169,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-10-Q13",
                   "clinical_context": "Patient de 35 ans porteur de la maladie de Von Hippel- Lindau consulte pour des douleurs lombaires. Les examens clinique et radiologique ont mis en évidence une tumeur rénale pour laquelle il a été opéré.",
-                  "question_text": "Quels sont les prélèvements qu'il faut effectuer lors de l'examen macroscopique \\nL'examen histologique montre une tumeur faite de cellules de grande taille à cytoplasme clair et des noyaux «vésiculeux, avec des nucléoles centraux visibles dés le faible grossissement.",
+                  "question_text": "Quels sont les prélèvements qu'il faut effectuer lors de l'examen macroscopique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13177,7 +13177,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-10-Q14",
                   "clinical_context": "L'examen histologique montre une tumeur faite de cellules de grande taille à cytoplasme clair et des noyaux «vésiculeux, avec des nucléoles centraux visibles dés le faible grossissement.",
-                  "question_text": "De quel type histologique de tumeur s’agit-il \\nComment gradez-vous cette tumeur \\nEt quels sont les éléments qui doivent figurer sur le compte rendu anatomo-pathologique ?",
+                  "question_text": "De quel type histologique de tumeur s’agit-il ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13351,7 +13351,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-12-Q04",
                   "clinical_context": "QR 2 :",
-                  "question_text": "Citer les critères histologiques du diagnostic positif des maladies inflammatoires chroniques de l'intestin\\n- Citer les lésions histologiques qui permettent le diagnostic positif des maladies inflammatoires chroniques de l’intestin (MICI)",
+                  "question_text": "Citer les critères histologiques du diagnostic positif des maladies inflammatoires chroniques de l'intestin",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13575,7 +13575,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-13-Q07",
                   "clinical_context": "QR 2 :",
-                  "question_text": "Citer les différents types de polypes digestifs sans les décrire.Quels sont les polypes néoplasiques\\nArgumentez votre réponse.",
+                  "question_text": "Citer les différents types de polypes digestifs sans les décrire.Quels sont les polypes néoplasiques",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13737,7 +13737,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-14-Q13",
                   "clinical_context": null,
-                  "question_text": "Quelle technique complémentaire doit-on utiliser pour départager entre ces différents diagnostics \\nDétailler votre réponse.",
+                  "question_text": "Quelle technique complémentaire doit-on utiliser pour départager entre ces différents diagnostics ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13769,7 +13769,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-14-Q17",
                   "clinical_context": "Patient de 60 ans tabagique présentaient depuis 1 mois une dysphagie évoluant dans un contexte d'altération de l’état général. Une fibroscopie était réalisée montrant un processus bourgeonnant au niveau du 1/3 supérieur de l'œsophage. De multiples biopsies étaient réalisées A l’examen histologique , ces biopsies montraient une prolifération cellulaires agencées en massifs et en travées faites de cellules de grandes tailles avec des limites cytoplasmiques nettes et des noyaux atypiques. Des globes éosinophiles étaient également présents au sein de cette prolifération.",
-                  "question_text": "A la lumière ces données macroscopiques et histologiques, quel est votre diagnostic \\nJustifier votre réponse.",
+                  "question_text": "A la lumière ces données macroscopiques et histologiques, quel est votre diagnostic ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13862,7 +13862,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-15-Q08",
                   "clinical_context": "Cas clinique 1: Enfant de 3 ans, admis aux urgences pédiatriques pour une invagination intestinale aigüe. L'exploration chirurgicale révèle une invagination sur masse de l'iléon terminal. Une résection intestinale a été réalisée. L'examen anatomo- pathologique trouve une prolifération tumorale disposée en nappe, faite de cellules de taille moyenne, avec mitoses, apoptose et macrophages réalisant un aspect en « ciel étoilé ». L'étude immunohistochimique montre une positivité des cellules tumorales pour les anticorps anti-CD20, anti-CD10, anti-bcl6 et un KI67 à $100 \\%$ .",
-                  "question_text": "De quel type de tumeur s'agit-il \\nArguments en faveur d'un lymphome non-Hodgkinien digestif ?",
+                  "question_text": "De quel type de tumeur s'agit-il ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14005,7 +14005,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-16-Q10",
                   "clinical_context": null,
-                  "question_text": "Quel est le risque évolutif \\nCe risque est-il important ou faible \\nExpliquez votre réponse.",
+                  "question_text": "Quel est le risque évolutif ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14013,7 +14013,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-16-Q11",
                   "clinical_context": null,
-                  "question_text": "Quelle est la tumeur hépatique qui peut se développer dans ce contexte \\nQuelles sont les lésions qui peuvent la précéder et comment les dépister ?",
+                  "question_text": "Quelle est la tumeur hépatique qui peut se développer dans ce contexte ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14215,7 +14215,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q01",
                   "clinical_context": "Patient de 66 ans ayant comme antécédent une hépatite virale chronique B. Une ponction biopsie hépatique était réalisée. A l'examen histologique, le parenchyme hépatique est dissocié par une substance safranophile délimitant des amas d'hépatocytes sans espaces portes.",
-                  "question_text": "A quoi correspond la substance safranophile \\nQuelle technique complémentaire doit-on utiliser pour confirmer la nature de cette substance ?",
+                  "question_text": "A quoi correspond la substance safranophile ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14223,7 +14223,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q02",
                   "clinical_context": null,
-                  "question_text": "A la lumière des données cliniques et histologiques quel diagnostic proposeriez-vous \\nLa surveillance biologique de ce patient a montré une élévation de l'alpha-foetoprotéine\\nL'échographie a montré la présence d'un nodule de 6em de grand axe\\nUne nouvelle biopsie hépatique était réalisée au niveau de ce nodule\\nA l'examen histologique, ce nodule était formé de travées hépatocytaires épaisses de 4 assises cellulaires\\nLes cellules montraient des noyaux atypiques avec nucléoles et mitoses.",
+                  "question_text": "A la lumière des données cliniques et histologiques quel diagnostic proposeriez-vous ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14495,7 +14495,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q24",
                   "clinical_context": null,
-                  "question_text": "Quelle classification utilise t’on pour ce type de pathologie \\nCiter les bases de cette classification",
+                  "question_text": "Quelle classification utilise t’on pour ce type de pathologie ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14647,7 +14647,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q43",
                   "clinical_context": "Patient de 25 ans sans antécédent pathologique particulier présente depuis 3 semaines des rectorragies. Une coloscopie était récusée montrent une formation faisant saillie dans la lumière mesurant 3cm. Une résection de cette formation était réalisée.",
-                  "question_text": "Comment appelle -t- on cette formation \\nA l'examen histologique, cette formation renfermait une prolifération de structures tubulaires et villeuses tapissées par un épithéliummontrant une verticalisation des noyaux avec pluristratification ne dépas sant pas le 1/3 inférieur\\nPar ailleurs on note toujours la présence de quelques cellules caliciformes.",
+                  "question_text": "Comment appelle -t- on cette formation ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14679,7 +14679,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q47",
                   "clinical_context": null,
-                  "question_text": "Quels sont les rôles du pathologiste dans la PEC de cette formation \\nL'examen histologique de cette formation montre une prolifération de structures glandulaires bordées par des cellules aux noyaux hyperchromatiques verticalisés pluristratifiés avec quelques mitoses ne dépassant pas le 1/3 inférieur de la hauteur épithéliale\\nDes vacuoles de mucosécrétion sont présentes.",
+                  "question_text": "Quels sont les rôles du pathologiste dans la PEC de cette formation ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14687,7 +14687,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q48",
                   "clinical_context": "L'examen histologique de cette formation montre une prolifération de structures glandulaires bordées par des cellules aux noyaux hyperchromatiques verticalisés pluristratifiés avec quelques mitoses ne dépassant pas le 1/3 inférieur de la hauteur épithéliale. Des vacuoles de mucosécrétion sont présentes.",
-                  "question_text": "A la base de cette description histologique, quel est votre diagnostic \\nJustifier votre réponse.",
+                  "question_text": "A la base de cette description histologique, quel est votre diagnostic ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14719,7 +14719,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q52",
                   "clinical_context": null,
-                  "question_text": "Quel est le risque encouru par ce patient \\nExpliquez.",
+                  "question_text": "Quel est le risque encouru par ce patient ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14727,7 +14727,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q53",
                   "clinical_context": "Patient de 36 ans sans ATCD pathologique particulier, se présente en consultation de gastroentérologie pour rectorragies. L'examen physique et le toucher rectal étaient sans particularité. Une colonoscopie était réalisée montrant une seule formation bien circonscrite faisant saillie dans la lumière du sigmoïde. L'examen anatomo-pathologique de cette formation montre sur le plan histologique une prolifération de tubes bordés par un épithélium pluristratifié basophile avec baisse de la mucosécrétion. Des figures de mitoses sont notées arrivant jusqu'à la surface de l'épithélium.",
-                  "question_text": "Comment appelle-t-on cette formation sur un plan macroscopique et histologique \\n- Sur le plan macroscopique - Sur le plan histologique",
+                  "question_text": "Comment appelle-t-on cette formation sur un plan macroscopique et histologique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14751,7 +14751,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q56",
                   "clinical_context": null,
-                  "question_text": "Quel est le risque encouru chez ce patient si cette formation n'était pas réséquée \\nEt quels sont les facteurs aggravants ?",
+                  "question_text": "Quel est le risque encouru chez ce patient si cette formation n'était pas réséquée ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14791,7 +14791,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q61",
                   "clinical_context": "Femme de 48 ans sans antécédent pathologique particulier consulte pour des rectorragies. Une rectoscopie était réalisée montrant un bourgeon mesurant 6em de grand axe. Une biopsie était réalisée À l'examen histologique, on note la présence de nombreux tubes et massifs cribriformes. Ces tubes étaient bordés par des cellules aux noyaux atypiques avec de nombreuses figures de mitoses. Le tout se dispose au sein de tissu fibro-inflammatoire.",
-                  "question_text": "A la lumière de ces données, quel est votre diagnostic histologique \\nL'exploration du reste du côlon montre une formation faisant saillie dans la lumière, située au niveau du côlon gauche.",
+                  "question_text": "A la lumière de ces données, quel est votre diagnostic histologique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14799,7 +14799,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q62",
                   "clinical_context": "L'exploration du reste du côlon montre une formation faisant saillie dans la lumière, située au niveau du côlon gauche.",
-                  "question_text": "Comment appelle-t-on cette formation \\nCette formation était réséquée\\nSon examen histologique montrait des tribes bordées par un épithélium pluristratifié avec atypies et mitoses ne dépassant pas le 1/3 de la hauteur épithéliale\\nQuelques vacuoles de mucosécrétion sont présentes",
+                  "question_text": "Comment appelle-t-on cette formation ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14841,7 +14841,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-20-Q01",
                   "clinical_context": null,
-                  "question_text": "Quels sont les tumeurs neuroendocrines pulmonaires \\nQuels sont leurs caractères communs sur le plan histologique et immunohistochimique ?",
+                  "question_text": "Quels sont les tumeurs neuroendocrines pulmonaires ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14899,7 +14899,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-20-Q06",
                   "clinical_context": "Femme de 30 ans, sans antécédents pathologiques, consulte pour une dyspnée avec gêne respiratoire. Le bilan radiologique a mis en évidence une masse pulmonaire du lobe supérieur droit. Une biopsie a été réalisée et a objectivé une prolifération tumorale disposée en glandes, en papilles et en micropapilles. Les cellules montrent des atypies et des mitoses.",
-                  "question_text": "Quel est votre diagnostic \\nJustifier.",
+                  "question_text": "Quel est votre diagnostic ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14907,7 +14907,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-20-Q07",
                   "clinical_context": null,
-                  "question_text": "Quelles sont les techniques complémentaires qu'il faut demander pour confirmer le diagnostic et guider le traitement \\nExpliquer.",
+                  "question_text": "Quelles sont les techniques complémentaires qu'il faut demander pour confirmer le diagnostic et guider le traitement ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14923,15 +14923,15 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-20-Q09",
                   "clinical_context": "Patient de 60 ans, tabagique chronique, consulte pour une dyspnée sévère et une toux résistante au traitement. Le scanner montrait une image pulmonaire proximale envahissant le médiastin, avec des métastases osseuses. La cytologie réalisée après une fibroscopie bronchique montrait des cellules regroupées en amas, la chromatine fine « poivre et sel » sans nucléole.",
-                  "question_text": "Quel est votre diagnostic cytologique \\nLa biopsie montrait une prolifération tumorale faite de cellules disposées en nappes diffuses avec des artefacts d'écrasements.",
+                  "question_text": "Quel est votre diagnostic cytologique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
                 },
                 {
                   "id": "ANA-PUL-20-Q10",
-                  "clinical_context": "La biopsie montrait une prolifération tumorale faite de cellules disposées en nappes diffuses avec des artefacts d'écrasements.",
-                  "question_text": "Quel est votre diagnostic histologique \\nComment le confirmer ?",
+                  "clinical_context": null,
+                  "question_text": "Comment le confirmer ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14947,7 +14947,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-20-Q12",
                   "clinical_context": "Patient de 20 ans consulte pour une masse pulmonaire. Il a un antécédent de tumeur testiculaire mon documentée. Le dosage des marqueurs montre un taux élevé de Beta-HCG. Une biopsie du nodule pulmonaire a été réalisée, montrant des cellules mononucléées et multinucléées au sein de suffusions hémorragiques.",
-                  "question_text": "Quel est votre diagnostic\\nJustifier",
+                  "question_text": "Quel est votre diagnostic",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14955,7 +14955,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-20-Q13",
                   "clinical_context": "Patient de 22 ans ayant comme ATCD une orchidectomie sans preuve histologique consultait pour une gêne respiratoire. Le bilan radiologique trouvait une image pulmonaire tissulaire fortement suspecte de malignité.",
-                  "question_text": "Quelles sont vos hypothèses diagnostiques \\nLe bilan biologique montrait un taux élevé de LDH\\nL'examen histologique de la biopsie scanno-guidée objectivait une prolifération tumorale faite de tubes et de massifs au sein d'un stroma fibreux et inflammatoire avec une positivité de l'anticorps anti-CD30 en immunohistochimie.",
+                  "question_text": "Quelles sont vos hypothèses diagnostiques ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15309,8 +15309,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "ANA-PUL-22-Q11",
-                  "clinical_context": null,
-                  "question_text": "Cet examen a montré une expression du CD30 et de l'EMA sans expression du CD20\\nQuel est votre diagnostic final ?",
+                  "clinical_context": "Le CD23 était également fortement positif.",
+                  "question_text": "Quel est votre diagnostic final ?",
                   "type": "QCM",
                   "choices": [
                     "Lymphome du manteau",
@@ -15366,7 +15366,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q15",
                   "clinical_context": "Le patient a été traité et était en rémission complète. Au cours du suivi, il a présenté une rechute avec augmentation de la taille des adénopathies. Une nouvelle biopsie ganglionnaire a été réalisée et a montré une prolifération d'architecture diffuse faite de lymphocytes de grande taille.",
-                  "question_text": "Quel est votre suspicion diagnostique \\nA Transformation en lymphome de Hodgkin classique",
+                  "question_text": "Quel est votre suspicion diagnostique ",
                   "type": "QCM",
                   "choices": [
                     "Transformation en lymphome B diffus à grandes cellules",
@@ -15407,7 +15407,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q18",
                   "clinical_context": "Patient de 55 ans, présentant des polyadénopathies cervicales, axillaires, abdominales et inguinales. Un prélèvement ganglionnaire est envisagé.",
-                  "question_text": "Quelle est l'aire ganglionnaire à biopsier en premier\\nUne exérèse ganglionnaire est réalisée.",
+                  "question_text": "Quelle est l'aire ganglionnaire à biopsier en premier",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15415,7 +15415,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q19",
                   "clinical_context": "Une exérèse ganglionnaire est réalisée.",
-                  "question_text": "Citer les règles d'acheminement et de gestion de ce prélèvement au service d'anatomie pathologique et les moyens d'étude anatomopathologique\\nL'examen histologique montre une prolifération tumorale d'architecture diffuse, faite de lymphocytes de petite taille exprimant le CD20 et le CD5.",
+                  "question_text": "Citer les règles d'acheminement et de gestion de ce prélèvement au service d'anatomie pathologique et les moyens d'étude anatomopathologique",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15439,7 +15439,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q22",
                   "clinical_context": "Patient de 56 ans, sans antécédent pathologique notable consultant pour des polyadénopathies. Une exérèse ganglionnaire a été réalisée.",
-                  "question_text": "Quelles sont les règles à respecter pour la réalisation et la prise en charge de ce type de prélèvement et quels sont les moyens d'étude anatomopathologique\\nL'examen histologique réalisé montre une prolifération tumorale lymphoïde d'architecture nodulaire.",
+                  "question_text": "Quelles sont les règles à respecter pour la réalisation et la prise en charge de ce type de prélèvement et quels sont les moyens d'étude anatomopathologique",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15455,7 +15455,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q24",
                   "clinical_context": null,
-                  "question_text": "En l'absence de ces éléments, quel(s) est (sont) le(s) diagnostic(s) suspecté(s) \\nUne étude immunohistochimique est réalisée et montre une expression du CD20, du CD10 et du Bcl6.",
+                  "question_text": "En l'absence de ces éléments, quel(s) est (sont) le(s) diagnostic(s) suspecté(s) ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15503,7 +15503,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q30",
                   "clinical_context": null,
-                  "question_text": "Quelle est la technique permettant de confirmer votre diagnostic \\nQuel est le résultat attendu ?",
+                  "question_text": "Quelle est la technique permettant de confirmer votre diagnostic ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15511,7 +15511,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q31",
                   "clinical_context": null,
-                  "question_text": "Votre diagnostic a été confirmé\\nDe quel sous type histologique s'agit-il ?",
+                  "question_text": "Votre diagnostic a été confirmé",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15519,7 +15519,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q32",
                   "clinical_context": "Patient de 60 ans, présentant une adénopathie cervicale. Une biopsie ganglionnaire a été réalisée. L'examen histologique montre une prolifération d'architecture diffuse, faite de lymphocytes de taille petite à moyenne, monotones, et au noyau encoché, suspect de lymphome.",
-                  "question_text": "Quelle technique complémentaire demanderiez-vous ? en utilisant quels marqueurs \\nCette technique a confirmé le diagnostic d'un lymphome B exprimant la cycline DI et le CD5.",
+                  "question_text": "Quelle technique complémentaire demanderiez-vous ? en utilisant quels marqueurs ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15535,7 +15535,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q34",
                   "clinical_context": null,
-                  "question_text": "Quelle serait la technique à utiliser en cas de difficulté diagnostique malgré l'utilisation des techniques précédentes \\nQuelle est l'anomalie permettant de confirmer votre diagnostic ?",
+                  "question_text": "Quelle serait la technique à utiliser en cas de difficulté diagnostique malgré l'utilisation des techniques précédentes ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15551,7 +15551,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q36",
                   "clinical_context": null,
-                  "question_text": "Quelle est la technique à demander pour confirmer vos diagnostics\\nCette technique montre une expression du CD20.",
+                  "question_text": "Quelle est la technique à demander pour confirmer vos diagnostics",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15591,7 +15591,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q41",
                   "clinical_context": null,
-                  "question_text": "Comment le confirmer \\nLes cellules tumorales expriment le Tdl\\nQuel est votre diagnostic final dans chacune des deux situations suivantes ? o CD3 positif o CD79a positif",
+                  "question_text": "Comment le confirmer ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15793,7 +15793,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-23-Q14",
                   "clinical_context": "Cas clinique 3: Patiente de 56 ans, présentant un nodule thyroïdien. Une isthmolobectomie est réalisée. L'examen histologique montre une lésion nodulaire correspondant à une prolifération d'architecture vésiculaire. Elle est faite de cellules cubiques sans chevauchements, incisures, aspect en verre dépoli des noyaux, ni inclusions intranucléaires.",
-                  "question_text": "A la lumière de ces données histologiques, quels sont les diagnostics à évoquer \\nL'examen histologique montre en plus des images d'effraction capsulaire.",
+                  "question_text": "A la lumière de ces données histologiques, quels sont les diagnostics à évoquer ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15849,7 +15849,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-23-Q21",
                   "clinical_context": null,
-                  "question_text": "A quel type histologique correspond le nodule B \\nJustifier.",
+                  "question_text": "A quel type histologique correspond le nodule B ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15865,7 +15865,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-23-Q23",
                   "clinical_context": null,
-                  "question_text": "Quels sont les moyens permettant de le confirmer et quels sont les résultats attendus\\nLe diagnostic suspect a été confirmé\\nAu cours du suivi, le patient rapportait des pics hypertensifs\\nL'imagerie réalisée a mis en évidence un nodule surrénalien (Une surrénalectomie a été réalisée\\nL'examen histologique a mis en évidence une prolifération tumorale disposée en nids, en cordons, et en alvéoles\\nLes cellules tumorales sont polygonales\\nLe stroma est vasculaire\\nA l'étude immunohistochimique, une origine métastatique a été éliminée\\nLes cellules tumorales expriment la chromogranine et la synaptophysine\\nElles n'expriment pas la cytokératine ni Melan A.",
+                  "question_text": "Quels sont les moyens permettant de le confirmer et quels sont les résultats attendus",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16031,7 +16031,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q03",
                   "clinical_context": null,
-                  "question_text": "Citer les indications de l'examen extemporané en cas de tumeur du système nerveux central\\n- Examen extemporané des tumeurs cérébrales : indication et intérêt\\nQuel est l'intérêt et les indications de l'examen extemporané en pathologie tumorale cérébrale \\nEt quels sont les éléments cliniques à prendre en considération lors de l'examen ?",
+                  "question_text": "Citer les indications de l'examen extemporané en cas de tumeur du système nerveux central",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16167,7 +16167,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q14",
                   "clinical_context": null,
-                  "question_text": "Que rechercheriez-vous en plus pour un diagnostic précis\\nVotre recherche confirme la présence de l'anomalie recherchée.",
+                  "question_text": "Que rechercheriez-vous en plus pour un diagnostic précis",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16191,7 +16191,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q17",
                   "clinical_context": "Patient de 50 ans, présentant des crises épileptiques. L'imagerie montre un processus fronto-pariétal. Une biopsie est réalisée et adressée pour examen extemporané.",
-                  "question_text": "Citer les indications de cet examen dans ce type de tumeur\\nL'examen histologique final montre une prolifération tumorale faite de cellules arrondies dotées d'un noyau central entouré d'un halo clair périnucléaire\\nCes cellules sont disposées en nappe sur un fond fibrillaire\\nA l'étude immunohistochimique, ces cellules expriment l'IDH\\nL'étude FISH montre une codélétion 1p19q.",
+                  "question_text": "Citer les indications de cet examen dans ce type de tumeur",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16199,7 +16199,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q18",
                   "clinical_context": "L'examen histologique final montre une prolifération tumorale faite de cellules arrondies dotées d'un noyau central entouré d'un halo clair périnucléaire. Ces cellules sont disposées en nappe sur un fond fibrillaire. A l'étude immunohistochimique, ces cellules expriment l'IDH. L'étude FISH montre une codélétion 1p19q.",
-                  "question_text": "A la lumière de ces données, quel est votre diagnostic \\nL'examen histologique montre en plus une prolifération microvasculaire.",
+                  "question_text": "A la lumière de ces données, quel est votre diagnostic ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16215,7 +16215,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q20",
                   "clinical_context": "Patient de 50 ans, présentant un syndrome d'hypertension intracrânienne. L'imagerie cérébrale réalisée a montré un processus cérébral pariétal. Un examen extemporané a été indiqué.",
-                  "question_text": "Citer l’intérêt de cet examen dans la prise en charge de ce type de lésion \\nL’examen histologique définitif de la lésion a montré une prolifération tumorale astrocytaire avec de la nécrose tumorale.",
+                  "question_text": "Citer l’intérêt de cet examen dans la prise en charge de ce type de lésion ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16223,7 +16223,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q21",
                   "clinical_context": "L’examen histologique définitif de la lésion a montré une prolifération tumorale astrocytaire avec de la nécrose tumorale.",
-                  "question_text": "Quel est votre diagnostic \\nUne recherche de la mutation des gènes IDH a été réalisée\\nElle s'est révélée négative.",
+                  "question_text": "Quel est votre diagnostic ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16239,7 +16239,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q23",
                   "clinical_context": "Patient de 6 ans, sans antécédents particuliers présentant depuis 4 mois un syndrome d'hypertension intracrânienne. L'IRM cérébrale a montré une masse tumorale de la fosse cérébrale postérieure.",
-                  "question_text": "Quelles sont vos hypothèses diagnostiques\\nLe patient a été opéré et l'examen histologique a montré une prolifération tumorale disposée en nappes, faite de petites cellules bleues indifférenciées, avec des rosettes, des atypies, des mitoses fréquentes et des foyers de nécrose.",
+                  "question_text": "Quelles sont vos hypothèses diagnostiques",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16271,7 +16271,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q27",
                   "clinical_context": null,
-                  "question_text": "Histologiquement, il s'agit d'une prolifération d'astrocytes pilocytiques non atypiques sur un abondant fond fibrillaire et totalement dépourvus de mitoses\\nVotre diagnostic est il confirmé ?",
+                  "question_text": "Histologiquement, il s'agit d'une prolifération d'astrocytes pilocytiques non atypiques sur un abondant fond fibrillaire et totalement dépourvus de mitoses",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16303,7 +16303,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q31",
                   "clinical_context": "Patient de 60 ans, présentant une tumeur de l'hémisphère cérébral. Un examen extemporané a été demandé.",
-                  "question_text": "Citer les indications de l'examen extemporané dans ce type de tumeur L' examen histologique montre une prolifération astrocytaire hypercellulaire, disposée sur un fond fibrillaire\\nLes cellules tumorales présentent des atypies cyto-nucléaires et des mitoses fréquentes avec prolifération endothélio-capillaire et nécrose",
+                  "question_text": "Citer les indications de l'examen extemporané dans ce type de tumeur",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16311,7 +16311,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q32",
                   "clinical_context": "L' examen histologique montre une prolifération astrocytaire hypercellulaire, disposée sur un fond fibrillaire. Les cellules tumorales présentent des atypies cyto-nucléaires et des mitoses fréquentes avec prolifération endothélio-capillaire et nécrose",
-                  "question_text": "Quel est votre diagnostic\\nL’étude moléculaire a mis en évidence une mutation du gène lDH1.",
+                  "question_text": "Quel est votre diagnostic",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16327,7 +16327,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q34",
                   "clinical_context": null,
-                  "question_text": "Quelle est sa valeur pronostique \\nIMMUNOPATH GENETIQUE MEDIC M. de SYSTEME ATARAXIE Semestre 8",
+                  "question_text": "Quelle est sa valeur pronostique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -17253,7 +17253,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-DEF-02-Q46",
                   "clinical_context": null,
-                  "question_text": "Son pédiatre a noté qu’il n’avait pas d’amygdales bien qu’il n’ait jamais eu d’ablation chirurgicale\\nComment expliquer cela, sachant que l’absence des amygdales est un indice diagnostique important lorsque l’on suspecte ce type de déficit immunitaire ?",
+                  "question_text": "Son pédiatre a noté qu’il n’avait pas d’amygdales bien qu’il n’ait jamais eu d’ablation chirurgicale",
                   "type": "QCM",
                   "choices": [
                     "Les amygdales sont constituées à 80% de polynucléaires",
@@ -17315,7 +17315,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-TUM-03-Q03",
                   "clinical_context": null,
-                  "question_text": "De nombreuses tumeurs sont peu immunogéniques et échappent à la surveillance immunitaire\\nLequel ou lesquels des mécanismes suivants sont à l’origine de cet échappement?",
+                  "question_text": "De nombreuses tumeurs sont peu immunogéniques et échappent à la surveillance immunitaire",
                   "type": "QCM",
                   "choices": [
                     "Diminution de l'expression des molécules CD4",
@@ -17345,7 +17345,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-LYM-04-Q01",
                   "clinical_context": null,
-                  "question_text": "Les lymphocytes tumoraux interagissent avec leur environnement pour assurer leur croissance et leur survie et pour se protéger des défenses immunitaires\\nCes interactions sont médiées par :",
+                  "question_text": "Les lymphocytes tumoraux interagissent avec leur environnement pour assurer leur croissance et leur survie et pour se protéger des défenses immunitaires",
                   "type": "QCM",
                   "choices": [
                     "Des Cytokines",
@@ -17871,7 +17871,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-AUT-06-Q04",
                   "clinical_context": null,
-                  "question_text": "Lesquelles des affirmations suivantes sont exacte(s) \\nLa tolérance du soi peut être rompue :",
+                  "question_text": "Lesquelles des affirmations suivantes sont exacte(s) ",
                   "type": "QCM",
                   "choices": [
                     "Par mimétisme moléculaire",
@@ -17928,7 +17928,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-AUT-06-Q08",
                   "clinical_context": null,
-                  "question_text": "Certaines molécules HLA sont associées à certaines maladies\\nLaquelle des pathologies suivantes est associée à l'existence de HLA B57 ?",
+                  "question_text": "Certaines molécules HLA sont associées à certaines maladies",
                   "type": "QCM",
                   "choices": [
                     "Maladie de Basedow",
@@ -17970,7 +17970,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-AUT-06-Q11",
                   "clinical_context": null,
-                  "question_text": "Certaines molécules HLA sont associées à certaines maladies\\nLaquelle des pathologies suivantes est associée à l’existence de HLA DR3/DR4 hétérozygote ?",
+                  "question_text": "Certaines molécules HLA sont associées à certaines maladies",
                   "type": "QCM",
                   "choices": [
                     "Diabète insulino-dépendant de type I",
@@ -18031,7 +18031,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-AUT-06-Q15",
                   "clinical_context": null,
-                  "question_text": "Les anticorps anti-cytoplasme des polynucléaires (ANCA) sont parmi les auto-anticorps recherchés lors de l’exploration de certaines maladies auto-immunes\\nLesquelles des affirmations suivantes, sont correctes ?",
+                  "question_text": "Les anticorps anti-cytoplasme des polynucléaires (ANCA) sont parmi les auto-anticorps recherchés lors de l’exploration de certaines maladies auto-immunes",
                   "type": "QCM",
                   "choices": [
                     "Les cANCA sont retrouvés, entre autres, dans la polyarthrite rhumatoïde et les hépatites auto-immunes",
@@ -18600,7 +18600,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-HYP-07-Q18",
                   "clinical_context": null,
-                  "question_text": "Décrire les mécanismes d'hypersensibilité Type I 7.2- Hypersensibilité Type II :",
+                  "question_text": "Décrire les mécanismes d'hypersensibilité Type I",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -18955,7 +18955,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-HYP-07-Q43",
                   "clinical_context": null,
-                  "question_text": "Le Prick test a été réalisé pour les antigènes de noix, du lait, du blé, du mais, d'œufs, et l’arachide.Résultat: Réaction positive contre arachide et négative contre le reste\\nSur la base de cette réaction quel serait le résultat du test RAST?",
+                  "question_text": "Le Prick test a été réalisé pour les antigènes de noix, du lait, du blé, du mais, d'œufs, et l’arachide.Résultat: Réaction positive contre arachide et négative contre le reste",
                   "type": "QCM",
                   "choices": [
                     "Le taux d’IgE dirigés contre les antigènes de noix, du lait, du blé, du maïs, d’œufs, et d’arachide seraient élevé",
@@ -19135,7 +19135,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-GRF-08-Q08",
                   "clinical_context": null,
-                  "question_text": "Les anticorps anti-HLA jouent un rôle important dans le rejet de greffe\\nLesquelles des affirmations suivantes sont correctes ?",
+                  "question_text": "Les anticorps anti-HLA jouent un rôle important dans le rejet de greffe",
                   "type": "QCM",
                   "choices": [
                     "Sont produits après des grossesses répétées",
@@ -19202,7 +19202,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "IMM-GRF-08-Q13",
                   "clinical_context": "QR 2 :",
-                  "question_text": "Dans le cadre de la prise en charge immunologique d'une transplantation rénale\\nQuels sont les différents moyens utilisés pour éviter une alloréaction ?",
+                  "question_text": "Dans le cadre de la prise en charge immunologique d'une transplantation rénale",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -19590,7 +19590,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-SCL-03-Q10",
                   "clinical_context": null,
-                  "question_text": "Au cours du suivi la patiente accuse une dyspnée d'aggravation progressive avec limitation de son activité quotidienne\\nOn suspecte quoi chez cette patiente :",
+                  "question_text": "Au cours du suivi la patiente accuse une dyspnée d'aggravation progressive avec limitation de son activité quotidienne",
                   "type": "QCM",
                   "choices": [
                     "Une Embolie pulmonaire.",
@@ -20064,7 +20064,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-AMY-08-Q05",
                   "clinical_context": "QR 4 :",
-                  "question_text": "Quel examen paraclinique permettrai de faire la différence entre les types d'amylose cardiaque \\nPrécisez les particularités distinctives !",
+                  "question_text": "Quel examen paraclinique permettrai de faire la différence entre les types d'amylose cardiaque ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -20358,7 +20358,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-CAS-12-Q16",
                   "clinical_context": null,
-                  "question_text": "Pour compléter les explorations paracliniques, une étude histologique est réalisée : Quelles sont les spécificités retrouvées au cours de cette étude :",
+                  "question_text": "Pour compléter les explorations paracliniques, une étude histologique est réalisée :",
                   "type": "QCM",
                   "choices": [
                     "Des microthrombus des petits vaisseaux avec dépôts intravasculaires d'immuns-complexes IgG / IgM et/ou C3",
@@ -20631,7 +20631,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-CAS-12-Q37",
                   "clinical_context": null,
-                  "question_text": "Après confirmation de la maladie et stabilisation de son état clinique, les lésions cutanéomuqueuses ont évolué favorablement\\nDécrivez l'évolution clinique de ces lésions:",
+                  "question_text": "Après confirmation de la maladie et stabilisation de son état clinique, les lésions cutanéomuqueuses ont évolué favorablement",
                   "type": "QCM",
                   "choices": [
                     "En laissant une cicatrice indélébile",
@@ -20800,7 +20800,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-CAS-12-Q50",
                   "clinical_context": null,
-                  "question_text": "Aprés hospitalisation, le patient présentait toujours des douleurs abdominales avec une crise douloureuse thoracique\\nQuels sont les examens paracliniques à demander?",
+                  "question_text": "Aprés hospitalisation, le patient présentait toujours des douleurs abdominales avec une crise douloureuse thoracique",
                   "type": "QCM",
                   "choices": [
                     "Un bilan inflammatoire",
@@ -20870,7 +20870,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-VAS-13-Q02",
                   "clinical_context": "Cas clinique 1: Sur un bilan d’anémie inflammatoire chez un patient de 70 ans, une électrophorèse des protides met en évidence un pic monoclonal au niveau des gammaglobulines. La ponction sternale élimine le diagnostic du myélome multiple. Sur la bandelette urinaire on trouve de protéine, avec protéinurie à 2g/24h.",
-                  "question_text": "En 1994, la nomenclature de Chapel Hill a proposé une classification de la plupart des vascularites\\nCochez la ou les bonnes réponses:",
+                  "question_text": "Cochez la ou les bonnes réponses:",
                   "type": "QCM",
                   "choices": [
                     "Une classification des principales vascularites systémiques fondée sur des critères cliniques, biologiques et histologiques.",
@@ -21065,7 +21065,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-HOR-14-Q05",
                   "clinical_context": "Cas clinique 1: Sur un bilan d’anémie inflammatoire chez un patient de 70 ans, une électrophorèse des protides met en évidence un pic monoclonal au niveau des gammaglobulines. La ponction sternale élimine le diagnostic du myélome multiple. Sur la bandelette urinaire on trouve de protéine, avec protéinurie à 2g/24h.",
-                  "question_text": "La maladie d'Horton est une artérite temporale giganto-cellulaire la plus fréquente des vascularites, Cochez la ou les bonnes réponses:",
+                  "question_text": "Cochez la ou les bonnes réponses:",
                   "type": "QCM",
                   "choices": [
                     "Elle survient le plus souvent chez les femmes dans 2 cas/3 avant 50 ans.",
@@ -21158,7 +21158,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-HOR-14-Q13",
                   "clinical_context": "Patiente de 30 ans, qui consulte aux urgences pour une fièvre qui évolue depuis plus d'un Mois avec des tâches purpuriques diffuses infiltrées et des ulcérations superficielles au niveau des 2 membres inférieurs; le tableau clinique s'est aggravé depuis 3 jours par une dyspnée stade IV de NYHA et une hémoptysie de moyenne abondance :",
-                  "question_text": "Patiente de 70 ans, qui consulte pour des céphalées temporales d'apparition récente, qui ne cèdent pas aux antalgiques avec un signe de peigne positif ; votre conduite à tenir sera:",
+                  "question_text": "votre conduite à tenir sera:",
                   "type": "QCM",
                   "choices": [
                     "Faire un bilan inflammatoire.",
@@ -21228,7 +21228,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-TAK-15-Q05",
                   "clinical_context": null,
-                  "question_text": "les Critères diagnostiques << ACR/EULAR 2022 >> de la maladie de TAKAYASHU sont : A Le début de la maladie avant l'âge de 45 ans",
+                  "question_text": "les Critères diagnostiques << ACR/EULAR 2022 >> de la maladie de TAKAYASHU sont :",
                   "type": "QCM",
                   "choices": [
                     "Le sexe masculin",
@@ -21271,7 +21271,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-TAK-15-Q10",
                   "clinical_context": "Patiente de 62 ans, suivie pour cardiopathie ischémique depuis 3 ans sous traitement, admise en consultation pour douleurs de type inflammatoire intéressant les grosses articulations depuis 3 mois. À l'examen clinique: un érythème du visage, des signes d’arthrites, syndrome d’épanchement pleural de moyenne abondance bilatéral.",
-                  "question_text": "Patiente de 30 ans, admise en consultation pour claudication des membres supérieurs depuis 3 mois\\nA l'examen clinique absence des pouls périphériques du côté gauche et une hypertension artérielle à 170mmHg .Choisissez la ou les bonnes réponses:",
+                  "question_text": "Choisissez la ou les bonnes réponses:",
                   "type": "QCM",
                   "choices": [
                     "C’est une maladie de Takayasu type II.",
@@ -21604,7 +21604,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-VCC-22-Q08",
                   "clinical_context": null,
-                  "question_text": "les examens paracliniques à demander chez ce patient sont : A Un Scanner ou angio scanner",
+                  "question_text": "les examens paracliniques à demander chez ce patient sont :",
                   "type": "QCM",
                   "choices": [
                     "Un bilan immunologique à la recherche des ANCA",
@@ -22077,7 +22077,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-VCC-22-Q44",
                   "clinical_context": null,
-                  "question_text": "Patient de 48 ans se présentant aux urgences avec hémorragie alvéolaire une anurie depuis 24 heures, fièvre et polyarthralgie\\nQuel diagnostic suspecteriez-vous chez ce patient:",
+                  "question_text": "Patient de 48 ans se présentant aux urgences avec hémorragie alvéolaire une anurie depuis 24 heures, fièvre et polyarthralgie",
                   "type": "QCM",
                   "choices": [
                     "Syndrome polyuro-polydipsique",
@@ -22103,7 +22103,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-VCC-22-Q46",
                   "clinical_context": null,
-                  "question_text": "Un patient âgé de 35ans, qui consulte pour des ulcérations douloureuses multiples buccales évoluant par poussées depuis 4ans; et une rougeur oculaire depuis 15jours\\nL'examen clinique objective des pustules multiples au niveau du dos non centrée par un follicule pileux, l'examen ophtalmologique trouve une uvéite antérieure bilatérale. le diagnostic retenu chez ce patient << selon les critères >>> est:",
+                  "question_text": "Un patient âgé de 35ans, qui consulte pour des ulcérations douloureuses multiples buccales évoluant par poussées depuis 4ans; et une rougeur oculaire depuis 15jours",
                   "type": "QCM",
                   "choices": [
                     "La maladie de Wegener",
@@ -22662,7 +22662,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q34",
                   "clinical_context": null,
-                  "question_text": "Vous avez retenu le diagnostic\\nLesquels des bilans paracliniques vous allez demander:",
+                  "question_text": "Vous avez retenu le diagnostic",
                   "type": "QCM",
                   "choices": [
                     "Les ANCA",
@@ -22675,7 +22675,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q35",
                   "clinical_context": "Patiente de 36 ans, sans antécédents, qui consulte pour livedo diffus avec grosse jambe rouge d'installation brutale depuis 48h, avec antécédents de 3 fausses couches dans l'année précédente. L'examen physique objective un Livedo au niveau des membres inférieurs, et un signe de Homans positif.",
-                  "question_text": "quelles sont les diagnostics à évoquer chez cette patiente \\nJustifiez votre réponse.",
+                  "question_text": "quelles sont les diagnostics à évoquer chez cette patiente ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22722,8 +22722,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "SYS-GEN-23-Q41",
-                  "clinical_context": null,
-                  "question_text": "Quel est le diagnostic le plus probable selon les critères diagnostiques (ACR) \\nArgumentez.",
+                  "clinical_context": "Mr A. âgé de 20 ans. sans antécédents notables, présente un épisode aigu de douleurs abdominales importantes, avec une sensibilité abdominale, des arthralgies inflammatoires et une fièvre à $3 8 . 5 ^ { \\circ } \\mathrm { C }$ . Le patient a bénéficié d'une exploration chirurgicale de l'abdomen n’a pas retrouvé d'explication à cet abdomen aigu",
+                  "question_text": "Quel est le diagnostic le plus probable",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22763,7 +22763,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q46",
                   "clinical_context": null,
-                  "question_text": "Quels sont les bilans paracliniques à demander devant ce tableau clinique \\nAprès l’hospitalisation du patient, l’examen ORL trouve une polypose naso-sinusienne et le bilan biologique trouve : Hémogramme : Hb à 12g/dL plaquettes=345000/mm3, leucocytes =13000/mm3, P.\\’N=7000 /mm3. éosinophiles=3500/mm3, lymphocytes=500/mm3, monocytes=250/mm3",
+                  "question_text": "Quels sont les bilans paracliniques à demander devant ce tableau clinique ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22843,7 +22843,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q56",
                   "clinical_context": "Jeune patient de 35 ans, présente une baisse brutale de l'acuité visuelle bilatérale. L'ophtalmologue diagnostique une panuvéite bilatérale avec signes de vascularite rétinienne. Par ailleurs, ce patient a présenté il y a 2 ans une thrombophlébite du membre inférieur droit compliquée d'une embolie pulmonaire, restée sans étiologie, pour laquelle il est toujours sous antivitamines K.",
-                  "question_text": "Quel diagnostic évoquez-vous \\nQuels sont vos arguments ?",
+                  "question_text": "Quel diagnostic évoquez-vous ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22963,7 +22963,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q71",
                   "clinical_context": "Patiente de 32 ans, présente des polyarthralgies depuis 6 mois intéressant toutes les grosses articulations, bilatérales et symétriques le réveillant la nuit, non calmées par le repos, avec une raideur matinale et un temps de dérouillage de 30 mn. À l'examen, vous retrouvez une rougeur du visage qui s'avère être en rapport avec une hypersensibilité au soleil, des paupières oedématiées et un œdème des membres inférieurs blanc, mou et prenant le godet.",
-                  "question_text": "Quel(s) diagnostics ) évoquez-vous \\nQuels sont vos arguments ?",
+                  "question_text": "Quel(s) diagnostics ) évoquez-vous ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22995,7 +22995,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q75",
                   "clinical_context": null,
-                  "question_text": "Quelle description pourrait avoir les aphtes pour évoquer le premier diagnostic\\nGénétique Médicale - Questions cours par cours",
+                  "question_text": "Quelle description pourrait avoir les aphtes pour évoquer le premier diagnostic",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -23094,7 +23094,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-INT-01-Q06",
                   "clinical_context": null,
-                  "question_text": "Le diagnostic anténatal pour établissement du caryotype sur les cellules amniotiques se justifie dans tous les cas suivants, sauf un\\nLequel?",
+                  "question_text": "Le diagnostic anténatal pour établissement du caryotype sur les cellules amniotiques se justifie dans tous les cas suivants, sauf un",
                   "type": "QCM",
                   "choices": [
                     "Age maternel supérieur à 40 ans",
@@ -23150,7 +23150,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-INT-01-Q10",
                   "clinical_context": null,
-                  "question_text": "La demande d'un caryotype fœtal est justifiée dans tous les cas suivants, sauf un\\nLequel ?",
+                  "question_text": "La demande d'un caryotype fœtal est justifiée dans tous les cas suivants, sauf un",
                   "type": "QCM",
                   "choices": [
                     "Âge paternel avancé.",
@@ -23164,7 +23164,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-INT-01-Q11",
                   "clinical_context": "(Symboles internationaux : Arbre généalogique) <div> <table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table> </div> QR 7 :",
-                  "question_text": "Définir les Termes suivants",
+                  "question_text": "Définir",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -23399,7 +23399,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-NGS-04-Q02",
                   "clinical_context": null,
-                  "question_text": "Le séquençage de nouvelle génération (NGS) a trouvé de nombreuses applications en pratique médicale\\nParmi les propositions suivantes, laquelle ne fait pas partie de ses applications principales ?",
+                  "question_text": "Le séquençage de nouvelle génération (NGS) a trouvé de nombreuses applications en pratique médicale",
                   "type": "QCM",
                   "choices": [
                     "Diagnostic des maladies génétiques rares",
@@ -23467,7 +23467,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-MUT-05-Q04",
                   "clinical_context": "(Symboles internationaux : Arbre généalogique) <div> <table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table> </div> QR 7 :",
-                  "question_text": "Définir une mutation et expliquer la différence entre une mutation germinale et une mutation somatique ?",
+                  "question_text": "Définir",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -23483,7 +23483,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-MUT-05-Q06",
                   "clinical_context": null,
-                  "question_text": "Définitions : ■ Mutation somatique ■ Mutation germinale ■ Mutations décalant le cadre de lecture ■ Mutations par expansion de trinucléotides ■ Mutations élongation ■ Mutations faux sens ■ Mutation non sens mutation ■ Mutations à effet quantitatif ■ Fusion entre deux gènes ■ Empreinte parentale",
+                  "question_text": "Définitions :",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -23595,7 +23595,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ANO-06-Q08",
                   "clinical_context": "(Symboles internationaux : Arbre généalogique) <div> <table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table> </div> QR 7 :",
-                  "question_text": "Définir les termes suivants (différentes anomalies chromosomiques) : ■ Inversion ■ Inversion paracentrique ■ Translocation réciproque ■ Isochromosome ■ Le chromosome en anneau ■ Les instabilités chromosomiques ■ Anomalie chromosomique homogène ■ Marqueur chromosomique ■ Délétions (del) ■ Translocation Robertsonienne ■ Diandrie ■ Les aneuploïdies ■ Les polyploïdies",
+                  "question_text": "Définir",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -23603,7 +23603,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ANO-06-Q09",
                   "clinical_context": "(Symboles internationaux : Arbre généalogique) <div> <table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table> </div> QR 7 :",
-                  "question_text": "Définir les anomalies chromosomiques suivantes et leur mécanisme :",
+                  "question_text": "Définir",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -23845,8 +23845,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "GEN-TRI-07-Q19",
-                  "clinical_context": null,
-                  "question_text": "Les résultats montrent chez cet enfant une trisomie 21 par translocation robertsonienne (14;21) transmise par le père\\nQuelle est le risque de récurrence dans ce cas lors de la prochaine grossesse ?",
+                  "clinical_context": "Les résultats montrent chez cet enfant une trisomie 21 par translocation robertsonienne (14;21) transmise par le père.",
+                  "question_text": "Quelle est le risque de récurrence dans ce cas lors de la prochaine grossesse ?",
                   "type": "QCM",
                   "choices": [
                     "0%",
@@ -24054,7 +24054,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRI-07-Q41",
                   "clinical_context": null,
-                  "question_text": "Quel est votre conseil génétique pour ce couple \\n- un nourrisson. de 3 mois - Premier et unique enfant du couple - Age du père : 37 ans., l'âge de la mère : 36 ans - Signes cliniques.évocateurs d'une trisomie 21 - Le caryotype du nourrisson : trisomie 21 libre et homogène (47,XY,+21)",
+                  "question_text": "Quel est votre conseil génétique pour ce couple ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24086,7 +24086,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRI-07-Q45",
                   "clinical_context": null,
-                  "question_text": "Le caryotype réalisé a montré la présence d'une trisomie 21 par translocation entre les chromosomes 14 et 21\\nQuelle est votre conduite à tenir pour le conseil génétique ?",
+                  "question_text": "Le caryotype réalisé a montré la présence d'une trisomie 21 par translocation entre les chromosomes 14 et 21",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24102,7 +24102,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRI-07-Q47",
                   "clinical_context": null,
-                  "question_text": "Quelles sont les malformations associées à la trisomie 21 qui peuvent compromettre le pronostic vital et nécessitent une prise en charge urgente ? 7.2- Trisomie 13 : Sd de Patau",
+                  "question_text": "Quelles sont les malformations associées à la trisomie 21 qui peuvent compromettre le pronostic vital et nécessitent une prise en charge urgente ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24153,7 +24153,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRI-07-Q52",
                   "clinical_context": "Cas clinique 1:",
-                  "question_text": "Quelle est votre conduite à tenir (conseil génétique) : - Nouveau-né de trois jours - Présente un syndrome polymalformatif - L'âge du père : 30 ans, l'âge de la mère : 27 ans - Antécédents de trois fausses couches chez ce couple\\n- Le caryotype du Nouveau-né : trisomie 13 par translocation robertsonienne t(13q;14q) 7.3- Trisomie 18 : Sd d’Edwards",
+                  "question_text": "Quelle est votre conduite à tenir (conseil génétique) :",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24234,7 +24234,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-MON-08-Q02",
                   "clinical_context": "Aberration chromosomique portant sur un chromosome et avec une seule cassure chromosomique Ci-dessous : caryotype partiel chez un patient 46,XY,4p- avec polymalformations.",
-                  "question_text": "La cytogénétique de la monosomie 4p- 8.2- Monosomie 5p : Syndrome du cri du chat",
+                  "question_text": "La cytogénétique de la monosomie 4p-",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24306,7 +24306,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-GON-09-Q04",
                   "clinical_context": "Homme de 33 ans adressé pour caryotype dans le cadre d'un bilan d'infertilité. (Spermogramme : azoospermie totale). Le caryotype métaphasique postnatal constitutionnel en bandes R : 47,XXY. ![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/e08b35d643ac29668a8f061d13bec136705cefcf626e44b32c0d4daf4ccbc808.jpg)",
-                  "question_text": "Diagnostic, prise en charge et conseil génétique chez notre patient ? 9.1- Sd Turner",
+                  "question_text": "Diagnostic, prise en charge et conseil génétique chez notre patient ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24458,7 +24458,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-GON-09-Q17",
                   "clinical_context": null,
-                  "question_text": "L'analyse FISH chez cette patiente a montré un mosaïcisme du chromosome Y\\nParmi les éléments suivants, la prochaine étape la plus appropriée consiste à :",
+                  "question_text": "L'analyse FISH chez cette patiente a montré un mosaïcisme du chromosome Y",
                   "type": "QCM",
                   "choices": [
                     "Référer à un endocrinologue",
@@ -24546,7 +24546,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-GON-09-Q25",
                   "clinical_context": null,
-                  "question_text": "Finalement, le diagnostic retenu chez notre patient était le syndrome de Klinefelter\\nCe syndrome est caractérisé par :",
+                  "question_text": "Finalement, le diagnostic retenu chez notre patient était le syndrome de Klinefelter",
                   "type": "QCM",
                   "choices": [
                     "Un hypogonadisme hypogonadotrope",
@@ -24593,7 +24593,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-MIC-10-Q03",
                   "clinical_context": "(Symboles internationaux : Arbre généalogique) <div> <table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table> </div> QR 7 :",
-                  "question_text": "Définir un syndrome microdélétionnel; Quelles sont les manifestations cliniques du syndrome de la microdélétion 22q11 ?",
+                  "question_text": "Définir",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24615,7 +24615,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-MIC-10-Q05",
                   "clinical_context": null,
-                  "question_text": "Ce couple souhaite savoir si son futur enfant risque d'avoir le même problème\\nVous :",
+                  "question_text": "Ce couple souhaite savoir si son futur enfant risque d'avoir le même problème",
                   "type": "QCM",
                   "choices": [
                     "Les rassurez car ils n'ont pas de risque d'avoir un deuxième enfant avec une microdélétion 22q11.",
@@ -24901,7 +24901,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q13",
                   "clinical_context": "(Symboles internationaux : Arbre généalogique) <div> <table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table> </div> QR 7 :",
-                  "question_text": "Définir les ternies suivants :",
+                  "question_text": "Définir",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24925,7 +24925,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q16",
                   "clinical_context": null,
-                  "question_text": "Expliquer brièvement pourquoi la thérapeutique ciblée utilisée pour traiter et améliorer le pronostic des patients cancéreux - En illustrant avec un exemple, montrez l’intérêt de l’utilisation de la therapeutique ciblée en oncologie",
+                  "question_text": "Expliquer brièvement pourquoi la thérapeutique ciblée utilisée pour traiter et améliorer le pronostic des patients cancéreux",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24941,7 +24941,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q18",
                   "clinical_context": null,
-                  "question_text": "Comment vous pouvez expliquer que le cancer est une maladie génétique même s’il n'est pas tout le temps héréditaire \\nLe cancer est considéré actuellement une maladie génétique\\nExpliquez pourquoi en illustrant avec un à deux exemples",
+                  "question_text": "Comment vous pouvez expliquer que le cancer est une maladie génétique même s’il n'est pas tout le temps héréditaire ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24949,7 +24949,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q19",
                   "clinical_context": null,
-                  "question_text": "Le cancer se développe à partir d'une accumulation et succession d'altérations génétiques\\nA votre avis, est-il nécessaire de chercher toutes les mutations par NGS , (Séquençage Nouvelle Génération) pour assurer une meilleure prise en charge des patients cancéreux ou non ? justifiez votre réponse",
+                  "question_text": "Le cancer se développe à partir d'une accumulation et succession d'altérations génétiques",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24957,7 +24957,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q20",
                   "clinical_context": null,
-                  "question_text": "Actuellement, Plusieurs thérapies sont proposées en cancérologie\\nA votre avis, le clinicien doit se baser sur quoi pour le choix d'une thérapie efficace \\nLes système immunitaire permet à l'organisme de se défendre et de détruire tout corps étranger, y compris les cellules tumorales.",
+                  "question_text": "Actuellement, Plusieurs thérapies sont proposées en cancérologie",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24965,7 +24965,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q21",
                   "clinical_context": null,
-                  "question_text": "Comment pouvez-vous expliquer la discordance entre ce système et la formation des tumeurs\\nLa thérapeutique ciblée se base sur l’utilisation des anticorps qui agissent uniquement sur les cellules tumorales\\nCependant, l'efficacité ne comprend pas toutes les tumeurs ou les groupes moléculaires de la même tumeur.",
+                  "question_text": "Comment pouvez-vous expliquer la discordance entre ce système et la formation des tumeurs",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25149,7 +25149,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q35",
                   "clinical_context": null,
-                  "question_text": "Les tests d’IHC et de Biologie moléculaire réalisés au laboratoire apportent un renseignement supplémentaire c’est qu'il s’agit d’une tumeur triple négatif (absence d’expression du récepteur membranaire Her, œstrogène et progestérone)\\nL’oncologue demande d’autres tests et examens qui lui sont utiles dans la prise en charge :",
+                  "question_text": "Les tests d’IHC et de Biologie moléculaire réalisés au laboratoire apportent un renseignement supplémentaire c’est qu'il s’agit d’une tumeur triple négatif (absence d’expression du récepteur membranaire Her, œstrogène et progestérone)",
                   "type": "QCM",
                   "choices": [
                     "Recherche des mutations dans le gène BRCA1 par PCR",
@@ -25163,7 +25163,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q36",
                   "clinical_context": null,
-                  "question_text": "Le choix du traitement anti tumoral et son application n’a pas donné satisfaction et aucune amélioration n’a été notée\\nL’oncologue propose une immunothérapie:",
+                  "question_text": "Le choix du traitement anti tumoral et son application n’a pas donné satisfaction et aucune amélioration n’a été notée",
                   "type": "QCM",
                   "choices": [
                     "Pour bloquer l’action des CT4",
@@ -25247,7 +25247,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q42",
                   "clinical_context": null,
-                  "question_text": "Il s'avère que le nodule du sein gauche est également un CCI grade II SBR\\nL'équipe traitante juge qu'une consultation oncogénétique est nécessaire parce que:",
+                  "question_text": "Il s'avère que le nodule du sein gauche est également un CCI grade II SBR",
                   "type": "QCM",
                   "choices": [
                     "La patiente stresse et déprime, il faut la mettre en confiance",
@@ -25274,8 +25274,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "GEN-ONC-13-Q44",
-                  "clinical_context": null,
-                  "question_text": "le test génétique montre l'altération des gènes BRCA1/2 et ATM\\nLa prise en charge de la patiente comprend ainsi :",
+                  "clinical_context": "Une jeune patiente âgée de 35 ans est admise au service des urgences pour des dyspnées. L'interrogatoire retrouve un antécédent personnel d'adénocarcinome du sein il y a 4 ans, la mère et la tante sont décédées d'un carcinome mammaire. L'examen clinique et échographique montrant un épanchement pleural probablement dû à une récidive. La patiente a également bénéficié d'un examen echomammaire complémentaire qui a révélé un état avancé de la malignité du sein (présence de ganglions). Parmi les propositions suivantes, cocher la ou les bonnes réponses.",
+                  "question_text": "La prise en charge de la patiente",
                   "type": "QCM",
                   "choices": [
                     "Un test génétique pour la famille",
@@ -25289,7 +25289,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q45",
                   "clinical_context": "Un jeune homme âgé de 43 ans présente des douleurs abdominales associées à une altération de l'état générale. La TDM et l'examen endoscopique montrent la présence d'une masse suspecte ou niveau du côlon. Des biopsies ont été prélevées et analysées histologiquement, le résultat obtenu est en faveur d'un adénocarcinome lieberkuhnien, le bilan d'extension a mis en évidence des métastases hépatiques et pulmonaires.",
-                  "question_text": "Quelles sont le ou les tests moléculaires à partir de l'ADN tumoral à demander avant de démarrer une thérapeutique ciblée anti-EGFR \\nJustifier votre réponse L'interrogatoire ainsi que l'arbre généalogique retrouvent une histoire familiale de cancer colorectal (un oncle et deux cousins paternels)",
+                  "question_text": "Quelles sont le ou les tests moléculaires à partir de l'ADN tumoral à demander avant de démarrer une thérapeutique ciblée anti-EGFR ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25345,7 +25345,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q52",
                   "clinical_context": null,
-                  "question_text": "Ces protéines codent pour des gènes impliqués dans la prolifération tumorale\\nParmi ces gènes lesquels peuvent être sujet de la thérapeutique ciblée, justifier votre réponse ?",
+                  "question_text": "Ces protéines codent pour des gènes impliqués dans la prolifération tumorale",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25353,7 +25353,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-ONC-13-Q53",
                   "clinical_context": null,
-                  "question_text": "Les patientes exprimant les gènes qui répondent à la thérapeutique ciblée, nécessitent- elles un conseil génétique\\nJustifier votre réponse ?",
+                  "question_text": "Les patientes exprimant les gènes qui répondent à la thérapeutique ciblée, nécessitent- elles un conseil génétique",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25418,7 +25418,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q03",
                   "clinical_context": null,
-                  "question_text": "Une fille d'un hémophile envisage d'avoir des enfants\\nElle vous demande quels sont les risques de transmission du caractère morbide à ses enfants (supposons que son mari sera sain)\\nQue lui répondez-vous à propos des garçons ?",
+                  "question_text": "Une fille d'un hémophile envisage d'avoir des enfants",
                   "type": "QCM",
                   "choices": [
                     "Tous les garçons seront sains",
@@ -25493,7 +25493,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q08",
                   "clinical_context": null,
-                  "question_text": "La construction de l'arbre généalogique utilise des symboles internationaux, Quelles sont les propositions justes \\nA Sexeindetermine B OSujet malade C □OMariaqe Sujet malade Sujet heterozygote",
+                  "question_text": "La construction de l'arbre généalogique utilise des symboles internationaux, Quelles sont les propositions justes ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25555,7 +25555,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q15",
                   "clinical_context": "QR 6 :",
-                  "question_text": "Quelle est la signification de chaque symbole ci-dessous au cours de la conception d'arbre généalogique lors d'une consultation médicale ? (Symboles internationaux : Arbre généalogique) <div> <table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table> </div>",
+                  "question_text": "Quelle est la signification de chaque symbole ci-dessous au cours de la conception d'arbre généalogique lors d'une consultation médicale ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25563,7 +25563,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q16",
                   "clinical_context": "(Symboles internationaux : Arbre généalogique) <div> <table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table> </div> QR 7 :",
-                  "question_text": "Définir ■ Pénétrance incomplète ■ Néo-mutation ■ Mosaïcisme gonadique ■ Mariage consanguin ■ Maladie congénitale",
+                  "question_text": "Définir",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25571,7 +25571,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q17",
                   "clinical_context": "■ Pénétrance incomplète ■ Néo-mutation ■ Mosaïcisme gonadique ■ Mariage consanguin ■ Maladie congénitale Cas clinique 1:",
-                  "question_text": "a\\nL'arbre généalogique ci-dessous correspond à que! mode de transmission héréditaire ?",
+                  "question_text": "a",
                   "type": "QCM",
                   "choices": [
                     "Quel est le risque pour le sujet IV2 d'être atteint"
@@ -25581,7 +25581,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q18",
                   "clinical_context": "![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/2579439f255442a9ee5ea5504407975fa18c4e49a17ee857bc72eb9766d74a84.jpg) Cas clinique 2: Vous recevez en consultation un jeune couple ayant un enfant (III2) âgé de 7 ans qui présente des troubles moteurs d'apparition progressive. ![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/bae0095b6473018444dccc18f469727e0227d292363910f518bfb8ea01353d47.jpg)",
-                  "question_text": "L'enfant a déjà réalisé un caryotype dont le résultat est 46,XY\\nCe résultat permet d'exclure :",
+                  "question_text": "L'enfant a déjà réalisé un caryotype dont le résultat est 46,XY",
                   "type": "QCM",
                   "choices": [
                     "Une délétion de 2 Mb",
@@ -25637,7 +25637,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q22",
                   "clinical_context": null,
-                  "question_text": "L’analyse génétique a montré la présence d’une mutation pathogène chez l’enfant et chez le père\\nQuel est le risque chez ce couple d’avoir un deuxième enfant atteint :",
+                  "question_text": "L’analyse génétique a montré la présence d’une mutation pathogène chez l’enfant et chez le père",
                   "type": "QCM",
                   "choices": [
                     "0%",
@@ -25731,7 +25731,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q33",
                   "clinical_context": "Monsieur A et Madame B consultent avec un enfant de 4 ans qui présente une faiblesse musculaire et chutes fréquentes, les explorations ont mis en évidence un taux élevé de CPK et un EMG en faveur d’une atteinte myogène. L’interrogatoire trouve d’autres garçons présentant la même symptomatologie du côté maternel ![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/3b925c0be448ece03b7bee9a65dd64155c8dbb1a8f942618d092ca9d737b021c.jpg)",
-                  "question_text": "D’après cet arbre généalogique, de quel mode de transmission mendélien s’agit-ii \\nLe diagnostic d’une dystrophie musculaire de Duchenne a été confirmé chez leur garçon :",
+                  "question_text": "D’après cet arbre généalogique, de quel mode de transmission mendélien s’agit-ii ",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25755,7 +25755,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q36",
                   "clinical_context": null,
-                  "question_text": "Quel est le risque de récurrence de l'amyotrophie spinale infantile chez ce couple ?Que proposez-vous pour les prochaines grossesses ? ■ Diagnostic : Amyotrophie spinale infantile ■ Confirmation par diagnostic moléculaire : délétion homozygote du gène SMN ■ Type de transmission : maladie à transmission autosomique récessive",
+                  "question_text": "Quel est le risque de récurrence de l'amyotrophie spinale infantile chez ce couple ?Que proposez-vous pour les prochaines grossesses ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25889,7 +25889,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-DPN-17-Q05",
                   "clinical_context": null,
-                  "question_text": "Méthodes biologiques de diagnostic prénatal Le diagnostic préimplantatoire",
+                  "question_text": "Méthodes biologiques de diagnostic prénatal",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25905,7 +25905,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-DPN-17-Q07",
                   "clinical_context": null,
-                  "question_text": "Le diagnostic préimplantatoire : définition et principe 18\\nThérapie Génique Pas de questions disponibles",
+                  "question_text": "Le diagnostic préimplantatoire : définition et principe 18",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25922,7 +25922,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-CAS-19-Q01",
                   "clinical_context": null,
-                  "question_text": "Vous recevez en consultation de génétique, un couple ayant un nouveau-né qui présente une dysmorphie avec bec de lièvre, fente palatine, hexadactylie bilatérale, doigts chevauchés et pied en piolet\\nQuel syndrome suspectez-vous ?",
+                  "question_text": "Vous recevez en consultation de génétique, un couple ayant un nouveau-né qui présente une dysmorphie avec bec de lièvre, fente palatine, hexadactylie bilatérale, doigts chevauchés et pied en piolet",
                   "type": "QCM",
                   "choices": [
                     "Une trisomie 18",
@@ -25936,7 +25936,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-CAS-19-Q02",
                   "clinical_context": null,
-                  "question_text": "Un couple au phénotype normal vient consulter pour des avortements spontanés précoces\\nLe caryotype est effectué chez les deux partenaires\\nIl révèle une anomalie chez l'un d’entre eux\\nIl peut s'agir de:",
+                  "question_text": "Un couple au phénotype normal vient consulter pour des avortements spontanés précoces",
                   "type": "QCM",
                   "choices": [
                     "Une translocation équilibrée",
@@ -25950,7 +25950,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-CAS-19-Q03",
                   "clinical_context": null,
-                  "question_text": "Vous recevez en consultation de génétique un nourrisson présentant un retard de croissance intra-utérin, une microcéphale, un syndrome malformatif ainsi que des cris aigus particuliers (ressemblant à un miaulement)\\nQuel diagnostic vous suspectez ?",
+                  "question_text": "Vous recevez en consultation de génétique un nourrisson présentant un retard de croissance intra-utérin, une microcéphale, un syndrome malformatif ainsi que des cris aigus particuliers (ressemblant à un miaulement)",
                   "type": "QCM",
                   "choices": [
                     "Trisomie 21",
@@ -25964,7 +25964,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-CAS-19-Q04",
                   "clinical_context": null,
-                  "question_text": "Le caryotype sanguin chez ce nourrisson revient normal\\nQuel test génétique de 2ème intention allez-vous demander pour confirmer le diagnostic suspecté ?",
+                  "question_text": "Le caryotype sanguin chez ce nourrisson revient normal",
                   "type": "QCM",
                   "choices": [
                     "Le séquençage d'ADN.",
@@ -25992,7 +25992,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-CAS-19-Q06",
                   "clinical_context": "L’examen réalisé a montré le résultat suivant : ![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/82eba8df8c7a81bfb245a9622b505a3ba35171eded0552128c39229ce739eb74.jpg)",
-                  "question_text": "Observez le caryotype ci-dessus\\nQue vous évoque-t-il ?",
+                  "question_text": "Observez le caryotype ci-dessus",
                   "type": "QCM",
                   "choices": [
                     "Une myopathie de Duchenne par délétion en Xp21",
@@ -26047,8 +26047,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "GEN-CAS-19-Q10",
-                  "clinical_context": null,
-                  "question_text": "En consultation de génétique vous recevez un couple ayant un nouveau-né qui présente une dysmorphie cranio-faciale avec petit crâne, front fuyant, fentes palpébrales horizontales, microphtalmie bilatérale, hypotélorisme, Hexadactylie bilatérale, et doigts chevauchés\\nQuelle est votre hypothèse diagnostique ?",
+                  "clinical_context": "Patient de 25 ans, sans antécédents pathologiques notables, consulte pour des adénopathies cervicales augmentant rapidement de volume. Une exérèse ganglionnaire a été réalisée. L'examen histologique montre un parenchyme ganglionnaire d'architecture effacée, infiltré par des cellules tumorales dispersées, au noyau tantôt monolobé avec un gros nucléole éosinophile central (cellules A), et tantôt bilobé avec 2 gros nucléoles éosinophiles (cellules B), et au cytoplasme éosinophile. Ces cellules se disposent sur un fond inflammatoire prédominant riche en lymphocytes, histiocytes, polynucléaires éosinophiles, et plasmocytes, sans formation de nodules ni fibrose.",
+                  "question_text": "Quelle est votre hypothèse diagnostique ?",
                   "type": "QCM",
                   "choices": [
                     "Trisomie 21",
@@ -26090,7 +26090,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-CAS-19-Q13",
                   "clinical_context": null,
-                  "question_text": "Vous recevez en consultation un nouveau-né de sexe masculin, présentant une microcéphalie, une microphtalmie, un hypotélorisme, une fente labiopalatine, une aplasie cutanée congénitale du scalp, une hexadactylie et des malformations congénitales cardiaques et cérébrales\\nQuel diagnostic vous suspectez ?",
+                  "question_text": "Vous recevez en consultation un nouveau-né de sexe masculin, présentant une microcéphalie, une microphtalmie, un hypotélorisme, une fente labiopalatine, une aplasie cutanée congénitale du scalp, une hexadactylie et des malformations congénitales cardiaques et cérébrales",
                   "type": "QCM",
                   "choices": [
                     "Une trisomie 21.",
