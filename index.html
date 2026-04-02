@@ -5072,14 +5072,18 @@
             </div>
         </div>
     </div>
-                    <!-- Highlight Script Added -->
+                            <!-- Highlight Script Added -->
     <script>
     function handleHighlight(e, delay) {
         setTimeout(function() {
+            // Only allow highlighting in specific reading areas
+            if (!e.target.closest('.qcard-enonce, .ctx-body, .opt-tile, .conf-q-info, .qcard-head')) return;
+            
+            // EXPLICITLY prevent highlighting inside inputs, textareas, or contentEditable elements
+            if (e.target.closest('input, textarea, button, .custom-modal-box, [contenteditable="true"]')) return;
+            
             const sel = window.getSelection();
             if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
-            
-            if (e.target.closest('input, textarea, button, .custom-modal-box')) return;
             
             let range = sel.getRangeAt(0);
             let container = range.commonAncestorContainer;
