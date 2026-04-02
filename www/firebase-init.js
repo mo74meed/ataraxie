@@ -385,17 +385,14 @@ window.FirebaseAuthManager = {
         const provider = new GoogleAuthProvider();
         provider.setCustomParameters({ prompt: 'select_account' }); // Prevent infinite loops
         
-        // Use regex strictly for mobile browser detection (like Chrome on phone)
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
         try {
-            if (isMobile) {
-                await signInWithRedirect(auth, provider);
-            } else {
-                await signInWithPopup(auth, provider);
-            }
+            await signInWithPopup(auth, provider);
         } catch (error) {
-            console.error("Login failed or popup blocked. Falling back to redirect:", error);
+            console.error("Popup login error:", error);
+            if (error.code === 'auth/popup-closed-by-user' || error.code === 'auth/cancelled-popup-request') {
+                return; // User manually closed the popup
+            }
+            console.log("Popup blocked or failed, falling back to redirect...");
             await signInWithRedirect(auth, provider);
         }
     },
