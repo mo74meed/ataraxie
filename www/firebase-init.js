@@ -17,10 +17,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 
- initializeAppCheck(app, {
-   provider: new ReCaptchaV3Provider('6LcJDKAsAAAAABrgFjTSx5rhWXnYLbTxRa1Et7Cg'),
-   isTokenAutoRefreshEnabled: true
- });
+if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1' && window.location.protocol !== 'file:') {
+  initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider('6LcJDKAsAAAAABrgFjTSx5rhWXnYLbTxRa1Et7Cg'),
+    isTokenAutoRefreshEnabled: true
+  });
+}
 
 const auth = getAuth(app);
 
