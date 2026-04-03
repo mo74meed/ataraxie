@@ -8346,7 +8346,7 @@ D. Ce malade aura besoin d'une opacification par lavement opaque
 
 E. Ce malade nécessite une intervention chirurgicale urgente
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/4477b2b5fbd03106b2d0187972580bab82be14fb80e8990451516dfeb59607c4.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # 12. MAR - Malformations anorectales : ( 14 questions )
 
@@ -8982,7 +8982,7 @@ D. Le diagnostic se base sur le dosage dans les urines de l'acide vanylmandéliq
 
 E. Le traitement se base sur la chimiothérapie et la chirurgie d'exérèse.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/1dc3790dc5224cdf8285cf38bf8b2d48fae4a709a13015d8fc46a0709853b577.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # 15. Cas cliniques Chirurgie digestive : ( 11 questions )
 
@@ -10985,13 +10985,13 @@ a. Définition
 
 b. Formes topographiques
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/11cfde44d7378d0dd2ed1a2b73d0941ee430aff2ea4d9564752d5e29384cea3e.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/4246d9f3deb636281fb9e2d5b06575a38c3961b4b7b14df32ddae4514fc811bf.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/039f8473438336b77bd9816c917f5b5b6f8ffb17a3349af436017ab1db93aabd.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/e80e8aa235d2a8df9488f8fe175a964919e57ef40faeed1374823c3c3c0fe930.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # ANATOMIE PATHOLOGIQUE II & III
 
@@ -14764,15 +14764,15 @@ L’étude moléculaire a mis en évidence une mutation du gène lDH1.
 
 34- Quelle est sa valeur pronostique ?
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/36dd30b16e767efeb3363302f98757054a451cbeada336cc39e80255f628726a.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/862a41d11d054e19c1a577019d059a9f5e70aad48eee9bbb14b06cd03de11262.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/47f37a9fbd81505f29b3e2be60e7022637a008ecaea2d195e358723f62635061.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/b2a4793156822d55ee4c4cce2f5512829431f950970beded54ded2dca84ad49b.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/9066d50c0c0eaaaad962e0f3291d93e8864f2a72f7bc5d5582b60e9039bddf97.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # IMMUNOPATH GENETIQUE MEDIC M. de SYSTEME
 
@@ -19985,7 +19985,7 @@ D. Une atteinte vasculaire
 
 1- Interprétez l'imagerie suivante, quelle orientation diagnostique suggérez-vous.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/c5670611d5f6ba727ac250ba325678a567962c8bef05b8f6c8909af0199970f3.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # Cas clinique 1:
 
@@ -20785,7 +20785,7 @@ E. PCR suivi d’un séquençage à haut débit (NGS)
 
 4- Quelle technique représente cette image d’un résultat d’électrophorégramme :
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/8fe11ae827e280475f5e5fdc5cd3984524901e0fccf0d0ce5bf04ec7ebfb803a.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 A. Next Generation Sequencing (NGS)
 
@@ -21239,7 +21239,7 @@ Le caryotype de la mère (38 ans) est: 46,XX.
 
 Le caryotype du père (45 ans) est: 46, XY
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/401753520186abd280fba29377b0c4ec0789a61433c31688c8989317229e27d7.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # Caryotype partiel et arbre généalogique
 
@@ -21253,9 +21253,9 @@ B. Trisomie 21 secondaire à une translocation Robertsonienne équilibrée chez 
 
 Un enfant âgé de 1 an, de sexe masculin, présentant un phénotype évoquant une trisomie 21.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/8dd2685b74119d33ea0a402b9630ff9617606fcbd82f764c4f65abade2b43efb.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/9fe22ae37c6eee22ee3f37a89b4fd5d95327b1729312f2c2ba89976c6e1f90fe.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # 14- Cochez la ou les réponse(s) exacte(s)
 
@@ -21273,7 +21273,7 @@ E- Dans cette observation le caryotype des parents est nécessaire pour le conse
 
 Un enfant âgé de 3 an, de sexe masculin, présentant un phénotype évoquant une trisomie 21. Le résultat des caryotypes partiels des parents sont représentés dans la figure ci-dessous :
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/8604400c043df1b38bc4f1e5be4efe0d8b78ba3e44633d5f0d6e56dc0780fe50.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 15- En rapport avec cet arbre généalogique et les caryotypes partiels, cochez la ou les réponse(s) exacte(s) :
 
@@ -21423,7 +21423,7 @@ Vous recevez en consultation un couple ayant un garçon présentant une trisomie
 
 Nous avons reçu en consultation de génétique médicale un nourrisson de 3 mois, de sexe masculin, qui présente un phénotype clinique de trisomie 21.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/d717efe903bd4b7b46f06babf611971369a4f80d032666854c21611f143a49b7.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 31- Quel sera le conseil génétique chez ce couple ?
 
@@ -21431,7 +21431,7 @@ Nous avons reçu en consultation de génétique médicale un nourrisson de 3 moi
 
 Un jeune couple ayant 3 fausses couches consulte avec un enfant présentant des signes cliniques évocateurs d’une trisomie 21
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/6fd40630c24612c1af854575821a7fa1ec6e2c6dde0ea268ae97fa92673af624.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 32- Quel est votre premier examen en génétique à demander et pourquoi ?
 
@@ -21445,7 +21445,7 @@ Un jeune couple ayant 3 fausses couches consulte avec un enfant présentant des 
 
 Un jeune couple a eu 2 fausses couches. Le premier enfant est un nouveau-né qui présente une dysmorphie faciale évocatrice d'une trisomie 21 et dont le caryotype a montré une translocation robertsonienne entre les chromosomes 14 et 21 d'origine maternelle (ci-dessous l'arbre généalogique).
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/524f9f688140aba927bba3d996a894cc5328b11b9f739fa221506a09f1e7ddc4.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 Caryotypedunouveau-ne: Trisomie 21partransiocationrobertsonienne entre les chromosomes14et21,t（14;21）
 
@@ -21459,7 +21459,7 @@ Un jeune couple a eu deux fausses couches. Le premier enfant est un nouveau-né 
 
 38- Quel conseil génétique prodigueriez-vous à ce couple ?
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/0e05280c17e22ccfb6fa3ae5eff14cee8948fcf87bfd7177acde20cdbc6d83a2.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # Cas clinique 12:
 
@@ -21475,7 +21475,7 @@ Un jeune couple a eu deux fausses couches. Le premier enfant est un nouveau-né 
 
 ■ Le caryotype des parents : normal
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/348c21829f72aaf6bf1698b4b883ead6a191b1a5f676b2d22f57408e18673450.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 Fusions centromériques entre 2 chromosomes acrocentriques : Chromosomes 21
 
@@ -21493,7 +21493,7 @@ Fusions centromériques entre 2 chromosomes acrocentriques : Chromosomes 21
 - Signes cliniques.évocateurs d'une trisomie 21
 - Le caryotype du nourrisson : trisomie 21 libre et homogène (47,XY,+21)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/41038adfe9405458bf8cd1e3e1a61fa309149deb2c309d590d7f9a06e3d9d7c3.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # Cas clinique 14:
 
@@ -21513,7 +21513,7 @@ Trisomie 21 par translocation
 
 Un couple (mère de 28 ans, père de 31 ans) a un garçon de 5 ans porteur d'une trisomie 21 résultant d'une translocation robertsonienne (14;21) d'origine paternelle. Ils ont également une fille de 2 ans indemne.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/b61651e26524c0868fe732d51ba67b1b6f2704b87b168f003445c6b12c7f76f0.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 Trisomie 21 par translocation 1(14:21) d'origine paternelle
 
@@ -21563,7 +21563,7 @@ Cas clinique 1:
 - Antécédents de trois fausses couches chez ce couple.
 - Le caryotype du Nouveau-né : trisomie 13 par translocation robertsonienne t(13q;14q)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/7953ae4e9c5a21230fdcad349178754f70dafebfbe37b323316f05847038f9f9.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # 7.3- Trisomie 18 : Sd d’Edwards
 
@@ -21607,7 +21607,7 @@ o Sténose du pylore
 
 Trisomie 18 libre et homogène. 47,XY,+18
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/b122160f4aba1e9248f6ce4e26bc688f53801de2582123c5055f53421581bd1e.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 56- Quel votre conseil génétique pour ce couple ?
 
@@ -21627,7 +21627,7 @@ Vous recevez en consultation un couple ayant un nouveau-né qui présente une dy
 
 Aberration chromosomique portant sur un chromosome et avec une seule cassure chromosomique Ci-dessous : caryotype partiel chez un patient 46,XY,4p- avec polymalformations.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/40732ed0111bbd93a05cc751688f88fac74539630f9803f33912d82009705bf9.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # 1- Quel type d’anomalie chromosomique de structure s'agit-il ?
 
@@ -21659,7 +21659,7 @@ o une hypotonie, un retard des acquisitions psychomotrices, un retard staturo-po
 
 o Les différentes explorations ont mis en évidence : une atrésie de l'oesophage type III (opéré), une ectopie testiculaire bilatérale et un rein en fer à cheval avec une urétéro-hydronéphrose gauche.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/164f5473dd2405d632f8829727ce0ad7825c603e85987e5baa8c4c14c7933efb.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 ■ Le caryotype-métaphasique en bandes R de notre patient a mis en évidence la délétion 5p- sur les 11 mitoses analysées : Le Syndrome du cri du chat
 
@@ -21719,7 +21719,7 @@ Homme de 33 ans adressé pour caryotype dans le cadre d'un bilan d'infertilité.
 
 Le caryotype métaphasique postnatal constitutionnel en bandes R : 47,XXY.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/e08b35d643ac29668a8f061d13bec136705cefcf626e44b32c0d4daf4ccbc808.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 4- Diagnostic, prise en charge et conseil génétique chez notre patient ?
 
@@ -21817,7 +21817,7 @@ Vous recevez en consultation de génétique médicale une jeune fille de 14 ans 
 
 Le caryotype réalisé a montré la formule suivante :
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/31df0d4b70527310e1a70c7ef4e97b78e1d592a81f28c9d93a86afd48539e11c.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 15- Choisissez parmi les propositions suivantes la formule chromosomique correcte :
 
@@ -22275,7 +22275,7 @@ La thérapeutique ciblée se base sur l’utilisation des anticorps qui agissent
 
 Patient de 40 ans présentant (propositus (III-8)) un cancer du sein, dont l‘arbre généalogique met en évidence d’autres cas de cancers du sein et de l’ovaire
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/4f75a5631aee21de3f2908c28f9ed57eaebd878bedccfd484d8a927c3205ed22.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # 23- En rapport avec la forme familiale du cancer du sein et de l’ovaire, ci-dessus, cochez la ou les réponse(s) exacte(s) :
 
@@ -22593,7 +22593,7 @@ Un patient âgé de 50 ans est atteint d'un cancer colorectal (CCR) métastatiqu
 
 Nous avons reçu en consultation d'oncogénétique une patiente qui présente un cancer du sein dans un contexte familial (ci-dessous l'arbre généalogique)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/e29993c1568b892c4809e376c5a11fb4c671df32f6583dcf198bb8e195362c79.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 50- Quel est le test génétique moléculaire indiqué chez cette famille ? (justifiez votre réponse)
 
@@ -22613,7 +22613,7 @@ La recherche d'expression de certaines protéines (Her2, récepteurs œstrogène
 
 Cas d'oncogénétique Antécédents familiaux de cancer du sein et de l'ovaire
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/f70040ce180570c7a4ed8b25961f663049e17b9c434ffba60e04108f81d8e2c3.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 Ovaire
 
@@ -22791,7 +22791,7 @@ Cas clinique 1:
 
 17- a. L'arbre généalogique ci-dessous correspond à que! mode de transmission héréditaire ?
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/2579439f255442a9ee5ea5504407975fa18c4e49a17ee857bc72eb9766d74a84.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 b. Quel est le risque pour le sujet IV2 d'être atteint
 
@@ -22799,7 +22799,7 @@ Cas clinique 2:
 
 Vous recevez en consultation un jeune couple ayant un enfant (III2) âgé de 7 ans qui présente des troubles moteurs d'apparition progressive.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/bae0095b6473018444dccc18f469727e0227d292363910f518bfb8ea01353d47.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 18- L'enfant a déjà réalisé un caryotype dont le résultat est 46,XY. Ce résultat permet d'exclure :
 
@@ -22841,7 +22841,7 @@ E. $0 \%$
 
 Vous recevez en consultation un jeune couple ayant un enfant présentant une maladie génétique de transmission autosomique dominante. L’analyse de l’arbre généalogique montre que c’est un cas sporadique.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/f08b5eadc3e4c541f0d8247bf0209065d93ed994e64de64540d03865428f1ba0.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 21- Les éléments pouvant expliquer l’absence d'antécédents d'un membre de la famille affecté sont :
 
@@ -22873,7 +22873,7 @@ Le patient D est atteint d’une achondroplasie. C’est une maladie autosomique
 
 Le couple A et B consulte 2 années plus tard après la naissance d’un second enfant atteint E de la même maladie.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/c5eb7b256f840a71473f577c52fa73f48b26ab0aa84ebe14e32e477bd9e4de1b.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 23- Explications sur la transmission de cette maladie.
 
@@ -22887,7 +22887,7 @@ Le couple A et B consulte 2 années plus tard après la naissance d’un second 
 
 Le patient H est atteint de mucoviscidose (maladie autosomique récessive) dont la fréquence est estimée à 1/2500. La fréquence des hétérozygotes est de 1/25
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/bbb8383eef02bfd6e72b233ba49713074dc584794f2f74b123a4a318c267dc4a.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 27- Citer les critères de reconnaissance d’une maladie autosomique récessive.
 
@@ -22899,7 +22899,7 @@ Le patient H est atteint de mucoviscidose (maladie autosomique récessive) dont 
 
 Soit l'arbre généalogique suivant où trois enfants sont atteints d'une amyotrophie-spinale infantile, une maladie qui se transmet selon ie mode autosomique récessif.
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/e877637c358a3fce333cff0ffe42e2b030002f71fa5c8da75b059c57e8b6de4f.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 30- Rappeler les critères de reconnaissance d'une maladie autosomique récessive.
 
@@ -22911,7 +22911,7 @@ Soit l'arbre généalogique suivant où trois enfants sont atteints d'une amyotr
 
 Monsieur A et Madame B consultent avec un enfant de 4 ans qui présente une faiblesse musculaire et chutes fréquentes, les explorations ont mis en évidence un taux élevé de CPK et un EMG en faveur d’une atteinte myogène. L’interrogatoire trouve d’autres garçons présentant la même symptomatologie du côté maternel
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/3b925c0be448ece03b7bee9a65dd64155c8dbb1a8f942618d092ca9d737b021c.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 33- D’après cet arbre généalogique, de quel mode de transmission mendélien s’agit-ii ?
 
@@ -22925,7 +22925,7 @@ Le diagnostic d’une dystrophie musculaire de Duchenne a été confirmé chez l
 
 36- Quel est le risque de récurrence de l'amyotrophie spinale infantile chez ce couple ?Que proposez-vous pour les prochaines grossesses ?
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/b1271de381ee9e5c31d6a547b6b883b34116bc4d4f44129c40ea09a7754d2b8c.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 ■ Diagnostic : Amyotrophie spinale infantile
 
@@ -23099,7 +23099,7 @@ E. Un caryotype fœtal par ponction du liquide amniotique
 
 L’examen réalisé a montré le résultat suivant :
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/82eba8df8c7a81bfb245a9622b505a3ba35171eded0552128c39229ce739eb74.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 # 6- Observez le caryotype ci-dessus. Que vous évoque-t-il ?
 
@@ -23209,13 +23209,13 @@ E. Le syndrome de Wolf-Hirschhorn.
 
 Il s'agit d'un enfant âgé de 3 ans présentant une surdité prélinguale bilatérale familiale et non syndromique (Ci-dessous l'arbre généalogique)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/b041ecdb68ca4723b92c816796a21d5fdbe3486e15ac36e0588004b52d0abfcb.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 Un prélèvement sanguin pour test moléculaire (Sang total) sur tube EDTA, après consentement parental a été effectué.
 
 L'exploration moléculaire par PCR-Séquençage de l'ADN extrait à partir du sang total de notre patient à mis en évidence la mutation c.35delG à l'état homozygote (la mutation c.35delG du gène GJB2 est la plus fréquence au Maroc dans les surdités non syndromiques autosomiques- récessives) (Ci-dessus la séquence normale d'un ADN normal de référence et la séquence mutée de notre patient)
 
-![image](https://cdn-mineru.openxlab.org.cn/result/2026-03-14/b54c26ba-1a77-4451-b919-46a8ecc226a8/d08f58c9e216181a49b98fbf2452a31d8c281b379c9951d140bbec50b4ea3f47.jpg)
+(sorry we couldn't integrate the image, please check the pdf version)
 
 Mutation 35delG secondaire à une délétion d'un nucléotide (Guanine) en position 35- du Gène GJB2
 

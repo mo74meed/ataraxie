@@ -1141,7 +1141,7 @@
             margin: 14px 0;
         }
 
-        .ctx-body {
+        .ctx-body { white-space: pre-wrap; 
             font-size: .86rem;
             color: var(--t1);
             line-height: 1.75;
@@ -1245,7 +1245,7 @@
             box-shadow: 0 0 6px rgba(16, 185, 129, .3)
         }
 
-        .qcard-enonce {
+        .qcard-enonce { white-space: pre-wrap; 
             font-size: .88rem;
             font-weight: 600;
             color: var(--t1);
@@ -1324,7 +1324,7 @@
             border-color: var(--b200);
         }
 
-        .opt-tile-text {
+        .opt-tile-text { white-space: pre-wrap; 
             flex: 1;
             font-size: .82rem;
             color: var(--t2);
@@ -3094,15 +3094,22 @@
                         <div class="hp-pct" id="pp">0%</div>
                         <div class="hp-count" id="pc">0 / 0</div>
                     </div>
-                    <div class="hp-ring"><svg viewBox="0 0 40 40">
-                            <circle class="ring-bg" cx="20" cy="20" r="17" />
-                            <circle class="ring-fill" id="pr" cx="20" cy="20" r="17" stroke-dasharray="106.81"
-                                stroke-dashoffset="106.81" />
-                        </svg></div>
+                    <div class="hp-ring" style="position:relative; width:44px; height:44px;">
+    <svg viewBox="0 0 44 44" style="position:absolute; top:0; left:0; width:44px; height:44px; transform:rotate(-90deg);">
+        <circle fill="none" stroke="var(--pb)" cx="22" cy="22" r="19" stroke-width="3" />
+        <circle id="pr" fill="none" stroke="url(#progress-gradient)" cx="22" cy="22" r="19" stroke-width="3" stroke-dasharray="119.38" stroke-dashoffset="119.38" stroke-linecap="round" style="transition: stroke-dashoffset 0.6s ease" />
+        <defs>
+            <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="var(--b500)" />
+                <stop offset="100%" stop-color="var(--g500)" />
+            </linearGradient>
+        </defs>
+    </svg>
+    <img id="auth-pfp" class="auth-pfp" src="" alt="" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:32px; height:32px; margin:0; border:2px solid var(--bg); border-radius:50%; display:none; object-fit:cover; z-index:2; pointer-events:none; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+</div>
                 </div>
                 <div class="auth-box">
                     <div id="auth-info" class="auth-info">
-                        <img id="auth-pfp" class="auth-pfp" src="" alt="">
                         <div class="auth-meta">
                             <span id="auth-email" class="auth-email"></span>
                             <span id="auth-sync-status" class="auth-sync" onclick="if(window.FirebaseAuthManager) window.FirebaseAuthManager.pullNow()" title="Cliquez pour forcer la synchronisation avec le cloud">● Synced</span>
