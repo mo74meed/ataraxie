@@ -1,7 +1,3 @@
-// ATARAXIE S8 — Exam Database
-// Auto-generated on 2026-03-25T18:38:22.598Z
-// Total: 2036 questions across 146 subjects
-
 const ATARAXIE_S8_DB = {
   "course_name": "ATARAXIE S8",
   "categories": [
@@ -3320,7 +3316,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NPH-15-Q21",
                   "clinical_context": "Amina une fille âgée de 11 ans qui se présente aux urgences pédiatriques pour une hématurie macroscopique évoluant depuis 2 jours avec oligurie. l'examen clinique retrouve une Température à 37,5 ; TA 15/9; un poids à 35kg; des oedèmes discrets au niveau des paupières et des membres inférieurs ne prenant pas le godet; BU protéines à $^ { 2 + }$ et GR à $\\hphantom { 0 } 3 + + +$ ; le reste de l'examen est sans particularité.",
-                  "question_text": "Quel est le diagnostic le plus probable?\nA. Sténose hypertrophique du pylore\nB. Maladie de Hirschsprung\nC. Atrésie duodénale\nD. Volvulus sur malrotation\nE. Iléus méconial",
+                  "question_text": "Quel est le diagnostic le plus probable?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -6626,7 +6622,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-CAR-31-Q07",
                   "clinical_context": null,
-                  "question_text": "Citer les quatre paramètres clés de l’examen cardiovasculaire en pédiatrie ?\nA. C’est une maladie virale contagieuse et immunisante\nB. La vaccination anti-rougeole ne fait pas partie du programme national d’immunisation\nC. Le signe de Koplick est pathognomonique de la maladie\nD. L’éruption est de type scarlatiniforme\nE. Elle est à déclaration obligatoire\nA. Infection virale très contagieuse\nB. Se manifeste par un exanthème scarlatiniforme\nC. C'est une affection très peu immunisante\nD. Elle peut être à l'origine de complications graves pulmonaires et neurologiques\nE. La vaccination anti rougeole réduit la mortalité et la morbidité\nF. EST une maladie évitable par la vaccination\nG. Le vaccin antirougeoleux est administré seul à 9 mois\nH. Le vaccin antirougeoleux est administré combiné au vaccin antirubéole à 9 mois et 18 mois\nI. Est responsable d'un exanthème scarlatiniforme\nJ. Le signe de Koplick est pathognomonique de la rougeole\nA. La Varicelle Est Une Maladie Non Immunisante\nB. Au Maroc,le vaccin de la varicelle fait partie du PNI\nC. Le virus de la varicelle peut être responsable d’une infection congénitale\nD. Elle peut se compliquer d'une cérébellite\nE. La pneumopathie varicelleuse nécessite un traitement par acyclovir\nF. Au Maroc, la varicelle fait partie du PNI\nA. Elle est caractérisée par un syndrome adéno-cutanéomuqueux apyrétique\nB. Le traitement initial repose sur les immunoglobulines seules\nC. Le traitement initial repose sur l’association d’immunoglobulines 2 g/kg/j associées à l’Aspégic à dose de 5 mg/kg/j\nD. Le traitement initial repose sur l’association d’immunoglobulines 2 g/kg/j associées à l’Aspégic à dose de 80-100 mg/kg/j\nE. La complication la plus redoutable est l’atteinte coronarienne\nA. La glossite peut se voir dans la scarlatine et la maladie de Kawazaki\nB. La rougeole est due au Togavirus\nC. Le signe de Koplik est un signe pathognomonique de la rougeole\nD. L’exanthème subit se caractérise par une éruption maculopapuleuse aprèse la défervescence thermique\nE. L’exanthème subit est due au parvovirus B19\nF. L’incubation en cas de mégalérythème épidémique est de 3 à 5 jours\nG. L’énanthème est présent en cas de mégalérythème épidermique\nH. La scarlatine nécessite une antibiothérapie\nI. La varicelle se caractérise par une éruption maculo-vésiculeuse avec des éléments d’âge différent: macule, vésicule, croûtes touchant le cuir chevelu\nJ. La varicelle est une maladie non immunisante\nK. La rougeole est une éruption fébrile descendante avec catarrhe oculo-nasal et signe de koplick\nL. La rougeole est une maladie à déclaration obligatoire\nM. La rougeole est une maladie contagieuse et immunisante",
+                  "question_text": "Citer les quatre paramètres clés de l’examen cardiovasculaire en pédiatrie ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -10816,7 +10812,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHO-HAN-08-Q05",
                   "clinical_context": "Younes, enfant de 14 ans. présente une boiterie depuis 3 mois. L’examen de Younes trouve une boiterie douloureuse avec une amyotrophie du quadriceps et un signe de DREMAN positif :",
-                  "question_text": "Quel est le diagnostic à évoquer ?\nA. Amylose\nB. Dermatomyosite\nC. Polymyosite\nD. Sclérodermie",
+                  "question_text": "Quel est le diagnostic à évoquer ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -10864,7 +10860,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHO-HAN-08-Q11",
                   "clinical_context": null,
-                  "question_text": "Quelles sont les modalités thérapeutiques chez ce patient ?\nA. Repose surtout sur la biologie\nB. Repose sur la la radiographie standard\nC. La confirmation est apportée par les signes inflammatoires\nD. La kingella kingae est le germe le plus fréquent\nE. Le rhumatisme articulaire aigu reste un diagnostic différentiel\nA. L’étape de la bactériémie est obligatoire\nB. La porte d'entrée est toujours apparente\nC. Le ralentissement circulatoire au niveau des métaphyses permet de guérir l’infection\nD. L'infection débute au niveau de la corticale et du périoste pour arriver à la métaphyse\nE. Le passage à la chronicité est aggravé par la nécrose et l'ischémie osseuse\nF. Est définie comme étant une infection de l'os par voie hématogène\nG. L'inoculation de l’os peut se faire par voie directe\nH. Son tableau clinique associé une douleur osseuse métaphysaire et une fièvre\nI. La douleur est de siège métaphysaire segmentaire et circonférentielle\nJ. Le staphylocoque doré est le germe le plus souvent en cause\nK. Doit être évoquée devant une douleur osseuse associée à une fièvre\nL. est une complication des fractures ouvertes\nM. le streptocoque B est le germe le plus souvent en cause\nN. l’infection débute au niveau de la métaphyse\nO. elle touche surtout le nouveau-né\nP. elle réalise un tableau de douleur osseuse dans un contexte de fièvre\na. Physiopathologie\nb. Signes cliniques.\na. Physiopathologie\nb. Tableau clinique\nc. Principes thérapeutiques\na. Définir une ostéomyélite aiguë.\nb. Diagnostic positif\nc. Décrire les différentes formes cliniques de l'ostéomyélite.\nd. Donner les principes thérapeutiques de l'ostéomyélite aiguë.\nA. Est une infection de l'os par voie hématogène\nB. L'examen clinique trouve une douleur des métaphyses\nC. L'échographie est obligatoire pour les articulations profondes\nD. La radiographie standard apporte le diagnostic de certitude\nE. La ponction articulaire est un élément clé du diagnostic\nF. L’infection peut se faire aussi par voie directe\nG. Le staphylocoque doré est le germe le plus souvent en cause\nH. Les grosses articulations sont le plus souvent touchées\nI. Chez le nourrisson elle réalise souvent une ostéo arthrite\nJ. Est une infection de l’articulation par voie hématogène\nA. Est une infection de la synoviale articulaire\nB. L’inoculation de l'articulation peut se faire par voie directe\nC. L'ostéo-arthrite est la forme clinique du nourrisson\nD. L’examen clinique objective une douleur à la mobilisation de l’articulation\nE. La ponction articulaire est un geste à la fois diagnostique et thérapeutique qui précède la mise en route du traitement antibiotique.\nF. Cette forme (ostéoarthrite) est toujours présente au niveau de l'articulation de la hanche\nG. Le traitement se fait en ambulatoire\na. Physiopathologie\nb. Tableau clinique et données des examens paracliniques\nc. Traitement",
+                  "question_text": "Quelles sont les modalités thérapeutiques chez ce patient ?\na. Physiopathologie\nb. Signes cliniques.\na. Physiopathologie\nb. Tableau clinique\nc. Principes thérapeutiques\na. Définir une ostéomyélite aiguë.\nb. Diagnostic positif\nc. Décrire les différentes formes cliniques de l'ostéomyélite.\nd. Donner les principes thérapeutiques de l'ostéomyélite aiguë.\na. Physiopathologie\nb. Tableau clinique et données des examens paracliniques\nc. Traitement",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11044,7 +11040,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHO-INF-11-Q05",
                   "clinical_context": "Enfant de 6 ans, notion de traumatisme du membre inférieur droit il y'a 12 jours. L'examen de l'enfant trouve une fièvre à 39.5, une impotence fonctionnelle totale, des signes inflammatoires au niveau de l'extrémité supérieure de la jambe :",
-                  "question_text": "Quel est le diagnostic le plus probable ?\nA. Carcinome de l'ovaire\nB. Myome utérin sous-muqueux\nC. Adénocarcinome de l'endomètre\nD. Polype endocervical\nE. Carcinome du col utérin",
+                  "question_text": "Quel est le diagnostic le plus probable ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11060,7 +11056,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "CHO-INF-11-Q07",
                   "clinical_context": null,
-                  "question_text": "Quels sont les principes du traitement chez ce malade ?\nA. Est une déviation de la colonne vertébrale dans le plan sagittal\nB. Elle disparait en position couchée\nC. La gibbosité peut manquer chez un malade porteur d’une scoliose\nD. Cette gibbosité est recherchée sur un malade en position couchée\nE. Les scolioses secondaires sont les plus fréquentes.\nF. La forme idiopathique est la plus fréquente.\nA. D'apprécier l’importance de la rotation vertébrale\nB. De rechercher une éventuelle étiologie\nC. De mesurer l'angle de Cobb\nD. De confirmer le diagnostic de la scoliose\nE. De rechercher les critères d'évolutivité de la scoliose\nA. la flèche de la scoliose\nB. la taille de l’enfant\nC. l’apparition d’une asymétrie des épaules\nD. la hauteur de la gibbosité\nE. L’angle de la scoliose\nF. la localisation de la scoliose\nG. l’âge du patient\nH. l’angle de cobb\nI. L'étiologie de la scoliose\nJ. L'angle de la scoliose (angle de Cobb)\nK. Le siège de la scoliose\nA. La déviation de la colonne vertébrale se fait dans les trois plans de l'espace\nB. La gibbosité peut manquer dans les petites scolioses\nC. La rotation vertébrale est présente dans toutes les scolioses\nD. La déformation des vertèbres en coin s'installe progressivement dans les scolioses idiopathiques\nE. La douleur est le motif de consultation le plus fréquent\nF. la double scoliose est la plus fréquente\nG. la localisation dorsale représente $2 5 \\%$ des scolioses\nH. la scoliose cervico-dorsale est la plus rare\nI. les scolioses secondaires sont les plus fréquentes\nJ. la scoliose congénitale représente $10 \\%$ des scolioses\nA. Se définie comme étant une déviation de la colonne vertébrale dans le plan sagittal:\nB. Est secondaire dans $70 \\%$ des cas\nC. l'étiologie mal formative est la plus fréquente\nD. s'associe systématiquement à une rotation vertébrale\nE. la présence de la gibbosité est un signe pathognomonique de la scoliose\nF. Est une déviation de la colonne vertébrale dans le plan sagittal\nG. Elle est idiopathique dans $70 \\%$ des cas\nH. Elle disparaît en position couché\nI. Son diagnostic est posé par la présence de la gibbosité\nJ. La radio standard est suffisante pour confirmer son diagnostic",
+                  "question_text": "Quels sont les principes du traitement chez ce malade ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11556,7 +11552,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q28",
                   "clinical_context": "La patiente a bénéficié d'une macrobiopsie. L’examen histologique montrait des canaux dilatés comblés par une prolifération de cellules luminales atypiques centrées de nécrose, étendue sur 6 mm.",
-                  "question_text": "Quelle est votre hypothèse diagnostique\nA. Trisomie 21\nB. Syndrome de Turner\nC. Trisomie 18\nD. Trisomie 13\nE. Syndrome de Bonnevie Ullrich",
+                  "question_text": "Quelle est votre hypothèse diagnostique",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11668,7 +11664,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q42",
                   "clinical_context": "La biopsie du col utérin faite sous colposcopie montrait une prolifération tumorale infiltrante faite de massifs et de cordons de cellules polygonales, des cadres claires et des globes cornés.",
-                  "question_text": "Quel est votre diagnostic histologique ?\nA- Carcinome épidermoïde infiltrant.\nB- Adénocarcinome\nC- Carcinome urothélial papillaire\nD- Carcinome neuro erdocrire.\nE- Métastase.",
+                  "question_text": "Quel est votre diagnostic histologique ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11970,7 +11966,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-02-Q20",
                   "clinical_context": "La patiente a eu une analyse cytologique qui a montré des atypies cellulaires de haut grade.",
-                  "question_text": "Quelle est votre conduite à tenir\nA. Vous demandez les anticorps ami-transglutaminase et une biopsie jéjunale\nB. Vous demandez entre autre une NFS et un ionogramme sanguin\nC. Le tableau est évident, vous le mettez sous régime sans gluten sans faire le bilan\nD. Vous interrompez le régime sans gluten quand le malade s'améliore\nE. Vous laissez le régime sans gluten à vie",
+                  "question_text": "Quelle est votre conduite à tenir",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11994,7 +11990,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-02-Q23",
                   "clinical_context": "La biopsie du col utérin faite sous colposcopie montrait une prolifération tumorale infiltrante faite de massifs et de cordons de cellules polygonales, des cadres claires et des globes cornés.",
-                  "question_text": "Quel est votre diagnostic histologique ?\nA- Carcinome épidermoïde infiltrant.\nB- Adénocarcinome\nC- Carcinome urothélial papillaire\nD- Carcinome neuro erdocrire.\nE- Métastase.",
+                  "question_text": "Quel est votre diagnostic histologique ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12071,7 +12067,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-03-Q06",
                   "clinical_context": "Patiente de 50 ans sans antécédents pathologiques notables, consulte pour des microcalcifications retrouvées lors d’une mammographie de dépistage. Une macrobiopsie a été réalisée. L’examen histologique montrait des canaux dont la lumière est comblée par une prolifération de cellules épithéliales de taille variable, les noyaux chevauchés, les cytoplasmes peu abondants, sans mitose et sans nécrose.",
-                  "question_text": "Quel est le diagnostic histologique ?\nA. Carcinome in situ\nB. Hyperplasie simple floride\nC. Hyperplasie canalaire atypique\nD. Néoplasie lobulaire\nE. Carcinome infiltrant de type NOS",
+                  "question_text": "Quel est le diagnostic histologique ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12461,7 +12457,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-06-Q06",
                   "clinical_context": "Patient de 55ans. Présente depuis 1 an? une grosse bourse. L'examen clinique trouve une masse testiculaire droite indolore et mobile sans signe inflammatoire en regard. Le bilan biologique trouve une augmentation de LDE et de béta-HCG. Le dosage de l’alpha-foetoproteine est normal. Le patient a bénéficié d'une orchidectomie droite. On a reçu au laboratoire d'anatomie pathologique un testicule droit qui mesure 9x7x5cm. A la coupe, on note la présence d'une tumeur de 6x4cm rouge foncé hétérogène. L'étude microscopique montre une prolifération tumorale maligne faite d'une double composante : - La première est cytotrophoblastique faite de cellules éosinophiles aux limites cytoplasmique nettes. - La deuxième est syncytiotrophoblastique aux cellules multinucléées irrégulières et aux noyaux hyperchromatiques.",
-                  "question_text": "Quel est le diagnostic à évoquer\nA. Amylose\nB. Dermatomyosite\nC. Polymyosite\nD. Sclérodermie",
+                  "question_text": "Quel est le diagnostic à évoquer",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12557,7 +12553,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-06-Q18",
                   "clinical_context": null,
-                  "question_text": "Quel est le diagnostic final ?\nA- est un cancer qui survient chez un homme avec un moyen d'âge de 72ans\nB- la PS100 est un marqueur biologique spécifique\nC- le diagnostic se pose généralement sur une pièce de prostatectomie totale.\nD- le carcinome épidermoïde est le type histologique le plus fréquent.\nE- Le score de Gleason est un facteur pronostique.\nA- le score Gleason.\nB- les emboles vaculaires.\nC- le volume tumoral.\nD- la nécrose.\nE- le grading SBR.\nA- Carcinome épidermoïde.\nB- Adénocarcinome.\nC- Carcinome neuroendocrine.\nD- Lymphome.\nE- Métastase.\nA- Surface tumorale\nB- Grade ISUP\nC- Engainements périnerveux.\nD- Emboles vasculaires\nE- Nécrose\nA. Infiltration du muscle\nB. Le type histologique\nC. Le grade\nD. Le stade\nE. Les marqueurs tumoraux",
+                  "question_text": "Quel est le diagnostic final ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -12881,7 +12877,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-08-Q23",
                   "clinical_context": "La biopsie du col utérin faite sous colposcopie montrait une prolifération tumorale infiltrante faite de massifs et de cordons de cellules polygonales, des cadres claires et des globes cornés.",
-                  "question_text": "Quel est votre diagnostic histologique ?\nA- Carcinome épidermoïde infiltrant.\nB- Adénocarcinome\nC- Carcinome urothélial papillaire\nD- Carcinome neuro erdocrire.\nE- Métastase.",
+                  "question_text": "Quel est votre diagnostic histologique ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13030,7 +13026,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-URO-09-Q10",
                   "clinical_context": "L'immunofluorescence a mis en évidence des dépôts mésangiaux des IgA au niveau de tous les glomérules de façon homogène.",
-                  "question_text": "Quel est votre diagnostic ?\nA. Gastroentérite aiguë simple\nB. Gastroentérite aiguë avec déshydratation aiguë modérée\nC. Gastroentérite aiguë avec déshydratation aiguë sévère\nD. Broncho-pneumopathie\nE. parasitose intestinale",
+                  "question_text": "Quel est votre diagnostic ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14064,7 +14060,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-17-Q05",
                   "clinical_context": null,
-                  "question_text": "Sur quel système on se base pour classer ces lésions ?\nA- Système de Sydney\nB- Score de METAVIR\nC- Classification de Corraza\nD- Classification de MARSH\nE- Classification de Marshal et Warren",
+                  "question_text": "Sur quel système on se base pour classer ces lésions ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14080,7 +14076,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-17-Q07",
                   "clinical_context": null,
-                  "question_text": "Comment évoluera cette pathologie ?\nA- Vers une cirrhose\nB- Vers un adénocarcinome\nC- Vers un nodule de régénération\nD-Viers un carcinome hépatocellulaire\nE- Vers un lymphome",
+                  "question_text": "Comment évoluera cette pathologie ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14527,7 +14523,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q28",
                   "clinical_context": null,
-                  "question_text": "Sur quel système on se base pour classer ces lésions ? détailler votre réponse\nA- Système de Sydney\nB- Score de METAVIR\nC- Classification de Corraza\nD- Classification de MARSH\nE- Classification de Marshal et Warren",
+                  "question_text": "Sur quel système on se base pour classer ces lésions ? détailler votre réponse",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14599,7 +14595,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q37",
                   "clinical_context": null,
-                  "question_text": "(b) correspond à quel type de lésion ?\nA- Lésions lympho-épithéliales\nB- Activité de la gastrite\nC- Adénocarcinome\nD- Atrophie gastrique\nE- Dysplasie",
+                  "question_text": "(b) correspond à quel type de lésion ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14767,7 +14763,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q58",
                   "clinical_context": null,
-                  "question_text": "Sur quel système on se base pour classer ces lésions ?\nA- Système de Sydney\nB- Score de METAVIR\nC- Classification de Corraza\nD- Classification de MARSH\nE- Classification de Marshal et Warren",
+                  "question_text": "Sur quel système on se base pour classer ces lésions ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14783,7 +14779,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q60",
                   "clinical_context": null,
-                  "question_text": "Comment évoluera cette pathologie ?\nA- Vers une cirrhose\nB- Vers un adénocarcinome\nC- Vers un nodule de régénération\nD-Viers un carcinome hépatocellulaire\nE- Vers un lymphome",
+                  "question_text": "Comment évoluera cette pathologie ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14963,7 +14959,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-20-Q14",
                   "clinical_context": "Le bilan biologique montrait un taux élevé de LDH. L'examen histologique de la biopsie scanno-guidée objectivait une prolifération tumorale faite de tubes et de massifs au sein d'un stroma fibreux et inflammatoire avec une positivité de l'anticorps anti-CD30 en immunohistochimie.",
-                  "question_text": "Quel est votre diagnostic ?\nA. Gastroentérite aiguë simple\nB. Gastroentérite aiguë avec déshydratation aiguë modérée\nC. Gastroentérite aiguë avec déshydratation aiguë sévère\nD. Broncho-pneumopathie\nE. parasitose intestinale",
+                  "question_text": "Quel est votre diagnostic ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15147,7 +15143,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-21-Q11",
                   "clinical_context": null,
-                  "question_text": "Comment appelle-t-on la substance saphranophile ?\nA- Ostéoïde\nB- Nécrose caséeuse\nC- Nécrose tumorale\nD- Fibrose\nE- Dépôts amyloïdes",
+                  "question_text": "Comment appelle-t-on la substance saphranophile ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15487,7 +15483,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q28",
                   "clinical_context": "Patient de 25 ans, sans antécédents pathologiques notables, consulte pour des adénopathies cervicales augmentant rapidement de volume. Une exérèse ganglionnaire a été réalisée. L'examen histologique montre un parenchyme ganglionnaire d'architecture effacée, infiltré par des cellules tumorales dispersées, au noyau tantôt monolobé avec un gros nucléole éosinophile central (cellules A), et tantôt bilobé avec 2 gros nucléoles éosinophiles (cellules B), et au cytoplasme éosinophile. Ces cellules se disposent sur un fond inflammatoire prédominant riche en lymphocytes, histiocytes, polynucléaires éosinophiles, et plasmocytes, sans formation de nodules ni fibrose.",
-                  "question_text": "Quelle est votre hypothèse diagnostique ?\nA. Trisomie 21\nB. Syndrome de Turner\nC. Trisomie 18\nD. Trisomie 13\nE. Syndrome de Bonnevie Ullrich",
+                  "question_text": "Quelle est votre hypothèse diagnostique ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15527,7 +15523,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q33",
                   "clinical_context": "Cette technique a confirmé le diagnostic d'un lymphome B exprimant la cycline DI et le CD5.",
-                  "question_text": "Quel est votre diagnostic ?\nA. Gastroentérite aiguë simple\nB. Gastroentérite aiguë avec déshydratation aiguë modérée\nC. Gastroentérite aiguë avec déshydratation aiguë sévère\nD. Broncho-pneumopathie\nE. parasitose intestinale",
+                  "question_text": "Quel est votre diagnostic ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15543,7 +15539,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q35",
                   "clinical_context": "Patient de 60 ans, présentant une lésion amygdalienne. La biopsie réalisée montre une prolifération tumorale disposée en nappes. Elle est faite de lymphocytes de grande taille.",
-                  "question_text": "Quels sont les diagnostics à évoquer ?\nA. Lymphome du manteau\nB. Lymphome lymphocytique\nC. Lymphome de la zone marginale\nD. Lymphome anaplasique\nE. Lymphome B diffus à grandes cellules",
+                  "question_text": "Quels sont les diagnostics à évoquer ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15583,7 +15579,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q40",
                   "clinical_context": "Enfant de 8 ans, présentant une masse médiastinale antérieure. L'examen histologique de la biopsie réalisée a montré une prolifération diffuse faite de lymphocytes de taille moyenne avec des mitoses fréquentes.",
-                  "question_text": "Quel est votre premier diagnostic à évoquer ?\nA. Rhumatisme articulaire aiguë mineur\nB. Arthrite juvénile idiopathique dans sa forme polyarticulaire\nC. Arthrite juvénile idiopathique dans sa forme oligoarticulaire\nD. Arthrite réactionnelle\nE. Leucémie aiguë",
+                  "question_text": "Quel est votre premier diagnostic à évoquer ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15809,7 +15805,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-23-Q16",
                   "clinical_context": null,
-                  "question_text": "Sachant que l'examen histologique montre un foyer de nécrose tumorale, quel est votre diagnostic final ?\nA- Lymphome lymphocytique\nB- Lymphome folliculaire\nC- Lymphome anaplasique\nD- Lymphome du manteau\nE- Lymphome de la zone marginale",
+                  "question_text": "Sachant que l'examen histologique montre un foyer de nécrose tumorale, quel est votre diagnostic final ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16159,7 +16155,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q13",
                   "clinical_context": "Patient de 60 ans, présentant un syndrome d'hypertension intracrânienne. L’imagerie montre un processus cérébral pariétal. Une biopsie stéréotaxique est réalisée. L'examen histologique montre une prolifération tumorale astrocytaire infiltrant le parenchyme cérébral, de densité élevée, faite de cellules atypiques avec un index mitotique élevé, sans nécrose ni prolifération endothéliocapillaire. L'IDH est positive.",
-                  "question_text": "Quels sont les diagnostics à évoquer ?\nA. Lymphome du manteau\nB. Lymphome lymphocytique\nC. Lymphome de la zone marginale\nD. Lymphome anaplasique\nE. Lymphome B diffus à grandes cellules",
+                  "question_text": "Quels sont les diagnostics à évoquer ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16207,7 +16203,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q19",
                   "clinical_context": "L'examen histologique montre en plus une prolifération microvasculaire.",
-                  "question_text": "Quel est votre diagnostic final ?\nA. Lymphome du manteau\nB. Lymphome lymphocytique\nC. Lymphome de la zone marginale\nD. Lymphome anaplasique\nE. Lymphome B diffus à grandes cellules",
+                  "question_text": "Quel est votre diagnostic final ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22238,7 +22234,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q01",
                   "clinical_context": null,
-                  "question_text": "Parmi les affections suivantes, quelle est celle dont le pronostic est le moins sévère chez le petit enfant, c’est-à-dire celle qui est le moins susceptible de laisser des séquelles définitives handicapantes ?\nA. L'ostéomyélite aiguë hématogène\nB. L’ostéomyélite subaiguë\nC. L'ostéomyélite chronique\nD. L'arthrite septique\nE. L’arthrite tuberculeuse",
+                  "question_text": "Parmi les affections suivantes, quelle est celle dont le pronostic est le moins sévère chez le petit enfant, c’est-à-dire celle qui est le moins susceptible de laisser des séquelles définitives handicapantes ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22691,7 +22687,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q37",
                   "clinical_context": null,
-                  "question_text": "Quel est le diagnostic le plus probable ? et quels sont les critères diagnostics pour le retenir ?\nA- Tératome mature\nB- Seminome\nC- Tumeur du sac vittelin\nD- Choriocarcinome\nE- Lymphome.",
+                  "question_text": "Quel est le diagnostic le plus probable ? et quels sont les critères diagnostics pour le retenir ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22723,7 +22719,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q41",
                   "clinical_context": "Mr A. âgé de 20 ans. sans antécédents notables, présente un épisode aigu de douleurs abdominales importantes, avec une sensibilité abdominale, des arthralgies inflammatoires et une fièvre à $3 8 . 5 ^ { \\circ } \\mathrm { C }$ . Le patient a bénéficié d'une exploration chirurgicale de l'abdomen n’a pas retrouvé d'explication à cet abdomen aigu",
-                  "question_text": "Quel est le diagnostic le plus probable\nA. Maladie coeliaque\nB. Infection intestinale aiguë\nC. Méningite\nD. Un déficit immunitaire\nE. Une mucoviscidose",
+                  "question_text": "Quel est le diagnostic le plus probable",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22731,7 +22727,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q42",
                   "clinical_context": "Un patient âgé de 25 ans ayant comme antécédent des ulcérations buccales douloureuses multiples récidivantes (chaque 2 mois) depuis plus de 4 ans. qui consulte actuellement pour une rougeur oculaire avec à l’examen ophtalmologique présence d'un Tyndall vitréen. l’examen actuel trouve des lésions acnéiformes au niveau du dos.",
-                  "question_text": "Quel est le diagnostic retenu chez ce patient : argumentez\nA- La maladie de Wegener\nB- La maladie de Behçet\nC- La maladie de LEO BURGER\nD- La maladie de Churg-Stauss",
+                  "question_text": "Quel est le diagnostic retenu chez ce patient : argumentez",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22891,7 +22887,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q62",
                   "clinical_context": "Mr A. âgé de 20 ans. sans antécédents notables, présente un épisode aigu de douleurs abdominales importantes, avec une sensibilité abdominale, des arthralgies inflammatoires et une fièvre à $3 8 . 5 ^ { \\circ } \\mathrm { C }$ . Le patient a bénéficié d'une exploration chirurgicale de l'abdomen n’a pas retrouvé d'explication à cet abdomen aigu",
-                  "question_text": "Quel est le diagnostic le plus probable\nA. Maladie coeliaque\nB. Infection intestinale aiguë\nC. Méningite\nD. Un déficit immunitaire\nE. Une mucoviscidose",
+                  "question_text": "Quel est le diagnostic le plus probable",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -23757,7 +23753,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRI-07-Q12",
                   "clinical_context": null,
-                  "question_text": "La trisomie 21 : clinique et conseil génétique.\nA. Trisomie 21 libre par non-disjonction méiotique\nB. Trisomie 21 secondaire à une translocation Robertsonienne équilibrée chez un parent\nA- Le caryotype pose le diagnostic d’une trisomie 21 libre et homogène\nB- Le caryotype pose le diagnostic d’u e trisomie 21 libre et mosaîque\nC- Le caryotype pose le diagnostic d’une trisomie 21 avec translocation (21;21)\nD- Dans cette observation le caryotype des parents n’est pas nécessaire pour le conseil génétique\nE- Dans cette observation le caryotype des parents est nécessaire pour le conseil génétique",
+                  "question_text": "La trisomie 21 : clinique et conseil génétique.",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24014,7 +24010,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRI-07-Q36",
                   "clinical_context": "Un jeune couple a eu 2 fausses couches. Le premier enfant est un nouveau-né qui présente une dysmorphie faciale évocatrice d'une trisomie 21 et dont le caryotype a montré une translocation robertsonienne entre les chromosomes 14 et 21 d'origine maternelle (ci-dessous l'arbre généalogique). (sorry we couldn't integrate the image, please check the pdf version) Caryotypedunouveau-ne: Trisomie 21partransiocationrobertsonienne entre les chromosomes14et21,t（14;21）",
-                  "question_text": "Quel conseil génétique prodigueriez-vous à ce couple ?\nA- Délétion terminale\nB- Inversions (inv)\nC- Chromosomes en anneau $\\textcircled{8}$\nD- Isochromosomes (i)\nE- Duplication intrachromosomiques (dup)",
+                  "question_text": "Quel conseil génétique prodigueriez-vous à ce couple ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24030,7 +24026,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRI-07-Q38",
                   "clinical_context": "Un jeune couple a eu deux fausses couches. Le premier enfant est un nouveau-né présente une dysmorphie faciale évocatrice d'une trisomie 21 et dont le caryotype a montré une translocation robertsonienne entre deux chromosomes 21 d'origine paternelle (ci-dessous l'arbre généalogique).",
-                  "question_text": "Quel conseil génétique prodigueriez-vous à ce couple ?\nA- Délétion terminale\nB- Inversions (inv)\nC- Chromosomes en anneau $\\textcircled{8}$\nD- Isochromosomes (i)\nE- Duplication intrachromosomiques (dup)",
+                  "question_text": "Quel conseil génétique prodigueriez-vous à ce couple ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24207,7 +24203,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRI-07-Q58",
                   "clinical_context": "Vous recevez en consultation un couple ayant un nouveau-né qui présente une dysmorphie faciale évocatrice d'une trisomie 18 et dont le caryotype a montré une trisomie 18 libre et homogène",
-                  "question_text": "Quel conseil génétique prodigueriez-vous à ce couple ?\nA- Délétion terminale\nB- Inversions (inv)\nC- Chromosomes en anneau $\\textcircled{8}$\nD- Isochromosomes (i)\nE- Duplication intrachromosomiques (dup)",
+                  "question_text": "Quel conseil génétique prodigueriez-vous à ce couple ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25715,7 +25711,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q31",
                   "clinical_context": null,
-                  "question_text": "Quel conseil génétique prodigueriez-vous à ce couple ?\nA- Délétion terminale\nB- Inversions (inv)\nC- Chromosomes en anneau $\\textcircled{8}$\nD- Isochromosomes (i)\nE- Duplication intrachromosomiques (dup)",
+                  "question_text": "Quel conseil génétique prodigueriez-vous à ce couple ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25822,7 +25818,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-CON-15-Q07",
                   "clinical_context": null,
-                  "question_text": "Le conseil génétique: fondements et indications\nA. Quelles sont les différentes étapes du conseil génétique ?\nB. Quelles sont les situations cliniques chez un couple pouvant justifier un conseil génétique ?\nC. Quelles sont les options proposées à un couple à risque ?",
+                  "question_text": "Le conseil génétique: fondements et indications",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25835,7 +25831,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-DEP-16-Q01",
                   "clinical_context": null,
-                  "question_text": "Concernant le dépistage néonatal d’atrésie de l’œsophage :\nA. Il doit être fait systématiquement à la naissance\nB. Il n’est pas systématique chez un nouveau-né sans détresse respiratoire\nC. Il consiste en l’introduction d’une sonde gastrique avec injection d’air dans le bout distal\nD. La butée de la sonde fait suspecter le diagnostic.\nE. L’auscultation épigastrique de l’air injecté fait suspecter le diagnostic",
+                  "question_text": "Concernant le dépistage néonatal d’atrésie de l’œsophage :",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
