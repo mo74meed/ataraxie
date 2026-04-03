@@ -3249,6 +3249,11 @@
                 } catch (e) { } 
                 return emptyState(); 
             }
+            // svLocal: saves to localStorage only (no Firebase) — used for cosmetic nav state
+            function svLocal() {
+                try { localStorage.setItem(profileSK(activeProfileId), JSON.stringify(st)); } catch (e) {}
+            }
+            // sv: debounced full save + Firebase sync — used for real answer/interaction changes
             function sv() { 
                 clearTimeout(sT); 
                 sT = setTimeout(() => { 
@@ -3256,7 +3261,7 @@
                         if (window.FirebaseAuthManager) { window.FirebaseAuthManager.saveProgress(profileSK(activeProfileId), st); }
                         else { localStorage.setItem(profileSK(activeProfileId), JSON.stringify(st)) }
                     } catch (e) { } 
-                }, 200) 
+                }, 800) 
             }
             function svNow() { 
                 clearTimeout(sT); 
@@ -3811,7 +3816,7 @@
                         ev.stopPropagation();
                         st.sortChildren = st.sortChildren || {};
                         st.sortChildren[mn] = !st.sortChildren[mn];
-                        sv();
+                        svLocal();
                         buildSB();
                         const si = document.getElementById('si');
                         if (si) filter({ target: si });
@@ -3827,7 +3832,7 @@
                         cb.addEventListener('click', () => { render(e.module, e.chapitre); hlAct(); if (window.innerWidth <= 1024) togMob() });
                         cl.appendChild(cb);
                     });
-                    btn.addEventListener('click', () => { const o = cl.classList.toggle('open'); btn.classList.toggle('exp', o); st.sb[mn] = o; sv() });
+                    btn.addEventListener('click', () => { const o = cl.classList.toggle('open'); btn.classList.toggle('exp', o); st.sb[mn] = o; svLocal() });
                     head.appendChild(btn);
                     head.appendChild(sortBtn);
                     w.appendChild(head); w.appendChild(cl); nav.appendChild(w);
@@ -3849,7 +3854,7 @@
 
             /* ══════════ RENDER CHAPTER (REDESIGNED) ══════════ */
             function render(mod, chap, targetQId = null) {
-                ak = mk(mod, chap); st.ac = ak; sv();
+                ak = mk(mod, chap); st.ac = ak; svLocal();
                 const isOfficialMode = false;
                 const entry = D.find(d => d.module === mod && d.chapitre === chap); if (!entry) return;
                 document.getElementById('ht').textContent = chap;
@@ -4212,12 +4217,19 @@
 
                     editor.addEventListener('input', () => {
                         const qId = editor.dataset.key.split('§')[2];
-                        st.red[editor.dataset.key] = extractEditorStateHtml(editor); sv(); addRecent(mod, chap, qId);
+                        st.red[editor.dataset.key] = extractEditorStateHtml(editor);
+                        // Save locally while typing — no Firebase push yet
+                        svLocal(); addRecent(mod, chap, qId);
                         updateEditorEmptyState(editor);
                         const card = editor.closest('.qcard');
                         const ans = isAns(editor.dataset.key, 'redaction');
                         const dot = card.querySelector('.dot-ans'); if (dot) dot.classList.toggle('on', ans);
                         upProg(); upChStats(entry); upBadges();
+                    });
+
+                    editor.addEventListener('blur', () => {
+                        // Only push to Firebase when the user leaves the text box
+                        sv();
                     });
 
                     editor.addEventListener('keydown', (e) => {
