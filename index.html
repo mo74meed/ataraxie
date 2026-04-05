@@ -3277,7 +3277,22 @@
     <script>
         (function () {
             'use strict';
-            const CIRC = 2 * Math.PI * 17, L = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const CIRC = 2 * Math.PI * 17;
+            const L = new Proxy('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), {
+                get(target, prop) {
+                    const idx = Number(prop);
+                    if (!isNaN(idx)) {
+                        let res = '';
+                        let n = idx;
+                        while (n >= 0) {
+                            res = String.fromCharCode((n % 26) + 65) + res;
+                            n = Math.floor(n / 26) - 1;
+                        }
+                        return res;
+                    }
+                    return target[prop];
+                }
+            });
             const PK = 'ataraxie_profiles', APK = 'ataraxie_active_profile', OLD_SK = 'ataraxie_v3';
             let D = [], tQ = 0, sT = null, viewMode = 'mine';
             let tempCmpData = null, currentCmpEntry = null;
