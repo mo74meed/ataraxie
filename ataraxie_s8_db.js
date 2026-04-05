@@ -649,7 +649,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-DIG-03-Q16",
-                  "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois. Le début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ . L’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $&gt; 5$ sec.",
+                  "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois. Le début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ . L’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $> 5$ sec.",
                   "question_text": "Quel est votre diagnostic ?",
                   "type": "QCM",
                   "choices": [
@@ -5213,8 +5213,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-NEO-23-Q18",
-                  "clinical_context": "Une maman est admise à la maternité pour accouchement. L’âge gestationnel est à 39 SA, RPM de 18 heures et liquide amniotique clair. Poids de naissance 3000 g, Cri immédiat puis installation d’une détresse respiratoire avec SS à 4/10.",
-                  "question_text": "Votre conduite à tenir chez le nouveau-né est de :",
+                  "clinical_context": null,
+                  "question_text": "Le nouveau-né avait une bonne adaptation à la vie extra-utérine avec examen clinique normal. Votre conduite à tenir chez le nouveau-né est de :",
                   "type": "QCM",
                   "choices": [
                     "Hospitaliser et faire une hémoculture",
@@ -5228,7 +5228,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-23-Q19",
                   "clinical_context": null,
-                  "question_text": "Une maman est admise à la maternité pour menace d’accouchement",
+                  "question_text": "Une maman est admise à la maternité pour menace d’accouchement. L’âge gestationnel est à 32 SA, RPM de 6 heures et liquide amniotique clair. La conduite à tenir consiste en :",
                   "type": "QCM",
                   "choices": [
                     "La pratique d’une césarienne en urgence",
@@ -5241,8 +5241,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-NEO-23-Q20",
-                  "clinical_context": "Une maman est admise à la maternité pour accouchement. L’âge gestationnel est à 39 SA, RPM de 18 heures et liquide amniotique clair. Poids de naissance 3000 g, Cri immédiat puis installation d’une détresse respiratoire avec SS à 4/10.",
-                  "question_text": "Votre conduite à tenir chez le nouveau-né est de :",
+                  "clinical_context": null,
+                  "question_text": "La maman a accouché après 48 heures. Le nouveau-né avait une bonne adaptation à la vie extra-utérine avec une détresse respiratoire modérée. Votre conduite à tenir chez le nouveau-né est de :",
                   "type": "QCM",
                   "choices": [
                     "Hospitaliser et faire une hémoculture",
@@ -5256,7 +5256,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-23-Q21",
                   "clinical_context": null,
-                  "question_text": "Une maman est admise à la maternité pour accouchement",
+                  "question_text": "Une maman est admise à la maternité pour accouchement. L'âge gestationnel est à 39 SA, prélèvement vaginal positif à streptocoque B. La conduite à tenir consiste en:",
                   "type": "QCM",
                   "choices": [
                     "La pratique d'une césarienne en urgence",
@@ -5269,8 +5269,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-NEO-23-Q22",
-                  "clinical_context": "Une maman est admise à la maternité pour accouchement. L’âge gestationnel est à 39 SA, RPM de 18 heures et liquide amniotique clair. Poids de naissance 3000 g, Cri immédiat puis installation d’une détresse respiratoire avec SS à 4/10.",
-                  "question_text": "Votre conduite à tenir chez le nouveau-né est de :",
+                  "clinical_context": null,
+                  "question_text": "Le nouveau-né avait une bonne adaptation à la vie extra-utérine avec examen clinique normal. Votre conduite à tenir chez le nouveau-né est de :",
                   "type": "QCM",
                   "choices": [
                     "Hospitaliser et faire une hémoculture",
@@ -5284,7 +5284,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "PED-NEO-23-Q23",
                   "clinical_context": null,
-                  "question_text": "Une maman admise pour accouchement",
+                  "question_text": "Une maman admise pour accouchement. La grossesse était bien suivie, menée à terme et prélèvement vaginal était positif au streptocoque B, Votre conduite à tenir sera:",
                   "type": "QCM",
                   "choices": [
                     "Une antibiothérapie maternelle à base d'Amoxicilline 2g par voie intraveineuse puis 1g toutes les 4 heures",
@@ -5374,7 +5374,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-NEO-25-Q02",
-                  "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois. Le début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ . L’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $&gt; 5$ sec.",
+                  "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois. Le début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ . L’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $> 5$ sec.",
                   "question_text": "Quel est votre diagnostic ?",
                   "type": "QCM",
                   "choices": [
@@ -5500,7 +5500,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-NEO-25-Q11",
-                  "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois. Le début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ . L’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $&gt; 5$ sec.",
+                  "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois. Le début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ . L’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $> 5$ sec.",
                   "question_text": "Quel est votre diagnostic ?",
                   "type": "QCM",
                   "choices": [
@@ -7174,7 +7174,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "PED-END-34-Q13",
-                  "clinical_context": "Sara, fille de 10 ans qui consulte pour une petite taille $\\mathtt { &lt; - 3 D S }$ . A l'interrogatoire, elle ne présente pas de signes digestifs ni urinaires. La taille cible génétique est de 175 cm. Son âge osseux est de 7 ans.",
+                  "clinical_context": "Sara, fille de 10 ans qui consulte pour une petite taille $\\mathtt { < - 3 D S }$ . A l'interrogatoire, elle ne présente pas de signes digestifs ni urinaires. La taille cible génétique est de 175 cm. Son âge osseux est de 7 ans.",
                   "question_text": "Quel est le diagnostic improbable dans cette situation ?",
                   "type": "QCM",
                   "choices": [
@@ -11559,7 +11559,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "ANA-GYN-01-Q29",
-                  "clinical_context": null,
+                  "clinical_context": "La patiente a bénéficié d'une macrobiopsie. L’examen histologique montrait des canaux dilatés comblés par une prolifération de cellules luminales atypiques centrées de nécrose, étendue sur 6 mm.",
                   "question_text": "Que faut-il éliminer à ce stade et par quel moyen ?",
                   "type": "QROC",
                   "choices": null,
@@ -11688,23 +11688,23 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q45",
                   "clinical_context": null,
-                  "question_text": "La résection passe-t-elle en zone saine ? justifier 46- Quel est le pronostic de ce type de tumeur ? Justifier",
+                  "question_text": "La résection passe-t-elle en zone saine ? justifier",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
                 },
                 {
                   "id": "ANA-GYN-01-Q46",
-                  "clinical_context": "Femme de 55 ans, sous traitement hormonal substitutif de la ménopause depuis 5 ans, chez qui une mammographie du sein gauche de dépistage a montré une distorsion architecturale sans masse palpable claire, classée ACRS. L'IRM mammaire a objectivé un rehaussement segmentaire mal limité sans masse visible. Une biopsie de cette lésion a été réalisée. L'analyse histologique de la biopsie a montré un parenchyme mammaire infiltré par une prolifération tumorale disposée en cordons monocellulaires, en cellules dyscohésives réalisant des aspects en $&lt; &lt;$ file indienne $&gt; &gt;$ et en $&lt; &lt;$ bulbe d'oignon $&gt; &gt;$ (SCORE 3). Ces cellules présentent des atypies cytonucléaires modérées (SCORE 2). Les mitoses sont estimées à $1 0 / 2 ~ \\mathsf { m m } ^ { 2 }$ (SCORE 2). Le stroma tumoral comporte $10 \\%$ de lymphocytes.",
-                  "question_text": "Quel est le diagnostic histopathologique selon la description ci-dessus ?",
+                  "clinical_context": null,
+                  "question_text": "Quel est le pronostic de ce type de tumeur ? Justifier",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
                 },
                 {
                   "id": "ANA-GYN-01-Q47",
-                  "clinical_context": null,
-                  "question_text": "Quel anticorps, en immunohistochimie, permet de retenir ce type histologique ? et quel est le résultat attendu après utilisation de cet anticorps ?",
+                  "clinical_context": "Femme de 55 ans, sous traitement hormonal substitutif de la ménopause depuis 5 ans, chez qui une mammographie du sein gauche de dépistage a montré une distorsion architecturale sans masse palpable claire, classée ACRS. L'IRM mammaire a objectivé un rehaussement segmentaire mal limité sans masse visible. Une biopsie de cette lésion a été réalisée. L'analyse histologique de la biopsie a montré un parenchyme mammaire infiltré par une prolifération tumorale disposée en cordons monocellulaires, en cellules dyscohésives réalisant des aspects en $< <$ file indienne $> >$ et en $< <$ bulbe d'oignon $> >$ (SCORE 3). Ces cellules présentent des atypies cytonucléaires modérées (SCORE 2). Les mitoses sont estimées à $1 0 / 2 ~ \\mathsf { m m } ^ { 2 }$ (SCORE 2). Le stroma tumoral comporte $10 \\%$ de lymphocytes.",
+                  "question_text": "Quel est le diagnostic histopathologique selon la description ci-dessus ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -11712,13 +11712,21 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-01-Q48",
                   "clinical_context": null,
-                  "question_text": "Quel est le grade SBR de cette tumeur ?",
+                  "question_text": "Quel anticorps, en immunohistochimie, permet de retenir ce type histologique ? et quel est le résultat attendu après utilisation de cet anticorps ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
                 },
                 {
                   "id": "ANA-GYN-01-Q49",
+                  "clinical_context": null,
+                  "question_text": "Quel est le grade SBR de cette tumeur ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q50",
                   "clinical_context": null,
                   "question_text": "Citer les facteurs histopronostiques que le pathologiste doit préciser sur le compte rendu anatomopathologique de cette biopsie ?",
                   "type": "QROC",
@@ -12313,7 +12321,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-GYN-05-Q06",
                   "clinical_context": "6 mois plus tard, elle consulte pour un saignement anormal.",
-                  "question_text": null,
+                  "question_text": "Quels sont les examens à réaliser chez cette patiente ? Quelle est votre hypothèse diagnostique ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13725,7 +13733,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-14-Q12",
                   "clinical_context": "Patient de 35 ans sans antécédent pathologique notable présentant depuis 2 mois des hématémèses de faible abondance. La fibroscopie oeso-gastro-duodénale a montré un ulcère antral. La TDM a montré une masse exoluminale appendue à l'estomac mesurant 9 cm de grand axe. Une biopsie scannoguidée était réalisée. A l’examen histologique, cette biopsie montrait une prolifération à cellules fusiformes agencée en faisceaux. Le nombre de mitoses est estimé à 10 mitoses par 10 champs au fort grossissement.",
-                  "question_text": "A lumière des données cliniques et histologiques, quelles sont vos hypothèses diagnostiques ?",
+                  "question_text": "",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -13773,7 +13781,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-14-Q18",
                   "clinical_context": null,
-                  "question_text": "A Quelle classe histologique appartient cette prolifération tumorale ?",
+                  "question_text": "",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14211,7 +14219,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q01",
                   "clinical_context": "Patient de 66 ans ayant comme antécédent une hépatite virale chronique B. Une ponction biopsie hépatique était réalisée. A l'examen histologique, le parenchyme hépatique est dissocié par une substance safranophile délimitant des amas d'hépatocytes sans espaces portes.",
-                  "question_text": "A quoi correspond la substance safranophile",
+                  "question_text": "",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -14234,7 +14242,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "ANA-DIG-19-Q04",
-                  "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( &lt; 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
+                  "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( < 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
                   "question_text": "Les cellules à cytoplasme éosinophile et au noyau central sont des cellules :",
                   "type": "QCM",
                   "choices": [
@@ -14304,7 +14312,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "ANA-DIG-19-Q09",
-                  "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $&gt; 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
+                  "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $> 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
                   "question_text": "Comment appelle-t-on la diminution du nombre des glandes sur une muqueuse antrale ?",
                   "type": "QCM",
                   "choices": [
@@ -14482,7 +14490,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "ANA-DIG-19-Q23",
-                  "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées. A l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( &lt; 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
+                  "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées. A l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( < 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
                   "question_text": "Dans quelle pathologie s'intègrent les lésions observées en histologie ?",
                   "type": "QROC",
                   "choices": null,
@@ -14571,7 +14579,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-DIG-19-Q34",
                   "clinical_context": null,
-                  "question_text": "A lumière des données cliniques et histologiques, quel est votre diagnostic?",
+                  "question_text": "",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15491,7 +15499,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-PUL-22-Q29",
                   "clinical_context": null,
-                  "question_text": "A quoi correspondent les cellules A et les cellules B ?",
+                  "question_text": "",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15837,7 +15845,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-23-Q20",
                   "clinical_context": null,
-                  "question_text": "A quel type histologique correspond le nodule A ?",
+                  "question_text": "",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -15845,7 +15853,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-23-Q21",
                   "clinical_context": null,
-                  "question_text": "A quel type histologique correspond le nodule B ? Justifier.",
+                  "question_text": "",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -16219,7 +16227,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "ANA-END-25-Q21",
                   "clinical_context": "L’examen histologique définitif de la lésion a montré une prolifération tumorale astrocytaire avec de la nécrose tumorale.",
-                  "question_text": null,
+                  "question_text": "Quel est votre diagnostic ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -17119,7 +17127,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "IMM-DEF-02-Q37",
-                  "clinical_context": "Anis est né au terme d'une grossesse normale. A 3 mois, sont survenues une otite moyenne et une infection des voies respiratoires supérieures. A 5 et 11 mois, il fut admis à l'hôpital avec une pneumonie à Haemophilus influenzae, qui a répondu chaque fois aux antibiotiques. A 16 mois, il a souffert de balanite. A 18 mois, l'enfant était pâle, petit et maigre (poids et taille $&lt;$ au 3eme percentile). On ne relevait aucune autre anomalie. // a reçu tous les vaccins prévus pour son âge et ils ont été bien supportés, Les recherches immunologiques de la cause de ces infections récidivantes sont résumées comme suit : Dosage des Immunoglobulines sériques (g/l): \n- IgG : 0,17 : [5,5-10,0]*\n- IgA : Non détecté : [0,3-0,8]*\n- IgM : 0,07 : [0,4-1,8]*\n Anticorps spécifiques: - IgG après vaccination : \n- Anticorps anti-tétaniques : Non détectés\n- Anticorps anti-diphtériques : Non détectés\n- Anticorps anti-Polio : Non détectés\n- Anticorps anti-Rubéole : Non détectés\n- Anticorps anti-Rougeole : Non détectés\n - Isohémagglutinines (IgM) non détectées (groupe sanguin A Rh+) Sous-populations lymphocytaires du sang \n- Lymphocytes totaux : 3,5 : [2,5-5,0]\n- Lymphocytes T(CD3) : 3,02 : [1,5-3,0]\n- Lymphocytes B(CD23) : &lt;0,03 : [0,1-0,4]\n- Lymphocytes B(CD19) : &lt;0,1 : [0,3-1,0]\n- Lymphocytes B(CD20) : &lt;0,1 : [0,3-1,0]\n *Valeurs normales pour l'âge de 18 mois",
+                  "clinical_context": "Anis est né au terme d'une grossesse normale. A 3 mois, sont survenues une otite moyenne et une infection des voies respiratoires supérieures. A 5 et 11 mois, il fut admis à l'hôpital avec une pneumonie à Haemophilus influenzae, qui a répondu chaque fois aux antibiotiques. A 16 mois, il a souffert de balanite. A 18 mois, l'enfant était pâle, petit et maigre (poids et taille $<$ au 3eme percentile). On ne relevait aucune autre anomalie. // a reçu tous les vaccins prévus pour son âge et ils ont été bien supportés, Les recherches immunologiques de la cause de ces infections récidivantes sont résumées comme suit : Dosage des Immunoglobulines sériques (g/l): \n- IgG : 0,17 : [5,5-10,0]*\n- IgA : Non détecté : [0,3-0,8]*\n- IgM : 0,07 : [0,4-1,8]*\n Anticorps spécifiques: - IgG après vaccination : \n- Anticorps anti-tétaniques : Non détectés\n- Anticorps anti-diphtériques : Non détectés\n- Anticorps anti-Polio : Non détectés\n- Anticorps anti-Rubéole : Non détectés\n- Anticorps anti-Rougeole : Non détectés\n - Isohémagglutinines (IgM) non détectées (groupe sanguin A Rh+) Sous-populations lymphocytaires du sang \n- Lymphocytes totaux : 3,5 : [2,5-5,0]\n- Lymphocytes T(CD3) : 3,02 : [1,5-3,0]\n- Lymphocytes B(CD23) : <0,03 : [0,1-0,4]\n- Lymphocytes B(CD19) : <0,1 : [0,3-1,0]\n- Lymphocytes B(CD20) : <0,1 : [0,3-1,0]\n *Valeurs normales pour l'âge de 18 mois",
                   "question_text": "De quel déficit immunitaire souffre-t-il ? :",
                   "type": "QCM",
                   "choices": [
@@ -17133,7 +17141,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "IMM-DEF-02-Q38",
-                  "clinical_context": "Hanane avait souffert d'un zona et d'une pneumonie lobaire à l'âge de 29 ans. Au cours des cinq années précédentes, elle avait déjà été hospitalisée à quatre reprises pour une pneumonie, mais elle n'avait jamais souffert d'infections récidivantes durant l'enfance. A 33 ans, survint une arthrite.séronégative non érosive. On retenait également, que depuis la fin de son adolescence, elle était sujette à des épisodes-de-diarrhée qui duraient de 2 jours à 2 semaines. On ne relevait pas d'antécédents familiaux d'infections récidivantes ; elle avait deux fils, de 7 et 10 ans, tous deux-en bonne santé. Les résultats des tests immunologiques sont comme suit : Dosage des Immunoglobulines sériques (g/l): \n- IgG : 3,15 : [7,2-19,0]*\n- IgA : 0,11 : [0,8-5,0]*\n- IgM : 0,66 : [0,5-2,0]*\n Anticorps spécifiques (IgG):Après vaccination \n- Anticorps anti-tétaniques : Négatif : [&gt;0,85 UI/ml]*\n- Anticorps anti-diphtériques : Négatif : [&gt;0,2 UI/ml]*\n- Anticorps anti-Polysaccharidiques pneumocciques : Négatif : [&gt;80 UI/ml]*\n Sous populations lymphocytaires sanguines: \n- Lymphocytes totaux : 1,6 : [1,5-3,5]*\n- Lymphocytes T CD3 : 1,31 : [0,9-2,8]*\n- Lymphocytes T CD4 : 0,89 : [0,6-1,2]*\n- Lymphocytes T CD8 : 0,41 : [0,4-1,0]*\n- Lymphocytes B CD19 : 0,2 : [0,2-0,4]*\n *Valeurs normales chez l’adulte",
+                  "clinical_context": "Hanane avait souffert d'un zona et d'une pneumonie lobaire à l'âge de 29 ans. Au cours des cinq années précédentes, elle avait déjà été hospitalisée à quatre reprises pour une pneumonie, mais elle n'avait jamais souffert d'infections récidivantes durant l'enfance. A 33 ans, survint une arthrite.séronégative non érosive. On retenait également, que depuis la fin de son adolescence, elle était sujette à des épisodes-de-diarrhée qui duraient de 2 jours à 2 semaines. On ne relevait pas d'antécédents familiaux d'infections récidivantes ; elle avait deux fils, de 7 et 10 ans, tous deux-en bonne santé. Les résultats des tests immunologiques sont comme suit : Dosage des Immunoglobulines sériques (g/l): \n- IgG : 3,15 : [7,2-19,0]*\n- IgA : 0,11 : [0,8-5,0]*\n- IgM : 0,66 : [0,5-2,0]*\n Anticorps spécifiques (IgG):Après vaccination \n- Anticorps anti-tétaniques : Négatif : [>0,85 UI/ml]*\n- Anticorps anti-diphtériques : Négatif : [>0,2 UI/ml]*\n- Anticorps anti-Polysaccharidiques pneumocciques : Négatif : [>80 UI/ml]*\n Sous populations lymphocytaires sanguines: \n- Lymphocytes totaux : 1,6 : [1,5-3,5]*\n- Lymphocytes T CD3 : 1,31 : [0,9-2,8]*\n- Lymphocytes T CD4 : 0,89 : [0,6-1,2]*\n- Lymphocytes T CD8 : 0,41 : [0,4-1,0]*\n- Lymphocytes B CD19 : 0,2 : [0,2-0,4]*\n *Valeurs normales chez l’adulte",
                   "question_text": "Parmi De quel déficit immunitaire souffre-t-elle ? :",
                   "type": "QCM",
                   "choices": [
@@ -17178,7 +17186,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "IMM-DEF-02-Q41",
-                  "clinical_context": "Un homme de 48 ans a été hospitalisé pour mise au point d’une perte de poids associée à une diarrhée intermittente. Il avait des antécédents de pneumonies survenues quand il était enfant puis quand il avait commencé à travailler à l’étranger. A 33 ans il avait souffert d'une sinusite chronique avec des céphalées persistantes. A l’examen physique, il était maigre, mais on ne détectait aucun signe d’affection maligne. On ne relevait pas d’hippocratisme digital et l’auscultation pulmonaire était normale. Il n’avait ni lymphadénopathie ni hépatosplénomégalie. Il n'était pas anémique, son taux d'albumine sérique était dans la norme et les tests fonctionnels hépatiques donnaient des résultats normaux.La mise au point immunologique est détaillée dans le tableau ci-dessous : Dosage des Immunoglobulines sériques (g/l): \n- IgG : 7,2 : [6,5-12,0]*\n- IgA : &lt;0,1 : [0,8-5,0]*\n- IgM : 1,2 : [0,5-2,0]*\n- IgG1 : 2,7 : [3,6-7,3]*\n- IgG2 : 3,2 : [1,4-4,5]*\n- IgG3 : 0,1 : [0,3-1,1]*\n- IgG4 : 2,2 : [0,1-1,0]*\n Anticorps spécifiques: -IgG après vaccination: \n- Anticorps anti-tétaniques : Négatifs [&gt;0,85 iu/ml]*\n- Anticorps anti-diphtériques : Négatifs [&gt;0.2 iu/ml]*\n- Anticorps anti-Polyschharides pneumococciques : Insuffusants[&gt;0.80 U/ml]*\n Anticorps spécifiques: -IgG après infection : \n- Anticorps anti-Rubéole : Non détectables\n- Anticorps anti-Rougeole : Non détectables\n- Anticorps anti-Varicelle : Non détectables\n Sous populations lymphocytaires du sang (x109/l) \n- Lymphocytes totaux : 2,8 : [1,5-3,5]*\n- Lymphocytes T (CD3) : 2,2 : [0,9-2,8]*\n- Lymphocytes T (CD4) : 1,6 : [0,6-1,2]*\n- Lymphocytes T (CD8) : 0,6 : [0,4-1,0]*\n- Lymphocytes B (CD19) : 0,3 : [0,2-0,4]*\n Valeurs normales chez l’adulte On ne trouvait pas de cause infectieuse à la diarrhée intermittente, et un lavement baryté s’était révélé normal.L’examen endoscopique des sinus maxillaires a montré une inflammation marquée par une hypertrophie de la muqueuse.",
+                  "clinical_context": "Un homme de 48 ans a été hospitalisé pour mise au point d’une perte de poids associée à une diarrhée intermittente. Il avait des antécédents de pneumonies survenues quand il était enfant puis quand il avait commencé à travailler à l’étranger. A 33 ans il avait souffert d'une sinusite chronique avec des céphalées persistantes. A l’examen physique, il était maigre, mais on ne détectait aucun signe d’affection maligne. On ne relevait pas d’hippocratisme digital et l’auscultation pulmonaire était normale. Il n’avait ni lymphadénopathie ni hépatosplénomégalie. Il n'était pas anémique, son taux d'albumine sérique était dans la norme et les tests fonctionnels hépatiques donnaient des résultats normaux.La mise au point immunologique est détaillée dans le tableau ci-dessous : Dosage des Immunoglobulines sériques (g/l): \n- IgG : 7,2 : [6,5-12,0]*\n- IgA : <0,1 : [0,8-5,0]*\n- IgM : 1,2 : [0,5-2,0]*\n- IgG1 : 2,7 : [3,6-7,3]*\n- IgG2 : 3,2 : [1,4-4,5]*\n- IgG3 : 0,1 : [0,3-1,1]*\n- IgG4 : 2,2 : [0,1-1,0]*\n Anticorps spécifiques: -IgG après vaccination: \n- Anticorps anti-tétaniques : Négatifs [>0,85 iu/ml]*\n- Anticorps anti-diphtériques : Négatifs [>0.2 iu/ml]*\n- Anticorps anti-Polyschharides pneumococciques : Insuffusants[>0.80 U/ml]*\n Anticorps spécifiques: -IgG après infection : \n- Anticorps anti-Rubéole : Non détectables\n- Anticorps anti-Rougeole : Non détectables\n- Anticorps anti-Varicelle : Non détectables\n Sous populations lymphocytaires du sang (x109/l) \n- Lymphocytes totaux : 2,8 : [1,5-3,5]*\n- Lymphocytes T (CD3) : 2,2 : [0,9-2,8]*\n- Lymphocytes T (CD4) : 1,6 : [0,6-1,2]*\n- Lymphocytes T (CD8) : 0,6 : [0,4-1,0]*\n- Lymphocytes B (CD19) : 0,3 : [0,2-0,4]*\n Valeurs normales chez l’adulte On ne trouvait pas de cause infectieuse à la diarrhée intermittente, et un lavement baryté s’était révélé normal.L’examen endoscopique des sinus maxillaires a montré une inflammation marquée par une hypertrophie de la muqueuse.",
                   "question_text": "De quel déficit immunitaire souffre-t-il ? :",
                   "type": "QCM",
                   "choices": [
@@ -20457,7 +20465,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "SYS-CAS-12-Q24",
-                  "clinical_context": null,
+                  "clinical_context": "Après ce bilan initial, la patiente a complété le tableau clinique par une turgescence des veines jugulaires et des troubles de rythme.",
                   "question_text": "Quels sont les examens paracliniques qui vont nous aider dans notre recherche étiologique ?",
                   "type": "QCM",
                   "choices": [
@@ -20470,7 +20478,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "SYS-CAS-12-Q25",
-                  "clinical_context": null,
+                  "clinical_context": "Après ce bilan initial, la patiente a complété le tableau clinique par une turgescence des veines jugulaires et des troubles de rythme.",
                   "question_text": "Après orientation diagnostic, quel est l'examen paraclinique qui nous permet de retenir le diagnostic avec certitude ?",
                   "type": "QCM",
                   "choices": [
@@ -20483,7 +20491,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "SYS-CAS-12-Q26",
-                  "clinical_context": null,
+                  "clinical_context": "Après ce bilan initial, la patiente a complété le tableau clinique par une turgescence des veines jugulaires et des troubles de rythme.",
                   "question_text": "Selon le tableau clinique présenté par cette malade, quels sont les bases physiopathologiques de sa maladie ?",
                   "type": "QCM",
                   "choices": [
@@ -22702,7 +22710,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "SYS-GEN-23-Q39",
-                  "clinical_context": "Patient de 40 ans, sans antécédents, qui consulte pour un amaigrissement $( &gt; 1 0 \\mathsf { K } \\mathsf { g } )$ depuis 6 mois, avec une fièvre mal tolérée qui évolue depuis 3mois. À l'interrogatoire le malade rapporte la notion d'arthralgies inflammatoires, et des myalgies diffuses. L'examen physique objective un Livedo au niveau des membres inférieurs, et une amyotrophie avec douleur musculaire à la palpation des 4 membres.",
+                  "clinical_context": "Patient de 40 ans, sans antécédents, qui consulte pour un amaigrissement $( > 1 0 \\mathsf { K } \\mathsf { g } )$ depuis 6 mois, avec une fièvre mal tolérée qui évolue depuis 3mois. À l'interrogatoire le malade rapporte la notion d'arthralgies inflammatoires, et des myalgies diffuses. L'examen physique objective un Livedo au niveau des membres inférieurs, et une amyotrophie avec douleur musculaire à la palpation des 4 membres.",
                   "question_text": "Quelles sont des autres manifestations cliniques que peut présenter ce patient?",
                   "type": "QROC",
                   "choices": null,
@@ -22798,7 +22806,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "SYS-GEN-23-Q51",
-                  "clinical_context": null,
+                  "clinical_context": "Patient de 68 ans, ayant comme antécédent une tuberculose pulmonaire traitée et déclarée guérie il y a 10 ans. suivie actuellement pour Polyarthrite Rhumatoïde, se présentant en consultation pour oligurie et œdème généralisé. L’examen clinique chez ce patient trouve: un purpura facial en lunette et une macroglossie. Un bilan paraclinique réalisé trouve: Urée:1.04g/l, créatinémie :53mg/l.",
                   "question_text": "Citer les examens paracliniques biologiques à demander chez ce patient.",
                   "type": "QROC",
                   "choices": null,
@@ -22806,7 +22814,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "SYS-GEN-23-Q52",
-                  "clinical_context": null,
+                  "clinical_context": "Patient de 68 ans, ayant comme antécédent une tuberculose pulmonaire traitée et déclarée guérie il y a 10 ans. suivie actuellement pour Polyarthrite Rhumatoïde, se présentant en consultation pour oligurie et œdème généralisé. L’examen clinique chez ce patient trouve: un purpura facial en lunette et une macroglossie. Un bilan paraclinique réalisé trouve: Urée:1.04g/l, créatinémie :53mg/l.",
                   "question_text": "Quel est l’examen de confirmation de votre diagnostic?",
                   "type": "QROC",
                   "choices": null,
@@ -22919,7 +22927,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q66",
                   "clinical_context": "Patiente âgée de 24 ans, présente depuis 1 mois des arthralgies survenant durant la 2eme moitié de la nuit, une rougeur des pommettes et de la racine du nez aggravée lors de l'exposition au soleil, un œdème des membres inférieurs et une asthénie.",
-                  "question_text": "A quel diagnostic vous pensez ?",
+                  "question_text": "",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -22983,7 +22991,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "SYS-GEN-23-Q74",
                   "clinical_context": null,
-                  "question_text": "A quelle complication vous pensez",
+                  "question_text": "",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -24132,7 +24140,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "GEN-TRI-07-Q50",
-                  "clinical_context": "QR 1 :",
+                  "clinical_context": null,
                   "question_text": "La trisomie 13 : clinique et cytogénétique",
                   "type": "QROC",
                   "choices": null,
@@ -24140,7 +24148,7 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "GEN-TRI-07-Q51",
-                  "clinical_context": "QR 2 :",
+                  "clinical_context": null,
                   "question_text": "La trisomie 13 : cytogénétique, évolution et conseil génétique",
                   "type": "QROC",
                   "choices": null,
@@ -24148,8 +24156,8 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "GEN-TRI-07-Q52",
-                  "clinical_context": "Cas clinique 1:",
-                  "question_text": "Quelle est votre conduite à tenir (conseil génétique) :",
+                  "clinical_context": null,
+                  "question_text": "Quelle est votre conduite à tenir (conseil génétique) :\n- Nouveau-né de trois jours\n- Présente un syndrome polymalformatif\n- L'âge du père : 30 ans, l'âge de la mère : 27 ans\n- Antécédents de trois fausses couches chez ce couple.\n- Le caryotype du Nouveau-né : trisomie 13 par translocation robertsonienne t(13q;14q)\n\n(sorry we couldn't integrate the image, please check the pdf version)",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25489,7 +25497,7 @@ const ATARAXIE_S8_DB = {
                 {
                   "id": "GEN-TRA-14-Q08",
                   "clinical_context": null,
-                  "question_text": "La construction de l'arbre généalogique utilise des symboles internationaux, Quelles sont les propositions justes ?\nA Sexeindetermine\nB OSujet malade\nC □OMariaqe\nSujet malade\nSujet heterozygote",
+                  "question_text": "La construction de l'arbre généalogique utilise des symboles internationaux, Quelles sont les propositions justes ?",
                   "type": "QROC",
                   "choices": null,
                   "requires_review": false
@@ -25566,12 +25574,10 @@ const ATARAXIE_S8_DB = {
                 },
                 {
                   "id": "GEN-TRA-14-Q17",
-                  "clinical_context": "■ Pénétrance incomplète ■ Néo-mutation ■ Mosaïcisme gonadique ■ Mariage consanguin ■ Maladie congénitale Cas clinique 1:",
-                  "question_text": "a",
-                  "type": "QCM",
-                  "choices": [
-                    "Quel est le risque pour le sujet IV2 d'être atteint"
-                  ],
+                  "clinical_context": null,
+                  "question_text": "a. L'arbre généalogique ci-dessous correspond à quel mode de transmission héréditaire ?\n(sorry we couldn't integrate the image, please check the pdf version)\nb. Quel est le risque pour le sujet IV2 d'être atteint ?",
+                  "type": "redaction",
+                  "choices": [],
                   "requires_review": false
                 },
                 {
@@ -26145,3 +26151,7 @@ const ATARAXIE_S8_DB = {
     }
   ]
 };
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = ATARAXIE_S8_DB;
+}
