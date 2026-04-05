@@ -1005,6 +1005,7 @@
     ══════════════════════════════════════════════════════════ */
 
         /* ── Chapter Banner ── */
+
         .ch-banner {
             margin-top: 28px;
             margin-bottom: 28px;
@@ -1017,70 +1018,91 @@
             align-items: center;
             justify-content: space-between;
             gap: 20px;
-            flex-wrap: wrap;
-            
+            flex-wrap: nowrap;
             position: sticky;
-            top: 56px; 
-            z-index: 15;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(12px) saturate(180%);
-            background: rgba(255, 255, 255, 0.88);
+            top: 77px; /* Space from top */
+            z-index: 100;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
         }
-        
-        [data-theme="dark"] .ch-banner {
-            background: rgba(30, 31, 35, 0.90);
+
+        .ch-banner-left {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        
-        .ch-banner.compact {
-            padding: 8px 16px;
-            margin-top: 10px;
+
+        .ch-pills {
+            flex-shrink: 0;
+            display: flex;
+            gap: 8px;
+        }
+
+        .ch-banner.scrolled {
+            top: 57px;
+            border-radius: 0 0 16px 16px;
+            margin-top: 0;
             margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0,0,0,0.05);
         }
-        
-        .ch-banner-left p {
-            font-size: .72rem;
-            color: var(--t3);
-            font-weight: 500;
-            margin-top: 4px;
-            max-height: 20px;
-            opacity: 1;
+
+        .ch-banner.scrolled .ch-banner-left h3 {
+            font-size: 1rem;
+            max-width: 300px;
+            white-space: nowrap;
             overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ch-banner-left h3, .ch-banner-left p {
             transition: all 0.3s ease;
         }
-        
-        .ch-banner.compact .ch-banner-left p {
-            max-height: 0;
+
+        .ch-banner.scrolled .ch-banner-left p {
+            font-size: 0;
             opacity: 0;
-            margin: 0;
-        }
-
-        .ch-banner.compact .ch-banner-left h3 {
-            font-size: 0.95rem;
-            margin: 0;
+            margin-top: 0;
+            height: 0;
         }
         
-        .ch-banner.compact .ch-pill {
-            padding: 4px 8px;
+        .ch-banner.scrolled .ch-pills {
+            gap: 6px;
+        }
+
+        .ch-banner.scrolled .ch-pill {
+            padding: 6px 12px;
+        }
+
+        .ch-banner.scrolled .ch-pill span:not(.ch-pill-num):not(:first-of-type) {
+            display: none;
+        }
+        
+        .ch-banner.scrolled .ch-pill-ans::after {
+            content: ' rép.';
             font-size: 0.65rem;
-            gap: 4px;
-        }
-
-        .ch-banner.compact .ch-pill svg {
-            width: 14px;
-            height: 14px;
+            font-weight: 500;
+            margin-left: 2px;
         }
         
-        .ch-banner.compact .ch-btn-cmp {
+        .ch-banner.scrolled .ch-pill-val::after {
+            content: ' val.';
+            font-size: 0.65rem;
+            font-weight: 500;
+            margin-left: 2px;
+        }
+        
+        .ch-banner.scrolled .ch-btn-cmp {
             padding: 6px;
-            border-radius: 8px;
-        }
-        
-        .ch-banner.compact .ch-btn-cmp svg {
-            width: 16px;
-            height: 16px;
+            border-radius: 10px;
         }
 
         .ch-banner-left h3 {
@@ -1088,19 +1110,26 @@
             font-weight: 800;
             color: var(--t1);
             letter-spacing: -.03em;
-            line-height: 1.3
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .ch-banner-left p {
             font-size: .72rem;
             color: var(--t3);
             font-weight: 500;
-            margin-top: 4px
+            margin-top: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .ch-pills {
+            flex-shrink: 0;
             display: flex;
-            gap: 8px
+            gap: 8px;
         }
 
         .ch-pill {
@@ -1125,21 +1154,14 @@
             border: 1px solid var(--g100)
         }
 
-        .ch-pill span {
-            font-variant-numeric: tabular-nums;
-            letter-spacing: -0.02em;
-        }
-
-        .ch-pill-num, .ch-pill .ch-pill-num {
-            font-weight: 800;
-            font-size: 0.72rem;
-            margin-right: 2px;
-            font-family: inherit; /* remove monospace to match reference image */
-        }
-
         .ch-pill svg {
             width: 14px;
             height: 14px
+        }
+
+        .ch-pill .ch-pill-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700
         }
 
         /* ── Question Stream ── */
@@ -1578,6 +1600,35 @@
             margin-top: 6px;
         }
 
+
+        /* ── Copy Question Button ── */
+        .copy-q-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            border: 1.5px solid var(--pbs);
+            background: var(--p1);
+            font-family: inherit;
+            font-size: .68rem;
+            font-weight: 600;
+            color: var(--t4);
+            transition: all .2s var(--ease);
+            flex-shrink: 0;
+        }
+        .copy-q-btn svg { width: 13px; height: 13px; }
+        .copy-q-btn:hover {
+            border-color: var(--b200);
+            color: var(--b600);
+            background: var(--b50);
+            box-shadow: 0 2px 8px rgba(74, 79, 244, .1);
+        }
+        .copy-q-btn.copied {
+            border-color: var(--g400);
+            color: var(--g600);
+            background: var(--g50);
+        }
         .val-toggle {
             display: inline-flex;
             align-items: center;
@@ -3785,6 +3836,19 @@
                 // Always start on home — do NOT auto-restore ak
                 document.getElementById('hb').addEventListener('click', togMob);
 
+
+                // Scroll Listener to compress chapter banner
+                window.addEventListener('scroll', () => {
+                    const banner = document.querySelector('.ch-banner');
+                    if (banner) {
+                        if (window.scrollY > 40) {
+                            banner.classList.add('scrolled');
+                        } else {
+                            banner.classList.remove('scrolled');
+                        }
+                    }
+                }, { passive: true });
+
                 let filterTimer;
             document.getElementById('si').addEventListener('input', (e) => {
                 clearTimeout(filterTimer);
@@ -3800,18 +3864,7 @@
                 document.getElementById('profile-modal-close').addEventListener('click', closeProfileModal);
                 document.getElementById('sb-brand').addEventListener('click', goHome);
                 const stt = document.getElementById('stt');
-                window.addEventListener('scroll', () => {
-                    stt.classList.toggle('vis', window.scrollY > 400);
-                    
-                    const banner = document.querySelector('.ch-banner');
-                    if (banner) {
-                        if (window.scrollY > 30) {
-                            banner.classList.add('compact');
-                        } else {
-                            banner.classList.remove('compact');
-                        }
-                    }
-                });
+                window.addEventListener('scroll', () => stt.classList.toggle('vis', window.scrollY > 400));
                 stt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
                 // Global his-pop dismiss (registered once here, not in wire())
@@ -3960,8 +4013,8 @@
                 ak = mk(mod, chap); st.ac = ak; svLocal();
                 const isOfficialMode = false;
                 const entry = D.find(d => d.module === mod && d.chapitre === chap); if (!entry) return;
-                document.getElementById('ht').textContent = chap;
-                document.getElementById('hs').textContent = mod;
+                document.getElementById('ht').textContent = mod;
+                document.getElementById('hs').textContent = '';
                 document.getElementById('ws').style.display = 'none';
 
                 const c = document.getElementById('qc'); c.style.display = ''; c.innerHTML = '';
@@ -3977,11 +4030,13 @@
             <div class="ch-pills">
                 <div class="ch-pill ch-pill-ans">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
-                    <span><strong class="ch-pill-num"><span id="ch-ans">${ansC}</span> / ${totC}</strong> répondues</span>
+                    <span class="ch-pill-num" id="ch-ans">${ansC}</span>
+                    <span>/ ${totC} répondues</span>
                 </div>
                 <div class="ch-pill ch-pill-val">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                    <span><strong class="ch-pill-num"><span id="ch-val">${valC}</span> / ${totC}</strong> validées</span>
+                    <span class="ch-pill-num" id="ch-val">${valC}</span>
+                    <span>/ ${totC} validées</span>
                 </div>
                 <button class="ch-btn-cmp" id="btn-cmp" title="Comparer mes réponses">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
@@ -4105,7 +4160,12 @@
                     /* Footer */
                     if (!isOfficialMode) {
                         h += `<div class="qcard-foot">
-                    <button class="val-toggle${isVal ? ' on' : ''}" data-key="${esc(key)}">
+                    
+                      <button class="copy-q-btn" data-key="${esc(key)}" title="Copier la question">
+                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                          Copier
+                      </button>
+                      <button class="val-toggle${isVal ? ' on' : ''}" data-key="${esc(key)}">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${isVal ? 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' : 'M9 12l2 2 4-4'}"/></svg>
                         ${isVal ? 'Correction validée' : 'Marquer comme validée'}
                     </button>
@@ -4273,6 +4333,85 @@
             /* ══════════ WIRE EVENTS ══════════ */
             function wire(c, entry) {
                 const mod = entry.module, chap = entry.chapitre;
+
+                
+                c.querySelectorAll('.copy-q-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const key = btn.dataset.key;
+                        const card = btn.closest('.qcard');
+                        if (!card) return;
+
+                        const enonce = card.querySelector('.qcard-enonce');
+                        const qText = enonce ? enonce.textContent.trim() : '';
+
+                        let ctxText = '';
+                        let prev = card.previousElementSibling;
+                        while (prev) {
+                            if (prev.classList.contains('ctx-panel')) {
+                                const ctxBody = prev.querySelector('.ctx-body');
+                                if (ctxBody) ctxText = ctxBody.textContent.trim();
+                                break;
+                            }
+                            if (prev.classList.contains('qcard')) break;
+                            prev = prev.previousElementSibling;
+                        }
+
+                        const optTiles = card.querySelectorAll('.opt-tile:not(.opt-blank)');
+                        const isQCM = optTiles.length > 0;
+
+                        let lines = [];
+                        if (ctxText) {
+                            lines.push('── Cas clinique / Contexte ──');
+                            lines.push(ctxText);
+                            lines.push('');
+                        }
+
+                        lines.push('── Question ──');
+                        lines.push(qText);
+
+                        if (isQCM) {
+                            lines.push('');
+                            lines.push('── Propositions ──');
+                            optTiles.forEach(tile => {
+                                const letter = tile.querySelector('.opt-tile-letter');
+                                const text = tile.querySelector('.opt-tile-text');
+                                const l = letter ? letter.textContent.trim() : '';
+                                const t = text ? text.textContent.trim() : '';
+                                lines.push(l + '. ' + t);
+                            });
+                            lines.push('');
+                            lines.push('(QCM — une ou plusieurs réponses correctes)');
+                        }
+
+                        const copyText = lines.join('\n');
+
+                        navigator.clipboard.writeText(copyText).then(() => {
+                            btn.classList.add('copied');
+                            const orig = btn.innerHTML;
+                            btn.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Copié !`;
+                            setTimeout(() => {
+                                btn.classList.remove('copied');
+                                btn.innerHTML = orig;
+                            }, 2000);
+                        }).catch(() => {
+                            const ta = document.createElement('textarea');
+                            ta.value = copyText;
+                            ta.style.position = 'fixed';
+                            ta.style.opacity = '0';
+                            document.body.appendChild(ta);
+                            ta.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(ta);
+                            btn.classList.add('copied');
+                            const orig = btn.innerHTML;
+                            btn.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Copié !`;
+                            setTimeout(() => {
+                                btn.classList.remove('copied');
+                                btn.innerHTML = orig;
+                            }, 2000);
+                        });
+                    });
+                });
 
                 c.querySelectorAll('.opt-tile').forEach(tile => {
                     tile.addEventListener('click', () => {
@@ -4565,20 +4704,7 @@
 
                             if (!l) l = '-';
                             const d = document.createElement('div'); d.className = 'cmp-item';
-                            d.style.cursor = 'pointer';
                             d.innerHTML = `<div class="cmp-ans">${idx + 1}-${l}</div>`;
-                            d.addEventListener('click', () => {
-                                document.getElementById('cmp-close').click();
-                                const qcard = document.querySelector(`.qcard[data-key="${esc(key)}"]`);
-                                if (qcard) {
-                                    setTimeout(() => {
-                                        const hdrOffset = 80;
-                                        window.scrollTo({ top: qcard.getBoundingClientRect().top + window.pageYOffset - hdrOffset, behavior: 'smooth' });
-                                        qcard.classList.add('card-glow-focus');
-                                        setTimeout(() => qcard.classList.remove('card-glow-focus'), 1500);
-                                    }, 100);
-                                }
-                            });
                             b.appendChild(d);
                         } else {
                             const otherAns = targetQcm[key] || [];
@@ -5203,7 +5329,7 @@
     function handleHighlight(e, delay) {
         setTimeout(function() {
             // Only allow highlighting in specific reading areas
-            if (!e.target.closest('.qcard-enonce, .ctx-body, .opt-tile, .conf-q-info, .qcard-head')) return;
+            if (!e.target.closest('.qcard-enonce, .ctx-body')) return;
             
             // EXPLICITLY prevent highlighting inside inputs, textareas, or contentEditable elements
             if (e.target.closest('input, textarea, button, .custom-modal-box, [contenteditable="true"]')) return;
