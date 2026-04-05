@@ -1027,7 +1027,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "PED-DIG-04-Q19",
-                                    "clinical_context": null,
+                                    "clinical_context": "Basma est âgée de 4 ans, sans ATCD pathologiques particuliers. Elle consulte pour une diarrhée chronique. Elle a perdu son appétit, ne joue pas comme d’habitude. Son examen clinique note une pâleur cutanéo-muqueuse modérée, un poids à 11 kg (-3DS) et une taille à 88. cm (-3DS)",
                                     "question_text": "Quel est le diagnostic le plus probable chez elle :",
                                     "type": "QCM",
                                     "choices": [
@@ -1186,7 +1186,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "PED-HEM-05-Q08",
-                                    "clinical_context": null,
+                                    "clinical_context": "Fille âgée de 2 ans, ayant comme antécédent une consanguinité de premier degré, présente une pâleur cutanéo-muqueuse avec splénomégalie à trois travers de doigts.",
                                     "question_text": "Les diagnostics à évoquer sont :",
                                     "type": "QCM",
                                     "choices": [
@@ -3345,11 +3345,11 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "PED-NPH-15-Q21",
-                                    "clinical_context": null,
-                                    "question_text": "Amina une fille âgée de 11 ans qui se présente aux urgences pédiatriques pour une hématurie macroscopique évoluant depuis 2 jours avec oligurie. l'examen clinique retrouve une Température à 37,5 ; TA 15/9; un poids à 35kg; des oedèmes discrets au niveau des paupières et des membres inférieurs ne prenant pas le godet; BU protéines à $^ { 2 + }$ et GR à $\\hphantom { 0 } 3 + + +$ ; le reste de l'examen est sans particularité.",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
+                                "clinical_context": "Amina une fille âgée de 11 ans qui se présente aux urgences pédiatriques pour une hématurie macroscopique évoluant depuis 2 jours avec oligurie. l'examen clinique retrouve une Température à 37,5 ; TA 15/9; un poids à 35kg; des oedèmes discrets au niveau des paupières et des membres inférieurs ne prenant pas le godet; BU protéines à $^ { 2 + }$ et GR à 3 + + + ; le reste de l'examen est sans particularité.",
+                                "question_text": "Quel est le diagnostic le plus probable ?",
+                                "type": "QROC",
+                                "choices": null,
+                                "requires_review": false
                                 },
                                 {
                                     "id": "PED-NPH-15-Q22",
