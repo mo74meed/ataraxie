@@ -346,7 +346,16 @@
             flex: 1;
             overflow: hidden;
             text-overflow: ellipsis;
-            white-space: nowrap
+            white-space: nowrap;
+        }
+
+        .sb-mod-btn:hover .mname {
+            text-overflow: clip;
+        }
+
+        .sb-mod-btn:hover .mname .marquee-inner,
+        .sb-ch:hover .cname .marquee-inner {
+            animation: sb-marquee 5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
         }
 
         .mb {
@@ -437,7 +446,26 @@
             flex: 1;
             overflow: hidden;
             text-overflow: ellipsis;
-            white-space: nowrap
+            white-space: nowrap;
+        }
+
+        .sb-ch:hover .cname {
+            text-overflow: clip;
+        }
+
+        /* Smooth GPU-accelerated marquee via transform on inner span */
+        .cname .marquee-inner,
+        .mname .marquee-inner {
+            display: inline-block;
+            white-space: nowrap;
+            will-change: transform;
+        }
+
+        @keyframes sb-marquee {
+            0%   { transform: translateX(0); }
+            15%  { transform: translateX(0); }
+            80%  { transform: translateX(var(--mq-offset, -60%)); }
+            100% { transform: translateX(var(--mq-offset, -60%)); }
         }
 
         .cb {
@@ -448,12 +476,25 @@
             font-family: 'JetBrains Mono', monospace;
             white-space: nowrap;
             background: rgba(255, 255, 255, .04);
-            color: var(--tsd)
+            color: var(--tsd);
+            cursor: pointer;
+            transition: background .15s ease, color .15s ease;
+            flex-shrink: 0;
+        }
+
+        .cb:hover {
+            background: rgba(74, 79, 244, .18);
+            color: var(--b200);
         }
 
         .cb.done {
             background: rgba(16, 185, 129, .1);
             color: var(--g400)
+        }
+
+        .cb.done:hover {
+            background: rgba(16, 185, 129, .22);
+            color: var(--g400);
         }
 
         .sb-foot {
@@ -790,8 +831,9 @@
             position: sticky;
             top: 0;
             z-index: 20;
-            background: rgba(247, 246, 243, .82);
+            background: rgba(247, 246, 243, .95);
             backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
             border-bottom: 1px solid var(--pbs)
         }
 
@@ -1020,11 +1062,9 @@
             gap: 20px;
             flex-wrap: nowrap;
             position: sticky;
-            top: 77px; /* Space from top */
-            z-index: 100;
+            top: 56px; /* Sits flush below the 56px header */
+            z-index: 10; /* Below sidebar (z:40) and overlay (z:35) */
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(0px);
-            -webkit-backdrop-filter: blur(0px);
         }
 
         .ch-banner-left {
@@ -1042,14 +1082,12 @@
         }
 
         .ch-banner.scrolled {
-            top: 57px;
+            top: 56px;
             border-radius: 0 0 16px 16px;
             margin-top: 0;
             margin-bottom: 20px;
             padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.90);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.96);
             border-top: none;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border-color: rgba(0,0,0,0.05);
@@ -1057,7 +1095,6 @@
 
         .ch-banner.scrolled .ch-banner-left h3 {
             font-size: 1rem;
-            max-width: 300px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -1116,6 +1153,19 @@
             text-overflow: ellipsis;
         }
 
+        /* Marquee scroll on hover — only when text overflows */
+        .ch-banner-left h3:hover {
+            text-overflow: clip;
+            animation: marquee-scroll 6s linear forwards;
+        }
+
+        @keyframes marquee-scroll {
+            0%   { text-indent: 0; }
+            15%  { text-indent: 0; } /* pause before starting */
+            85%  { text-indent: var(--marquee-offset, -60%); }
+            100% { text-indent: var(--marquee-offset, -60%); }
+        }
+
         .ch-banner-left p {
             font-size: .72rem;
             color: var(--t3);
@@ -1124,6 +1174,13 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        /* Marquee on hdr-title too */
+        .hdr-title:hover,
+        .hdr-sub:hover {
+            text-overflow: clip;
+            animation: marquee-scroll 5s linear forwards;
         }
 
         .ch-pills {
@@ -1240,6 +1297,47 @@
             font-weight: 550;
             letter-spacing: -.01em;
             padding-left: 14px;
+        }
+
+        /* ── Context Update Panel (delta only) ── */
+        .ctx-update {
+            background: var(--a50);
+            border: 1px solid #fde68a;
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            box-shadow: var(--shadow-card);
+            animation: fadeIn .4s var(--ease) both;
+            position: relative;
+        }
+
+        .ctx-update::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            bottom: 18px;
+            width: 3px;
+            background: var(--a500);
+            border-radius: 0 3px 3px 0;
+        }
+
+        .ctx-update .ctx-header .ctx-icon {
+            background: #fef3c7;
+            color: var(--a600);
+            border-color: #fde68a;
+        }
+
+        .ctx-update .ctx-title {
+            color: var(--a700);
+        }
+
+        .ctx-update .ctx-divider {
+            background: #fde68a;
+        }
+
+        .ctx-update .ctx-body {
+            color: var(--a700);
         }
 
         /* ── Question Card (REDESIGNED) ── */
@@ -3841,7 +3939,7 @@
                 window.addEventListener('scroll', () => {
                     const banner = document.querySelector('.ch-banner');
                     if (banner) {
-                        if (window.scrollY > 40) {
+                        if (window.scrollY > 20) {
                             banner.classList.add('scrolled');
                         } else {
                             banner.classList.remove('scrolled');
@@ -3962,7 +4060,15 @@
                     const head = document.createElement('div'); head.className = 'sb-mod-head';
                     const btn = document.createElement('button');
                     btn.className = 'sb-mod-btn' + (op ? ' exp' : '');
-                    btn.innerHTML = `<svg class="arr" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg><span class="mname">${esc(mn)}</span><span class="mb ${vq === tq && tq > 0 ? 'mb-done' : 'mb-default'}" data-mb="${esc(mn)}">${vq}/${tq}</span>`;
+                    btn.innerHTML = `<svg class="arr" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg><span class="mname"><span class="marquee-inner">${esc(mn)}</span></span><span class="mb ${vq === tq && tq > 0 ? 'mb-done' : 'mb-default'}" data-mb="${esc(mn)}">${vq}/${tq}</span>`;
+                    requestAnimationFrame(() => {
+                        const inner = btn.querySelector('.marquee-inner');
+                        const container = btn.querySelector('.mname');
+                        if (inner && container && inner.scrollWidth > container.clientWidth) {
+                            const overflow = inner.scrollWidth - container.clientWidth;
+                            container.style.setProperty('--mq-offset', `-${overflow}px`);
+                        }
+                    });
                     const sortBtn = document.createElement('button');
                     sortBtn.type = 'button';
                     sortBtn.className = 'sb-sort-btn' + (sortEnabled ? ' active' : '');
@@ -3984,8 +4090,29 @@
                         const ck = mk(e.module, e.chapitre), vc = cntChAns(e);
                         const cb = document.createElement('button');
                         cb.className = 'sb-ch' + (ak === ck ? ' active' : ''); cb.dataset.ck = ck;
-                        cb.innerHTML = `<span class="cname">${esc(e.chapitre)}</span><span class="cb ${vc === e.questions.length && e.questions.length > 0 ? 'done' : ''}" data-cb="${esc(ck)}">${vc}/${e.questions.length}</span>`;
-                        cb.addEventListener('click', () => { render(e.module, e.chapitre); hlAct(); if (window.innerWidth <= 1024) togMob() });
+                        cb.innerHTML = `<span class="cname"><span class="marquee-inner">${esc(e.chapitre)}</span></span><span class="cb ${vc === e.questions.length && e.questions.length > 0 ? 'done' : ''}" data-cb="${esc(ck)}" title="Aller à la dernière question répondue">${vc}/${e.questions.length}</span>`;
+                        cb.addEventListener('click', (ev) => {
+                            // If clicking the .cb badge, scroll to last answered question
+                            if (ev.target.closest('.cb') && vc > 0) {
+                                ev.stopPropagation();
+                                // Find last answered question in this chapter
+                                const lastAnswered = [...e.questions].reverse().find(q => isAns(mk(e.module, e.chapitre, q.id), q.type));
+                                render(e.module, e.chapitre, lastAnswered ? lastAnswered.id : null);
+                                hlAct();
+                                if (window.innerWidth <= 1024) togMob();
+                                return;
+                            }
+                            render(e.module, e.chapitre); hlAct(); if (window.innerWidth <= 1024) togMob();
+                        });
+                        // Set marquee offset dynamically based on text overflow
+                        requestAnimationFrame(() => {
+                            const inner = cb.querySelector('.marquee-inner');
+                            const container = cb.querySelector('.cname');
+                            if (inner && container && inner.scrollWidth > container.clientWidth) {
+                                const overflow = inner.scrollWidth - container.clientWidth;
+                                container.style.setProperty('--mq-offset', `-${overflow}px`);
+                            }
+                        });
                         cl.appendChild(cb);
                     });
                     btn.addEventListener('click', () => { const o = cl.classList.toggle('open'); btn.classList.toggle('exp', o); st.sb[mn] = o; svLocal() });
@@ -4062,19 +4189,46 @@
                     const key = mk(mod, chap, q.id);
 
                     /* Context */
-                    if (q.contexte && q.contexte.trim() && q.contexte.trim() !== lastCtx) {
-                        lastCtx = q.contexte.trim();
-                        const ct = document.createElement('div'); ct.className = 'ctx-panel'; ct.style.animationDelay = delay + 'ms'; delay += 30;
-                        ct.innerHTML = `
-                    <div class="ctx-header">
-                        <div class="ctx-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
-                        <div class="ctx-title">Cas Clinique / Contexte</div>
-                    </div>
-                    <div class="ctx-divider"></div>
-                    <div class="ctx-body">${esc(lastCtx)}</div>
-                `;
-                        stream.appendChild(ct);
-                    } else if (!q.contexte || !q.contexte.trim()) lastCtx = null;
+                    if (q.contexte && q.contexte.trim()) {
+                        const newCtx = q.contexte.trim();
+                        if (newCtx !== lastCtx) {
+                            // Check if this is a delta update: new context starts with lastCtx + extra text
+                            const isUpdate = lastCtx && newCtx.startsWith(lastCtx) && newCtx.length > lastCtx.length;
+                            if (isUpdate) {
+                                // Extract only the new delta portion
+                                const delta = newCtx.slice(lastCtx.length).replace(/^\s*\n+/, '').trim();
+                                if (delta) {
+                                    lastCtx = newCtx;
+                                    const ct = document.createElement('div'); ct.className = 'ctx-update'; ct.style.animationDelay = delay + 'ms'; delay += 30;
+                                    ct.innerHTML = `
+                                <div class="ctx-header">
+                                    <div class="ctx-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg></div>
+                                    <div class="ctx-title">Mise à jour du cas</div>
+                                </div>
+                                <div class="ctx-divider"></div>
+                                <div class="ctx-body">${esc(delta)}</div>
+                            `;
+                                    stream.appendChild(ct);
+                                }
+                            } else {
+                                // Completely new context
+                                lastCtx = newCtx;
+                                const ct = document.createElement('div'); ct.className = 'ctx-panel'; ct.style.animationDelay = delay + 'ms'; delay += 30;
+                                ct.innerHTML = `
+                                <div class="ctx-header">
+                                    <div class="ctx-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
+                                    <div class="ctx-title">Cas Clinique / Contexte</div>
+                                </div>
+                                <div class="ctx-divider"></div>
+                                <div class="ctx-body">${esc(lastCtx)}</div>
+                            `;
+                                stream.appendChild(ct);
+                            }
+                        }
+                        // else: same context as last shown → skip (no duplicate card)
+                    } else {
+                        lastCtx = null;
+                    }
 
                     const _isAns = isAns(key, q.type), isVal = st.val[key] === true;
                     const officialAns = st.official[key];
@@ -4347,9 +4501,16 @@
                         let ctxText = '';
                         let prev = card.previousElementSibling;
                         while (prev) {
+                            if (prev.classList.contains('ctx-update')) {
+                                const ctxBody = prev.querySelector('.ctx-body');
+                                if (ctxBody) ctxText = (ctxText ? ctxBody.textContent.trim() + '\n\n' + ctxText : ctxBody.textContent.trim());
+                                // keep walking back to find the base ctx-panel too
+                                prev = prev.previousElementSibling;
+                                continue;
+                            }
                             if (prev.classList.contains('ctx-panel')) {
                                 const ctxBody = prev.querySelector('.ctx-body');
-                                if (ctxBody) ctxText = ctxBody.textContent.trim();
+                                if (ctxBody) ctxText = ctxText ? ctxBody.textContent.trim() + '\n\n' + ctxText : ctxBody.textContent.trim();
                                 break;
                             }
                             if (prev.classList.contains('qcard')) break;
