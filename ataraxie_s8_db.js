@@ -3231,7 +3231,7 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "La protéinurie de 24 h est ≥ 50 mg/kg/24h",
-                                        "Le taux d’albumine est $\\lt 30\\,\\mathrm{g}/\\mathrm{L}$",
+                                        "Le taux d’albumine est $\\lt 30\\$ g/L",
                                         "La fraction C3 du complément est abaissée",
                                         "L’étude de la fonction rénale est obligatoire",
                                         "L’ECBU recherche une hématurie",
