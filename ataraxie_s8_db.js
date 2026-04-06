@@ -3314,7 +3314,7 @@ const ATARAXIE_S8_DB = {
                                     "choices": [
                                         "Protéinurie de 24 h supérieure à 50 mg/Kg/J.",
                                         "Cholestérolémie effondrée",
-                                        "Hypo Albuminémie $< 2 5 \\ : g / \\mathrm { L }$",
+                                        "Hypo Albuminémie $< 2 5 \\  g / \\mathrm { L }$",
                                         "Urée - Créatinémie augmentées",
                                         "Gros reins à l’échographie"
                                     ],
