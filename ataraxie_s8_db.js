@@ -648,7 +648,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "PED-DIG-03-Q16",
-                                    "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois.\n\nLe début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ .\n\nL’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $&gt; 5$ sec.",
+                                    "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois.\n\nLe début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ .\n\nL’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $> 5$ sec.",
                                     "question_text": "Quel est votre diagnostic ?",
                                     "type": "QCM",
                                     "choices": [
@@ -662,7 +662,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "PED-DIG-03-Q17",
-                                    "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois.\n\nLe début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ .\n\nL’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $&gt; 5$ sec.",
+                                    "clinical_context": "Yasmine est un nourrisson de 10 mois dont la vaccination est en cours selon le programme national d’immunisation. Elle n’a pas d'antécédents pathologiques particuliers personnels ou familiaux. Elle a été diversifiée à l'âge de 6 mois.\n\nLe début de ses symptômes remonte à 2 jours avant sa consultation par l'apparition d’une diarrhée glairosanglante avec vomissements importants dans un contexte de fièvre chiffré à $3 8 . 5 ^ { \\circ } \\mathsf { C }$ .\n\nL’examen clinique a son admission, trouve un bébé hypotonique, fontanelle antérieure déprimée. yeux creux, plis cutané persistant avec un temps de recoloration $> 5$ sec.",
                                     "question_text": "Quelles sont les explorations nécessaires chez ce patient",
                                     "type": "QCM",
                                     "choices": [
@@ -1538,7 +1538,7 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "Numération plaquettaire",
-                                        "Temps de quick $&lt; &lt; T P &gt; &gt; &gt;$",
+                                        "Temps de quick $< < T P > > >$",
                                         "Temps de céphaline $^ +$ activateur",
                                         "Le dosage du fibrinogène",
                                         "Le dosage du facteur VIII"
@@ -3231,7 +3231,7 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "La protéinurie de 24 h est ≥ 50 mg/kg/24h",
-                                        "Le taux d’albumine est $&lt; 3 0 \\eta / 1$",
+                                        "Le taux d’albumine est $< 3 0 \\eta / 1$",
                                         "La fraction C3 du complément est abaissée",
                                         "L’étude de la fonction rénale est obligatoire",
                                         "L’ECBU recherche une hématurie",
@@ -3314,7 +3314,7 @@ const ATARAXIE_S8_DB = {
                                     "choices": [
                                         "Protéinurie de 24 h supérieure à 50 mg/Kg/J.",
                                         "Cholestérolémie effondrée",
-                                        "Hypo Albuminémie $&lt; 2 5 \\ : 9 / \\mathrm { L }$",
+                                        "Hypo Albuminémie $< 2 5 \\ : 9 / \\mathrm { L }$",
                                         "Urée - Créatinémie augmentées",
                                         "Gros reins à l’échographie"
                                     ],
@@ -4478,17 +4478,17 @@ const ATARAXIE_S8_DB = {
                                     "question_text": "Une asphyxie périnatale sévère est définie par la présence d’un ou plusieurs des critères suivants :",
                                     "type": "QCM",
                                     "choices": [
-                                        "Un $\\mathsf { P H } &gt; 7$ la 1ère heure de vie",
+                                        "Un $\\mathsf { P H } > 7$ la 1ère heure de vie",
                                         "Des crises convulsives précoces et constantes",
                                         "Un Score d'Apgar < 7 à 5 minutes de vie",
                                         "Un tonus normal et réflexe de succion exagéré",
                                         "Un électroencéphalogramme perturbé",
                                         "Absence de crises convulsives",
-                                        "Un $\\mathsf { P H } &gt; 7 { , } 2$ la première heure de vie",
+                                        "Un $\\mathsf { P H } > 7 { , } 2$ la première heure de vie",
                                         "Des crises convulsives précoces et constantes",
-                                        "Un $\\mathsf { P H } &lt; 7$ au sang du cordon sur l’artère ombilicale",
-                                        "Un Score d’Apgar $&lt; 7 \\dot { \\sf a } 5$ minute de vie",
-                                        "Un $\\mathsf { P H } { \\mathsf { &gt; } } 7 , 4$ la première heure de vie"
+                                        "Un $\\mathsf { P H } < 7$ au sang du cordon sur l’artère ombilicale",
+                                        "Un Score d’Apgar $< 7 \\dot { \\sf a } 5$ minute de vie",
+                                        "Un $\\mathsf { P H } { \\mathsf { > } } 7 , 4$ la première heure de vie"
                                     ],
                                     "requires_review": false
                                 },
@@ -4503,12 +4503,12 @@ const ATARAXIE_S8_DB = {
                                         "Un Score d’Apgar < 7 à 5 minute de vie",
                                         "Une hypoglycémie",
                                         "Un électroencéphalogramme perturbé",
-                                        "Un $\\mathsf { P H } { &lt; } 7$ au sang du cordon sur l'artère ombilicale",
+                                        "Un $\\mathsf { P H } { < } 7$ au sang du cordon sur l'artère ombilicale",
                                         "Des crises convulsives dans les premières 24 heures de vie",
                                         "Un Score d'Apgar ≥ 7 à 5 minute de vie",
                                         "Un rythme cardiaque fœtal entre 120 et 160 battement/minute",
                                         "Une fréquence cardiaque fœtale $\\yen 100$ battement/minute en dehors des contractions utérines",
-                                        "Un $\\mathsf { P H } &gt; 7$ au sang du cordon sur l’artère ombilicale",
+                                        "Un $\\mathsf { P H } > 7$ au sang du cordon sur l’artère ombilicale",
                                         "Une détresse neurologique précoce inexpliquée",
                                         "Un Score d'Apgar ≤ 5 à la 5eme minute de vie"
                                     ],
@@ -4522,11 +4522,11 @@ const ATARAXIE_S8_DB = {
                                     "choices": [
                                         "Une fréquence cardiaque fœtale > 160 battement/minute",
                                         "Une fréquence cardiaque fœtale $\\yen 100$ battement/minute en dehors des contractions utérines",
-                                        "Un $\\mathsf { P H } &lt; 7$ du sang du cordon immédiatement à l’accouchement",
+                                        "Un $\\mathsf { P H } < 7$ du sang du cordon immédiatement à l’accouchement",
                                         "Une détresse neurologique précoce inexpliquée",
                                         "Un Score d'Apgar ≥ 7 à la 5éme minute de vie",
                                         "Un rythme cardiaque fœtal entre 120 et 160 battement/minute",
-                                        "Un $\\mathsf { P H } &gt; 7$ au sang du cordon sur l’artère ombilicale",
+                                        "Un $\\mathsf { P H } > 7$ au sang du cordon sur l’artère ombilicale",
                                         "Un Score d'Apgar $\\leq 5$ à la 5eme minute de vie",
                                         "Un FC fœtale inférieur à 100 batt/min en dehors des contractions utérines",
                                         "Un pH inférieur à 7 au sang du cordon de l'artère ombilicale",
@@ -4534,7 +4534,7 @@ const ATARAXIE_S8_DB = {
                                         "Un Score d'Apgar < 7 à 5 minute de vie",
                                         "Un placenta preavea",
                                         "Anomalies du RCF (rythme cardiaque fœtal)",
-                                        "Un $\\mathsf { P H } { &lt; } 7$ à 24 heures de vie",
+                                        "Un $\\mathsf { P H } { < } 7$ à 24 heures de vie",
                                         "Une détresse neurologique précoce inexpliquée",
                                         "Un cri vigoureux après stimulation tactile du nouveau-né",
                                         "Double circulaire du cordon",
@@ -4838,7 +4838,7 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "Ictère stade 1 au $3 ^ { \\circ }$ jour avec bonne évolution",
-                                        "Taux de bilirubine $&gt;$ seuils selon l'âge et les facteurs de risque",
+                                        "Taux de bilirubine $>$ seuils selon l'âge et les facteurs de risque",
                                         "Ictère à bilirubine conjuguée",
                                         "Ictère intense par incompatibilité ABO",
                                         "Bilirubine libre élevée chez un prématuré"
@@ -4996,7 +4996,7 @@ const ATARAXIE_S8_DB = {
                                     "question_text": "Parmi ces facteurs de risques, lequel (lesquels) est (sont) en faveur d'une infection materno-fœtale ?",
                                     "type": "QCM",
                                     "choices": [
-                                        "Une ouverture prolongée de la poche des eau $&gt;$ 12 heures",
+                                        "Une ouverture prolongée de la poche des eau $>$ 12 heures",
                                         "Une prématurité induite",
                                         "Une fièvre maternelle $3 8 . 5 ^ { \\circ } \\mathsf { C }$ au moment de l'accouchement",
                                         "Une infection urinaire maternelle évolutive",
@@ -5027,7 +5027,7 @@ const ATARAXIE_S8_DB = {
                                         "La chorioamniotite",
                                         "Un jumeau atteint d’une IMF",
                                         "La température maternelle (avant ou en début de travail) $\\geq 3 8 ^ { \\circ }$",
-                                        "La prématurité spontanée $&gt; 3 6$ SA",
+                                        "La prématurité spontanée $> 3 6$ SA",
                                         "Une durée d’ouverture de la poche des eaux < 12 heures"
                                     ],
                                     "requires_review": false
@@ -5184,7 +5184,7 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "La Fièvre maternelle est une indication",
-                                        "La Rupture de la poche des eaux $&gt;$ 12 heures avec absence de prélèvement vaginal chez la maman est une indication",
+                                        "La Rupture de la poche des eaux $>$ 12 heures avec absence de prélèvement vaginal chez la maman est une indication",
                                         "La prématurité inexpliquée avec absence de prélèvement vaginal à streptocoque B est une indication",
                                         "Une antibiothérapie orale est la règle.",
                                         "L'administration d’Amoxicilline protégée en intraveineux jusqu'au accouchement est la base du traitement.",
@@ -5213,7 +5213,7 @@ const ATARAXIE_S8_DB = {
                                         "Une antibiothérapie doit être démarrée en cas de prématurité induite chez une maman pré éclamptique",
                                         "Une antibiothérapie doit être démarrée en cas fièvre maternelle avec un examen clinique normal",
                                         "L’utilisation céphalosporines 3ème génération en intraveineux est indiquée en cas d'infection néonatale à streptocoque B",
-                                        "Une antibiothérapie doit être démarrée en cas de rupture prolongée des poches des eaux $&gt;$ 18H avec détresse respiratoire",
+                                        "Une antibiothérapie doit être démarrée en cas de rupture prolongée des poches des eaux $>$ 18H avec détresse respiratoire",
                                         "Une antibiothérapie doit être démarrée en cas de prélèvement vaginal maternel positif à streptocoque B avec détresse respiratoire",
                                         "L'utilisation de céphalosporines de 3ème génération en intraveineux est indiquée en cas d'infection néonatale à streptocoque B",
                                         "La triantibiothérapie est la règle"
@@ -6219,7 +6219,7 @@ const ATARAXIE_S8_DB = {
                                     "choices": [
                                         "De rares sibilants",
                                         "Une saturation à $88 \\%$",
-                                        "Un DEP $&gt; 7 5 \\%$",
+                                        "Un DEP $> 7 5 \\%$",
                                         "Une bonne réponse aux B2 mimétiques",
                                         "Un trouble d’élocution"
                                     ],
@@ -6842,10 +6842,10 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "Un syndrome polyuro-polydipsique avec une glycémie $\\geq 2 9 / \\mathrm { L }$",
-                                        "Une glycémie $&gt; 1 { , } 2 6 { \\mathfrak { g } } / \\mathsf { L }$ après jeûne de 8 heure, vérifiée à 2 reprises",
+                                        "Une glycémie $> 1 { , } 2 6 { \\mathfrak { g } } / \\mathsf { L }$ après jeûne de 8 heure, vérifiée à 2 reprises",
                                         "Une glycémie $\\ge 2 \\ : { \\mathfrak { g } } / { \\vert }$ , 2 heures après une charge orale de glucose",
                                         "Une $\\mathsf { H b A 1 c } \\geq 6 , 5 \\%$",
-                                        "Une glycémie $&gt; 1 , 1 0 { \\mathfrak { g } } / |$ après un jeûne de 8 heures",
+                                        "Une glycémie $> 1 , 1 0 { \\mathfrak { g } } / |$ après un jeûne de 8 heures",
                                         "Des antécédents de diabète type 2 chez les parents",
                                         "Une obésité morbide associés",
                                         "Un acanthosis nigricans"
@@ -7234,7 +7234,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "PED-END-34-Q13",
-                                    "clinical_context": "Sara, fille de 10 ans qui consulte pour une petite taille $\\mathtt { &lt; - 3 D S }$ . A l'interrogatoire, elle ne présente pas de signes digestifs ni urinaires. La taille cible génétique est de 175 cm. Son âge osseux est de 7 ans.",
+                                    "clinical_context": "Sara, fille de 10 ans qui consulte pour une petite taille $\\mathtt { < - 3 D S }$ . A l'interrogatoire, elle ne présente pas de signes digestifs ni urinaires. La taille cible génétique est de 175 cm. Son âge osseux est de 7 ans.",
                                     "question_text": "Quel est le diagnostic improbable dans cette situation ?",
                                     "type": "QCM",
                                     "choices": [
@@ -14373,7 +14373,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q04",
-                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( &lt; 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
+                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( < 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
                                     "question_text": "Les cellules à cytoplasme éosinophile et au noyau central sont des cellules :",
                                     "type": "QCM",
                                     "choices": [
@@ -14387,7 +14387,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q05",
-                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( &lt; 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
+                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( < 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
                                     "question_text": "Cette diminution du nombre de glandes est appelée ;",
                                     "type": "QCM",
                                     "choices": [
@@ -14401,7 +14401,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q06",
-                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( &lt; 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
+                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( < 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
                                     "question_text": "A la lumière de ces données histologiques et cliniques, quel diagnostic proposez-vous ?",
                                     "type": "QCM",
                                     "choices": [
@@ -14415,7 +14415,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q07",
-                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( &lt; 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
+                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( < 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
                                     "question_text": "Cette pathologie est classée selon :",
                                     "type": "QCM",
                                     "choices": [
@@ -14429,7 +14429,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q08",
-                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( &lt; 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
+                                    "clinical_context": "Un homme de 25 ans consulte pour des douleurs épigastriques motivant une consultation chez un gastroentérologue. Une fibroscopie oeso-gastroduodénale était réalisée avec biopsies. A l'examen histologique, la muqueuse gastrique montrait des glandes bordées par des cellules à cytoplasme riche en mucus et à pôle apical fermé et des cellules à cytoplasme éosinophile abondant et au noyau central. Le nombre de ces glandes est diminué par endroit $( < 2 5 \\% )$ ). Le chorion abrite essentiellement des lymphocytes et des plasmocytes ainsi que quelques polynucléaires neutrophiles. L’épithélium bordant les glandes ne montre ni atypie ni désorganisation architecturale. Absence d’agent pathogène en surface.",
                                     "question_text": "L'agent pathogène responsable de cette pathologie a été découvert par :",
                                     "type": "QCM",
                                     "choices": [
@@ -14443,7 +14443,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q09",
-                                    "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $&gt; 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
+                                    "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $> 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
                                     "question_text": "Comment appelle-t-on la diminution du nombre des glandes sur une muqueuse antrale ?",
                                     "type": "QCM",
                                     "choices": [
@@ -14457,7 +14457,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q10",
-                                    "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $&gt; 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
+                                    "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $> 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
                                     "question_text": "Sur la base des données cliniques, endoscopiques et histologiques, quel diagnostic proposeriez-vous ?",
                                     "type": "QCM",
                                     "choices": [
@@ -14471,7 +14471,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q11",
-                                    "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $&gt; 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
+                                    "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $> 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
                                     "question_text": "Sur quelle(s) classification(s), les pathologistes se basent pour classer cette pathologie ?",
                                     "type": "QCM",
                                     "choices": [
@@ -14485,7 +14485,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q12",
-                                    "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $&gt; 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
+                                    "clinical_context": "Patiente de 26 ans sans antécédent pathologique particulier, présente des douleurs épigastriques depuis mois. Une fibroscopie oeso-gastro-duodénale était réalisée montrant un aspect érythémateux de la muqueuse. Des biopsies étaient réalisées. A l'examen histologique, la muqueuse antrale montrait des glandes bien différenciées sans désorganisation architecturale et bordées par des cellules ne montrant ni atypies ni mitose ni vacuole de mucosécrétion. Leur nombre est diminué de façon importante $> 7 5 \\%$ Le chorion abritait des lymphocytes ainsi que quelques polynucléaires neutrophiles. En surface des glandes, on notait la présence d'un agent pathogène spiralé.",
                                     "question_text": "L'agent pathogène mentionné dans la description histologique correspond à:",
                                     "type": "QCM",
                                     "choices": [
@@ -14619,7 +14619,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q23",
-                                    "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées.\n\nA l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( &lt; 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
+                                    "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées.\n\nA l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( < 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
                                     "question_text": "Dans quelle pathologie s'intègrent les lésions observées en histologie ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -14627,7 +14627,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q24",
-                                    "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées.\n\nA l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( &lt; 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
+                                    "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées.\n\nA l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( < 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
                                     "question_text": "Quelle classification utilise t’on pour ce type de pathologie ? Citer les bases de cette classification",
                                     "type": "QROC",
                                     "choices": null,
@@ -14635,7 +14635,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q25",
-                                    "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées.\n\nA l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( &lt; 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
+                                    "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées.\n\nA l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( < 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
                                     "question_text": "Formuler une conclusion sur la base des données histologiques sus-citées.",
                                     "type": "QROC",
                                     "choices": null,
@@ -14643,7 +14643,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "ANA-DIG-19-Q26",
-                                    "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées.\n\nA l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( &lt; 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
+                                    "clinical_context": "Patient de 42 ans présentant des épigastralgies motivant une consultation chez le gastro-entérologue Une fibroscopie oeso-gastro-duodénale était indiquée montrant un aspect érythémateux. Des biopsies ont été réalisées.\n\nA l'examen histologique, la muqueuse gastrique montrait des structures glandulaires régulières diminuées en nombre focalement $( < 2 5 \\% )$ , bordées par des cellules montrant des vacuoles optiquement vides. Le chorion abritait un infiltrat inflammatoire comportant des lymphocytes, des plasmocytes ainsi que des polynucléaires neutrophiles. Absence d'agent pathogène en surface.",
                                     "question_text": "Quel est le risque évolutif de cette pathologie ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -17257,7 +17257,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "IMM-DEF-02-Q37",
-                                    "clinical_context": "Anis est né au terme d'une grossesse normale. A 3 mois, sont survenues une otite moyenne et une infection des voies respiratoires supérieures. A 5 et 11 mois, il fut admis à l'hôpital avec une pneumonie à Haemophilus influenzae, qui a répondu chaque fois aux antibiotiques. A 16 mois, il a souffert de balanite. A 18 mois, l'enfant était pâle, petit et maigre (poids et taille $&lt;$ au 3eme percentile). On ne relevait aucune autre anomalie. // a reçu tous les vaccins prévus pour son âge et ils ont été bien supportés, Les recherches immunologiques de la cause de ces infections récidivantes sont résumées comme suit :\n\nDosage des Immunoglobulines sériques (g/l):\n\n<div>\n\n<table><tr><td>IgG</td><td>0,17</td><td>[5,5-10,0]*</td></tr><tr><td>IgA</td><td>Non détecté</td><td>[0,3-0,8]*</td></tr><tr><td>IgM</td><td>0,07</td><td>[0,4-1,8]*</td></tr></table>\n\n</div>\n\nAnticorps spécifiques:\n\n- IgG après vaccination :\n\n<div>\n\n<table><tr><td>Anticorps anti-tétaniques</td><td>Non détectés</td></tr><tr><td>Anticorps anti-diphtériques</td><td>Non détectés</td></tr><tr><td>Anticorps anti-Polio</td><td>Non détectés</td></tr><tr><td>Anticorps anti-Rubéole</td><td>Non détectés</td></tr><tr><td>Anticorps anti-Rougeole</td><td>Non détectés</td></tr></table>\n\n</div>\n\n- Isohémagglutinines (IgM) non détectées (groupe sanguin A Rh+)\n\nSous-populations lymphocytaires du sang\n\n<div>\n\n<table><tr><td>Lymphocytes totaux</td><td>3,5</td><td>[2,5-5,0]</td></tr><tr><td>Lymphocytes T(CD3)</td><td>3,02</td><td>[1,5-3,0]</td></tr><tr><td>Lymphocytes B(CD23)</td><td>&lt;0,03</td><td>[0,1-0,4]</td></tr><tr><td>Lymphocytes B(CD19)</td><td>&lt;0,1</td><td>[0,3-1,0]</td></tr><tr><td>Lymphocytes B(CD20)</td><td>&lt;0,1</td><td>[0,3-1,0]</td></tr></table>\n\n</div>\n\n*Valeurs normales pour l'âge de 18 mois",
+                                    "clinical_context": "Anis est né au terme d'une grossesse normale. A 3 mois, sont survenues une otite moyenne et une infection des voies respiratoires supérieures. A 5 et 11 mois, il fut admis à l'hôpital avec une pneumonie à Haemophilus influenzae, qui a répondu chaque fois aux antibiotiques. A 16 mois, il a souffert de balanite. A 18 mois, l'enfant était pâle, petit et maigre (poids et taille $<$ au 3eme percentile). On ne relevait aucune autre anomalie. // a reçu tous les vaccins prévus pour son âge et ils ont été bien supportés, Les recherches immunologiques de la cause de ces infections récidivantes sont résumées comme suit :\n\nDosage des Immunoglobulines sériques (g/l):\n\n<div>\n\n<table><tr><td>IgG</td><td>0,17</td><td>[5,5-10,0]*</td></tr><tr><td>IgA</td><td>Non détecté</td><td>[0,3-0,8]*</td></tr><tr><td>IgM</td><td>0,07</td><td>[0,4-1,8]*</td></tr></table>\n\n</div>\n\nAnticorps spécifiques:\n\n- IgG après vaccination :\n\n<div>\n\n<table><tr><td>Anticorps anti-tétaniques</td><td>Non détectés</td></tr><tr><td>Anticorps anti-diphtériques</td><td>Non détectés</td></tr><tr><td>Anticorps anti-Polio</td><td>Non détectés</td></tr><tr><td>Anticorps anti-Rubéole</td><td>Non détectés</td></tr><tr><td>Anticorps anti-Rougeole</td><td>Non détectés</td></tr></table>\n\n</div>\n\n- Isohémagglutinines (IgM) non détectées (groupe sanguin A Rh+)\n\nSous-populations lymphocytaires du sang\n\n<div>\n\n<table><tr><td>Lymphocytes totaux</td><td>3,5</td><td>[2,5-5,0]</td></tr><tr><td>Lymphocytes T(CD3)</td><td>3,02</td><td>[1,5-3,0]</td></tr><tr><td>Lymphocytes B(CD23)</td><td>&lt;0,03</td><td>[0,1-0,4]</td></tr><tr><td>Lymphocytes B(CD19)</td><td>&lt;0,1</td><td>[0,3-1,0]</td></tr><tr><td>Lymphocytes B(CD20)</td><td>&lt;0,1</td><td>[0,3-1,0]</td></tr></table>\n\n</div>\n\n*Valeurs normales pour l'âge de 18 mois",
                                     "question_text": "De quel déficit immunitaire souffre-t-il ? :",
                                     "type": "QCM",
                                     "choices": [
@@ -21257,7 +21257,7 @@ const ATARAXIE_S8_DB = {
                                     "choices": [
                                         "Des douleurs inflammatoires intéressant toutes les articulation",
                                         "Un dérouillage matinal supérieur à $3 0 ~ \\mathsf { m n }$",
-                                        "Un syndrome inflammatoire avec $\\mathsf { V S } &gt; 4 0 \\mathsf { m m }$ et $/ 0 \\mathsf { u } \\mathsf { C R P &gt; } = 1 0 \\mathsf { m g } / |$",
+                                        "Un syndrome inflammatoire avec $\\mathsf { V S } > 4 0 \\mathsf { m m }$ et $/ 0 \\mathsf { u } \\mathsf { C R P > } = 1 0 \\mathsf { m g } / |$",
                                         "Une absence d'atteinte des épaules ou de signe inflammatoire à l'échographie"
                                     ],
                                     "requires_review": false
@@ -22046,7 +22046,7 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "L'asthme.",
-                                        "Une hyperéosinophilie sanguine $&gt; 1 0 \\%$ du compte cellulaire des globules blancs.",
+                                        "Une hyperéosinophilie sanguine $> 1 0 \\%$ du compte cellulaire des globules blancs.",
                                         "Une mono ou multinévrite ou polyneuropathie attribuable à la vascularite.",
                                         "La symptomatologie pulmonaire avec une toux persistante et l’hémoptysie.",
                                         "Une protéinurie de 24h à 3g /24h."
@@ -22857,7 +22857,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "MOD-SUB-05-Q94",
-                                    "clinical_context": "Patient de 40 ans, sans antécédents, qui consulte pour un amaigrissement $( &gt; 1 0 \\mathsf { K } \\mathsf { g } )$ depuis 6 mois, avec une fièvre mal tolérée qui évolue depuis 3mois. À l'interrogatoire le malade rapporte la notion d'arthralgies inflammatoires, et des myalgies diffuses.\n\nL'examen physique objective un Livedo au niveau des membres inférieurs, et une amyotrophie avec douleur musculaire à la palpation des 4 membres.",
+                                    "clinical_context": "Patient de 40 ans, sans antécédents, qui consulte pour un amaigrissement $( > 1 0 \\mathsf { K } \\mathsf { g } )$ depuis 6 mois, avec une fièvre mal tolérée qui évolue depuis 3mois. À l'interrogatoire le malade rapporte la notion d'arthralgies inflammatoires, et des myalgies diffuses.\n\nL'examen physique objective un Livedo au niveau des membres inférieurs, et une amyotrophie avec douleur musculaire à la palpation des 4 membres.",
                                     "question_text": "Quelles sont des autres manifestations cliniques que peut présenter ce patient?",
                                     "type": "QROC",
                                     "choices": null,
@@ -22865,7 +22865,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "MOD-SUB-05-Q95",
-                                    "clinical_context": "Patient de 40 ans, sans antécédents, qui consulte pour un amaigrissement $( &gt; 1 0 \\mathsf { K } \\mathsf { g } )$ depuis 6 mois, avec une fièvre mal tolérée qui évolue depuis 3mois. À l'interrogatoire le malade rapporte la notion d'arthralgies inflammatoires, et des myalgies diffuses.\n\nL'examen physique objective un Livedo au niveau des membres inférieurs, et une amyotrophie avec douleur musculaire à la palpation des 4 membres.",
+                                    "clinical_context": "Patient de 40 ans, sans antécédents, qui consulte pour un amaigrissement $( > 1 0 \\mathsf { K } \\mathsf { g } )$ depuis 6 mois, avec une fièvre mal tolérée qui évolue depuis 3mois. À l'interrogatoire le malade rapporte la notion d'arthralgies inflammatoires, et des myalgies diffuses.\n\nL'examen physique objective un Livedo au niveau des membres inférieurs, et une amyotrophie avec douleur musculaire à la palpation des 4 membres.",
                                     "question_text": "Quels sont les examens paracliniques à demander chez votre malade ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -22873,7 +22873,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "MOD-SUB-05-Q96",
-                                    "clinical_context": "Patient de 40 ans, sans antécédents, qui consulte pour un amaigrissement $( &gt; 1 0 \\mathsf { K } \\mathsf { g } )$ depuis 6 mois, avec une fièvre mal tolérée qui évolue depuis 3mois. À l'interrogatoire le malade rapporte la notion d'arthralgies inflammatoires, et des myalgies diffuses.\n\nL'examen physique objective un Livedo au niveau des membres inférieurs, et une amyotrophie avec douleur musculaire à la palpation des 4 membres.",
+                                    "clinical_context": "Patient de 40 ans, sans antécédents, qui consulte pour un amaigrissement $( > 1 0 \\mathsf { K } \\mathsf { g } )$ depuis 6 mois, avec une fièvre mal tolérée qui évolue depuis 3mois. À l'interrogatoire le malade rapporte la notion d'arthralgies inflammatoires, et des myalgies diffuses.\n\nL'examen physique objective un Livedo au niveau des membres inférieurs, et une amyotrophie avec douleur musculaire à la palpation des 4 membres.",
                                     "question_text": "Quel est le diagnostic le plus probable selon les critères diagnostiques (ACR) ? Argumentez.",
                                     "type": "QROC",
                                     "choices": null,
@@ -23807,10 +23807,10 @@ const ATARAXIE_S8_DB = {
                                     "question_text": "Quelles sont lés indications d'exploration anténatale dans le cadre de la trisomie 21 ?",
                                     "type": "QCM",
                                     "choices": [
-                                        "Âge maternel $&gt; 3 0$ ans.",
+                                        "Âge maternel $> 3 0$ ans.",
                                         "Antécédent d'anomalie chromosomique dans la famille.",
                                         "Anomalie échographique fœtale.",
-                                        "Risque de trisomie 21 estimé $&gt;$ 1/250 après étude des marqueurs sériques maternels.",
+                                        "Risque de trisomie 21 estimé $>$ 1/250 après étude des marqueurs sériques maternels.",
                                         "L’un des parents est porteur d’une translocation équilibrée impliquant le chromosome 21."
                                     ],
                                     "requires_review": false
