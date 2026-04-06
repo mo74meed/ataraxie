@@ -11511,344 +11511,354 @@ const ATARAXIE_S8_DB = {
                                     "requires_review": false
                                 },
                                 {
-                                    "id": "ANA-GYN-01-Q16",
-                                    "clinical_context": "Femme de 54 ans, obese, hypertendue et muligare. Elle s'est auto-palpée un nodule au niveau de son sein gauche. Elle a consulté son gynécologue. Après examen clinique et imagerie, il a conclu à un nodule de 3 cm mal limité avec palpation d'un ganglion axillaire homolatéral\n\nAu terme des résultats cliniques et paracliniques obtenus après ces examens, un diagnostic de carcinome mammaire infiltrant de type NOS a été retenu.",
-                                    "question_text": "Quels sont les facteurs histopronostiques que le gynécologue doit chercher sur le compte rendu anatomopathologique initial de cette biopsie ?",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "La taille tumorale histologique.",
-                                        "Les emboles vasculaires.",
-                                        "Le carcinome in situ.",
-                                        "Le statut ganglionnaire.",
-                                        "Le garde histologique SBR."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q17",
-                                    "clinical_context": "Femme de 54 ans, obese, hypertendue et muligare. Elle s'est auto-palpée un nodule au niveau de son sein gauche. Elle a consulté son gynécologue. Après examen clinique et imagerie, il a conclu à un nodule de 3 cm mal limité avec palpation d'un ganglion axillaire homolatéral\n\nAu terme des résultats cliniques et paracliniques obtenus après ces examens, un diagnostic de carcinome mammaire infiltrant de type NOS a été retenu.",
-                                    "question_text": "Quel grade histologique donnerez-vous à cette prolifération ?",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Grade I de SBR.",
-                                        "Grade II de SBR.",
-                                        "Grade III de SBR.",
-                                        "Pas de grade pour cette tumeur.",
-                                        "Aucune de ces réponses."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q18",
-                                    "clinical_context": "Femme de 54 ans, obese, hypertendue et muligare. Elle s'est auto-palpée un nodule au niveau de son sein gauche. Elle a consulté son gynécologue. Après examen clinique et imagerie, il a conclu à un nodule de 3 cm mal limité avec palpation d'un ganglion axillaire homolatéral\n\nAu terme des résultats cliniques et paracliniques obtenus après ces examens, un diagnostic de carcinome mammaire infiltrant de type NOS a été retenu.",
-                                    "question_text": "Quel test anatomopathologique doit-on demander à notre patiente après ces résultats ?",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Une immunohistochimie.",
-                                        "Une seconde biopsie.",
-                                        "Une hybridation in situ fluorescente (FISH).",
-                                        "Un complément PCR.",
-                                        "Un complément NGS."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q19",
-                                    "clinical_context": "Femme de 54 ans, obese, hypertendue et muligare. Elle s'est auto-palpée un nodule au niveau de son sein gauche. Elle a consulté son gynécologue. Après examen clinique et imagerie, il a conclu à un nodule de 3 cm mal limité avec palpation d'un ganglion axillaire homolatéral\n\nAu terme des résultats cliniques et paracliniques obtenus après ces examens, un diagnostic de carcinome mammaire infiltrant de type NOS a été retenu.",
-                                    "question_text": "Quel est le sous type moléculaire chez notre patiente ?",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Luminal A",
-                                        "Luminal B HER2 négatif.",
-                                        "Luminal B HER2 positif.",
-                                        "HER2-enrichi.",
-                                        "Triple négatif (basal-like)."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q20",
-                                    "clinical_context": "Femme de 54 ans, obese, hypertendue et muligare. Elle s'est auto-palpée un nodule au niveau de son sein gauche. Elle a consulté son gynécologue. Après examen clinique et imagerie, il a conclu à un nodule de 3 cm mal limité avec palpation d'un ganglion axillaire homolatéral\n\nAu terme des résultats cliniques et paracliniques obtenus après ces examens, un diagnostic de carcinome mammaire infiltrant de type NOS a été retenu.",
-                                    "question_text": "Quel est le diagnostic histologique selon ce compte rendu anatomopathologique ?",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Endomètre dyshormonal",
-                                        "Hyperplasie simple non atypique.",
-                                        "Hyperplasie complexe atypique",
-                                        "Hyperplasie complexe non atypique",
-                                        "Adénocarcinome endométrioïde de grade I."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q21",
-                                    "clinical_context": "Femme de 54 ans, obese, hypertendue et muligare. Elle s'est auto-palpée un nodule au niveau de son sein gauche. Elle a consulté son gynécologue. Après examen clinique et imagerie, il a conclu à un nodule de 3 cm mal limité avec palpation d'un ganglion axillaire homolatéral\n\nAu terme des résultats cliniques et paracliniques obtenus après ces examens, un diagnostic de carcinome mammaire infiltrant de type NOS a été retenu.",
-                                    "question_text": "Quels sont les facteurs de risque de cancer de l'endomètre chez cette patiente ?",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Obésité",
-                                        "Hypertension artérielle.",
-                                        "Diabète.",
-                                        "Tamoxifène.",
-                                        "Nulliparité."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q22",
-                                    "clinical_context": "Femme de 54 ans, obese, hypertendue et muligare. Elle s'est auto-palpée un nodule au niveau de son sein gauche. Elle a consulté son gynécologue. Après examen clinique et imagerie, il a conclu à un nodule de 3 cm mal limité avec palpation d'un ganglion axillaire homolatéral\n\nAu terme des résultats cliniques et paracliniques obtenus après ces examens, un diagnostic de carcinome mammaire infiltrant de type NOS a été retenu.",
-                                    "question_text": "Quels sont les types histologiques les plus fréquents des cancers de l'endomètre ?",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Carcinome lobulaire.",
-                                        "Carcinome endométrioïde.",
-                                        "Carcinome séreux.",
-                                        "Carcinome épidermoïde.",
-                                        "Carcinome neuro-endocrine."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q23",
-                                    "clinical_context": "Une femme de 25 ans, consulte pour des mastodynies. L'examen clinique a retrouvé à la palpation un nodule de 2 cm, bien limité, mobile par rapport aux deux plans, sans signe inflammatoire, sans adénopathie homolatérale palpable. L'échographie a objectivé un nodule du sein classé ACR4a.",
-                                    "question_text": "Selon ces données clinico-radiologiques, s'agit-il d'une tumeur :",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Bénigne ne nécessitant aucune intervention.",
-                                        "Fortement suspecte.",
-                                        "Apriori bénigne mais une biopsie s'impose.",
-                                        "Maligne."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q24",
-                                    "clinical_context": "Une femme de 25 ans, consulte pour des mastodynies. L'examen clinique a retrouvé à la palpation un nodule de 2 cm, bien limité, mobile par rapport aux deux plans, sans signe inflammatoire, sans adénopathie homolatérale palpable. L'échographie a objectivé un nodule du sein classé ACR4a.",
-                                    "question_text": "Selon ces données histologiques, s'agit-il :",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "D'une tumeur épithéliale bénigne.",
-                                        "D'une tumeur épithéliale maligne",
-                                        "D'une tumeur mésenchymateuse maligne",
-                                        "D'une tumeur dont la nature est suspecte, nécessitant un complément immunohistochimique",
-                                        "D'une tumeur fibro-épithéliale bénigne,"
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q25",
-                                    "clinical_context": "Une femme de 25 ans, consulte pour des mastodynies. L'examen clinique a retrouvé à la palpation un nodule de 2 cm, bien limité, mobile par rapport aux deux plans, sans signe inflammatoire, sans adénopathie homolatérale palpable. L'échographie a objectivé un nodule du sein classé ACR4a.",
-                                    "question_text": "Comment appelle-t-on cette tumeur ?",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Adénome",
-                                        "Carcinome",
-                                        "Sarcome.",
-                                        "Tumeur phyllode.",
-                                        "Adénofibrome"
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q26",
-                                    "clinical_context": "Une femme de 28 ans consulte pour un nodule du sein droit. On découvre une masse spiculée avec des micro-calcifications ACR5. La microbiopsie montre une prolifération tumorale maligne d'architecture solide sans aucune structure glandulaire, avec des atypies sévères et un index mitotique élevé estimé à 30 mitoses par 10 champs au fort grossissement.",
-                                    "question_text": "Parmi les affirmations ci-dessous, lesquelles sont vraies :",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "C'est un cancer infiltrant.",
-                                        "La patiente risque des métastases ganglionnaires.",
-                                        "C'est un carcinome de grade 3 SBR.",
-                                        "L'âge jeune est un facteur de bon pronostic.",
-                                        "Les marges de résection de la tumorectomie ne doivent pas être précisées par le pathologiste."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q27",
-                                    "clinical_context": "Patiente de 54 ans sans antécédents pathologiques notables, consulte pour des microcalcifications retrouvées lors d'une mammographie de dépistage.",
-                                    "question_text": "Quelles sont vos hypothèses diagnostiques ?\nLa patiente a bénéficié d'une macrobiopsie. L’examen histologique montrait des canaux dilatés comblés par une prolifération de cellules luminales atypiques centrées de nécrose, étendue sur 6 mm.",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q28",
-                                    "clinical_context": "Patiente de 54 ans sans antécédents pathologiques notables, consulte pour des microcalcifications retrouvées lors d'une mammographie de dépistage.",
-                                    "question_text": "Quelle est votre hypothèse diagnostique ? Justifier.",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q29",
-                                    "clinical_context": "Patiente de 54 ans sans antécédents pathologiques notables, consulte pour des microcalcifications retrouvées lors d'une mammographie de dépistage.",
-                                    "question_text": "Que faut-il éliminer à ce stade et par quel moyen ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q30",
-                                    "clinical_context": "Patiente de 28 ans, consulte pour un nodule du sein classe T4d. L'échographie plus la mammographie montrait une lésion ACR5.",
-                                    "question_text": "Que faut-il faire après ?\nLe compte-rendu anatomo-pathologique parlait d'une prolifération tumorale faite de $20 \\%$ de tubes et de glandes, des atypies sévères et 40 mitoses par 10 champs au fort grossissement.",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q31",
-                                    "clinical_context": "Patiente de 28 ans, consulte pour un nodule du sein classe T4d. L'échographie plus la mammographie montrait une lésion ACR5.",
-                                    "question_text": "Quel est votre diagnostic anatomo-pathologique ? Que faut-il demander par la suite ?\nLa tumeur n'exprimait pas les récepteurs hormonaux et la recherche de la surexpression de la protéine HER2 était négative.",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q32",
-                                    "clinical_context": "Patiente de 28 ans, consulte pour un nodule du sein classe T4d. L'échographie plus la mammographie montrait une lésion ACR5.",
-                                    "question_text": "Quel est le profil moléculaire de cette tumeur ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q33",
-                                    "clinical_context": "Patiente de 28 ans, consulte pour un nodule du sein classe T4d. L'échographie plus la mammographie montrait une lésion ACR5.",
-                                    "question_text": "Quels sont les facteurs pronostiques chez cette patiente ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q34",
-                                    "clinical_context": "Patiente de 30 ans, consulte pour un nodule du sein classé ACR 5. La biopsie montre des travées tumorales avec peu de glandes $( 1 0 \\% )$ au sein d’une stroma réaction fibreuse riche en lymphocytes. Les atypies cytologiques sont sévères et les mitoses sont estimées à 30 mitoses/lOCFG.",
-                                    "question_text": "Quel est votre conclusion anatomopathologique ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q35",
-                                    "clinical_context": "Patiente de 30 ans, consulte pour un nodule du sein classé ACR 5. La biopsie montre des travées tumorales avec peu de glandes $( 1 0 \\% )$ au sein d’une stroma réaction fibreuse riche en lymphocytes. Les atypies cytologiques sont sévères et les mitoses sont estimées à 30 mitoses/lOCFG.",
-                                    "question_text": "Que faut-il demander en plus chez cette patiente ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q36",
-                                    "clinical_context": "Patiente de 30 ans, consulte pour un nodule du sein classé ACR 5. La biopsie montre des travées tumorales avec peu de glandes $( 1 0 \\% )$ au sein d’une stroma réaction fibreuse riche en lymphocytes. Les atypies cytologiques sont sévères et les mitoses sont estimées à 30 mitoses/lOCFG.",
-                                    "question_text": "La classification moléculaire a montré que la tumeur est de phénotype HER2. Comment sont-ils les autres marqueurs ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q37",
-                                    "clinical_context": "Patiente de 30 ans, consulte pour un nodule du sein classé ACR 5. La biopsie montre des travées tumorales avec peu de glandes $( 1 0 \\% )$ au sein d’une stroma réaction fibreuse riche en lymphocytes. Les atypies cytologiques sont sévères et les mitoses sont estimées à 30 mitoses/lOCFG.",
-                                    "question_text": "Citer les facteurs pronostiques histologiques et biologiques qu’il faut préciser sur un compte rendu anatomopathologique pour cancer du sein sur biopsie.",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q38",
-                                    "clinical_context": "Patiente de 30 ans sans antécédents pathologiques notables, consulte pour un nodule du sein gauche classé ACR5 à la mammographie.",
-                                    "question_text": "Quelles sont vos hypothèses diagnostiques ?\nLa patiente a bénéficié d'une microbiopsie. L'examen histologique montrait une prolifération tumorale disposée en tubes $( 5 \\% )$ et en travées avec des atypies sévères et 25 mitoses / 10 champs au fort grossissement. Cette prolifération tumorale est dissociée par un stroma réaction fibro-inflammatoire Présence d'une prolifération intra-canalaire étendue sur $8 \\mathsf { m m }$ , faite de cellules atypiques avec un pléomorphisme important, centrée de nécrose.",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q39",
-                                    "clinical_context": "Patiente de 30 ans sans antécédents pathologiques notables, consulte pour un nodule du sein gauche classé ACR5 à la mammographie.",
-                                    "question_text": "Quel est votre diagnostic ? Justifier",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q40",
-                                    "clinical_context": "Patiente de 30 ans sans antécédents pathologiques notables, consulte pour un nodule du sein gauche classé ACR5 à la mammographie.",
-                                    "question_text": "Quels sont les facteurs pronostiques chez cette patiente ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q41",
-                                    "clinical_context": "Patiente de 30 ans sans antécédents pathologiques notables, consulte pour un nodule du sein gauche classé ACR5 à la mammographie.",
-                                    "question_text": "Rédiger votre conclusion anatomo-pathologique en tenant compte de toutes les données.",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q42",
-                                    "clinical_context": "Patiente de 38 ans consulte pour un nodule de sein classe ACR4. L’examen histologique trouvait une prolifération à double composante épithéliale et mésenchymateuse .La composante épithéliale montrait des canaux étirés entourés de cellules fibroblastiques régulières de densité minime",
-                                    "question_text": "Quel est votre diagnostic histologique ? justifier.\nAprès deux mois le nodule augmente de taille et le radiologue le reclasse en ACRAc .L’examen histologique montrait le même aspect précédemment décrit avec un contingent mésenchymateux de densité plus élevée et un aspect foliacé des canaux",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q43",
-                                    "clinical_context": "Patiente de 38 ans consulte pour un nodule de sein classe ACR4. L’examen histologique trouvait une prolifération à double composante épithéliale et mésenchymateuse .La composante épithéliale montrait des canaux étirés entourés de cellules fibroblastiques régulières de densité minime",
-                                    "question_text": "Quel est votre diagnostic? Justifiez\nUne tumorectomie a été réalisée. Les canaux montraient localement une prolifération des cellules épithéliales avec comblement des lumières et la résection a été faite à 1 mm de toutes les limites",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q44",
-                                    "clinical_context": "Patiente de 38 ans consulte pour un nodule de sein classe ACR4. L’examen histologique trouvait une prolifération à double composante épithéliale et mésenchymateuse .La composante épithéliale montrait des canaux étirés entourés de cellules fibroblastiques régulières de densité minime",
-                                    "question_text": "Quelles sont vos hypothèses diagnostiques devant “ des cellules épithéliales avec comblement des lumières” ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q45",
-                                    "clinical_context": "Patiente de 38 ans consulte pour un nodule de sein classe ACR4. L’examen histologique trouvait une prolifération à double composante épithéliale et mésenchymateuse .La composante épithéliale montrait des canaux étirés entourés de cellules fibroblastiques régulières de densité minime",
-                                    "question_text": "La résection passe-t-elle en zone saine ? justifier 46- Quel est le pronostic de ce type de tumeur ? Justifier",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q46",
-                                    "clinical_context": "Femme de 55 ans, sous traitement hormonal substitutif de la ménopause depuis 5 ans, chez qui une mammographie du sein gauche de dépistage a montré une distorsion architecturale sans masse palpable claire, classée ACRS. L'IRM mammaire a objectivé un rehaussement segmentaire mal limité sans masse visible. Une biopsie de cette lésion a été réalisée. L'analyse histologique de la biopsie a montré un parenchyme mammaire infiltré par une prolifération tumorale disposée en cordons monocellulaires, en cellules dyscohésives réalisant des aspects en $&lt; &lt;$ file indienne $&gt; &gt;$ et en $&lt; &lt;$ bulbe d'oignon $&gt; &gt;$ (SCORE 3). Ces cellules présentent des atypies cytonucléaires modérées (SCORE 2). Les mitoses sont estimées à $1 0 / 2 ~ \\mathsf { m m } ^ { 2 }$ (SCORE 2). Le stroma tumoral comporte $10 \\%$ de lymphocytes.",
-                                    "question_text": "Quel est le diagnostic histopathologique selon la description ci-dessus ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q47",
-                                    "clinical_context": "Femme de 55 ans, sous traitement hormonal substitutif de la ménopause depuis 5 ans, chez qui une mammographie du sein gauche de dépistage a montré une distorsion architecturale sans masse palpable claire, classée ACRS. L'IRM mammaire a objectivé un rehaussement segmentaire mal limité sans masse visible. Une biopsie de cette lésion a été réalisée. L'analyse histologique de la biopsie a montré un parenchyme mammaire infiltré par une prolifération tumorale disposée en cordons monocellulaires, en cellules dyscohésives réalisant des aspects en $&lt; &lt;$ file indienne $&gt; &gt;$ et en $&lt; &lt;$ bulbe d'oignon $&gt; &gt;$ (SCORE 3). Ces cellules présentent des atypies cytonucléaires modérées (SCORE 2). Les mitoses sont estimées à $1 0 / 2 ~ \\mathsf { m m } ^ { 2 }$ (SCORE 2). Le stroma tumoral comporte $10 \\%$ de lymphocytes.",
-                                    "question_text": "Quel anticorps, en immunohistochimie, permet de retenir ce type histologique ? et quel est le résultat attendu après utilisation de cet anticorps ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q48",
-                                    "clinical_context": "Femme de 55 ans, sous traitement hormonal substitutif de la ménopause depuis 5 ans, chez qui une mammographie du sein gauche de dépistage a montré une distorsion architecturale sans masse palpable claire, classée ACRS. L'IRM mammaire a objectivé un rehaussement segmentaire mal limité sans masse visible. Une biopsie de cette lésion a été réalisée. L'analyse histologique de la biopsie a montré un parenchyme mammaire infiltré par une prolifération tumorale disposée en cordons monocellulaires, en cellules dyscohésives réalisant des aspects en $&lt; &lt;$ file indienne $&gt; &gt;$ et en $&lt; &lt;$ bulbe d'oignon $&gt; &gt;$ (SCORE 3). Ces cellules présentent des atypies cytonucléaires modérées (SCORE 2). Les mitoses sont estimées à $1 0 / 2 ~ \\mathsf { m m } ^ { 2 }$ (SCORE 2). Le stroma tumoral comporte $10 \\%$ de lymphocytes.",
-                                    "question_text": "Quel est le grade SBR de cette tumeur ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "ANA-GYN-01-Q49",
-                                    "clinical_context": "Femme de 55 ans, sous traitement hormonal substitutif de la ménopause depuis 5 ans, chez qui une mammographie du sein gauche de dépistage a montré une distorsion architecturale sans masse palpable claire, classée ACRS. L'IRM mammaire a objectivé un rehaussement segmentaire mal limité sans masse visible. Une biopsie de cette lésion a été réalisée. L'analyse histologique de la biopsie a montré un parenchyme mammaire infiltré par une prolifération tumorale disposée en cordons monocellulaires, en cellules dyscohésives réalisant des aspects en $&lt; &lt;$ file indienne $&gt; &gt;$ et en $&lt; &lt;$ bulbe d'oignon $&gt; &gt;$ (SCORE 3). Ces cellules présentent des atypies cytonucléaires modérées (SCORE 2). Les mitoses sont estimées à $1 0 / 2 ~ \\mathsf { m m } ^ { 2 }$ (SCORE 2). Le stroma tumoral comporte $10 \\%$ de lymphocytes.",
-                                    "question_text": "Citer les facteurs histopronostiques que le pathologiste doit préciser sur le compte rendu anatomopathologique de cette biopsie ?",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": false
-                                }
-                            ]
-                        },
+                  "id": "ANA-GYN-01-Q16",
+                  "clinical_context": "Femme de 54 ans, obese, hypertendue et muligare. Elle s'est auto-palpée un nodule au niveau de son sein gauche. Elle a consulté son gynécologue. Après examen clinique et imagerie, il a conclu à un nodule de 3 cm mal limité avec palpation d'un ganglion axillaire homolatéral Au terme des résultats cliniques et paracliniques obtenus après ces examens, un diagnostic de carcinome mammaire infiltrant de type NOS a été retenu.",
+                  "question_text": "Quels sont les facteurs histopronostiques que le gynécologue doit chercher sur le compte rendu anatomopathologique initial de cette biopsie ?",
+                  "type": "QCM",
+                  "choices": [
+                    "La taille tumorale histologique.",
+                    "Les emboles vasculaires.",
+                    "Le carcinome in situ.",
+                    "Le statut ganglionnaire.",
+                    "Le garde histologique SBR."
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q17",
+                  "clinical_context": "Sur le compte rendu anatomopathologique, le pathologiste décrit une prolifération carcinomateuse disposées en glandes et en travées, les cellules tumorales présentent des atypies modérées, et le compte mitotique retrouve 10 mitoses/2mm2. Le stroma est fibro-inflammatoire avec des lymphocytes infiltrants la tumeur (Tils) estimés à $10 \\%$ .",
+                  "question_text": "Quel grade histologique donnerez-vous à cette prolifération ?",
+                  "type": "QCM",
+                  "choices": [
+                    "Grade I de SBR.",
+                    "Grade II de SBR.",
+                    "Grade III de SBR.",
+                    "Pas de grade pour cette tumeur.",
+                    "Aucune de ces réponses."
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q18",
+                  "clinical_context": "Le compte rendu anatomopathologique complémentaire de la biopsie de cette patiente a conclu à une positivité intense et diffuse des récepteurs hormonaux ostrogéniques et progestéroniques à $9 5 \\%$ , une surexpression de la protéine HER2 score 2 et un KI67 à $10 \\%$ .",
+                  "question_text": "Quel test anatomopathologique doit-on demander à notre patiente après ces résultats ?",
+                  "type": "QCM",
+                  "choices": [
+                    "Une immunohistochimie.",
+                    "Une seconde biopsie.",
+                    "Une hybridation in situ fluorescente (FISH).",
+                    "Un complément PCR.",
+                    "Un complément NGS."
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q19",
+                  "clinical_context": "Au final, il s'agit d'un carcinome mammaire infiltrant de type NOS, moyennement différencié, RH positifs, HER2 non amplifié, K167 bas.",
+                  "question_text": "Quel est le sous type moléculaire chez notre patiente ?",
+                  "type": "QCM",
+                  "choices": [
+                    "Luminal A",
+                    "Luminal B HER2 négatif.",
+                    "Luminal B HER2 positif.",
+                    "HER2-enrichi.",
+                    "Triple négatif (basal-like)."
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q20",
+                  "clinical_context": "Notre patiente a bien reçu son traitement (chirurgie $^ +$ tamoxifène). Au cours de son suivi, elle a présenté des métrorragies de grande abondance. L'échographie endovaginale a objectivé un endomètre à 10mm d'épaisseur. L'examen anatomopathologique du curetage biopsique de l'endomètre a montré une augmentation du nombre de glandes par rapport au chorion cytogène avec un rapport de 3 sur un (3/1). Ces glandes sont adossées par endroit avec persistance du chorion. Les cellules sont globuleuses au noyau augmenté de taille avec un macro nucléole et un cytoplasme abondant éosinophile.",
+                  "question_text": "Quel est le diagnostic histologique selon ce compte rendu anatomopathologique ?",
+                  "type": "QCM",
+                  "choices": [
+                    "Endomètre dyshormonal",
+                    "Hyperplasie simple non atypique.",
+                    "Hyperplasie complexe atypique",
+                    "Hyperplasie complexe non atypique",
+                    "Adénocarcinome endométrioïde de grade I."
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q21",
+                  "clinical_context": null,
+                  "question_text": "Quels sont les facteurs de risque de cancer de l'endomètre chez cette patiente ?",
+                  "type": "QCM",
+                  "choices": [
+                    "Obésité",
+                    "Hypertension artérielle.",
+                    "Diabète.",
+                    "Tamoxifène.",
+                    "Nulliparité."
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q22",
+                  "clinical_context": null,
+                  "question_text": "Quels sont les types histologiques les plus fréquents des cancers de l'endomètre ?",
+                  "type": "QCM",
+                  "choices": [
+                    "Carcinome lobulaire.",
+                    "Carcinome endométrioïde.",
+                    "Carcinome séreux.",
+                    "Carcinome épidermoïde.",
+                    "Carcinome neuro-endocrine."
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q23",
+                  "clinical_context": "Une femme de 25 ans, consulte pour des mastodynies. L'examen clinique a retrouvé à la palpation un nodule de 2 cm, bien limité, mobile par rapport aux deux plans, sans signe inflammatoire, sans adénopathie homolatérale palpable. L'échographie a objectivé un nodule du sein classé ACR4a.",
+                  "question_text": "Selon ces données clinico-radiologiques, s'agit-il d'une tumeur :",
+                  "type": "QCM",
+                  "choices": [
+                    "Bénigne ne nécessitant aucune intervention.",
+                    "Fortement suspecte.",
+                    "Apriori bénigne mais une biopsie s'impose.",
+                    "Maligne.",
+                    "Suspecte nécessitant une chirurgie d'exérèse en urgence."
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q24",
+                  "clinical_context": "L'analyse histologique a montré une prolifération tumorale bien limitée, faite d'un double contingent épithélial et conjonctif. Le contingent épithélial est fait de structures canalaires étirées donnant un aspect en « lettre chinoise », bordées par une double assise de cellules épithéliales et myoépíthéliale. Le contingent conjonctif est fait de cellules fibroblastiques régulières.",
+                  "question_text": "Selon ces données histologiques, s'agit-il :",
+                  "type": "QCM",
+                  "choices": [
+                    "D'une tumeur épithéliale bénigne.",
+                    "D'une tumeur épithéliale maligne",
+                    "D'une tumeur mésenchymateuse maligne",
+                    "D'une tumeur dont la nature est suspecte, nécessitant un complément immunohistochimique",
+                    "D'une tumeur fibro-épithéliale bénigne,"
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q25",
+                  "clinical_context": null,
+                  "question_text": "Comment appelle-t-on cette tumeur ?",
+                  "type": "QCM",
+                  "choices": [
+                    "Adénome",
+                    "Carcinome",
+                    "Sarcome.",
+                    "Tumeur phyllode.",
+                    "Adénofibrome"
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q26",
+                  "clinical_context": "Une femme de 28 ans consulte pour un nodule du sein droit. On découvre une masse spiculée avec des micro-calcifications ACR5. La microbiopsie montre une prolifération tumorale maligne d'architecture solide sans aucune structure glandulaire, avec des atypies sévères et un index mitotique élevé estimé à 30 mitoses par 10 champs au fort grossissement.",
+                  "question_text": "Parmi les affirmations ci-dessous, lesquelles sont vraies :",
+                  "type": "QCM",
+                  "choices": [
+                    "C'est un cancer infiltrant.",
+                    "La patiente risque des métastases ganglionnaires.",
+                    "C'est un carcinome de grade 3 SBR.",
+                    "L'âge jeune est un facteur de bon pronostic.",
+                    "Les marges de résection de la tumorectomie ne doivent pas être précisées par le pathologiste."
+                  ],
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q27",
+                  "clinical_context": "Patiente de 54 ans sans antécédents pathologiques notables, consulte pour des microcalcifications retrouvées lors d'une mammographie de dépistage.",
+                  "question_text": "Quelles sont vos hypothèses diagnostiques",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q28",
+                  "clinical_context": "La patiente a bénéficié d'une macrobiopsie. L’examen histologique montrait des canaux dilatés comblés par une prolifération de cellules luminales atypiques centrées de nécrose, étendue sur 6 mm.",
+                  "question_text": "Quelle est votre hypothèse diagnostique",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q29",
+                  "clinical_context": "La patiente a bénéficié d'une macrobiopsie. L’examen histologique montrait des canaux dilatés comblés par une prolifération de cellules luminales atypiques centrées de nécrose, étendue sur 6 mm.",
+                  "question_text": "Que faut-il éliminer à ce stade et par quel moyen ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q30",
+                  "clinical_context": "Patiente de 28 ans, consulte pour un nodule du sein classe T4d. L'échographie plus la mammographie montrait une lésion ACR5.",
+                  "question_text": "Que faut-il faire après ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q31",
+                  "clinical_context": "Le compte-rendu anatomo-pathologique parlait d'une prolifération tumorale faite de $20 \\%$ de tubes et de glandes, des atypies sévères et 40 mitoses par 10 champs au fort grossissement.",
+                  "question_text": "Quel est votre diagnostic anatomo-pathologique ? Que faut-il demander par la suite ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q32",
+                  "clinical_context": "La tumeur n'exprimait pas les récepteurs hormonaux et la recherche de la surexpression de la protéine HER2 était négative.",
+                  "question_text": "Quel est le profil moléculaire de cette tumeur ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q33",
+                  "clinical_context": null,
+                  "question_text": "Quels sont les facteurs pronostiques chez cette patiente ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q34",
+                  "clinical_context": "Patiente de 30 ans, consulte pour un nodule du sein classé ACR 5. La biopsie montre des travées tumorales avec peu de glandes $( 1 0 \\% )$ au sein d’une stroma réaction fibreuse riche en lymphocytes. Les atypies cytologiques sont sévères et les mitoses sont estimées à 30 mitoses/lOCFG.",
+                  "question_text": "Quel est votre conclusion anatomopathologique ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q35",
+                  "clinical_context": null,
+                  "question_text": "Que faut-il demander en plus chez cette patiente ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q36",
+                  "clinical_context": null,
+                  "question_text": "La classification moléculaire a montré que la tumeur est de phénotype HER2. Comment sont-ils les autres marqueurs ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q37",
+                  "clinical_context": null,
+                  "question_text": "Citer les facteurs pronostiques histologiques et biologiques qu’il faut préciser sur un compte rendu anatomopathologique pour cancer du sein sur biopsie.",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q38",
+                  "clinical_context": "Patiente de 30 ans sans antécédents pathologiques notables, consulte pour un nodule du sein gauche classé ACR5 à la mammographie.",
+                  "question_text": "Quelles sont vos hypothèses diagnostiques",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": true
+                },
+                {
+                  "id": "ANA-GYN-01-Q39",
+                  "clinical_context": "La patiente a bénéficié d'une microbiopsie. L'examen histologique montrait une prolifération tumorale disposée en tubes $( 5 \\% )$ et en travées avec des atypies sévères et 25 mitoses / 10 champs au fort grossissement. Cette prolifération tumorale est dissociée par un stroma réaction fibro-inflammatoire Présence d'une prolifération intra-canalaire étendue sur $8 \\mathsf { m m }$ , faite de cellules atypiques avec un pléomorphisme important, centrée de nécrose.",
+                  "question_text": "Quel est votre diagnostic ? Justifier",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q40",
+                  "clinical_context": null,
+                  "question_text": "Quels sont les facteurs pronostiques chez cette patiente ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q41",
+                  "clinical_context": null,
+                  "question_text": "Rédiger votre conclusion anatomo-pathologique en tenant compte de toutes les données.",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q42",
+                  "clinical_context": "La biopsie du col utérin faite sous colposcopie montrait une prolifération tumorale infiltrante faite de massifs et de cordons de cellules polygonales, des cadres claires et des globes cornés.",
+                  "question_text": "Quel est votre diagnostic histologique ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q43",
+                  "clinical_context": "Après deux mois le nodule augmente de taille et le radiologue le reclasse en ACRAc .L’examen histologique montrait le même aspect précédemment décrit avec un contingent mésenchymateux de densité plus élevée et un aspect foliacé des canaux",
+                  "question_text": "Quel est votre diagnostic? Justifiez",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q44",
+                  "clinical_context": "Une tumorectomie a été réalisée. Les canaux montraient localement une prolifération des cellules épithéliales avec comblement des lumières et la résection a été faite à 1 mm de toutes les limites",
+                  "question_text": "Quelles sont vos hypothèses diagnostiques devant “ des cellules épithéliales avec comblement des lumières” ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q45",
+                  "clinical_context": null,
+                  "question_text": "La résection passe-t-elle en zone saine ? justifier",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q46",
+                  "clinical_context": null,
+                  "question_text": "Quel est le pronostic de ce type de tumeur ? Justifier",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q47",
+                  "clinical_context": "Femme de 55 ans, sous traitement hormonal substitutif de la ménopause depuis 5 ans, chez qui une mammographie du sein gauche de dépistage a montré une distorsion architecturale sans masse palpable claire, classée ACRS. L'IRM mammaire a objectivé un rehaussement segmentaire mal limité sans masse visible. Une biopsie de cette lésion a été réalisée. L'analyse histologique de la biopsie a montré un parenchyme mammaire infiltré par une prolifération tumorale disposée en cordons monocellulaires, en cellules dyscohésives réalisant des aspects en $< <$ file indienne $> >$ et en $< <$ bulbe d'oignon $> >$ (SCORE 3). Ces cellules présentent des atypies cytonucléaires modérées (SCORE 2). Les mitoses sont estimées à $1 0 / 2 ~ \\mathsf { m m } ^ { 2 }$ (SCORE 2). Le stroma tumoral comporte $10 \\%$ de lymphocytes.",
+                  "question_text": "Quel est le diagnostic histopathologique selon la description ci-dessus ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q48",
+                  "clinical_context": null,
+                  "question_text": "Quel anticorps, en immunohistochimie, permet de retenir ce type histologique ? et quel est le résultat attendu après utilisation de cet anticorps ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q49",
+                  "clinical_context": null,
+                  "question_text": "Quel est le grade SBR de cette tumeur ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                {
+                  "id": "ANA-GYN-01-Q50",
+                  "clinical_context": null,
+                  "question_text": "Citer les facteurs histopronostiques que le pathologiste doit préciser sur le compte rendu anatomopathologique de cette biopsie ?",
+                  "type": "QROC",
+                  "choices": null,
+                  "requires_review": false
+                },
+                  ]
+            },              
+                                
                         {
                             "subject_name": "Le cancer du col utérin",
                             "questions": [
