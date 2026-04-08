@@ -16,11 +16,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-
- initializeAppCheck(app, {
-   provider: new ReCaptchaV3Provider('6LcJDKAsAAAAABrgFjTSx5rhWXnYLbTxRa1Et7Cg'),
-   isTokenAutoRefreshEnabled: true
- });
+// TEMPORARILY DISABLED for debugging - ReCAPTCHA might be blocking OAuth
+// Uncomment after login works
+// initializeAppCheck(app, {
+//   provider: new ReCaptchaV3Provider('6LcJDKAsAAAAABrgFjTSx5rhWXnYLbTxRa1Et7Cg'),
+//   isTokenAutoRefreshEnabled: true
+// });
 
 const auth = getAuth(app);
 
@@ -264,11 +265,7 @@ window.FirebaseAuthManager = {
         let redirectUser = null;
         try {
             const redirectResult = await getRedirectResult(auth);
-            alert("📊 getRedirectResult returned: " + JSON.stringify({
-                hasResult: !!redirectResult,
-                hasUser: !!(redirectResult?.user),
-                userEmail: redirectResult?.user?.email || "N/A"
-            }));
+            console.log("Redirect result:", !!redirectResult, redirectResult?.user?.email);
             
             if (redirectResult && redirectResult.user) {
                 redirectUser = redirectResult.user;
