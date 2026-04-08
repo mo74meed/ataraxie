@@ -388,15 +388,37 @@ window.FirebaseAuthManager = {
         // Use regex strictly for mobile browser detection (like Chrome on phone)
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         
+        // Try popup first (works on most browsers)
+        try {
+            console.log("→ Trying signin with popup...");
+            await signInWithPopup(auth, provider);
+            console.log("✓ Popup login successful");
+            return;
+        } catch (error) {
+            console.error("Popup login error:", error);
+            
+            // User closed popup manually - don't retry
+            if (error.code === 'auth/popup-closed-by-user' || error.code === 'auth/cancelled-popup-request') {
+                console.log("ℹ User closed popup");
+                return;
+            }
+            
+            // Popup failed, fall back to redirect
+            console.log("→ Popup blocked or failed, falling back to redirect...");
+        }
+        
+        // Fallback: use redirect
         try {
             if (isMobile) {
-                await signInWithRedirect(auth, provider);
+                console.log("→ Mobile detected - using redirect");
             } else {
-                await signInWithPopup(auth, provider);
+                console.log("→ Desktop detected - retrying with redirect");
             }
-        } catch (error) {
-            console.error("Login failed or popup blocked. Falling back to redirect:", error);
             await signInWithRedirect(auth, provider);
+            console.log("→ Redirecting to Google OAuth...");
+        } catch (error) {
+            console.error("Redirect also failed:", error);
+            alert("Login failed: " + error.message);
         }
     },
     
