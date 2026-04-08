@@ -258,23 +258,40 @@ window.FirebaseAuthManager = {
         // This prevents the race condition where onAuthStateChanged fires with null
         // before the redirect result is processed on mobile browsers.
         alert("🔧 App URL: " + window.location.href);
+        alert("🔧 Auth object initialized: " + (auth ? "YES" : "NO"));
         alert("🔧 Checking for redirect result...");
         
+        let redirectUser = null;
         try {
             const redirectResult = await getRedirectResult(auth);
+            alert("📊 getRedirectResult returned: " + JSON.stringify({
+                hasResult: !!redirectResult,
+                hasUser: !!(redirectResult?.user),
+                userEmail: redirectResult?.user?.email || "N/A"
+            }));
+            
             if (redirectResult && redirectResult.user) {
-                alert("✅ REDIRECT SUCCESS: " + redirectResult.user.email);
-                console.log("✓ User signed in via redirect:", redirectResult.user.email);
+                redirectUser = redirectResult.user;
+                alert("✅ REDIRECT RESULT HAS USER: " + redirectUser.email);
+                console.log("✓ User signed in via redirect:", redirectUser.email);
             } else {
-                alert("ℹ️ No redirect result (either first load or Firebase domain issue)");
+                alert("ℹ️ No user in redirect result (first load or ReCAPTCHA block)");
             }
         } catch (error) {
             alert("❌ REDIRECT ERROR: " + error.code + " - " + error.message);
             console.error("✗ Redirect login error:", error.code, error.message);
         }
 
+        alert("⏳ Setting up onAuthStateChanged listener...");
+        let callbackFired = false;
+
         onAuthStateChanged(auth, async (user) => {
             currentUser = user;
+            callbackFired = true;
+            
+            alert("📊 onAuthStateChanged fired - User: " + (user ? user.email : "NULL"));
+            alert("   Redirect user was: " + (redirectUser ? redirectUser.email : "NULL"));
+            
             if (user) {
                 alert("✅ AUTH STATE CHANGED: " + user.email);
                 console.log("✓ Auth state changed - User signed in:", user.email);
@@ -293,7 +310,8 @@ window.FirebaseAuthManager = {
                     onUserLoadCallback(null, user);
                 }
             } else {
-                alert("ℹ️ NOT AUTHENTICATED - No user in onAuthStateChanged callback");
+                alert("❌ AUTH STATE = NULL (even though domain is whitelisted!)");
+                alert("   This suggests ReCAPTCHA block or session sync issue");
                 onUserLoadCallback(null, null);
             }
         });
