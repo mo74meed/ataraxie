@@ -5,7 +5,7 @@ import { getDatabase, ref, set, get, child, update } from "https://www.gstatic.c
 
 const firebaseConfig = {
   apiKey: "AIzaSyBbPwpQsTdrfPi6WvfhFVhmhpeYzp5Wn0g",
-  authDomain: "e-taraxie.firebaseapp.com",
+  authDomain: "mo7ameed.github.io",
   projectId: "e-taraxie",
   storageBucket: "e-taraxie.firebasestorage.app",
   messagingSenderId: "490683199342",
@@ -253,27 +253,30 @@ window.FirebaseAuthManager = {
         return merged;
     },
 
-    init: function(onUserLoadCallback) {
-        // Essential for mobile: catch the returning user after a redirect!
-        // MUST complete before setting up onAuthStateChanged to avoid race condition
-        getRedirectResult(auth).then((redirectResult) => {
+    init: async function(onUserLoadCallback) {
+        // FIX: Await getRedirectResult BEFORE setting up onAuthStateChanged.
+        // This prevents the race condition where onAuthStateChanged fires with null
+        // before the redirect result is processed on mobile browsers.
+        alert("🔧 App URL: " + window.location.href);
+        alert("🔧 Checking for redirect result...");
+        
+        try {
+            const redirectResult = await getRedirectResult(auth);
             if (redirectResult && redirectResult.user) {
+                alert("✅ REDIRECT SUCCESS: " + redirectResult.user.email);
                 console.log("✓ User signed in via redirect:", redirectResult.user.email);
-                // Force UI update after redirect completes
-                setTimeout(() => {
-                    if (!currentUser) {
-                        console.log("⚠ Auth state listener hasn't fired yet, forcing refresh...");
-                        window.location.reload();
-                    }
-                }, 1500);
+            } else {
+                alert("ℹ️ No redirect result (either first load or Firebase domain issue)");
             }
-        }).catch((error) => {
-            console.error("✗ Redirect login error:", error);
-        });
+        } catch (error) {
+            alert("❌ REDIRECT ERROR: " + error.code + " - " + error.message);
+            console.error("✗ Redirect login error:", error.code, error.message);
+        }
 
         onAuthStateChanged(auth, async (user) => {
             currentUser = user;
             if (user) {
+                alert("✅ AUTH STATE CHANGED: " + user.email);
                 console.log("✓ Auth state changed - User signed in:", user.email);
                 try {
                     console.log("→ Syncing and loading data for:", user.uid);
@@ -282,6 +285,7 @@ window.FirebaseAuthManager = {
                     
                     onUserLoadCallback(cloudData, user);
                 } catch (err) {
+                    alert("❌ SYNC ERROR: " + err.message);
                     console.error("✗ Failed to sync and load data:", err);
                     // Fallback to null cloudData but still authenticate the user
                     
@@ -289,9 +293,7 @@ window.FirebaseAuthManager = {
                     onUserLoadCallback(null, user);
                 }
             } else {
-                console.log("ℹ No user signed in.");
-                
-                
+                alert("ℹ️ NOT AUTHENTICATED - No user in onAuthStateChanged callback");
                 onUserLoadCallback(null, null);
             }
         });
