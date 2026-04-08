@@ -255,33 +255,41 @@ window.FirebaseAuthManager = {
 
     init: function(onUserLoadCallback) {
         // Essential for mobile: catch the returning user after a redirect!
-        // We do not await it here so it doesn't block onAuthStateChanged loading.
+        // MUST complete before setting up onAuthStateChanged to avoid race condition
         getRedirectResult(auth).then((redirectResult) => {
             if (redirectResult && redirectResult.user) {
-                console.log("User signed in via redirect:", redirectResult.user.email);
+                console.log("✓ User signed in via redirect:", redirectResult.user.email);
+                // Force UI update after redirect completes
+                setTimeout(() => {
+                    if (!currentUser) {
+                        console.log("⚠ Auth state listener hasn't fired yet, forcing refresh...");
+                        window.location.reload();
+                    }
+                }, 1500);
             }
         }).catch((error) => {
-            console.error("Redirect login error:", error);
+            console.error("✗ Redirect login error:", error);
         });
 
         onAuthStateChanged(auth, async (user) => {
             currentUser = user;
             if (user) {
-                console.log("User signed in:", user.email);
+                console.log("✓ Auth state changed - User signed in:", user.email);
                 try {
+                    console.log("→ Syncing and loading data for:", user.uid);
                     const cloudData = await this.syncAndLoadData(user);
-                    
+                    console.log("✓ Data synced successfully");
                     
                     onUserLoadCallback(cloudData, user);
                 } catch (err) {
-                    console.error("Failed to sync and load data:", err);
+                    console.error("✗ Failed to sync and load data:", err);
                     // Fallback to null cloudData but still authenticate the user
                     
                     
                     onUserLoadCallback(null, user);
                 }
             } else {
-                console.log("No user signed in.");
+                console.log("ℹ No user signed in.");
                 
                 
                 onUserLoadCallback(null, null);
@@ -364,18 +372,21 @@ window.FirebaseAuthManager = {
         // Check if running directly inside the compiled Android/iOS Capacitor app
         if (window.Capacitor && window.Capacitor.isNativePlatform()) {
             try {
+                console.log("→ Using native Capacitor GoogleAuth plugin");
                 // Initialize plugin just in case
                 window.Capacitor.Plugins.GoogleAuth.initialize();
                 
                 // 1. Native Bottom-Sheet Google Prompt
                 const googleUser = await window.Capacitor.Plugins.GoogleAuth.signIn();
+                console.log("✓ Native sign-in successful:", googleUser.email);
                 
                 // 2. Pass Android token to Firebase
                 const credential = GoogleAuthProvider.credential(googleUser.authentication.idToken);
                 await signInWithCredential(auth, credential);
+                console.log("✓ Firebase credential signed in");
                 return; // Stop here if native worked
             } catch (error) {
-                console.error("Native Capacitor Auth Error:", error);
+                console.error("✗ Native Capacitor Auth Error:", error);
                 alert("Erreur de connexion native: " + JSON.stringify(error));
                 return; // DO NOT FALLBACK. The web fallback breaks Capacitor because Capacitor doesn't handle redirects well.
             }
@@ -390,12 +401,18 @@ window.FirebaseAuthManager = {
         
         try {
             if (isMobile) {
+                console.log("→ Mobile browser detected - using redirect flow");
+                console.log("   Redirecting to Google OAuth...");
                 await signInWithRedirect(auth, provider);
+                console.log("   (Awaiting Google redirect...)");
             } else {
+                console.log("→ Desktop browser - using popup flow");
                 await signInWithPopup(auth, provider);
+                console.log("✓ Popup sign-in successful");
             }
         } catch (error) {
-            console.error("Login failed or popup blocked. Falling back to redirect:", error);
+            console.error("✗ Login failed or popup blocked:", error.code, error.message);
+            console.log("→ Falling back to redirect...");
             await signInWithRedirect(auth, provider);
         }
     },
