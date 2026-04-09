@@ -1,623 +1,654 @@
-import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app-check.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, signOut, onAuthStateChanged, signInWithCredential } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-import { getDatabase, ref, set, get, child, update } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+// ╔══════════════════════════════════════════════════════════════╗
+// ║               firebase-init.js  —  e-taraxie                ║
+// ║  Auth + Realtime DB sync. Works on:                         ║
+// ║    • Desktop browsers (Chrome, Firefox, Safari, Edge)       ║
+// ║    • Android Chrome / mobile browsers  → redirect flow      ║
+// ║    • Android APK via Capacitor         → native plugin      ║
+// ╚══════════════════════════════════════════════════════════════╝
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBbPwpQsTdrfPi6WvfhFVhmhpeYzp5Wn0g",
-  authDomain: "e-taraxie.firebaseapp.com",
-  projectId: "e-taraxie",
-  storageBucket: "e-taraxie.firebasestorage.app",
-  messagingSenderId: "490683199342",
-  appId: "1:490683199342:web:b3c6df504994c01d4cdb7f",
-  measurementId: "G-NWJ26Y115H",
-  databaseURL: "https://e-taraxie-default-rtdb.firebaseio.com"
-};
+import { initializeAppCheck, ReCaptchaV3Provider }
+    from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app-check.js";
+import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signInWithRedirect,
+    getRedirectResult,
+    signInWithCredential,
+    signOut,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getDatabase, ref, set, get, child, update }
+    from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
-const app = initializeApp(firebaseConfig);
 
+// ─── Firebase bootstrap ───────────────────────────────────────────────────────
 
- initializeAppCheck(app, {
-   provider: new ReCaptchaV3Provider('6LcJDKAsAAAAABrgFjTSx5rhWXnYLbTxRa1Et7Cg'),
-   isTokenAutoRefreshEnabled: true
- });
+const app = initializeApp({
+    apiKey:            "AIzaSyBbPwpQsTdrfPi6WvfhFVhmhpeYzp5Wn0g",
+    authDomain:        "e-taraxie.firebaseapp.com",
+    projectId:         "e-taraxie",
+    storageBucket:     "e-taraxie.firebasestorage.app",
+    messagingSenderId: "490683199342",
+    appId:             "1:490683199342:web:b3c6df504994c01d4cdb7f",
+    measurementId:     "G-NWJ26Y115H",
+    databaseURL:       "https://e-taraxie-default-rtdb.firebaseio.com"
+});
+
+initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider("6LcJDKAsAAAAABrgFjTSx5rhWXnYLbTxRa1Et7Cg"),
+    isTokenAutoRefreshEnabled: true
+});
 
 const auth = getAuth(app);
+const db   = getDatabase(app);  // Realtime DB — avoids Firestore daily write quotas
 
-// Use Realtime Database instead of Firestore to bypass daily 'Save Count' quotas
-const db = getDatabase(app);
 
-let currentUser = null;
+// ─── Runtime state ────────────────────────────────────────────────────────────
 
-function setSyncStatus(state) {
-    const el = document.getElementById('auth-sync-status');
-    if (!el) return;
-    const map = {
-      syncing: { text: '↻ Sync...', color: 'var(--a500)' },
-      synced:  { text: '● Synced', color: 'var(--g500)' },
-      error:   { text: '✖ Erreur', color: '#ef4444' },
-      offline: { text: '○ Hors ligne', color: 'var(--t4)' }
-    };
-    if(map[state]) {
-        el.textContent = map[state].text;
-        el.style.color = map[state].color;
+let _user = null;
+
+
+// ─── Environment detection ────────────────────────────────────────────────────
+// Evaluated once at load time so login() never has to guess.
+
+const Env = Object.freeze({
+    // Inside a compiled Capacitor APK / IPA
+    native: typeof window.Capacitor !== "undefined" && window.Capacitor.isNativePlatform() === true,
+
+    // Mobile browser on Android (not inside an APK).
+    // Chrome on Android silently blocks cross-origin popups — redirect is mandatory.
+    androidBrowser: (
+        typeof window.Capacitor === "undefined" || !window.Capacitor.isNativePlatform()
+    ) && /Android/i.test(navigator.userAgent),
+});
+// Anything else (desktop, iOS browser) → popup with redirect fallback.
+
+
+// ─── localStorage helpers ─────────────────────────────────────────────────────
+
+function localDump() {
+    const out = {};
+    for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith("ataraxie_")) out[k] = localStorage.getItem(k);
+    }
+    return out;
+}
+
+function localClear() {
+    const keys = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith("ataraxie_")) keys.push(k);
+    }
+    keys.forEach(k => localStorage.removeItem(k));
+}
+
+function localWrite(data) {
+    for (const k in data) {
+        if (k.startsWith("ataraxie_")) localStorage.setItem(k, data[k]);
     }
 }
 
-window.addEventListener('offline', () => setSyncStatus('offline'));
-window.addEventListener('online', () => setSyncStatus('syncing'));
+function dataDiffer(a, b) {
+    for (const k in a) { if (a[k] !== b[k]) return true; }
+    for (const k in b) { if (b[k] !== a[k]) return true; }
+    return false;
+}
 
 
-function showSyncModal(message, okText = "OK", cancelText = "Annuler") {
-    return new Promise((resolve) => {
-        const overlay = document.getElementById('syncModalOverlay');
-        const msgEl = document.getElementById('syncModalMessage');
-        const btnCancel = document.getElementById('syncModalBtnCancel');
-        const btnConfirm = document.getElementById('syncModalBtnConfirm');
+// ─── UI: sync status badge ────────────────────────────────────────────────────
 
-        if (!overlay) {
-            resolve(confirm(message));
-            return;
+function setSyncStatus(state) {
+    const el = document.getElementById("auth-sync-status");
+    if (!el) return;
+    const states = {
+        syncing: { text: "↻ Sync...",    color: "var(--a500)" },
+        synced:  { text: "● Synced",     color: "var(--g500)" },
+        error:   { text: "✖ Erreur",     color: "#ef4444"     },
+        offline: { text: "○ Hors ligne", color: "var(--t4)"   },
+    };
+    if (states[state]) {
+        el.textContent = states[state].text;
+        el.style.color  = states[state].color;
+    }
+}
+
+window.addEventListener("offline", () => setSyncStatus("offline"));
+window.addEventListener("online",  () => setSyncStatus("syncing"));
+
+
+// ─── UI: generic two-button modal ────────────────────────────────────────────
+
+function showModal(message, okLabel = "OK", cancelLabel = "Annuler") {
+    return new Promise(resolve => {
+        const overlay = document.getElementById("syncModalOverlay");
+        if (!overlay) { resolve(confirm(message)); return; }
+
+        document.getElementById("syncModalMessage").innerText    = message;
+        document.getElementById("syncModalBtnConfirm").innerText = okLabel;
+        document.getElementById("syncModalBtnCancel").innerText  = cancelLabel;
+        overlay.style.display = "flex";
+
+        const btnOk = document.getElementById("syncModalBtnConfirm");
+        const btnNo = document.getElementById("syncModalBtnCancel");
+
+        function done(value) {
+            overlay.style.display = "none";
+            btnOk.removeEventListener("click", yes);
+            btnNo.removeEventListener("click", no);
+            resolve(value);
         }
-
-        msgEl.innerText = message;
-        btnConfirm.innerText = okText;
-        btnCancel.innerText = cancelText;
-
-        overlay.style.display = 'flex';
-
-        const cleanup = () => {
-            overlay.style.display = 'none';
-            btnConfirm.removeEventListener('click', onConfirm);
-            btnCancel.removeEventListener('click', onCancel);
-        };
-
-        const onConfirm = () => { cleanup(); resolve(true); };
-        const onCancel = () => { cleanup(); resolve(false); };
-
-        btnConfirm.addEventListener('click', onConfirm);
-        btnCancel.addEventListener('click', onCancel);
+        const yes = () => done(true);
+        const no  = () => done(false);
+        btnOk.addEventListener("click", yes);
+        btnNo.addEventListener("click", no);
     });
 }
 
-// ══════════ OFFLINE SYNC RESOLUTION MODAL ══════════
-function showOfflineSyncModal(localProfiles, cloudProfiles, localAnswers) {
-    return new Promise((resolve) => {
-        const overlay = document.getElementById('offlineSyncOverlay');
+
+// ─── UI: offline-sync resolution modal ───────────────────────────────────────
+
+function showOfflineModal(localProfiles, cloudProfiles, localAnswers) {
+    return new Promise(resolve => {
+        const overlay = document.getElementById("offlineSyncOverlay");
+
+        // Fallback: simple modal if the rich UI is not present in this build
         if (!overlay) {
-            // Fallback to basic sync modal if new UI not available
-            showSyncModal(
-                `Données hors ligne détectées.\n${localProfiles} profil(s) local, ${cloudProfiles} profil(s) cloud.\n\nFusionner avec le cloud ?`,
-                'Fusionner', 'Supprimer'
-            ).then(keep => resolve({ action: keep ? 'merge' : 'discard' }));
+            showModal(
+                `Données hors ligne détectées.\n` +
+                `${localProfiles} profil(s) local · ${cloudProfiles} profil(s) cloud\n\n` +
+                `Fusionner avec le cloud ?`,
+                "Fusionner", "Supprimer"
+            ).then(ok => resolve({ action: ok ? "merge" : "discard" }));
             return;
         }
 
-        // Populate summary
-        const summary = document.getElementById('offlineSyncSummary');
-        summary.innerHTML = `
+        // Stat cards
+        document.getElementById("offlineSyncSummary").innerHTML = `
             <div class="offline-sync-stat">
                 <div class="offline-sync-stat-icon local">${localProfiles}</div>
-                <div class="offline-sync-stat-text">Profil(s) local<small>${localAnswers} réponse(s)</small></div>
+                <div class="offline-sync-stat-text">Profil(s) local
+                    <small>${localAnswers} réponse(s)</small>
+                </div>
             </div>
             <div class="offline-sync-stat">
                 <div class="offline-sync-stat-icon cloud">${cloudProfiles}</div>
-                <div class="offline-sync-stat-text">Profil(s) cloud<small>Dernière sync</small></div>
-            </div>
-        `;
+                <div class="offline-sync-stat-text">Profil(s) cloud
+                    <small>Dernière sync</small>
+                </div>
+            </div>`;
 
-        // Populate profile selector
-        const profileSelect = document.getElementById('offlineSyncProfileSelect');
-        const profileSection = document.getElementById('offlineSyncProfileSection');
-        const newProfileWrap = document.getElementById('offlineSyncNewProfileWrap');
+        // Profile picker
+        const select      = document.getElementById("offlineSyncProfileSelect");
+        const newWrap     = document.getElementById("offlineSyncNewProfileWrap");
+        const profileSect = document.getElementById("offlineSyncProfileSection");
+        newWrap.style.display = "none";
 
-        let profilesHtml = '';
         try {
-            const profilesList = JSON.parse(localStorage.getItem('ataraxie_profiles') || '[]');
-            const activeId = localStorage.getItem('ataraxie_active_profile');
-            profilesHtml = profilesList.map(p =>
-                `<option value="${p.id}"${p.id === activeId ? ' selected' : ''}>${p.name}</option>`
-            ).join('');
-        } catch(e) {}
-        profilesHtml += '<option value="__new__">+ Créer un nouveau profil</option>';
-        profileSelect.innerHTML = profilesHtml;
-
-        profileSelect.addEventListener('change', function handler() {
-            newProfileWrap.style.display = profileSelect.value === '__new__' ? '' : 'none';
-        });
-        newProfileWrap.style.display = 'none';
-
-        // Action card toggle
-        let selectedAction = 'merge';
-        const mergeCard = document.getElementById('offlineSyncMerge');
-        const discardCard = document.getElementById('offlineSyncDiscard');
-
-        function setAction(action) {
-            selectedAction = action;
-            mergeCard.classList.toggle('active', action === 'merge');
-            discardCard.classList.toggle('active', action === 'discard');
-            // Hide profile section for discard
-            profileSection.style.display = action === 'merge' ? '' : 'none';
+            const list     = JSON.parse(localStorage.getItem("ataraxie_profiles") || "[]");
+            const activeId = localStorage.getItem("ataraxie_active_profile");
+            select.innerHTML =
+                list.map(p =>
+                    `<option value="${p.id}"${p.id === activeId ? " selected" : ""}>${p.name}</option>`
+                ).join("") +
+                `<option value="__new__">+ Créer un nouveau profil</option>`;
+        } catch (_) {
+            select.innerHTML = `<option value="__new__">+ Créer un nouveau profil</option>`;
         }
 
-        mergeCard.onclick = () => setAction('merge');
-        discardCard.onclick = () => setAction('discard');
-        setAction('merge');
-
-        // Show modal
-        overlay.style.display = 'flex';
-
-        const cleanup = () => {
-            overlay.style.display = 'none';
-            profileSelect.removeEventListener('change', profileSelect._handler);
+        select.onchange = () => {
+            newWrap.style.display = select.value === "__new__" ? "" : "none";
         };
 
-        document.getElementById('offlineSyncCancel').onclick = () => {
-            cleanup();
-            resolve({ action: 'cancel' });
+        // Action cards
+        let action = "merge";
+        const cardMerge   = document.getElementById("offlineSyncMerge");
+        const cardDiscard = document.getElementById("offlineSyncDiscard");
+
+        function pickAction(a) {
+            action = a;
+            cardMerge.classList.toggle("active",  a === "merge");
+            cardDiscard.classList.toggle("active", a === "discard");
+            profileSect.style.display = a === "merge" ? "" : "none";
+        }
+        cardMerge.onclick   = () => pickAction("merge");
+        cardDiscard.onclick = () => pickAction("discard");
+        pickAction("merge");
+
+        overlay.style.display = "flex";
+
+        document.getElementById("offlineSyncCancel").onclick = () => {
+            overlay.style.display = "none";
+            resolve({ action: "cancel" });
         };
 
-        document.getElementById('offlineSyncApply').onclick = () => {
-            cleanup();
+        document.getElementById("offlineSyncApply").onclick = () => {
+            overlay.style.display = "none";
             resolve({
-                action: selectedAction,
-                targetProfile: profileSelect.value,
-                newProfileName: document.getElementById('offlineSyncNewProfileName')?.value?.trim() || ''
+                action,
+                targetProfile:  select.value,
+                newProfileName: (document.getElementById("offlineSyncNewProfileName")?.value || "").trim(),
             });
         };
     });
 }
 
-// ══════════ SYNC NOTIFICATION (non-blocking toast) ══════════
-function showSyncNotification(message, type) {
-    const syncStatus = document.getElementById('auth-sync-status');
-    if (syncStatus) {
-        const prevContent = syncStatus.textContent;
-        syncStatus.style.color = type === 'error' ? '#ef4444' : 'var(--b500)';
-        syncStatus.textContent = message;
-        setTimeout(() => {
-            syncStatus.textContent = prevContent;
-            syncStatus.style.color = '';
-        }, 3000);
+
+// ─── UI: non-blocking toast on the sync badge ─────────────────────────────────
+
+function toast(message, isError = false) {
+    const el = document.getElementById("auth-sync-status");
+    if (!el) return;
+    const prev = { text: el.textContent, color: el.style.color };
+    el.textContent = message;
+    el.style.color  = isError ? "#ef4444" : "var(--b500)";
+    setTimeout(() => { el.textContent = prev.text; el.style.color = prev.color; }, 3000);
+}
+
+
+// ─── Data merge: cloud + local → best combined result ────────────────────────
+
+function mergeDataSets(cloudData, localData) {
+    const out = { ...cloudData };
+
+    for (const key in localData) {
+
+        // Profile registry: union by id, local wins on conflict
+        if (key === "ataraxie_profiles") {
+            try {
+                const cp  = cloudData[key] ? JSON.parse(cloudData[key]) : [];
+                const lp  = localData[key] ? JSON.parse(localData[key]) : [];
+                const map = new Map();
+                cp.forEach(p => map.set(p.id, p));
+                lp.forEach(p => map.set(p.id, p));
+                out[key] = JSON.stringify([...map.values()]);
+            } catch (_) { out[key] = localData[key]; }
+            continue;
+        }
+
+        // Individual profile blobs: deep-merge each sub-key
+        if (key.startsWith("ataraxie_p_")) {
+            try {
+                const cloud = cloudData[key] ? JSON.parse(cloudData[key]) : null;
+                const local = localData[key] ? JSON.parse(localData[key]) : null;
+                if (!cloud) { out[key] = localData[key]; continue; }
+                if (!local) continue;
+
+                const merged = { ...cloud };
+                for (const sub of ["qcm", "red", "val", "his", "recent"]) {
+                    if (!local[sub]) continue;
+                    if (Array.isArray(local[sub])) {
+                        merged[sub] = [...local[sub], ...(merged[sub] || [])];
+                        if (sub === "recent") {
+                            const seen = new Set();
+                            merged[sub] = merged[sub].filter(r => {
+                                if (seen.has(r.key)) return false;
+                                seen.add(r.key);
+                                return true;
+                            });
+                        }
+                    } else {
+                        merged[sub] = { ...(merged[sub] || {}), ...local[sub] };
+                    }
+                }
+                out[key] = JSON.stringify(merged);
+            } catch (_) { out[key] = localData[key]; }
+            continue;
+        }
+
+        // Everything else: local wins
+        out[key] = localData[key];
+    }
+
+    // Prune orphaned profile data (id not in the profile registry)
+    try {
+        const registered = new Set(
+            JSON.parse(out["ataraxie_profiles"] || "[]").map(p => p.id)
+        );
+        for (const key in out) {
+            if (key.startsWith("ataraxie_p_") && !registered.has(key.slice("ataraxie_p_".length))) {
+                delete out[key];
+            }
+        }
+    } catch (_) {}
+
+    return out;
+}
+
+
+// ─── Cloud helpers ────────────────────────────────────────────────────────────
+
+async function cloudRead(uid) {
+    const snap = await get(child(ref(db), `users/${uid}`));
+    return snap.exists() ? snap.val() : null;
+}
+
+async function cloudWriteAll(uid, data) {
+    await update(ref(db, `users/${uid}/data`), data);
+}
+
+async function cloudInit(uid, email, data) {
+    await set(ref(db, `users/${uid}`), {
+        metadata: { email, linkedAt: Date.now() },
+        data,
+    });
+}
+
+
+// ─── Login-time sync ──────────────────────────────────────────────────────────
+
+async function syncOnLogin(user) {
+    const local = localDump();
+    const doc   = await cloudRead(user.uid);
+
+    // First ever login for this account — push local up
+    if (!doc) {
+        await cloudInit(user.uid, user.email, local);
+        return local;
+    }
+
+    const cloud = doc.data || {};
+
+    // No local data — pull cloud straight into localStorage
+    if (Object.keys(local).length === 0) {
+        localWrite(cloud);
+        return cloud;
+    }
+
+    // Both sides differ — ask the user
+    if (dataDiffer(local, cloud)) {
+        let localCount = 0, cloudCount = 0;
+        try { localCount = JSON.parse(local["ataraxie_profiles"] || "[]").length; } catch (_) {}
+        try { cloudCount = JSON.parse(cloud["ataraxie_profiles"] || "[]").length; } catch (_) {}
+
+        const merge = await showModal(
+            `Des données locales ont été détectées.\n\n` +
+            `Local : ${localCount} profil(s)   ·   Cloud : ${cloudCount} profil(s)\n\n` +
+            `Fusionner avec le cloud, ou tout remplacer par les données en ligne ?`,
+            "Fusionner (↑ Cloud)",
+            "Télécharger (↓ Cloud)"
+        );
+
+        if (merge) {
+            const merged = mergeDataSets(cloud, local);
+            await cloudWriteAll(user.uid, merged);
+            localClear();
+            localWrite(merged);
+            return merged;
+        }
+    }
+
+    // Default: cloud is authoritative
+    localClear();
+    localWrite(cloud);
+    return cloud;
+}
+
+
+// ─── Back-online sync ─────────────────────────────────────────────────────────
+
+async function syncOnReconnect() {
+    if (!_user) return;
+
+    const local = localDump();
+    if (Object.keys(local).length === 0) return;
+
+    try {
+        const doc = await cloudRead(_user.uid);
+        if (!doc) return;
+
+        const cloud = doc.data || {};
+        if (!dataDiffer(local, cloud)) return;
+
+        let localProfiles = 0, cloudProfiles = 0, localAnswers = 0;
+        try { localProfiles = JSON.parse(local["ataraxie_profiles"] || "[]").length; } catch (_) {}
+        try { cloudProfiles = JSON.parse(cloud["ataraxie_profiles"] || "[]").length; } catch (_) {}
+        for (const k in local) {
+            if (k.startsWith("ataraxie_p_")) {
+                try {
+                    const p = JSON.parse(local[k]);
+                    localAnswers += Object.keys(p.qcm || {}).length + Object.keys(p.red || {}).length;
+                } catch (_) {}
+            }
+        }
+
+        const result = await showOfflineModal(localProfiles, cloudProfiles, localAnswers);
+
+        if (result.action === "merge") {
+            const merged = mergeDataSets(cloud, local);
+            await cloudWriteAll(_user.uid, merged);
+            localClear();
+            localWrite(merged);
+            toast("✔ Données fusionnées");
+            if (typeof window.refreshUI === "function") window.refreshUI();
+
+        } else if (result.action === "discard") {
+            await window.FirebaseAuthManager.pullNow();
+            toast("✔ Données cloud restaurées");
+        }
+
+    } catch (err) {
+        console.error("[Sync] syncOnReconnect error:", err);
+        toast("Erreur de synchronisation", true);
     }
 }
 
+
+// ═══════════════════════════════════════════════════════════════════════════════
+//  PUBLIC API  —  window.FirebaseAuthManager
+// ═══════════════════════════════════════════════════════════════════════════════
+
 window.FirebaseAuthManager = {
-    mergeDataSets: function(cloudData, localData) {
-        const merged = { ...cloudData };
-        for (const key in localData) {
-            if (key === 'ataraxie_profiles') {
-                try {
-                    let cP = cloudData[key] ? JSON.parse(cloudData[key]) : [];
-                    let lP = localData[key] ? JSON.parse(localData[key]) : [];
-                    let pMap = new Map();
-                    cP.forEach(p => pMap.set(p.id, p));
-                    lP.forEach(p => pMap.set(p.id, p));
-                    merged[key] = JSON.stringify(Array.from(pMap.values()));
-                } catch(e) {
-                    merged[key] = localData[key];
-                }
-                continue;
-            }
-            if (key.startsWith('ataraxie_p_')) {
-                try {
-                    const cloud = cloudData[key] ? JSON.parse(cloudData[key]) : null;
-                    const local = localData[key] ? JSON.parse(localData[key]) : null;
-                    if (!cloud) { merged[key] = localData[key]; continue; }
-                    if (!local) continue;
-                    
-                    const result = { ...cloud };
-                    for (const subKey of ['qcm', 'red', 'val', 'his', 'recent']) {
-                        if (local[subKey]) {
-                            result[subKey] = result[subKey] || (Array.isArray(local[subKey]) ? [] : {});
-                            if (Array.isArray(local[subKey])) {
-                                // For things like 'recent' arrays
-                                result[subKey] = [...local[subKey], ...result[subKey]];
-                                // deduplicate by key if it's the recent array
-                                if (subKey === 'recent') {
-                                    const seen = new Set();
-                                    result[subKey] = result[subKey].filter(r => {
-                                        const duplicate = seen.has(r.key);
-                                        seen.add(r.key);
-                                        return !duplicate;
-                                    });
-                                }
-                            } else {
-                                Object.assign(result[subKey], local[subKey]);
-                            }
-                        }
-                    }
-                    merged[key] = JSON.stringify(result);
-                } catch(e) { merged[key] = localData[key]; }
-            } else {
-                merged[key] = localData[key];
-            }
-        }
 
-        // Clean up orphaned ataraxie_p_* keys not referenced in ataraxie_profiles registry
-        try {
-            const registeredIds = new Set(
-                JSON.parse(merged['ataraxie_profiles'] || '[]').map(p => p.id)
-            );
-            for (const key in merged) {
-                if (key.startsWith('ataraxie_p_')) {
-                    const profileId = key.replace('ataraxie_p_', '');
-                    if (!registeredIds.has(profileId)) {
-                        console.log('mergeDataSets: pruning orphaned profile data:', key);
-                        delete merged[key];
-                    }
-                }
-            }
-        } catch(e) { console.warn('mergeDataSets: orphan cleanup skipped', e); }
+    // ── init ──────────────────────────────────────────────────────────────────
+    // Call once at app startup.
+    // onReady(cloudData, user) fires whenever auth state resolves.
+    // user === null → signed out.  cloudData may be null on error.
 
-        return merged;
-    },
-
-    init: function(onUserLoadCallback) {
-        // Essential for mobile: catch the returning user after a redirect!
-        // We do not await it here so it doesn't block onAuthStateChanged loading.
-        getRedirectResult(auth).then((redirectResult) => {
-            if (redirectResult && redirectResult.user) {
-                console.log("User signed in via redirect:", redirectResult.user.email);
-            }
-        }).catch((error) => {
-            console.error("Redirect login error:", error);
+    init(onReady) {
+        // Consume any pending redirect result before onAuthStateChanged fires
+        getRedirectResult(auth).catch(err => {
+            console.error("[Auth] getRedirectResult error:", err);
         });
 
-        onAuthStateChanged(auth, async (user) => {
-            currentUser = user;
+        onAuthStateChanged(auth, async user => {
+            _user = user;
             if (user) {
-                console.log("User signed in:", user.email);
                 try {
-                    const cloudData = await this.syncAndLoadData(user);
-                    
-                    
-                    onUserLoadCallback(cloudData, user);
+                    const data = await syncOnLogin(user);
+                    onReady(data, user);
                 } catch (err) {
-                    console.error("Failed to sync and load data:", err);
-                    // Fallback to null cloudData but still authenticate the user
-                    
-                    
-                    onUserLoadCallback(null, user);
+                    console.error("[Auth] Post-login sync failed:", err);
+                    onReady(null, user);
                 }
             } else {
-                console.log("No user signed in.");
-                
-                
-                onUserLoadCallback(null, null);
+                onReady(null, null);
             }
         });
 
-        // Listen for when device comes back online
-        window.addEventListener('online', async () => {
-            if (!currentUser) return;
-            console.log("Network returned online. Checking for offline data...");
-
-            let localDataDump = {};
-            for (let i = 0; i < localStorage.length; i++) {
-                let key = localStorage.key(i);
-                if (key && key.startsWith('ataraxie_')) {
-                    localDataDump[key] = localStorage.getItem(key);
-                }
-            }
-
-            if (Object.keys(localDataDump).length === 0) return;
-
-            try {
-                const dbRef = ref(db);
-                const snapshot = await get(child(dbRef, `users/${currentUser.uid}`));
-                if (!snapshot.exists()) return;
-
-                const cloudData = snapshot.val().data || {};
-                let hasDifferences = false;
-                for (let k in localDataDump) {
-                    if (localDataDump[k] !== cloudData[k]) { hasDifferences = true; break; }
-                }
-                if (!hasDifferences) {
-                    for (let k in cloudData) {
-                        if (cloudData[k] !== localDataDump[k]) { hasDifferences = true; break; }
-                    }
-                }
-
-                if (!hasDifferences) return;
-
-                // Count REAL profiles from the registry, not orphaned ataraxie_p_* keys
-                let localProfiles = 0, cloudProfiles = 0, localAnswers = 0;
-                try { localProfiles = JSON.parse(localDataDump['ataraxie_profiles'] || '[]').length; } catch(e) {}
-                try { cloudProfiles = JSON.parse(cloudData['ataraxie_profiles'] || '[]').length; } catch(e) {}
-                for (let k in localDataDump) {
-                    if (k.startsWith('ataraxie_p_')) {
-                        try {
-                            const pd = JSON.parse(localDataDump[k]);
-                            localAnswers += Object.keys(pd.qcm || {}).length + Object.keys(pd.red || {}).length;
-                        } catch(e) {}
-                    }
-                }
-
-                // Show the new offline sync resolution modal
-                const result = await showOfflineSyncModal(localProfiles, cloudProfiles, localAnswers);
-
-                if (result.action === 'merge') {
-                    const mergedData = window.FirebaseAuthManager.mergeDataSets(cloudData, localDataDump);
-                    await update(ref(db, 'users/' + currentUser.uid + '/data'), mergedData);
-                    for (let key in mergedData) {
-                        if (key.startsWith('ataraxie_')) {
-                            localStorage.setItem(key, mergedData[key]);
-                        }
-                    }
-                    showSyncNotification('✔ Données fusionnées', 'success');
-                } else if (result.action === 'discard') {
-                    window.FirebaseAuthManager.pullNow();
-                    showSyncNotification('✔ Données cloud restaurées', 'success');
-                }
-
-                if (typeof refreshUI === 'function') refreshUI();
-
-            } catch(err) {
-                console.error("Online sync error:", err);
-                showSyncNotification('Erreur de synchronisation', 'error');
-            }
-        });
+        window.addEventListener("online", syncOnReconnect);
     },
-    
-    login: async function() {
-        // Check if running directly inside the compiled Android/iOS Capacitor app
-        if (window.Capacitor && window.Capacitor.isNativePlatform()) {
-            try {
-                // Initialize plugin just in case
-                window.Capacitor.Plugins.GoogleAuth.initialize();
-                
-                // 1. Native Bottom-Sheet Google Prompt
-                const googleUser = await window.Capacitor.Plugins.GoogleAuth.signIn();
-                
-                // 2. Pass Android token to Firebase
-                const credential = GoogleAuthProvider.credential(googleUser.authentication.idToken);
-                await signInWithCredential(auth, credential);
-                return; // Stop here if native worked
-            } catch (error) {
-                console.error("Native Capacitor Auth Error:", error);
-                alert("Erreur de connexion native: " + JSON.stringify(error));
-                return; // DO NOT FALLBACK. The web fallback breaks Capacitor because Capacitor doesn't handle redirects well.
-            }
-        }
 
-        // --- Standard Web / GitHub Pages Flow Below ---
-        const provider = new GoogleAuthProvider();
-        provider.setCustomParameters({ prompt: 'select_account' }); // Prevent infinite loops
-        
-        // Use regex strictly for mobile browser detection (like Chrome on phone)
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        try {
-            if (isMobile) {
-                await signInWithRedirect(auth, provider);
-            } else {
-                await signInWithPopup(auth, provider);
-            }
-        } catch (error) {
-            console.error("Login failed or popup blocked. Falling back to redirect:", error);
-            await signInWithRedirect(auth, provider);
-        }
+
+    // ── login ─────────────────────────────────────────────────────────────────
+    //
+    //  Three completely separate flows:
+    //
+    //  Env.native          → Capacitor GoogleAuth plugin
+    //                        Gets idToken from plugin → signInWithCredential.
+    //                        Never falls back to web: Capacitor WebViews can't
+    //                        handle OAuth redirects.
+    //
+    //  Env.androidBrowser  → signInWithRedirect (mandatory — Chrome on Android
+    //                        blocks cross-origin popups unconditionally).
+    //
+    //  everything else     → signInWithPopup, fallback to redirect only if the
+    //                        popup was blocked or dismissed (soft errors).
+
+    async login() {
+        if (Env.native)         return this._loginNative();
+        if (Env.androidBrowser) return this._loginRedirect();
+        return this._loginPopup();
     },
-    
-    logout: async function() {
+
+
+    // ── logout ────────────────────────────────────────────────────────────────
+
+    async logout() {
         try {
             await signOut(auth);
-            
-            // If native, also sign out from the Android Google Account UI picker cache
-            if (window.Capacitor && window.Capacitor.isNativePlatform()) {
-                await window.Capacitor.Plugins.GoogleAuth.signOut();
+
+            if (Env.native) {
+                try { await window.Capacitor.Plugins.GoogleAuth.signOut(); }
+                catch (e) { console.warn("[Auth] Native signOut non-fatal:", e); }
             }
 
-            // Clear all local data so the next session/offline mode is clean
-            let keysToRemove = [];
-            for (let i = 0; i < localStorage.length; i++) {
-                let key = localStorage.key(i);
-                if (key && key.startsWith('ataraxie_')) {
-                    keysToRemove.push(key);
-                }
-            }
-            keysToRemove.forEach(k => localStorage.removeItem(k));
-            
+            localClear();
             location.reload();
-        } catch (error) {
-            console.error("Logout failed", error);
+        } catch (err) {
+            console.error("[Auth] logout error:", err);
         }
     },
 
-    getUser: function() {
-        return currentUser;
-    },
-    
-    syncAndLoadData: async function(user) {
-        if (!user) return null;
-        
-        const dbRef = ref(db);
-        const snapshot = await get(child(dbRef, `users/${user.uid}`));
 
-        // 1. Gather any existing local data (useful if they are logging in for the VERY FIRST TIME)
-        let localDataDump = {};
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-            if (key && key.startsWith('ataraxie_')) {
-                localDataDump[key] = localStorage.getItem(key);
-            }
-        }
+    // ── saveProgress ──────────────────────────────────────────────────────────
+    // Delta sync: only the one changed profile key is pushed to the cloud.
 
-        if (!snapshot.exists()) {
-            // First login: upload all local profiles and data up to the cloud
-            const payload = {
-                metadata: { email: user.email, linkedAt: Date.now() },
-                data: localDataDump
-            };
-            await set(ref(db, 'users/' + user.uid), payload);
-            return localDataDump; 
-        } else {
-            // Existing cloud account: download and inject everything into localStorage
-            const docData = snapshot.val();
-            const cloudData = docData.data || {};
-
-            // Check if there are local offline differences
-            let hasDifferences = false;
-            if (Object.keys(localDataDump).length > 0) {
-                for (let k in localDataDump) {
-                    if (localDataDump[k] !== cloudData[k]) { hasDifferences = true; break; }
-                }
-                for (let k in cloudData) {
-                    if (cloudData[k] !== localDataDump[k]) { hasDifferences = true; break; }
-                }
-            }
-
-            if (hasDifferences) {
-                
-                // Count REAL profiles from the registry, not orphaned ataraxie_p_* keys
-                let localCount = 0, cloudCount = 0;
-                try { localCount = JSON.parse(localDataDump['ataraxie_profiles'] || '[]').length; } catch(e) {}
-                try { cloudCount = JSON.parse(cloudData['ataraxie_profiles'] || '[]').length; } catch(e) {}
-                
-                const keepLocal = await showSyncModal(
-                    `Des données sauvegardées localement ont été détectées.\n\nLocale : ${localCount} profil(s)\nCloud : ${cloudCount} profil(s)\n\nVoulez-vous synchroniser ces données avec le Cloud (les conserver) ou télécharger les dernières données en ligne (et écraser les données locales) ?`, 
-                    "Conserver (Cloud ↑)", 
-                    "Télécharger (Cloud ↓)"
-                );
-                if (keepLocal) {
-                    // Update Cloud with securely merged Data
-                    const mergedData = this.mergeDataSets(cloudData, localDataDump);
-                    await update(ref(db, 'users/' + user.uid + '/data'), mergedData);
-                    
-                    // Inject back to localStorage cleanly
-                    for (let key in mergedData) {
-                        if (key.startsWith('ataraxie_')) {
-                            localStorage.setItem(key, mergedData[key]);
-                        }
-                    }
-                    return mergedData; 
-                }
-            }
-
-            // Normal sync: Overwrite local with whatever cloud has.
-            // First, delete current local state to prevent mixing old ghost profiles with clean cloud state
-            let keysToRemove = [];
-            for (let i = 0; i < localStorage.length; i++) {
-                let key = localStorage.key(i);
-                if (key && key.startsWith('ataraxie_')) {
-                    keysToRemove.push(key);
-                }
-            }
-            keysToRemove.forEach(k => localStorage.removeItem(k));
-
-            // Inject the new pure cloud state
-            for (let key in cloudData) {
-                if (key.startsWith('ataraxie_')) {
-                    localStorage.setItem(key, cloudData[key]);
-                }
-            }
-            return cloudData;
-        }
-    },
-    
-    // Optimized Delta Sync: Only uploads the exact profile that was modified, not the whole database!
-    saveProgress: async function(profileSK, stateObject) {
-        if (!profileSK || typeof profileSK !== 'string' || !profileSK.startsWith('ataraxie_')) {
-            console.warn('saveProgress: invalid profileSK', profileSK);
+    async saveProgress(profileKey, state) {
+        if (typeof profileKey !== "string" || !profileKey.startsWith("ataraxie_")) {
+            console.warn("[Sync] saveProgress: invalid key", profileKey);
             return;
         }
-        
-        if (stateObject) {
-            const jsonState = JSON.stringify(stateObject);
-            setSyncStatus('syncing');
-            localStorage.setItem(profileSK, jsonState);
-            
-            if (currentUser) {
-                try {
-                    // Instantly patch ONLY this specific profile in the cloud database
-                    const updates = {};
-                    updates[profileSK] = jsonState;
-                    await update(ref(db, 'users/' + currentUser.uid + '/data'), updates);
-                    setSyncStatus('synced');
-                } catch(e) { 
-                    console.error("Firebase Fast-Sync Error", e); 
-                    setSyncStatus('error'); 
-                }
-            }
-        } else {
-            await this.forceSync();
-        }
-    },
+        if (!state) { await this.forceSync(); return; }
 
-    // Completely synchronizes everything to the cloud immediately in one bundle
-    forceSync: async function() {
-        if (currentUser) {
+        const json = JSON.stringify(state);
+        localStorage.setItem(profileKey, json);
+
+        if (_user) {
+            setSyncStatus("syncing");
             try {
-                setSyncStatus('syncing');
-                let fullData = {};
-                for (let i = 0; i < localStorage.length; i++) {
-                    let key = localStorage.key(i);
-                    if (key && key.startsWith('ataraxie_')) {
-                        fullData[key] = localStorage.getItem(key);
-                    }
-                }
-                
-                // Only update the 'data' node of the specific user without overwriting metadata (Fix F2)
-                await update(ref(db, 'users/' + currentUser.uid + '/data'), fullData);
-                setSyncStatus('synced');
-            } catch(e) { console.error("Firebase Sync Error", e); setSyncStatus('error'); }
+                await update(ref(db, `users/${_user.uid}/data`), { [profileKey]: json });
+                setSyncStatus("synced");
+            } catch (err) {
+                console.error("[Sync] saveProgress error:", err);
+                setSyncStatus("error");
+            }
         }
     },
 
-    // Forces a manual pull from the cloud to overwrite local data and refresh UI
-    pullNow: async function() {
-        if (!currentUser) return;
-        try {
-            const syncStatusIcon = document.getElementById('auth-sync-status');
-            if (syncStatusIcon) {
-                syncStatusIcon.style.color = "var(--b500)";
-                syncStatusIcon.textContent = "↻ Syncing...";
-            }
-            
-            const dbRef = ref(db);
-            const snapshot = await get(child(dbRef, `users/${currentUser.uid}`));
-            if (snapshot.exists()) {
-                const docData = snapshot.val();
-                const cloudData = docData.data || {};
-                
-                let keysToRemove = [];
-                for (let i = 0; i < localStorage.length; i++) {
-                    let key = localStorage.key(i);
-                    if (key && key.startsWith('ataraxie_')) {
-                        keysToRemove.push(key);
-                    }
-                }
-                keysToRemove.forEach(k => localStorage.removeItem(k));
 
-                for (let key in cloudData) {
-                    if (key.startsWith('ataraxie_')) {
-                        localStorage.setItem(key, cloudData[key]);
-                    }
+    // ── forceSync ─────────────────────────────────────────────────────────────
+    // Full push: all local ataraxie_* keys written to cloud in one call.
+
+    async forceSync() {
+        if (!_user) return;
+        setSyncStatus("syncing");
+        try {
+            await cloudWriteAll(_user.uid, localDump());
+            setSyncStatus("synced");
+        } catch (err) {
+            console.error("[Sync] forceSync error:", err);
+            setSyncStatus("error");
+        }
+    },
+
+
+    // ── pullNow ───────────────────────────────────────────────────────────────
+    // Overwrites local with the cloud snapshot and refreshes the UI.
+
+    async pullNow() {
+        if (!_user) return;
+        setSyncStatus("syncing");
+        try {
+            const doc = await cloudRead(_user.uid);
+            if (!doc) { setSyncStatus("error"); return; }
+
+            localClear();
+            localWrite(doc.data || {});
+            setSyncStatus("synced");
+
+            if (typeof window.refreshUI === "function") window.refreshUI();
+            else location.reload();
+        } catch (err) {
+            console.error("[Sync] pullNow error:", err);
+            setSyncStatus("error");
+        }
+    },
+
+
+    // ── getUser ───────────────────────────────────────────────────────────────
+
+    getUser() { return _user; },
+
+
+    // ── mergeDataSets ─────────────────────────────────────────────────────────
+    // Exposed for any external callers that need manual merging.
+
+    mergeDataSets,
+
+
+    // ─────────────────────────────────────────────────────────────────────────
+    //  Internal login implementations  (do not call directly)
+    // ─────────────────────────────────────────────────────────────────────────
+
+    async _loginNative() {
+        try {
+            await window.Capacitor.Plugins.GoogleAuth.initialize();
+            const gUser = await window.Capacitor.Plugins.GoogleAuth.signIn();
+            const token = gUser?.authentication?.idToken;
+            if (!token) throw new Error("No idToken returned by GoogleAuth plugin.");
+            await signInWithCredential(auth, GoogleAuthProvider.credential(token));
+        } catch (err) {
+            console.error("[Auth] Native login error:", err);
+            showModal(
+                "Connexion impossible via l'application.\n" +
+                "Vérifiez votre accès à Google et réessayez.",
+                "OK", ""
+            );
+        }
+    },
+
+    async _loginRedirect() {
+        try {
+            const p = new GoogleAuthProvider();
+            p.setCustomParameters({ prompt: "select_account" });
+            await signInWithRedirect(auth, p);
+            // Page reloads; init()'s getRedirectResult() picks up the result.
+        } catch (err) {
+            console.error("[Auth] signInWithRedirect error:", err);
+            showModal("Connexion échouée. Vérifiez votre connexion et réessayez.", "OK", "");
+        }
+    },
+
+    async _loginPopup() {
+        const p = new GoogleAuthProvider();
+        p.setCustomParameters({ prompt: "select_account" });
+        try {
+            await signInWithPopup(auth, p);
+        } catch (err) {
+            // Soft errors: popup didn't open or was dismissed — not a real auth failure
+            const softErrors = [
+                "auth/popup-blocked",
+                "auth/popup-closed-by-user",
+                "auth/cancelled-popup-request",
+            ];
+            if (softErrors.includes(err.code)) {
+                console.warn("[Auth] Popup unavailable, falling back to redirect:", err.code);
+                try {
+                    await signInWithRedirect(auth, p);
+                } catch (e2) {
+                    console.error("[Auth] Redirect fallback failed:", e2);
+                    showModal("Connexion échouée. Autorisez les popups ou réessayez.", "OK", "");
                 }
-                
-                // If Capacitor App, we can't easily trigger the index.html closures nicely, so a reload is the safest and cleanest way to reset the DOM tree
-                if (typeof window.refreshUI === 'function') {
-                    window.refreshUI();
-                } else {
-                    location.reload();
-                }
-            }
-        } catch(e) {
-            console.error("Firebase Pull Error", e);
-            const syncStatusIcon = document.getElementById('auth-sync-status');
-            if (syncStatusIcon) {
-                syncStatusIcon.style.color = "#ef4444";
-                syncStatusIcon.textContent = "✖ Failed";
+            } else {
+                // Hard error: network, config, or Firebase issue
+                console.error("[Auth] signInWithPopup error:", err);
+                showModal(`Erreur de connexion : ${err.message || err.code}`, "OK", "");
             }
         }
-    }
+    },
 };
-
-
-
-
-
-
-
-
