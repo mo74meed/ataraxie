@@ -3828,15 +3828,20 @@
                 document.getElementById('ft').textContent = tQ + ' questions • Auto-save';
 
                 // Setup Firebase Auth
-                // Fallback: If Firebase fails to initialize within 5 seconds, remove the loading screen
+                // Fallback timeout: if Firebase hasn't resolved in time, proceed offline.
+                // On mobile after a Google redirect, auth resolution can take 8-12s on slow
+                // networks — so we give 15s when a redirect was pending, 6s otherwise.
+                const _redirectWasPending = (function() {
+                    try { return sessionStorage.getItem('auth_redirect_pending') === '1'; } catch(e) { return false; }
+                })();
                 setTimeout(() => {
                     const loader = document.getElementById('loading-overlay');
                     if (loader && loader.style.display !== 'none') {
                         loader.style.opacity = '0';
                         setTimeout(() => loader.style.display = 'none', 400);
-                        console.warn('Firebase initialization timed out or was skipped. Proceeding offline.');
+                        console.warn('Firebase initialization timed out. Proceeding offline.');
                     }
-                }, 5000);
+                }, _redirectWasPending ? 15000 : 6000);
 
                 if (window.FirebaseAuthManager) {
                     document.getElementById('login-btn').addEventListener('click', () => window.FirebaseAuthManager.login());
