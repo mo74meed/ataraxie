@@ -18,26 +18,24 @@ const firebaseConfig = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// ⚠️  REQUIRED MANUAL STEP — Google Cloud Console
+// ⚠️  ONE-TIME SETUP REQUIRED
 //
-// This JS fix alone is not enough if your OAuth credentials are misconfigured.
-// In Google Cloud Console → APIs & Services → Credentials → OAuth 2.0 Client ID:
+// 1. Google Cloud Console → APIs & Services → Credentials → OAuth 2.0 Client ID
+//      Authorized JavaScript origins: https://mo74meed.github.io
+//      Authorized redirect URIs:      https://e-taraxie.firebaseapp.com/__/auth/handler
 //
-//   Authorized JavaScript origins MUST include:
-//     https://mo74meed.github.io
+// 2. Paste your OAuth Client ID into GOOGLE_CLIENT_ID below.
+//    It is NOT the Firebase apiKey. Find it in:
+//    Google Cloud Console → Credentials → OAuth 2.0 Client IDs → your web client → "Client ID"
+//    Format: NUMBERS-LETTERS.apps.googleusercontent.com
 //
-//   Authorized redirect URIs MUST include:
-//     https://e-taraxie.firebaseapp.com/__/auth/handler
-//
-// Without these, Android Chrome silently fails the OAuth exchange even though
-// Firebase console shows a successful login. Desktop Chrome is more permissive
-// and may succeed anyway — which explains the desktop-works / mobile-fails gap.
+// 3. OAuth consent screen must be "Published", OR the test Google account must
+//    be added to the test users list — otherwise One Tap silently does nothing.
 // ─────────────────────────────────────────────────────────────────────────────
+const GOOGLE_CLIENT_ID = 'REPLACE_WITH_YOUR_REAL_CLIENT_ID.apps.googleusercontent.com';
 
 const app = initializeApp(firebaseConfig);
 
-// AppCheck: wrapped defensively — a ReCaptcha failure on mobile must never
-// crash the rest of the app. Firebase will still work, just without AppCheck.
 try {
     initializeAppCheck(app, {
         provider: new ReCaptchaV3Provider('6LcJDKAsAAAAABrgFjTSx5rhWXnYLbTxRa1Et7Cg'),
@@ -52,18 +50,6 @@ const db   = getDatabase(app);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // DEVICE DETECTION
-// Determines which auth strategy to use.
-//
-// WHY: Chrome on Android + most mobile browsers block cross-origin popups
-// (they treat them as unwanted ads). signInWithPopup silently fails or
-// throws, then the redirect fallback fires — but if getRedirectResult()
-// is not properly awaited BEFORE onAuthStateChanged, the credential is
-// discarded and the user sees nothing even though Firebase validated them.
-//
-// Strategy:
-//   Mobile  → always signInWithRedirect (skip popup entirely)
-//   Desktop → signInWithPopup, redirect only as true last-resort fallback
-//   Capacitor native app → GoogleAuth plugin (unchanged)
 // ─────────────────────────────────────────────────────────────────────────────
 function isMobileDevice() {
     return /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i
@@ -71,44 +57,60 @@ function isMobileDevice() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// REDIRECT-PENDING SENTINEL
+// GOOGLE ONE TAP / FedCM
 //
-// NOTE ON THE PREVIOUS ARCHITECTURE:
-// The original code used sessionStorage as the sole signal to decide whether
-// to call getRedirectResult(). This was the root cause of the Android Chrome
-// bug. Android Chrome, when executing a cross-origin OAuth redirect, may wipe
-// or isolate the sessionStorage context before returning to the origin page.
-// The flag was gone on return → getRedirectResult() was never called → the
-// OAuth credential was silently discarded → user saw no login.
+// FedCM = Federated Credential Management API.
+// Shows a native browser bottom sheet (Android Chrome) or dialog (desktop)
+// listing the user's already-logged-in Google accounts.
+// The user taps one — done. No redirect. No popup. No page reload.
 //
-// NEW ARCHITECTURE:
-// getRedirectResult() is now called UNCONDITIONALLY on every page load.
-// When there is no pending redirect, Firebase resolves it immediately with
-// null — there is no performance cost. The sentinel flag is kept as a
-// secondary backup in both sessionStorage AND localStorage (for resilience),
-// but the gate logic no longer depends on it.
+// Supported: Android Chrome 108+, Desktop Chrome 109+
+// Falls back gracefully if unavailable or suppressed.
+// ─────────────────────────────────────────────────────────────────────────────
+function isOneTapSupported() {
+    return typeof window.google !== 'undefined' &&
+           typeof window.google.accounts !== 'undefined' &&
+           typeof window.google.accounts.id !== 'undefined';
+}
+
+function loadOneTapScript() {
+    return new Promise((resolve) => {
+        if (isOneTapSupported()) { resolve(); return; }
+        if (document.getElementById('google-gsi-script')) {
+            const check = setInterval(() => {
+                if (isOneTapSupported()) { clearInterval(check); resolve(); }
+            }, 50);
+            setTimeout(() => { clearInterval(check); resolve(); }, 3000);
+            return;
+        }
+        const script = document.createElement('script');
+        script.id    = 'google-gsi-script';
+        script.src   = 'https://accounts.google.com/gsi/client';
+        script.async = true;
+        script.defer = true;
+        script.onload  = () => resolve();
+        script.onerror = () => resolve(); // Fail gracefully
+        document.head.appendChild(script);
+    });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// REDIRECT SENTINEL
+// Kept only for the Tier-3 redirect fallback path.
+// Written to BOTH sessionStorage and localStorage for resilience —
+// Android Chrome may wipe sessionStorage during cross-origin redirects.
 // ─────────────────────────────────────────────────────────────────────────────
 const REDIRECT_FLAG        = 'auth_redirect_pending';
 const REDIRECT_FLAG_BACKUP = 'ataraxie_auth_redirect_backup';
 
 function markRedirectPending() {
     try { sessionStorage.setItem(REDIRECT_FLAG, '1'); } catch(e) {}
-    // Backup in localStorage — survives cross-origin redirect on Android Chrome
     try { localStorage.setItem(REDIRECT_FLAG_BACKUP, '1'); } catch(e) {}
 }
 
 function clearRedirectPending() {
     try { sessionStorage.removeItem(REDIRECT_FLAG); } catch(e) {}
     try { localStorage.removeItem(REDIRECT_FLAG_BACKUP); } catch(e) {}
-}
-
-// isRedirectPending is kept for reference but is NO LONGER USED as a gate.
-// getRedirectResult() is now called unconditionally. See init() below.
-function isRedirectPending() {
-    try {
-        return sessionStorage.getItem(REDIRECT_FLAG) === '1' ||
-               localStorage.getItem(REDIRECT_FLAG_BACKUP) === '1';
-    } catch(e) { return false; }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -136,7 +138,6 @@ function setSyncStatus(state) {
 
 window.addEventListener('offline', () => setSyncStatus('offline'));
 window.addEventListener('online',  () => setSyncStatus('syncing'));
-
 
 function showSyncModal(message, okText = "OK", cancelText = "Annuler") {
     return new Promise((resolve) => {
@@ -219,12 +220,11 @@ function showOfflineSyncModal(localProfiles, cloudProfiles, localAnswers) {
             profileSection.style.display = action === 'merge' ? '' : 'none';
         }
 
-        mergeCard.onclick  = () => setAction('merge');
+        mergeCard.onclick   = () => setAction('merge');
         discardCard.onclick = () => setAction('discard');
         setAction('merge');
 
         overlay.style.display = 'flex';
-
         const cleanup = () => { overlay.style.display = 'none'; };
 
         document.getElementById('offlineSyncCancel').onclick = () => {
@@ -309,7 +309,6 @@ window.FirebaseAuthManager = {
             }
         }
 
-        // Prune orphaned profile data keys
         try {
             const registeredIds = new Set(
                 JSON.parse(merged['ataraxie_profiles'] || '[]').map(p => p.id)
@@ -318,7 +317,6 @@ window.FirebaseAuthManager = {
                 if (key.startsWith('ataraxie_p_')) {
                     const profileId = key.replace('ataraxie_p_', '');
                     if (!registeredIds.has(profileId)) {
-                        console.log('[Merge] Pruning orphaned profile data:', key);
                         delete merged[key];
                     }
                 }
@@ -329,66 +327,37 @@ window.FirebaseAuthManager = {
     },
 
     // ── INIT ─────────────────────────────────────────────────────────────────
-    // ROOT CAUSE FIX — Android Chrome sessionStorage wipe during OAuth redirect
-    //
-    // The previous architecture conditioned the call to getRedirectResult() on
-    // a sessionStorage sentinel flag (isRedirectPending). On Android Chrome,
-    // this flag is destroyed during the cross-origin OAuth redirect, so
-    // getRedirectResult() was never called on return. The OAuth credential was
-    // silently discarded. Firebase console showed a valid login; the app showed
-    // nothing.
-    //
-    // NEW APPROACH:
-    //   1. Call getRedirectResult() UNCONDITIONALLY on every page load.
-    //      When no redirect is pending, Firebase resolves immediately with null.
-    //      There is no performance penalty.
-    //   2. onAuthStateChanged is gated behind the redirectResultPromise.
-    //      The callback is NEVER invoked until getRedirectResult() has settled,
-    //      eliminating the race condition on all platforms.
-    //   3. onAuthStateChanged unsubscribes after the first resolution to prevent
-    //      duplicate callback invocations (null → user re-fire on Android).
+    // One Tap resolves entirely client-side and fires onAuthStateChanged
+    // directly — no redirect, no gate needed for it.
+    // getRedirectResult() is still called unconditionally to handle the
+    // Tier-3 redirect fallback path if it was ever triggered.
     // ─────────────────────────────────────────────────────────────────────────
     init: function(onUserLoadCallback) {
         const self = this;
 
-        // --- Step 1: UNCONDITIONALLY consume any pending redirect result ---
-        // Do NOT gate this on isRedirectPending() — sessionStorage is unreliable
-        // across cross-origin redirects on Android Chrome. Always call it.
-        // Firebase resolves instantly with null when nothing is pending.
+        // Always consume any pending redirect result (Tier-3 fallback path).
+        // When One Tap is used this resolves instantly with null — zero cost.
         const redirectResultPromise = getRedirectResult(auth)
             .then((result) => {
                 if (result && result.user) {
-                    console.log('[Auth] ✓ Redirect login captured:', result.user.email);
-                } else {
-                    console.log('[Auth] getRedirectResult: no pending redirect (normal).');
+                    console.log('[Auth] ✓ Redirect result captured:', result.user.email);
                 }
                 return result;
             })
             .catch((error) => {
-                // auth/web-storage-unsupported = 3rd-party cookies blocked on mobile.
-                // auth/operation-not-supported-in-this-environment = storage partitioning.
-                // Do NOT throw — let onAuthStateChanged handle the resulting state.
                 console.error('[Auth] getRedirectResult error:', error.code, error.message);
                 return null;
             })
             .finally(() => {
-                // Clean up both sentinel stores regardless of outcome.
                 clearRedirectPending();
             });
 
-        // --- Step 2: Register auth state observer, gated on redirect resolution ---
-        // onUserLoadCallback MUST NOT fire until getRedirectResult() has settled.
-        // Without this gate, onAuthStateChanged fires with user=null before the
-        // redirect credential is consumed — the exact failure mode on Android.
-        //
-        // Additionally: unsubscribe after first resolution to prevent the double-
-        // fire (null → user) that Android Chrome can trigger on state restoration.
+        // Gate onAuthStateChanged behind redirect result resolution.
+        // Unsubscribe after first resolution to prevent Android double-fire.
         let authResolved = false;
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
-            // Gate: always await redirect result before acting on auth state.
             await redirectResultPromise;
 
-            // Guard against double-fire (Android Chrome can emit null then user).
             if (authResolved) return;
             authResolved = true;
             unsubscribe();
@@ -402,7 +371,6 @@ window.FirebaseAuthManager = {
                     onUserLoadCallback(cloudData, user);
                 } catch (err) {
                     console.error('[Auth] syncAndLoadData failed:', err);
-                    // Still surface the authenticated user even if sync fails.
                     onUserLoadCallback(null, user);
                 }
             } else {
@@ -411,10 +379,9 @@ window.FirebaseAuthManager = {
             }
         });
 
-        // --- Step 3: Online re-sync listener (logic unchanged) ---
+        // Online re-sync listener
         window.addEventListener('online', async () => {
             if (!currentUser) return;
-            console.log('[Auth] Network restored. Checking for offline data...');
 
             let localDataDump = {};
             for (let i = 0; i < localStorage.length; i++) {
@@ -476,17 +443,27 @@ window.FirebaseAuthManager = {
     },
 
     // ── LOGIN ────────────────────────────────────────────────────────────────
-    // Strategy:
-    //   1. Capacitor native app          → GoogleAuth plugin (no change)
-    //   2. Mobile browser (any)          → signInWithRedirect directly
-    //      WHY: Popups are blocked on mobile Chrome, Samsung Browser, Firefox
-    //      for Android, etc. Attempting popup first causes a visible failure
-    //      then a redirect — confusing the user and creating a race condition.
-    //   3. Desktop browser               → signInWithPopup (best UX, no page
-    //      reload), redirect only as true last-resort.
+    // Four-tier waterfall. Tried in order, each falls back to the next.
+    //
+    //  Tier 0 — Capacitor native app → GoogleAuth plugin (unchanged)
+    //
+    //  Tier 1 — Google One Tap / FedCM  ← PRIMARY MOBILE FIX
+    //    Shows native Chrome account chooser. No redirect. No popup. No reload.
+    //    Works on Android Chrome 108+. Resolves via JWT → signInWithCredential.
+    //    Falls back if: library fails to load, user has no Google accounts
+    //    signed into Chrome, prompt was dismissed too many times (browser
+    //    suppresses it), or GOOGLE_CLIENT_ID is not configured.
+    //
+    //  Tier 2 — signInWithPopup (desktop only)
+    //    Best UX on desktop. Skipped on mobile (popups are blocked).
+    //
+    //  Tier 3 — signInWithRedirect (true last resort)
+    //    Only reached if all above fail. Page reloads.
+    //    getRedirectResult() in init() handles the credential on return.
     // ─────────────────────────────────────────────────────────────────────────
     login: async function() {
-        // ── Capacitor native (Android / iOS app shell) ───────────────────────
+
+        // ── Tier 0: Capacitor native ─────────────────────────────────────────
         if (window.Capacitor && window.Capacitor.isNativePlatform()) {
             try {
                 window.Capacitor.Plugins.GoogleAuth.initialize();
@@ -497,57 +474,108 @@ window.FirebaseAuthManager = {
             } catch (error) {
                 console.error('[Auth] Capacitor native auth error:', error);
                 alert('Erreur de connexion native: ' + JSON.stringify(error));
-                return; // Never fall through to web — redirect breaks Capacitor.
+                return;
             }
+        }
+
+        // ── Tier 1: Google One Tap / FedCM ──────────────────────────────────
+        const clientIdConfigured = !GOOGLE_CLIENT_ID.includes('REPLACE_WITH_YOUR_REAL_CLIENT_ID');
+
+        if (clientIdConfigured) {
+            try {
+                await loadOneTapScript();
+
+                if (isOneTapSupported()) {
+                    const idToken = await new Promise((resolve, reject) => {
+                        // 8s timeout — if the prompt doesn't appear, fall through
+                        const timeout = setTimeout(() => {
+                            reject(new Error('one-tap-timeout'));
+                        }, 8000);
+
+                        window.google.accounts.id.initialize({
+                            client_id: GOOGLE_CLIENT_ID,
+                            callback: (response) => {
+                                clearTimeout(timeout);
+                                if (response && response.credential) {
+                                    resolve(response.credential);
+                                } else {
+                                    reject(new Error('one-tap-no-credential'));
+                                }
+                            },
+                            use_fedcm_for_prompt: true,  // Native browser UI on Chrome
+                            cancel_on_tap_outside: false,
+                            context: 'signin',
+                        });
+
+                        window.google.accounts.id.prompt((notification) => {
+                            if (notification.isNotDisplayed()) {
+                                clearTimeout(timeout);
+                                // Browser suppressed the prompt (too many dismissals, or
+                                // no Google accounts signed into this Chrome profile)
+                                reject(new Error('one-tap-not-displayed:' + notification.getNotDisplayedReason()));
+                            }
+                            if (notification.isSkippedMoment()) {
+                                clearTimeout(timeout);
+                                reject(new Error('one-tap-skipped:' + notification.getSkippedReason()));
+                            }
+                            // If displayed: user picks account → callback fires → resolve
+                        });
+                    });
+
+                    // Exchange Google JWT for Firebase credential — no redirect needed
+                    const firebaseCredential = GoogleAuthProvider.credential(idToken);
+                    await signInWithCredential(auth, firebaseCredential);
+                    console.log('[Auth] ✓ One Tap / FedCM sign-in succeeded');
+                    return;
+                }
+            } catch (oneTapError) {
+                console.warn('[Auth] One Tap unavailable, falling through:', oneTapError.message);
+                // Continue to Tier 2 / Tier 3
+            }
+        } else {
+            console.warn('[Auth] GOOGLE_CLIENT_ID not set — One Tap disabled. Configure it in firebase-init.js.');
         }
 
         const provider = new GoogleAuthProvider();
         provider.setCustomParameters({ prompt: 'select_account' });
 
-        // ── Mobile browser → always redirect ────────────────────────────────
-        if (isMobileDevice()) {
-            console.log('[Auth] Mobile device detected → signInWithRedirect');
-            // markRedirectPending writes to BOTH sessionStorage and localStorage.
-            // The localStorage backup survives the cross-origin redirect on Android
-            // Chrome, where sessionStorage is wiped. Both are cleared by
-            // clearRedirectPending() inside getRedirectResult().finally().
-            markRedirectPending();
+        // ── Tier 2: signInWithPopup (desktop only) ───────────────────────────
+        if (!isMobileDevice()) {
             try {
-                await signInWithRedirect(auth, provider);
+                console.log('[Auth] Desktop → signInWithPopup');
+                await signInWithPopup(auth, provider);
+                return;
             } catch (error) {
-                clearRedirectPending();
-                console.error('[Auth] signInWithRedirect failed:', error);
+                console.warn('[Auth] Popup failed:', error.code);
+                if (
+                    error.code === 'auth/popup-closed-by-user' ||
+                    error.code === 'auth/cancelled-popup-request'
+                ) {
+                    return; // User deliberately closed
+                }
+                // Fall through to Tier 3
             }
-            return;
         }
 
-        // ── Desktop browser → popup with redirect fallback ───────────────────
+        // ── Tier 3: signInWithRedirect (last resort) ─────────────────────────
+        console.log('[Auth] Tier 3 → signInWithRedirect');
+        markRedirectPending();
         try {
-            console.log('[Auth] Desktop → signInWithPopup');
-            await signInWithPopup(auth, provider);
-        } catch (error) {
-            console.warn('[Auth] Popup failed:', error.code);
-            if (
-                error.code === 'auth/popup-closed-by-user' ||
-                error.code === 'auth/cancelled-popup-request'
-            ) {
-                return; // User deliberately closed — do nothing.
-            }
-            // Blocked popup, storage issue, CORS, etc. → fall back to redirect.
-            console.log('[Auth] Falling back to signInWithRedirect');
-            markRedirectPending();
-            try {
-                await signInWithRedirect(auth, provider);
-            } catch (redirectError) {
-                clearRedirectPending();
-                console.error('[Auth] Redirect fallback also failed:', redirectError);
-            }
+            await signInWithRedirect(auth, provider);
+        } catch (redirectError) {
+            clearRedirectPending();
+            console.error('[Auth] signInWithRedirect failed:', redirectError);
         }
     },
 
     // ── LOGOUT ───────────────────────────────────────────────────────────────
     logout: async function() {
         try {
+            // Revoke One Tap auto-select so the account chooser reappears next time
+            if (isOneTapSupported()) {
+                try { window.google.accounts.id.disableAutoSelect(); } catch(e) {}
+            }
+
             await signOut(auth);
 
             if (window.Capacitor && window.Capacitor.isNativePlatform()) {
@@ -588,7 +616,6 @@ window.FirebaseAuthManager = {
         }
 
         if (!snapshot.exists()) {
-            // First login: push all local data to cloud
             const payload = {
                 metadata: { email: user.email, linkedAt: Date.now() },
                 data: localDataDump
@@ -597,7 +624,6 @@ window.FirebaseAuthManager = {
             return localDataDump;
         }
 
-        // Existing account: check for local vs cloud differences
         const docData   = snapshot.val();
         const cloudData = docData.data || {};
 
@@ -634,7 +660,6 @@ window.FirebaseAuthManager = {
             }
         }
 
-        // Normal sync: overwrite local with cloud
         let keysToRemove = [];
         for (let i = 0; i < localStorage.length; i++) {
             let key = localStorage.key(i);
