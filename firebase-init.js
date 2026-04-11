@@ -17,6 +17,23 @@ const firebaseConfig = {
   databaseURL: "https://e-taraxie-default-rtdb.firebaseio.com"
 };
 
+// ─────────────────────────────────────────────────────────────────────────────
+// ⚠️  REQUIRED MANUAL STEP — Google Cloud Console
+//
+// This JS fix alone is not enough if your OAuth credentials are misconfigured.
+// In Google Cloud Console → APIs & Services → Credentials → OAuth 2.0 Client ID:
+//
+//   Authorized JavaScript origins MUST include:
+//     https://mo74meed.github.io
+//
+//   Authorized redirect URIs MUST include:
+//     https://e-taraxie.firebaseapp.com/__/auth/handler
+//
+// Without these, Android Chrome silently fails the OAuth exchange even though
+// Firebase console shows a successful login. Desktop Chrome is more permissive
+// and may succeed anyway — which explains the desktop-works / mobile-fails gap.
+// ─────────────────────────────────────────────────────────────────────────────
+
 const app = initializeApp(firebaseConfig);
 
 // AppCheck: wrapped defensively — a ReCaptcha failure on mobile must never
@@ -56,34 +73,42 @@ function isMobileDevice() {
 // ─────────────────────────────────────────────────────────────────────────────
 // REDIRECT-PENDING SENTINEL
 //
-// WHY THIS IS THE KEY FIX:
-// When signInWithRedirect is used, the page is destroyed and reloaded.
-// On the new page load, Firebase calls both getRedirectResult() AND
-// onAuthStateChanged almost simultaneously — but onAuthStateChanged can
-// fire with user=null BEFORE getRedirectResult() resolves, because
-// getRedirectResult() has async network overhead (it exchanges the
-// OAuth code for a token).
+// NOTE ON THE PREVIOUS ARCHITECTURE:
+// The original code used sessionStorage as the sole signal to decide whether
+// to call getRedirectResult(). This was the root cause of the Android Chrome
+// bug. Android Chrome, when executing a cross-origin OAuth redirect, may wipe
+// or isolate the sessionStorage context before returning to the origin page.
+// The flag was gone on return → getRedirectResult() was never called → the
+// OAuth credential was silently discarded → user saw no login.
 //
-// The result: onUserLoadCallback(null, null) fires → UI shows "logged out"
-// → user sees nothing happened.
-//
-// The fix: we store a sentinel flag in sessionStorage the moment the user
-// clicks login. On the return page load, we detect the sentinel, know a
-// redirect is in flight, and make onAuthStateChanged WAIT for
-// getRedirectResult() to fully resolve before firing the callback.
+// NEW ARCHITECTURE:
+// getRedirectResult() is now called UNCONDITIONALLY on every page load.
+// When there is no pending redirect, Firebase resolves it immediately with
+// null — there is no performance cost. The sentinel flag is kept as a
+// secondary backup in both sessionStorage AND localStorage (for resilience),
+// but the gate logic no longer depends on it.
 // ─────────────────────────────────────────────────────────────────────────────
-const REDIRECT_FLAG = 'auth_redirect_pending';
+const REDIRECT_FLAG        = 'auth_redirect_pending';
+const REDIRECT_FLAG_BACKUP = 'ataraxie_auth_redirect_backup';
 
 function markRedirectPending() {
     try { sessionStorage.setItem(REDIRECT_FLAG, '1'); } catch(e) {}
+    // Backup in localStorage — survives cross-origin redirect on Android Chrome
+    try { localStorage.setItem(REDIRECT_FLAG_BACKUP, '1'); } catch(e) {}
 }
 
 function clearRedirectPending() {
     try { sessionStorage.removeItem(REDIRECT_FLAG); } catch(e) {}
+    try { localStorage.removeItem(REDIRECT_FLAG_BACKUP); } catch(e) {}
 }
 
+// isRedirectPending is kept for reference but is NO LONGER USED as a gate.
+// getRedirectResult() is now called unconditionally. See init() below.
 function isRedirectPending() {
-    try { return sessionStorage.getItem(REDIRECT_FLAG) === '1'; } catch(e) { return false; }
+    try {
+        return sessionStorage.getItem(REDIRECT_FLAG) === '1' ||
+               localStorage.getItem(REDIRECT_FLAG_BACKUP) === '1';
+    } catch(e) { return false; }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -304,74 +329,80 @@ window.FirebaseAuthManager = {
     },
 
     // ── INIT ─────────────────────────────────────────────────────────────────
-    // THE CORE FIX: We resolve getRedirectResult() FIRST, then let
-    // onAuthStateChanged fire. This is achieved by making onAuthStateChanged
-    // await a promise that only resolves after getRedirectResult() completes.
-    // This eliminates the race condition where onAuthStateChanged(user=null)
-    // fires before the redirect credential is consumed.
+    // ROOT CAUSE FIX — Android Chrome sessionStorage wipe during OAuth redirect
+    //
+    // The previous architecture conditioned the call to getRedirectResult() on
+    // a sessionStorage sentinel flag (isRedirectPending). On Android Chrome,
+    // this flag is destroyed during the cross-origin OAuth redirect, so
+    // getRedirectResult() was never called on return. The OAuth credential was
+    // silently discarded. Firebase console showed a valid login; the app showed
+    // nothing.
+    //
+    // NEW APPROACH:
+    //   1. Call getRedirectResult() UNCONDITIONALLY on every page load.
+    //      When no redirect is pending, Firebase resolves immediately with null.
+    //      There is no performance penalty.
+    //   2. onAuthStateChanged is gated behind the redirectResultPromise.
+    //      The callback is NEVER invoked until getRedirectResult() has settled,
+    //      eliminating the race condition on all platforms.
+    //   3. onAuthStateChanged unsubscribes after the first resolution to prevent
+    //      duplicate callback invocations (null → user re-fire on Android).
     // ─────────────────────────────────────────────────────────────────────────
     init: function(onUserLoadCallback) {
         const self = this;
 
-        // --- Step 1: Build the redirect gate promise ---
-        // This promise resolves the moment getRedirectResult() settles
-        // (whether it found a user or not). onAuthStateChanged will not
-        // invoke onUserLoadCallback until this gate opens.
-        let redirectGateOpen = false;
-        let openRedirectGate;
-        const redirectGate = new Promise(resolve => { openRedirectGate = resolve; });
+        // --- Step 1: UNCONDITIONALLY consume any pending redirect result ---
+        // Do NOT gate this on isRedirectPending() — sessionStorage is unreliable
+        // across cross-origin redirects on Android Chrome. Always call it.
+        // Firebase resolves instantly with null when nothing is pending.
+        const redirectResultPromise = getRedirectResult(auth)
+            .then((result) => {
+                if (result && result.user) {
+                    console.log('[Auth] ✓ Redirect login captured:', result.user.email);
+                } else {
+                    console.log('[Auth] getRedirectResult: no pending redirect (normal).');
+                }
+                return result;
+            })
+            .catch((error) => {
+                // auth/web-storage-unsupported = 3rd-party cookies blocked on mobile.
+                // auth/operation-not-supported-in-this-environment = storage partitioning.
+                // Do NOT throw — let onAuthStateChanged handle the resulting state.
+                console.error('[Auth] getRedirectResult error:', error.code, error.message);
+                return null;
+            })
+            .finally(() => {
+                // Clean up both sentinel stores regardless of outcome.
+                clearRedirectPending();
+            });
 
-        // --- Step 2: Consume any pending redirect result ---
-        // This MUST run before we register the onAuthStateChanged callback.
-        // If a redirect was pending (flag set in sessionStorage), we know to
-        // wait. If not, we open the gate immediately so normal loads aren't
-        // delayed.
-        if (isRedirectPending()) {
-            // A redirect was initiated — wait for Firebase to process it.
-            getRedirectResult(auth)
-                .then((result) => {
-                    if (result && result.user) {
-                        console.log('[Auth] ✓ Redirect login succeeded:', result.user.email);
-                    } else {
-                        console.log('[Auth] Redirect returned no user (normal if navigating back).');
-                    }
-                })
-                .catch((error) => {
-                    // Common causes on mobile:
-                    //   auth/web-storage-unsupported → 3rd-party cookies blocked
-                    //   auth/operation-not-supported-in-this-environment
-                    //   auth/popup-blocked
-                    console.error('[Auth] getRedirectResult error:', error.code, error.message);
-                })
-                .finally(() => {
-                    clearRedirectPending();
-                    redirectGateOpen = true;
-                    openRedirectGate();
-                });
-        } else {
-            // No redirect in flight — open the gate immediately.
-            redirectGateOpen = true;
-            openRedirectGate();
-        }
+        // --- Step 2: Register auth state observer, gated on redirect resolution ---
+        // onUserLoadCallback MUST NOT fire until getRedirectResult() has settled.
+        // Without this gate, onAuthStateChanged fires with user=null before the
+        // redirect credential is consumed — the exact failure mode on Android.
+        //
+        // Additionally: unsubscribe after first resolution to prevent the double-
+        // fire (null → user) that Android Chrome can trigger on state restoration.
+        let authResolved = false;
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+            // Gate: always await redirect result before acting on auth state.
+            await redirectResultPromise;
 
-        // --- Step 3: Register auth state observer ---
-        // We await the redirect gate so onUserLoadCallback is never called
-        // with null BEFORE a redirect result has been processed.
-        onAuthStateChanged(auth, async (user) => {
-            if (!redirectGateOpen) {
-                await redirectGate;
-            }
+            // Guard against double-fire (Android Chrome can emit null then user).
+            if (authResolved) return;
+            authResolved = true;
+            unsubscribe();
 
             currentUser = user;
 
             if (user) {
-                console.log('[Auth] User is authenticated:', user.email);
+                console.log('[Auth] User authenticated:', user.email);
                 try {
                     const cloudData = await self.syncAndLoadData(user);
                     onUserLoadCallback(cloudData, user);
                 } catch (err) {
                     console.error('[Auth] syncAndLoadData failed:', err);
-                    // Still authenticate the user even if sync fails
+                    // Still surface the authenticated user even if sync fails.
                     onUserLoadCallback(null, user);
                 }
             } else {
@@ -380,7 +411,7 @@ window.FirebaseAuthManager = {
             }
         });
 
-        // --- Step 4: Online re-sync listener (unchanged logic) ---
+        // --- Step 3: Online re-sync listener (logic unchanged) ---
         window.addEventListener('online', async () => {
             if (!currentUser) return;
             console.log('[Auth] Network restored. Checking for offline data...');
@@ -476,11 +507,15 @@ window.FirebaseAuthManager = {
         // ── Mobile browser → always redirect ────────────────────────────────
         if (isMobileDevice()) {
             console.log('[Auth] Mobile device detected → signInWithRedirect');
-            markRedirectPending(); // Set sentinel BEFORE the redirect
+            // markRedirectPending writes to BOTH sessionStorage and localStorage.
+            // The localStorage backup survives the cross-origin redirect on Android
+            // Chrome, where sessionStorage is wiped. Both are cleared by
+            // clearRedirectPending() inside getRedirectResult().finally().
+            markRedirectPending();
             try {
                 await signInWithRedirect(auth, provider);
             } catch (error) {
-                clearRedirectPending(); // Clean up if redirect itself fails
+                clearRedirectPending();
                 console.error('[Auth] signInWithRedirect failed:', error);
             }
             return;
