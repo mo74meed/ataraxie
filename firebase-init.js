@@ -32,7 +32,7 @@ const firebaseConfig = {
 // 3. OAuth consent screen must be "Published", OR the test Google account must
 //    be added to the test users list — otherwise One Tap silently does nothing.
 // ─────────────────────────────────────────────────────────────────────────────
-const GOOGLE_CLIENT_ID = 'REPLACE_WITH_YOUR_REAL_CLIENT_ID.apps.googleusercontent.com';
+const GOOGLE_CLIENT_ID = '490683199342-k5t3t68esrl262i1jfshldcf2tho7ave.apps.googleusercontent.com';
 
 const app = initializeApp(firebaseConfig);
 
