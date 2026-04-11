@@ -352,30 +352,48 @@ window.FirebaseAuthManager = {
                 clearRedirectPending();
             });
 
-        // Gate onAuthStateChanged behind redirect result resolution.
-        // Unsubscribe after first resolution to prevent Android double-fire.
-        let authResolved = false;
-        const unsubscribe = onAuthStateChanged(auth, async (user) => {
-            await redirectResultPromise;
+        // Gate the FIRST onAuthStateChanged call behind redirect result resolution
+        // to prevent the race condition on page load.
+        //
+        // IMPORTANT: we do NOT unsubscribe after first call. If the user was null
+        // on page load (not logged in) and then signs in via One Tap, Firebase fires
+        // onAuthStateChanged again with the new user. If we had unsubscribed, that
+        // second fire would be silently dropped and the UI would never update.
+        //
+        // Instead we only gate the very first invocation, then let all subsequent
+        // calls through immediately (the redirect is already resolved by then).
+        let initialGatePassed = false;
+        let callbackInProgress = false;
 
-            if (authResolved) return;
-            authResolved = true;
-            unsubscribe();
+        onAuthStateChanged(auth, async (user) => {
+            // On the very first fire, wait for redirect result to settle.
+            if (!initialGatePassed) {
+                await redirectResultPromise;
+                initialGatePassed = true;
+            }
+
+            // Prevent overlapping executions (e.g. rapid state changes).
+            if (callbackInProgress) return;
+            callbackInProgress = true;
 
             currentUser = user;
 
-            if (user) {
-                console.log('[Auth] User authenticated:', user.email);
-                try {
-                    const cloudData = await self.syncAndLoadData(user);
-                    onUserLoadCallback(cloudData, user);
-                } catch (err) {
-                    console.error('[Auth] syncAndLoadData failed:', err);
-                    onUserLoadCallback(null, user);
+            try {
+                if (user) {
+                    console.log('[Auth] User authenticated:', user.email);
+                    try {
+                        const cloudData = await self.syncAndLoadData(user);
+                        onUserLoadCallback(cloudData, user);
+                    } catch (err) {
+                        console.error('[Auth] syncAndLoadData failed:', err);
+                        onUserLoadCallback(null, user);
+                    }
+                } else {
+                    console.log('[Auth] No authenticated user.');
+                    onUserLoadCallback(null, null);
                 }
-            } else {
-                console.log('[Auth] No authenticated user.');
-                onUserLoadCallback(null, null);
+            } finally {
+                callbackInProgress = false;
             }
         });
 
