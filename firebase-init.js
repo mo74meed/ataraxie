@@ -117,6 +117,7 @@ function clearRedirectPending() {
 // STATE
 // ─────────────────────────────────────────────────────────────────────────────
 let currentUser = null;
+let loginInProgress = false;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // UI HELPERS
@@ -481,6 +482,12 @@ window.FirebaseAuthManager = {
     // ─────────────────────────────────────────────────────────────────────────
     login: async function() {
 
+        if (loginInProgress) {
+            console.log('[Auth] Login already in progress, ignoring duplicate request.');
+            return;
+        }
+        loginInProgress = true;
+
         // ── Tier 0: Capacitor native ─────────────────────────────────────────
         if (window.Capacitor && window.Capacitor.isNativePlatform()) {
             try {
@@ -493,6 +500,8 @@ window.FirebaseAuthManager = {
                 console.error('[Auth] Capacitor native auth error:', error);
                 alert('Erreur de connexion native: ' + JSON.stringify(error));
                 return;
+            } finally {
+                loginInProgress = false;
             }
         }
 
@@ -544,6 +553,7 @@ window.FirebaseAuthManager = {
                     const firebaseCredential = GoogleAuthProvider.credential(idToken);
                     await signInWithCredential(auth, firebaseCredential);
                     console.log('[Auth] ✓ One Tap / FedCM sign-in succeeded');
+                    loginInProgress = false;
                     return;
                 }
             } catch (oneTapError) {
@@ -562,6 +572,7 @@ window.FirebaseAuthManager = {
             try {
                 console.log('[Auth] Desktop → signInWithPopup');
                 await signInWithPopup(auth, provider);
+                loginInProgress = false;
                 return;
             } catch (error) {
                 console.warn('[Auth] Popup failed:', error.code);
@@ -569,9 +580,22 @@ window.FirebaseAuthManager = {
                     error.code === 'auth/popup-closed-by-user' ||
                     error.code === 'auth/cancelled-popup-request'
                 ) {
+                    loginInProgress = false;
                     return; // User deliberately closed
                 }
-                // Fall through to Tier 3
+
+                const shouldFallbackToRedirect =
+                    error.code === 'auth/popup-blocked' ||
+                    error.code === 'auth/operation-not-supported-in-this-environment' ||
+                    error.code === 'auth/web-storage-unsupported';
+
+                if (!shouldFallbackToRedirect) {
+                    console.warn('[Auth] Not falling back to redirect for this popup error.');
+                    loginInProgress = false;
+                    return;
+                }
+
+                // Fall through to Tier 3 for known popup-blocking environments only.
             }
         }
 
@@ -583,6 +607,7 @@ window.FirebaseAuthManager = {
         } catch (redirectError) {
             clearRedirectPending();
             console.error('[Auth] signInWithRedirect failed:', redirectError);
+            loginInProgress = false;
         }
     },
 
