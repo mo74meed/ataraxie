@@ -16075,14 +16075,14 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "ANA-END-24-Q04",
                                     "clinical_context": null,
-                                    "question_text": "Citer les aspects histologiques des phéochromocytomes.\nCas clinique 1:\nFemme de 49 ans, sans ATCD particuliers, présente des douleurs lombaires gauche, avec une HTA, diabète et des signes de virilisation. Le bilan biologique a montré une augmentation de taux des triglycérides et de cholestérol LDL. Le scanner abdominal a montré une masse surrénalienne gauche. La patiente a bénéficié d'une chirurgie. Nous avons reçu au laboratoire d'anatomie pathologique une pièce de surrénalectomie gauche mesurant 16x11x8 cm, avec à la coupe un aspect jaunâtre hétérogène.\nL'examen microscopique a montré une prolifération tumorale faite de nids, de travées et de nappes diffuses (l'architecture diffuse constituent environ $50 \\%$ de l'ensemble de la prolifération). Les cellules tumorales ont des cytoplasmes d'aspect tantôt clair (moins de $20 \\%$ de la prolifération tumorale) tantôt éosinophile avec des noyaux montrant des atypies cytonucléaires modérées à sévères, avec présence de mitoses (environ 15 mitoses par 50 champs au fort grossissement). On note également la présence d'images d'invasion capsulaire.",
+                                    "question_text": "Citer les aspects histologiques des phéochromocytomes",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
                                 },
                                 {
                                     "id": "ANA-END-24-Q05",
-                                    "clinical_context": null,
+                                    "clinical_context": "Cas clinique 1:\nFemme de 49 ans, sans ATCD particuliers, présente des douleurs lombaires gauche, avec une HTA, diabète et des signes de virilisation. Le bilan biologique a montré une augmentation de taux des triglycérides et de cholestérol LDL. Le scanner abdominal a montré une masse surrénalienne gauche. La patiente a bénéficié d'une chirurgie. Nous avons reçu au laboratoire d'anatomie pathologique une pièce de surrénalectomie gauche mesurant 16x11x8 cm, avec à la coupe un aspect jaunâtre hétérogène.\nL'examen microscopique a montré une prolifération tumorale faite de nids, de travées et de nappes diffuses (l'architecture diffuse constituent environ $50 \\%$ de l'ensemble de la prolifération). Les cellules tumorales ont des cytoplasmes d'aspect tantôt clair (moins de $20 \\%$ de la prolifération tumorale) tantôt éosinophile avec des noyaux montrant des atypies cytonucléaires modérées à sévères, avec présence de mitoses (environ 15 mitoses par 50 champs au fort grossissement). On note également la présence d'images d'invasion capsulaire.",
                                     "question_text": "s'agit-il d'une tumeur primitive ou secondaire ? justifier votre réponse",
                                     "type": "QROC",
                                     "choices": null,
@@ -16099,14 +16099,14 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "ANA-END-24-Q07",
                                     "clinical_context": null,
-                                    "question_text": "s'agit-il d'une tumeur bénigne ou maligne ? justifier votre réponse\nCas clinique 2:\nPatient âgé de 40 ans, présentant un nodule surrénalien. Une surrénalectomie a été réalisée. L'examen histologique a montré une prolifération tumorale disposée en nids, en cordons, et en alvéoles, faite de cellules polygonales. A l'étude immunohistochimique, les cellules tumorales expriment la chromogranine et la synaptophysine. Elles n'expriment pas la cytokératine ni le Mélan A. La PS100 est exprimée par les cellules sus-tentaculaires.",
+                                    "question_text": "s'agit-il d'une tumeur bénigne ou maligne ? justifier votre réponse",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
                                 },
                                 {
                                     "id": "ANA-END-24-Q08",
-                                    "clinical_context": null,
+                                    "clinical_context": "Cas clinique 2:\nPatient âgé de 40 ans, présentant un nodule surrénalien. Une surrénalectomie a été réalisée. L'examen histologique a montré une prolifération tumorale disposée en nids, en cordons, et en alvéoles, faite de cellules polygonales. A l'étude immunohistochimique, les cellules tumorales expriment la chromogranine et la synaptophysine. Elles n'expriment pas la cytokératine ni le Mélan A. La PS100 est exprimée par les cellules sus-tentaculaires.",
                                     "question_text": "A la lumière des données cliniques et histologiques, quel est votre diagnostic ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -16324,7 +16324,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "ANA-END-25-Q17",
                                     "clinical_context": "Patient de 50 ans, présentant des crises épileptiques. L'imagerie montre un processus fronto-pariétal. Une biopsie est réalisée et adressée pour examen extemporané.",
-                                    "question_text": "Citer les indications de cet examen dans ce type de tumeur.\nL'examen histologique final montre une prolifération tumorale faite de cellules arrondies dotées d'un noyau central entouré d'un halo clair périnucléaire. Ces cellules sont disposées en nappe sur un fond fibrillaire. A l'étude immunohistochimique, ces cellules expriment l'IDH. L'étude FISH montre une codélétion 1p19q.",
+                                    "question_text": "Citer les indications de cet examen dans ce type de tumeur.\n",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
@@ -16332,7 +16332,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "ANA-END-25-Q18",
                                     "clinical_context": "Patient de 50 ans, présentant des crises épileptiques. L'imagerie montre un processus fronto-pariétal. Une biopsie est réalisée et adressée pour examen extemporané.",
-                                    "question_text": "A la lumière de ces données, quel est votre diagnostic ?",
+                                    "question_text": "L'examen histologique final montre une prolifération tumorale faite de cellules arrondies dotées d'un noyau central entouré d'un halo clair périnucléaire. Ces cellules sont disposées en nappe sur un fond fibrillaire. A l'étude immunohistochimique, ces cellules expriment l'IDH. L'étude FISH montre une codélétion 1p19q.\n A la lumière de ces données, quel est votre diagnostic ?",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
