@@ -1075,6 +1075,48 @@
             justify-content: center;
         }
 
+        .ch-title-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .ch-title-row h3 {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ch-sort-year-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--pb);
+            background: var(--p2);
+            color: var(--t3);
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: .58rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            line-height: 1;
+            transition: all .2s ease;
+            flex: 0 0 auto;
+        }
+
+        .ch-sort-year-btn:hover {
+            color: var(--t1);
+            border-color: var(--b200);
+            background: var(--b50);
+        }
+
+        .ch-sort-year-btn.active {
+            color: var(--b600);
+            border-color: var(--b200);
+            background: var(--b50);
+        }
+
         .ch-pills {
             flex-shrink: 0;
             display: flex;
@@ -1140,6 +1182,11 @@
         .ch-banner.scrolled .ch-btn-cmp {
             padding: 6px;
             border-radius: 10px;
+        }
+
+        .ch-banner.scrolled .ch-sort-year-btn {
+            padding: 5px 9px;
+            font-size: .53rem;
         }
 
         .ch-banner-left h3 {
@@ -3438,7 +3485,7 @@
             function setActiveId(id) { localStorage.setItem(APK, id); syncCloud(); }
             function profileSK(id) { return 'ataraxie_p_' + id }
             function genId() { return Date.now().toString(36) + Math.random().toString(36).substr(2, 5) }
-            function emptyState() { return { qcm: {}, red: {}, val: {}, sb: {}, sortChildren: {}, ac: null, his: {}, recent: [], official: {} } }
+            function emptyState() { return { qcm: {}, red: {}, val: {}, sb: {}, sortChildren: {}, sortQuestions: {}, ac: null, his: {}, recent: [], official: {} } }
             function syncCloud() { if(window.FirebaseAuthManager) window.FirebaseAuthManager.forceSync(); }
 
             function migrateIfNeeded() {
@@ -3468,7 +3515,7 @@
                         const d = JSON.parse(r); 
                         if (!d.qcm) d.qcm = {}; if (!d.red) d.red = {}; if (!d.val) d.val = {}; 
                         if (!d.his) d.his = {}; if (!d.recent) d.recent = []; 
-                        if (!d.official) d.official = {}; if (!d.sortChildren) d.sortChildren = {}; 
+                        if (!d.official) d.official = {}; if (!d.sortChildren) d.sortChildren = {}; if (!d.sortQuestions) d.sortQuestions = {};
                         if (!d.sb) d.sb = {};
                         return d; 
                     } 
@@ -4139,14 +4186,40 @@
                 document.getElementById('hs').textContent = '';
                 document.getElementById('ws').style.display = 'none';
 
+                const chapterSortKey = mk(mod, chap);
+                st.sortQuestions = st.sortQuestions || {};
+                const sortByYear = st.sortQuestions[chapterSortKey] === true;
+
                 const c = document.getElementById('qc'); c.style.display = ''; c.innerHTML = '';
                 const ansC = cntChAns(entry), valC = cntChVal(entry), totC = entry.questions.length;
+
+                const parseYearSession = (label) => {
+                    const clean = (label || '').trim();
+                    const m = clean.match(/\b(19|20)\d{2}\b/);
+                    const year = m ? Number(m[0]) : -1;
+                    const session = m ? clean.replace(m[0], '').trim().toUpperCase() : clean.toUpperCase();
+                    return { year, session };
+                };
+
+                const originalIndexById = new Map(entry.questions.map((q, i) => [q.id, i]));
+                const questionsToRender = sortByYear
+                    ? entry.questions.slice().sort((a, b) => {
+                        const aMeta = parseYearSession(getExamSessionLabel(a.id));
+                        const bMeta = parseYearSession(getExamSessionLabel(b.id));
+                        if (aMeta.year !== bMeta.year) return bMeta.year - aMeta.year;
+                        if (aMeta.session !== bMeta.session) return aMeta.session.localeCompare(bMeta.session, 'fr', { sensitivity: 'base' });
+                        return (originalIndexById.get(a.id) || 0) - (originalIndexById.get(b.id) || 0);
+                    })
+                    : entry.questions;
 
                 /* ── Chapter Banner ── */
                 const banner = document.createElement('div'); banner.className = 'ch-banner';
                 banner.innerHTML = `
             <div class="ch-banner-left">
-                <h3>${esc(chap)}</h3>
+                <div class="ch-title-row">
+                    <h3>${esc(chap)}</h3>
+                    <button class="ch-sort-year-btn ${sortByYear ? 'active' : ''}" id="btn-sort-year" title="Trier les questions par annee">Annee</button>
+                </div>
                 <p>${esc(mod)} — ${totC} question${totC > 1 ? 's' : ''}</p>
             </div>
             <div class="ch-pills">
@@ -4166,6 +4239,15 @@
             </div>`;
                 c.appendChild(banner);
                 document.getElementById('btn-cmp').addEventListener('click', () => { showCmp(entry); });
+                const btnSortYear = document.getElementById('btn-sort-year');
+                if (btnSortYear) {
+                    btnSortYear.addEventListener('click', () => {
+                        st.sortQuestions = st.sortQuestions || {};
+                        st.sortQuestions[chapterSortKey] = !sortByYear;
+                        svLocal();
+                        render(mod, chap, targetQId);
+                    });
+                }
 
                 if (totC === 0) {
                     const empty = document.createElement('div');
@@ -4180,7 +4262,7 @@
                 const stream = document.createElement('div'); stream.className = 'q-stream';
                 let lastCtx = null, delay = 0;
 
-                entry.questions.forEach((q, idx) => {
+                questionsToRender.forEach((q, idx) => {
                     const key = mk(mod, chap, q.id);
 
                     /* Context */
