@@ -6248,7 +6248,8 @@ const ATARAXIE_S8_DB = {
                                         "Une pleuro-pneumopathie",
                                         "Une laryngite aiguë",
                                         "Une décompensation acido cétosique",
-                                        "Une crise d’asthme E. Une décompensation cardiaque"
+                                        "Une crise d’asthme", 
+                                        "Une décompensation cardiaque",
                                     ],
                                     "requires_review": false
                                 }
