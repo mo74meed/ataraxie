@@ -20194,7 +20194,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "SYS-AMY-08-Q04",
                                     "clinical_context": null,
-                                    "question_text": "Quels sont les différents types d'amylose ?",
+                                    "question_text": "Quels sont les différents types d'amylose ? \n précisez les caractéristiques cliniques de chacune ! ",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
@@ -20202,7 +20202,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "SYS-AMY-08-Q05",
                                     "clinical_context": null,
-                                    "question_text": "précisez les caractéristiques cliniques de chacune !   4 :\nQuel examen paraclinique permettrai de faire la différence entre les types d'amylose cardiaque ?",
+                                    "question_text": "Quel examen paraclinique permettrai de faire la différence entre les types d'amylose cardiaque ? \n  Précisez les particularités distinctives !",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
@@ -20210,7 +20210,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "SYS-AMY-08-Q06",
                                     "clinical_context": "Sur un bilan d’anémie inflammatoire chez un patient de 70 ans, une électrophorèse des protides met en évidence un pic monoclonal au niveau des gammaglobulines. La ponction sternale élimine le diagnostic du myélome multiple.\nSur la bandelette urinaire on trouve de protéine, avec protéinurie à 2g/24h.",
-                                    "question_text": "Précisez les particularités distinctives !\nCochez la ou les bonnes réponses:",
+                                    "question_text": "Cochez la ou les bonnes réponses:",
                                     "type": "QCM",
                                     "choices": [
                                         "C’est un syndrome néphrotique.",
