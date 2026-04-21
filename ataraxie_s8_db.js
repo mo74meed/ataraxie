@@ -19804,14 +19804,14 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "SYS-MYO-04-Q06",
                                     "clinical_context": null,
-                                    "question_text": "Précisez la différence physiopathologique entre la dermatomyosite et la polymyosite !\nCas clinique 1:\nLors d’un bilan de routine, un homme de 26 ans qui jusqu'à ce jour n'avait aucune histoire particuliers, trouve un discret déficit musculaire proximal bilatéral.\nLe médecin complète l'examen clinique et met en évidence un signe de Tabouret positif.",
+                                    "question_text": "Précisez la différence physiopathologique entre la dermatomyosite et la polymyosite !\nCas clinique.",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
                                 },
                                 {
                                     "id": "SYS-MYO-04-Q07",
-                                    "clinical_context": null,
+                                    "clinical_context": "Lors d’un bilan de routine, un homme de 26 ans qui jusqu'à ce jour n'avait aucune histoire particuliers, trouve un discret déficit musculaire proximal bilatéral.\nLe médecin complète l'examen clinique et met en évidence un signe de Tabouret positif",
                                     "question_text": "Cochez la ou les réponses justes:",
                                     "type": "QCM",
                                     "choices": [

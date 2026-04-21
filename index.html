@@ -364,12 +364,14 @@
             padding: 2px 6px;
             border-radius: 999px;
             font-family: 'JetBrains Mono', monospace;
-            white-space: nowrap
+            white-space: nowrap;
+            background: rgba(255, 255, 255, .04);
+            color: var(--tsd)
         }
 
-        .mb-default {
-            background: var(--s3);
-            color: var(--tsd)
+        .mb-started {
+            background: rgba(245, 158, 11, .12);
+            color: var(--a500)
         }
 
         .mb-done {
@@ -482,9 +484,19 @@
             flex-shrink: 0;
         }
 
+        .cb.started {
+            background: rgba(245, 158, 11, .12);
+            color: var(--a500);
+        }
+
         .cb:hover {
             background: rgba(74, 79, 244, .18);
             color: var(--b200);
+        }
+
+        .cb.started:hover {
+            background: rgba(245, 158, 11, .2);
+            color: var(--a600);
         }
 
         .cb.done {
@@ -4304,7 +4316,7 @@
                     const head = document.createElement('div'); head.className = 'sb-mod-head';
                     const btn = document.createElement('button');
                     btn.className = 'sb-mod-btn' + (op ? ' exp' : '');
-                    btn.innerHTML = `<svg class="arr" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg><span class="mname"><span class="marquee-inner">${esc(mn)}</span></span><span class="mb ${vq === tq && tq > 0 ? 'mb-done' : 'mb-default'}" data-mb="${esc(mn)}">${vq}/${tq}</span>`;
+                    btn.innerHTML = `<svg class="arr" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg><span class="mname"><span class="marquee-inner">${esc(mn)}</span></span><span class="mb ${vq === tq && tq > 0 ? 'mb-done' : vq > 0 ? 'mb-started' : ''}" data-mb="${esc(mn)}">${vq}/${tq}</span>`;
                     requestAnimationFrame(() => {
                         const inner = btn.querySelector('.marquee-inner');
                         const container = btn.querySelector('.mname');
@@ -4334,7 +4346,7 @@
                         const ck = mk(e.module, e.chapitre), vc = cntChAns(e);
                         const cb = document.createElement('button');
                         cb.className = 'sb-ch' + (ak === ck ? ' active' : ''); cb.dataset.ck = ck;
-                        cb.innerHTML = `<span class="cname"><span class="marquee-inner">${esc(e.chapitre)}</span></span><span class="cb ${vc === e.questions.length && e.questions.length > 0 ? 'done' : ''}" data-cb="${esc(ck)}" title="Aller à la dernière question répondue">${vc}/${e.questions.length}</span>`;
+                        cb.innerHTML = `<span class="cname"><span class="marquee-inner">${esc(e.chapitre)}</span></span><span class="cb ${vc === e.questions.length && e.questions.length > 0 ? 'done' : vc > 0 ? 'started' : ''}" data-cb="${esc(ck)}" title="Aller à la dernière question répondue">${vc}/${e.questions.length}</span>`;
                         cb.addEventListener('click', (ev) => {
                             // If clicking the .cb badge, scroll to last answered question
                             if (ev.target.closest('.cb') && vc > 0) {
@@ -5383,14 +5395,16 @@
                     const ck = b.dataset.cb, p = ck.split('§');
                     const e = D.find(d => d.module === p[0] && d.chapitre === p[1]); if (!e) return;
                     const vc = cntChAns(e); b.textContent = vc + '/' + e.questions.length;
-                    b.classList.toggle('done', vc === e.questions.length && e.questions.length > 0);
+                    b.classList.remove('started', 'done');
+                    if (vc === e.questions.length && e.questions.length > 0) b.classList.add('done');
+                    else if (vc > 0) b.classList.add('started');
                 });
                 const mods = new Map(); D.forEach(e => { if (!mods.has(e.module)) mods.set(e.module, []); mods.get(e.module).push(e) });
                 document.querySelectorAll('[data-mb]').forEach(b => {
                     const mn = b.dataset.mb, ents = mods.get(mn); if (!ents) return;
                     const tq = ents.reduce((s, e) => s + e.questions.length, 0), vq = cntModAns(ents);
                     b.textContent = vq + '/' + tq; b.classList.toggle('mb-done', vq === tq && tq > 0);
-                    b.classList.toggle('mb-default', vq !== tq || tq === 0);
+                    b.classList.toggle('mb-started', vq > 0 && (vq !== tq || tq === 0));
                 });
             }
             function togMob() {
