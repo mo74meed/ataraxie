@@ -3485,7 +3485,7 @@
             function setActiveId(id) { localStorage.setItem(APK, id); syncCloud(); }
             function profileSK(id) { return 'ataraxie_p_' + id }
             function genId() { return Date.now().toString(36) + Math.random().toString(36).substr(2, 5) }
-            function emptyState() { return { qcm: {}, red: {}, val: {}, sb: {}, sortChildren: {}, sortQuestions: {}, ac: null, his: {}, recent: [], official: {} } }
+            function emptyState() { return { qcm: {}, red: {}, val: {}, sb: {}, sortChildren: {}, sortQuestions: {}, typeOrderQuestions: {}, ac: null, his: {}, recent: [], official: {} } }
             function syncCloud() { if(window.FirebaseAuthManager) window.FirebaseAuthManager.forceSync(); }
 
             function migrateIfNeeded() {
@@ -3515,7 +3515,7 @@
                         const d = JSON.parse(r); 
                         if (!d.qcm) d.qcm = {}; if (!d.red) d.red = {}; if (!d.val) d.val = {}; 
                         if (!d.his) d.his = {}; if (!d.recent) d.recent = []; 
-                        if (!d.official) d.official = {}; if (!d.sortChildren) d.sortChildren = {}; if (!d.sortQuestions) d.sortQuestions = {};
+                        if (!d.official) d.official = {}; if (!d.sortChildren) d.sortChildren = {}; if (!d.sortQuestions) d.sortQuestions = {}; if (!d.typeOrderQuestions) d.typeOrderQuestions = {};
                         if (!d.sb) d.sb = {};
                         return d; 
                     } 
@@ -4189,6 +4189,8 @@
                 const chapterSortKey = mk(mod, chap);
                 st.sortQuestions = st.sortQuestions || {};
                 const sortByYear = st.sortQuestions[chapterSortKey] === true;
+                st.typeOrderQuestions = st.typeOrderQuestions || {};
+                const typeOrderMode = st.typeOrderQuestions[chapterSortKey] || 'default';
 
                 const c = document.getElementById('qc'); c.style.display = ''; c.innerHTML = '';
                 const ansC = cntChAns(entry), valC = cntChVal(entry), totC = entry.questions.length;
@@ -4201,8 +4203,26 @@
                     return { year, session };
                 };
 
+                const getTypeOrderLabel = (mode) => {
+                    if (mode === 'redaction-first') return 'Ordre: Red';
+                    if (mode === 'qcm-first') return 'Ordre: QCM';
+                    return 'Ordre: Def';
+                };
+
+                const getNextTypeOrderMode = (mode) => {
+                    if (mode === 'default') return 'redaction-first';
+                    if (mode === 'redaction-first') return 'qcm-first';
+                    return 'default';
+                };
+
+                const getTypeRank = (q, mode) => {
+                    if (mode === 'redaction-first') return q.type === 'redaction' ? 0 : 1;
+                    if (mode === 'qcm-first') return q.type === 'qcm' ? 0 : 1;
+                    return 0;
+                };
+
                 const originalIndexById = new Map(entry.questions.map((q, i) => [q.id, i]));
-                const questionsToRender = sortByYear
+                let questionsToRender = sortByYear
                     ? entry.questions.slice().sort((a, b) => {
                         const aMeta = parseYearSession(getExamSessionLabel(a.id));
                         const bMeta = parseYearSession(getExamSessionLabel(b.id));
@@ -4212,12 +4232,22 @@
                     })
                     : entry.questions;
 
+                if (typeOrderMode !== 'default') {
+                    const currentIndexById = new Map(questionsToRender.map((q, i) => [q.id, i]));
+                    questionsToRender = questionsToRender.slice().sort((a, b) => {
+                        const rankDiff = getTypeRank(a, typeOrderMode) - getTypeRank(b, typeOrderMode);
+                        if (rankDiff !== 0) return rankDiff;
+                        return (currentIndexById.get(a.id) || 0) - (currentIndexById.get(b.id) || 0);
+                    });
+                }
+
                 /* ── Chapter Banner ── */
                 const banner = document.createElement('div'); banner.className = 'ch-banner';
                 banner.innerHTML = `
             <div class="ch-banner-left">
                 <div class="ch-title-row">
                     <h3>${esc(chap)}</h3>
+                    <button class="ch-sort-year-btn ${typeOrderMode !== 'default' ? 'active' : ''}" id="btn-sort-type" title="Changer l'ordre des types de questions">${getTypeOrderLabel(typeOrderMode)}</button>
                     <button class="ch-sort-year-btn ${sortByYear ? 'active' : ''}" id="btn-sort-year" title="Trier les questions par annee">Annee</button>
                 </div>
                 <p>${esc(mod)} — ${totC} question${totC > 1 ? 's' : ''}</p>
@@ -4244,6 +4274,15 @@
                     btnSortYear.addEventListener('click', () => {
                         st.sortQuestions = st.sortQuestions || {};
                         st.sortQuestions[chapterSortKey] = !sortByYear;
+                        svLocal();
+                        render(mod, chap, targetQId);
+                    });
+                }
+                const btnSortType = document.getElementById('btn-sort-type');
+                if (btnSortType) {
+                    btnSortType.addEventListener('click', () => {
+                        st.typeOrderQuestions = st.typeOrderQuestions || {};
+                        st.typeOrderQuestions[chapterSortKey] = getNextTypeOrderMode(typeOrderMode);
                         svLocal();
                         render(mod, chap, targetQId);
                     });
