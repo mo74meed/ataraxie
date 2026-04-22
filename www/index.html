@@ -4383,7 +4383,7 @@
                     </div>`;
 
                     /* Enonce */
-                    h += `<div class="qcard-enonce"><strong style="color:var(--t1)">${qNumStr}.</strong> ${esc(q.enonce)}</div>`;
+                    h += `<div class="qcard-enonce"><strong style="color:var(--t1)">${qNumStr}.</strong> ${renderHtml(q.enonce)}</div>`;
                     h += `<div class="qcard-divider"></div>`;
 
                     /* Options */
@@ -4897,6 +4897,58 @@
                 }
             }
             function esc(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML }
+
+            function normalizeQuestionMarkup(raw) {
+                if (!raw || !/<table[\s>]/i.test(raw)) return raw || '';
+                const tpl = document.createElement('template');
+                tpl.innerHTML = raw;
+
+                tpl.content.querySelectorAll('table').forEach((table) => {
+                    const rows = [...table.querySelectorAll('tr')].map((tr) =>
+                        [...tr.querySelectorAll('th,td')].map((cell) => (cell.textContent || '').trim())
+                    );
+
+                    if (rows.length < 2) return;
+
+                    const headers = rows[0] || [];
+                    const values = rows.slice(1).find((r) => r.some((v) => v !== '')) || [];
+                    const list = document.createElement('ul');
+
+                    for (let i = 0; i < Math.max(headers.length, values.length); i++) {
+                        const label = (headers[i] || '').trim();
+                        const value = (values[i] || '').trim();
+
+                        if (!value) continue;
+
+                        const li = document.createElement('li');
+                        const labelSpan = document.createElement('span');
+                        const valueSpan = document.createElement('span');
+
+                        labelSpan.textContent = (label || ('Colonne ' + (i + 1))) + ': ';
+                        valueSpan.textContent = value;
+
+                        li.appendChild(labelSpan);
+                        li.appendChild(valueSpan);
+                        list.appendChild(li);
+                    }
+
+                    if (list.children.length > 0) table.replaceWith(list);
+                });
+
+                return tpl.innerHTML;
+            }
+
+            function renderHtml(s) {
+                if (!s) return '';
+                const normalized = normalizeQuestionMarkup(s);
+                const SAFE_TAG = /(<\/?(ul|li|span|div)[^>]*>)/g;
+                const parts = normalized.split(SAFE_TAG);
+                return parts.map((p, i) => {
+                    if (i % 3 === 1) return p;
+                    if (i % 3 === 2) return '';
+                    const d = document.createElement('div'); d.textContent = p; return d.innerHTML;
+                }).join('');
+            }
 
             function showCmp(e) {
                 currentCmpEntry = e;

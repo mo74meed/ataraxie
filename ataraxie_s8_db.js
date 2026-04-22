@@ -25668,7 +25668,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "GEN-TRA-14-Q09",
                                     "clinical_context": null,
-                                    "question_text": "A Sexeindetermine\nB OSujet malade\nC □OMariaqe\nSujet malade\nSujet heterozygote\nA propos des particularités de l'hérédité autosomique dominante, quelles sont les propositions justes ?",
+                                    "question_text": "A propos des particularités de l'hérédité autosomique dominante, quelles sont les propositions justes ?",
                                     "type": "QCM",
                                     "choices": [
                                         "Certaines néomutations dominantes sont favorisées par un âge paternel avancé lors de la conception.",

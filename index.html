@@ -3429,6 +3429,39 @@
             .offline-sync-actions-grid { grid-template-columns: 1fr; }
             .offline-sync-summary { grid-template-columns: 1fr; }
         }
+
+        /* ── Lab results lists ─────────────────────────────────── */
+        ul.lab-list, ul.marker-list {
+            list-style: none; padding: 6px 0; margin: 8px 0;
+            display: flex; flex-direction: column; gap: 4px;
+        }
+        ul.lab-list li {
+            display: flex; align-items: baseline; gap: 6px;
+            padding: 5px 10px; border-radius: 8px;
+            background: var(--s2); font-size: 0.88em; line-height: 1.4;
+        }
+        ul.lab-list li .lab-name {
+            font-weight: 600; color: var(--p0); min-width: 160px; flex-shrink: 0;
+        }
+        ul.lab-list li .lab-val { color: var(--b400); font-weight: 500; }
+        ul.lab-list li .lab-range { color: var(--t3); font-size: 0.9em; }
+
+        /* ── Marker badge grid ─────────────────────────────────── */
+        ul.marker-list {
+            flex-direction: row; flex-wrap: wrap; gap: 6px; padding: 4px 0;
+        }
+        ul.marker-list li {
+            display: flex; flex-direction: column; align-items: center; gap: 3px;
+            padding: 6px 10px; border-radius: 8px; background: var(--s2); font-size: 0.82em;
+        }
+        ul.marker-list li .marker-name { font-weight: 600; color: var(--p0); }
+        ul.marker-list li .marker-val {
+            font-weight: 700; border-radius: 50%;
+            width: 22px; height: 22px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        ul.marker-list li .marker-val.pos { background: var(--g100); color: var(--g600); }
+        ul.marker-list li .marker-val.neg { background: #fde8e8; color: #c0392b; }
     </style>
 
 
@@ -4536,7 +4569,7 @@
                                     <div class="ctx-title">Mise à jour du cas</div>
                                 </div>
                                 <div class="ctx-divider"></div>
-                                <div class="ctx-body">${esc(delta)}</div>
+                                <div class="ctx-body">${renderHtml(delta)}</div>
                             `;
                                     stream.appendChild(ct);
                                 }
@@ -4550,7 +4583,7 @@
                                     <div class="ctx-title">Cas Clinique / Contexte</div>
                                 </div>
                                 <div class="ctx-divider"></div>
-                                <div class="ctx-body">${esc(lastCtx)}</div>
+                                <div class="ctx-body">${renderHtml(lastCtx)}</div>
                             `;
                                 stream.appendChild(ct);
                             }
@@ -4597,7 +4630,7 @@
                     </div>`;
 
                     /* Enonce */
-                    h += `<div class="qcard-enonce"><strong style="color:var(--t1)">${qNumStr}.</strong> ${esc(q.enonce)}</div>`;
+                    h += `<div class="qcard-enonce"><strong style="color:var(--t1)">${qNumStr}.</strong> ${renderHtml(q.enonce)}</div>`;
                     h += `<div class="qcard-divider"></div>`;
 
                     /* Options */
@@ -5456,6 +5489,59 @@
                 }
             }
             function esc(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML }
+
+            function normalizeQuestionMarkup(raw) {
+                if (!raw || !/<table[\s>]/i.test(raw)) return raw || '';
+                const tpl = document.createElement('template');
+                tpl.innerHTML = raw;
+
+                tpl.content.querySelectorAll('table').forEach((table) => {
+                    const rows = [...table.querySelectorAll('tr')].map((tr) =>
+                        [...tr.querySelectorAll('th,td')].map((cell) => (cell.textContent || '').trim())
+                    );
+
+                    if (rows.length < 2) return;
+
+                    const headers = rows[0] || [];
+                    const values = rows.slice(1).find((r) => r.some((v) => v !== '')) || [];
+                    const list = document.createElement('ul');
+
+                    for (let i = 0; i < Math.max(headers.length, values.length); i++) {
+                        const label = (headers[i] || '').trim();
+                        const value = (values[i] || '').trim();
+
+                        if (!value) continue;
+
+                        const li = document.createElement('li');
+                        const labelSpan = document.createElement('span');
+                        const valueSpan = document.createElement('span');
+
+                        labelSpan.textContent = (label || ('Colonne ' + (i + 1))) + ': ';
+                        valueSpan.textContent = value;
+
+                        li.appendChild(labelSpan);
+                        li.appendChild(valueSpan);
+                        list.appendChild(li);
+                    }
+
+                    if (list.children.length > 0) table.replaceWith(list);
+                });
+
+                return tpl.innerHTML;
+            }
+
+            /* renderHtml: like esc() but lets our safe lab/marker list tags through as real HTML */
+            function renderHtml(s) {
+                if (!s) return '';
+                const normalized = normalizeQuestionMarkup(s);
+                const SAFE_TAG = /(<\/?(ul|li|span|div)[^>]*>)/g;
+                const parts = normalized.split(SAFE_TAG);
+                return parts.map((p, i) => {
+                    if (i % 3 === 1) return p;  // safe tag — pass through
+                    if (i % 3 === 2) return '';  // tag-name capture — skip
+                    const d = document.createElement('div'); d.textContent = p; return d.innerHTML;
+                }).join('');
+            }
 
             function showCmp(e) {
                 currentCmpEntry = e;
