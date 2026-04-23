@@ -15231,14 +15231,14 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "ANA-PUL-21-Q07",
                                     "clinical_context": null,
-                                    "question_text": "3 :\nRôle du pathologiste dans la PEC des tumeurs osseuses.\nCas clinique 1:\nPatient de 16 ans consulte pour des douleurs du genou droit.\nUne radiographie standard était réalisée montrant une lésion ostéolytique de l'extrémité supérieure du tibia soufflant la corticale avec extension aux parties molles. De multiples biopsies étaient réalisées.\nA l'examen histologique, les biopsies étaient occupées par des cellules de grandes tailles aux noyaux atypiques avec de nombreuses figures de mitoses bordant une substance saphranophile irrégulière. Cette prolifération tumorale occupe les logettes médullaires et elle est partiellement nécrosée.",
+                                    "question_text": "Rôle du pathologiste dans la PEC des tumeurs osseuses.",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
                                 },
                                 {
                                     "id": "ANA-PUL-21-Q08",
-                                    "clinical_context": null,
+                                    "clinical_context": "Patient de 16 ans consulte pour des douleurs du genou droit.\nUne radiographie standard était réalisée montrant une lésion ostéolytique de l'extrémité supérieure du tibia soufflant la corticale avec extension aux parties molles. De multiples biopsies étaient réalisées.\nA l'examen histologique, les biopsies étaient occupées par des cellules de grandes tailles aux noyaux atypiques avec de nombreuses figures de mitoses bordant une substance saphranophile irrégulière. Cette prolifération tumorale occupe les logettes médullaires et elle est partiellement nécrosée.",
                                     "question_text": "Comment appelle-t-on la substance saphranophile ?",
                                     "type": "QCM",
                                     "choices": [
