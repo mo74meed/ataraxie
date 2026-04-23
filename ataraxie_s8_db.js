@@ -14121,14 +14121,14 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "ANA-DIG-16-Q08",
                                     "clinical_context": null,
-                                    "question_text": "Citer les lésions élémentaires communes des hépatites virales chroniques\nCas clinique 1:\nUn patient âgé de 48 ans se plaint de fatigue générale et l'examen clinique trouve un subictère conjonctival. Les tests sérologiques révèlent une hépatite C et la biopsie hépatique confirme le diagnostic d'hépatite chronique score A2 F3 selon la classification METAVIR.",
+                                    "question_text": "Citer les lésions élémentaires communes des hépatites virales chroniques",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
                                 },
                                 {
                                     "id": "ANA-DIG-16-Q09",
-                                    "clinical_context": null,
+                                    "clinical_context": "Un patient âgé de 48 ans se plaint de fatigue générale et l'examen clinique trouve un subictère conjonctival. Les tests sérologiques révèlent une hépatite C et la biopsie hépatique confirme le diagnostic d'hépatite chronique score A2 F3 selon la classification METAVIR.",
                                     "question_text": "Interpréter ce résultat.",
                                     "type": "QROC",
                                     "choices": null,
@@ -18428,14 +18428,14 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "IMM-AUT-06-Q33",
                                     "clinical_context": null,
-                                    "question_text": "Décrire les mécanismes de tolérance centrale du lymphocyte T et B\nCas clinique 1:\nUne patiente de 30 ans consulte pour l'apparition depuis 2 mois d'arthralgies prédominant la nuit et en début de matinée touchant les ses mains et poignets\nCes douleurs s'accompagnent d'un état de fatigue. Elle rapporte une perte de cheveux plus marquée qu'habituellement.\nA l'examen de cette femme sans antécédent médical ni chirurgical particulier\n● A l'examen clinique:\n○ Un érythème au niveau de son visage\n○ Des aphtes buccaux.\nLe premier examen biologique de débrouillage vous montre une vitesse de sédimentation à 46 mm à la 1ère heure, une CRP à $6 \\mathsf { m g } / |$ et à la numération formule sanguine 10,5 g d'hémoglobine, 1750 polynucléaires neutrophiles, 810 lymphocytes/mm3 et 152000 plaquettes/mm3.\nVous évoquez le diagnostic de lupus érythémateux systémique:",
+                                    "question_text": "Décrire les mécanismes de tolérance centrale du lymphocyte T et B",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
                                 },
                                 {
                                     "id": "IMM-AUT-06-Q34",
-                                    "clinical_context": null,
+                                    "clinical_context": "Une patiente de 30 ans consulte pour l'apparition depuis 2 mois d'arthralgies prédominant la nuit et en début de matinée touchant les ses mains et poignets\nCes douleurs s'accompagnent d'un état de fatigue. Elle rapporte une perte de cheveux plus marquée qu'habituellement.\nA l'examen de cette femme sans antécédent médical ni chirurgical particulier\n● A l'examen clinique:\n○ Un érythème au niveau de son visage\n○ Des aphtes buccaux.\nLe premier examen biologique de débrouillage vous montre une vitesse de sédimentation à 46 mm à la 1ère heure, une CRP à $6 \\mathsf { m g } / |$ et à la numération formule sanguine 10,5 g d'hémoglobine, 1750 polynucléaires neutrophiles, 810 lymphocytes/mm3 et 152000 plaquettes/mm3.\nVous évoquez le diagnostic de lupus érythémateux systémique:",
                                     "question_text": "Quel est le bilan immunologique initial à demander ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -19804,7 +19804,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "SYS-MYO-04-Q06",
                                     "clinical_context": null,
-                                    "question_text": "Précisez la différence physiopathologique entre la dermatomyosite et la polymyosite !\nCas clinique.",
+                                    "question_text": "Précisez la différence physiopathologique entre la dermatomyosite et la polymyosite !",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
@@ -21295,7 +21295,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "SYS-HOR-14-Q12",
                                     "clinical_context": null,
-                                    "question_text": "Manifestations rhumatismale d’une Polyarthrite Rhizomélique (PPR)\nCas clinique 1:",
+                                    "question_text": "Manifestations rhumatismale d’une Polyarthrite Rhizomélique (PPR)",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
@@ -23636,7 +23636,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "GEN-MUT-05-Q06",
                                     "clinical_context": null,
-                                    "question_text": "Définitions :\n■ Mutation somatique\n■ Mutation germinale\n■ Mutations décalant le cadre de lecture\n■ Mutations par expansion de trinucléotides\n■ Mutations élongation\n■ Mutations faux sens\n■ Mutation non sens mutation\n■ Mutations à effet quantitatif\n■ Fusion entre deux gènes\n■ Empreinte parentale",
+                                    "question_text": "Définitions :\n- Mutation somatique\n- Mutation germinale\n- Mutations décalant le cadre de lecture\n- Mutations par expansion de trinucléotides\n- Mutations élongation\n- Mutations faux sens\n- Mutation non sens mutation\n- Mutations à effet quantitatif\n- Fusion entre deux gènes\n- Empreinte parentale",
                                     "type": "redaction",
                                     "choices": null,
                                     "requires_review": false
@@ -23747,7 +23747,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "GEN-ANO-06-Q08",
                                     "clinical_context": null,
-                                    "question_text": "Définir les termes suivants (différentes anomalies chromosomiques) :\n■ Inversion\n■ Inversion paracentrique\n■ Translocation réciproque\n■ Isochromosome\n■ Le chromosome en anneau\n■ Les instabilités chromosomiques\n■ Anomalie chromosomique homogène\n■ Marqueur chromosomique\n■ Délétions (del)\n■ Translocation Robertsonienne\n■ Diandrie\n■ Les aneuploïdies\n■ Les polyploïdies",
+                                    "question_text": "Définir les termes suivants (différentes anomalies chromosomiques) :\n- Inversion\n- Inversion paracentrique\n- Translocation réciproque\n- Isochromosome\n- Le chromosome en anneau\n- Les instabilités chromosomiques\n- Anomalie chromosomique homogène\n- Marqueur chromosomique\n- Délétions (del)\n- Translocation Robertsonienne\n- Diandrie\n- Les aneuploïdies\n- Les polyploïdies",
                                     "type": "redaction",
                                     "choices": null,
                                     "requires_review": false
@@ -24192,7 +24192,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "GEN-TRI-07-Q39",
-                                    "clinical_context": "■ Un nourrisson de 2 mois, de sexe féminin\n\n■ Dernier d'une fratrie de trois\n\n■ Age du père : 42 ans, l'âge de la mère : 38 ans\n\n■ Signes cliniques évocateurs d'une trisomie 21\n\n■ Le caryotype métaphasique postnatal constitutionnel en bandes R du nouveau-né : Trisomie 21 par translocation Robertsonienne t(21;21)\n\n■ Le caryotype des parents : normal\n\n(sorry we couldn't integrate the image, please check the pdf version)\n\nFusions centromériques entre 2 chromosomes acrocentriques : Chromosomes 21",
+                                    "clinical_context": "- Un nourrisson de 2 mois, de sexe féminin\n\n- Dernier d'une fratrie de trois\n\n- Age du père : 42 ans, l'âge de la mère : 38 ans\n\n- Signes cliniques évocateurs d'une trisomie 21\n\n- Le caryotype métaphasique postnatal constitutionnel en bandes R du nouveau-né : Trisomie 21 par translocation Robertsonienne t(21;21)\n\n- Le caryotype des parents : normal\n\n(sorry we couldn't integrate the image, please check the pdf version)\n\nFusions centromériques entre 2 chromosomes acrocentriques : Chromosomes 21",
                                     "question_text": "(sorry we couldn't integrate the image, please check the pdf version)\nQuel votre conseil génétique pour ce couple ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -24200,7 +24200,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "GEN-TRI-07-Q40",
-                                    "clinical_context": "■ Un nourrisson de 2 mois, de sexe féminin\n\n■ Dernier d'une fratrie de trois\n\n■ Age du père : 42 ans, l'âge de la mère : 38 ans\n\n■ Signes cliniques évocateurs d'une trisomie 21\n\n■ Le caryotype métaphasique postnatal constitutionnel en bandes R du nouveau-né : Trisomie 21 par translocation Robertsonienne t(21;21)\n\n■ Le caryotype des parents : normal\n\n(sorry we couldn't integrate the image, please check the pdf version)\n\nFusions centromériques entre 2 chromosomes acrocentriques : Chromosomes 21",
+                                    "clinical_context": "- Un nourrisson de 2 mois, de sexe féminin\n\n- Dernier d'une fratrie de trois\n\n- Age du père : 42 ans, l'âge de la mère : 38 ans\n\n- Signes cliniques évocateurs d'une trisomie 21\n\n- Le caryotype métaphasique postnatal constitutionnel en bandes R du nouveau-né : Trisomie 21 par translocation Robertsonienne t(21;21)\n\n- Le caryotype des parents : normal\n\n(sorry we couldn't integrate the image, please check the pdf version)\n\nFusions centromériques entre 2 chromosomes acrocentriques : Chromosomes 21",
                                     "question_text": "Citer les différentes malformations et anomalies associes à explorer systématiquement chez notre patient porteur de la trisomie 21 ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -24300,7 +24300,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "GEN-TRI-07-Q51",
                                     "clinical_context": "Trisomie 21 par translocation\n\nUn couple (mère de 28 ans, père de 31 ans) a un garçon de 5 ans porteur d'une trisomie 21 résultant d'une translocation robertsonienne (14;21) d'origine paternelle. Ils ont également une fille de 2 ans indemne.\n\n(sorry we couldn't integrate the image, please check the pdf version)\n\nTrisomie 21 par translocation 1(14:21) d'origine paternelle",
-                                    "question_text": "La trisomie 13 : cytogénétique, évolution et conseil génétique\nCas clinique 1:",
+                                    "question_text": "La trisomie 13 : cytogénétique, évolution et conseil génétique",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
@@ -24345,7 +24345,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "GEN-TRI-07-Q56",
-                                    "clinical_context": "■ Un nouveau-né de 3 jours, de sexe masculin\n\n■ Age du père : 30 ans, l'âge de la mère : 26 ans\n\n■ Nourrisson hypotrophique avec une hypoplasie des muscles squelettiques et du tissu adipeux sous-cutané. Présente :\n\no Une Dysmorphie cranio-faciale,\n\no Malformations cardiaques complexes,\n\no Reins en fer à cheval avec anomalie du bassinet,\n\no Sténose du pylore\n\n■ Le caryotype métaphasique postnatal constitutionnel en bandes R du nouveau-né :\n\nTrisomie 18 libre et homogène. 47,XY,+18\n\n(sorry we couldn't integrate the image, please check the pdf version)",
+                                    "clinical_context": "- Un nouveau-né de 3 jours, de sexe masculin\n\n- Age du père : 30 ans, l'âge de la mère : 26 ans\n\n- Nourrisson hypotrophique avec une hypoplasie des muscles squelettiques et du tissu adipeux sous-cutané. Présente :\n\no Une Dysmorphie cranio-faciale,\n\no Malformations cardiaques complexes,\n\no Reins en fer à cheval avec anomalie du bassinet,\n\no Sténose du pylore\n\n- Le caryotype métaphasique postnatal constitutionnel en bandes R du nouveau-né :\n\nTrisomie 18 libre et homogène. 47,XY,+18\n\n(sorry we couldn't integrate the image, please check the pdf version)",
                                     "question_text": "Quel votre conseil génétique pour ce couple ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -24353,7 +24353,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "GEN-TRI-07-Q57",
-                                    "clinical_context": "■ Un nouveau-né de 3 jours, de sexe masculin\n\n■ Age du père : 30 ans, l'âge de la mère : 26 ans\n\n■ Nourrisson hypotrophique avec une hypoplasie des muscles squelettiques et du tissu adipeux sous-cutané. Présente :\n\no Une Dysmorphie cranio-faciale,\n\no Malformations cardiaques complexes,\n\no Reins en fer à cheval avec anomalie du bassinet,\n\no Sténose du pylore\n\n■ Le caryotype métaphasique postnatal constitutionnel en bandes R du nouveau-né :\n\nTrisomie 18 libre et homogène. 47,XY,+18\n\n(sorry we couldn't integrate the image, please check the pdf version)",
+                                    "clinical_context": "- Un nouveau-né de 3 jours, de sexe masculin\n\n- Age du père : 30 ans, l'âge de la mère : 26 ans\n\n- Nourrisson hypotrophique avec une hypoplasie des muscles squelettiques et du tissu adipeux sous-cutané. Présente :\n\no Une Dysmorphie cranio-faciale,\n\no Malformations cardiaques complexes,\n\no Reins en fer à cheval avec anomalie du bassinet,\n\no Sténose du pylore\n\n- Le caryotype métaphasique postnatal constitutionnel en bandes R du nouveau-né :\n\nTrisomie 18 libre et homogène. 47,XY,+18\n\n(sorry we couldn't integrate the image, please check the pdf version)",
                                     "question_text": "Quel est le pronostic vital chez notre nouveau-né atteint d'une trisomie 18 ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -24396,7 +24396,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "GEN-MON-08-Q03",
-                                    "clinical_context": "■ Nourrisson âgé de 11 mois de sexe masculin\n\n■ Parents jeunes (âge du père 26 ans, âge de la mère 23 ans).\n\n■ Patient présente au cours de notre consultation .\n\no une hypotonie, un retard des acquisitions psychomotrices, un retard staturo-pondéral et une dysmorphie faciale.\n\no Les différentes explorations ont mis en évidence : une atrésie de l'oesophage type III (opéré), une ectopie testiculaire bilatérale et un rein en fer à cheval avec une urétéro-hydronéphrose gauche.\n\n(sorry we couldn't integrate the image, please check the pdf version)\n\n■ Le caryotype-métaphasique en bandes R de notre patient a mis en évidence la délétion 5p- sur les 11 mitoses analysées : Le Syndrome du cri du chat\n\n■ L'analyse du caryotype des parents est sans anomalies\n\nLe caryotype partiel métaphasique en bandes R de notre patient a mis en évidence la délétion 5p-(La flèche indique le niveau de la délétion)",
+                                    "clinical_context": "- Nourrisson âgé de 11 mois de sexe masculin\n\n- Parents jeunes (âge du père 26 ans, âge de la mère 23 ans).\n\n- Patient présente au cours de notre consultation .\n\no une hypotonie, un retard des acquisitions psychomotrices, un retard staturo-pondéral et une dysmorphie faciale.\n\no Les différentes explorations ont mis en évidence : une atrésie de l'oesophage type III (opéré), une ectopie testiculaire bilatérale et un rein en fer à cheval avec une urétéro-hydronéphrose gauche.\n\n(sorry we couldn't integrate the image, please check the pdf version)\n\n- Le caryotype-métaphasique en bandes R de notre patient a mis en évidence la délétion 5p- sur les 11 mitoses analysées : Le Syndrome du cri du chat\n\n- L'analyse du caryotype des parents est sans anomalies\n\nLe caryotype partiel métaphasique en bandes R de notre patient a mis en évidence la délétion 5p-(La flèche indique le niveau de la délétion)",
                                     "question_text": "Quel votre conseil génétique pour ce jeune couple ?",
                                     "type": "QROC",
                                     "choices": null,
@@ -24404,7 +24404,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "GEN-MON-08-Q04",
-                                    "clinical_context": "■ Nourrisson âgé de 11 mois de sexe masculin\n\n■ Parents jeunes (âge du père 26 ans, âge de la mère 23 ans).\n\n■ Patient présente au cours de notre consultation .\n\no une hypotonie, un retard des acquisitions psychomotrices, un retard staturo-pondéral et une dysmorphie faciale.\n\no Les différentes explorations ont mis en évidence : une atrésie de l'oesophage type III (opéré), une ectopie testiculaire bilatérale et un rein en fer à cheval avec une urétéro-hydronéphrose gauche.\n\n(sorry we couldn't integrate the image, please check the pdf version)\n\n■ Le caryotype-métaphasique en bandes R de notre patient a mis en évidence la délétion 5p- sur les 11 mitoses analysées : Le Syndrome du cri du chat\n\n■ L'analyse du caryotype des parents est sans anomalies\n\nLe caryotype partiel métaphasique en bandes R de notre patient a mis en évidence la délétion 5p-(La flèche indique le niveau de la délétion)",
+                                    "clinical_context": "- Nourrisson âgé de 11 mois de sexe masculin\n\n- Parents jeunes (âge du père 26 ans, âge de la mère 23 ans).\n\n- Patient présente au cours de notre consultation .\n\no une hypotonie, un retard des acquisitions psychomotrices, un retard staturo-pondéral et une dysmorphie faciale.\n\no Les différentes explorations ont mis en évidence : une atrésie de l'oesophage type III (opéré), une ectopie testiculaire bilatérale et un rein en fer à cheval avec une urétéro-hydronéphrose gauche.\n\n(sorry we couldn't integrate the image, please check the pdf version)\n\n- Le caryotype-métaphasique en bandes R de notre patient a mis en évidence la délétion 5p- sur les 11 mitoses analysées : Le Syndrome du cri du chat\n\n- L'analyse du caryotype des parents est sans anomalies\n\nLe caryotype partiel métaphasique en bandes R de notre patient a mis en évidence la délétion 5p-(La flèche indique le niveau de la délétion)",
                                     "question_text": "A travers cette observation quelles sont les aspects cliniques et malformations observées dans le « Syndrome du cri du chat ».",
                                     "type": "QROC",
                                     "choices": null,
@@ -25730,7 +25730,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "GEN-TRA-14-Q16",
                                     "clinical_context": null,
-                                    "question_text": "(Symboles internationaux : Arbre généalogique)\n<div>\n<table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>■●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table>\n</div>   7 :\nDéfinir\n■ Pénétrance incomplète\n■ Néo-mutation\n■ Mosaïcisme gonadique\n■ Mariage consanguin\n■ Maladie congénitale\nCas clinique 1:",
+                                    "question_text": "(Symboles internationaux : Arbre généalogique)\n<div>\n<table><tr><td colspan=\"2\">Symbole</td></tr><tr><td>1</td><td>□</td></tr><tr><td>2</td><td>◇</td></tr><tr><td>3</td><td>◇</td></tr><tr><td>4</td><td>□-○</td></tr><tr><td>5</td><td>□-∅</td></tr><tr><td>6</td><td>↓</td></tr><tr><td>7</td><td>-●</td></tr><tr><td>8</td><td>◎</td></tr><tr><td>9</td><td>◇</td></tr><tr><td>10</td><td>□-○</td></tr></table>\n</div>   7 :\nDéfinir\n- Pénétrance incomplète\n- Néo-mutation\n- Mosaïcisme gonadique\n- Mariage consanguin\n- Maladie congénitale",
                                     "type": "redaction",
                                     "choices": null,
                                     "requires_review": false
@@ -25922,7 +25922,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "GEN-TRA-14-Q36",
                                     "clinical_context": null,
-                                    "question_text": "Quel est le risque de récurrence de l'amyotrophie spinale infantile chez ce couple ?Que proposez-vous pour les prochaines grossesses ?\n(sorry we couldn't integrate the image, please check the pdf version)\n■ Diagnostic : Amyotrophie spinale infantile\n■ Confirmation par diagnostic moléculaire : délétion homozygote du gène SMN\n■ Type de transmission : maladie à transmission autosomique récessive",
+                                    "question_text": "Quel est le risque de récurrence de l'amyotrophie spinale infantile chez ce couple ?Que proposez-vous pour les prochaines grossesses ?\n(sorry we couldn't integrate the image, please check the pdf version)\n- Diagnostic : Amyotrophie spinale infantile\n- Confirmation par diagnostic moléculaire : délétion homozygote du gène SMN\n- Type de transmission : maladie à transmission autosomique récessive",
                                     "type": "redaction",
                                     "choices": null,
                                     "requires_review": true
