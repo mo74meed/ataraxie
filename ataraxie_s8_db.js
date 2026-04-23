@@ -13489,14 +13489,14 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "ANA-DIG-12-Q05",
                                     "clinical_context": null,
-                                    "question_text": "Diagnostic positif, diagnostic étiologique et complications des maladies inflammatoires chroniques de l’intestin (MICI)\nCas clinique 1:\nFemme de 35 ans consultant pour diarrhée chronique depuis 8 semaines. La coloscopie réalisée montrait des ulcérations aphtoïdes au niveau du côlon proximal séparées par des intervalles de muqueuse saine, le rectum est normal. Des biopsies étaient réalisées au niveau des ulcérations.\nA l'examen histologique, la muqueuse colique était le siège d'un infiltrat inflammatoire fait de lymphocytes et de plasmocytes au contact de glandes dédifférenciées, bifurquées, au sein d'un chorion oedémateux avec disparition de certaines glandes. Sur un seul un fragment on notait la présence d'un amas de cellules allongées avec des cellules multinucléées.",
+                                    "question_text": "Diagnostic positif, diagnostic étiologique et complications des maladies inflammatoires chroniques de l’intestin (MICI)",
                                     "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
                                 },
                                 {
                                     "id": "ANA-DIG-12-Q06",
-                                    "clinical_context": null,
+                                    "clinical_context": "Femme de 35 ans consultant pour diarrhée chronique depuis 8 semaines. La coloscopie réalisée montrait des ulcérations aphtoïdes au niveau du côlon proximal séparées par des intervalles de muqueuse saine, le rectum est normal. Des biopsies étaient réalisées au niveau des ulcérations.\nA l'examen histologique, la muqueuse colique était le siège d'un infiltrat inflammatoire fait de lymphocytes et de plasmocytes au contact de glandes dédifférenciées, bifurquées, au sein d'un chorion oedémateux avec disparition de certaines glandes. Sur un seul un fragment on notait la présence d'un amas de cellules allongées avec des cellules multinucléées.",
                                     "question_text": "A la lumière des endoscopiques et histologiques, s'agit-il d'une pathologie :",
                                     "type": "QCM",
                                     "choices": [
