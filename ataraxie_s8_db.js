@@ -23999,8 +23999,11 @@ const ATARAXIE_S8_DB = {
                                     "question_text": "Les résultats montrent chez cet enfant une trisomie 21 par translocation robertsonienne (14;21) transmise par le père. Quelle est le risque de récurrence dans ce cas lors de la prochaine grossesse ?",
                                     "type": "QCM",
                                     "choices": [
-                                        "0%",
-                                        "50%"
+                                         "0%",
+                                         "100%",
+                                         "5%",
+                                         "20%",
+                                         "50%"
                                     ],
                                     "requires_review": false
                                 },
