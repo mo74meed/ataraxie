@@ -23911,17 +23911,10 @@ const ATARAXIE_S8_DB = {
                                     "choices": null,
                                     "requires_review": false
                                 },
-                                {
-                                    "id": "GEN-TRI-07-Q12",
-                                    "clinical_context": null,
-                                    "question_text": "Un enfant âgé d'1 mois présente un phénotype évocateur de trisomie 21.\nLe caryotype de l'enfant est: 47, XY, 21\nLe caryotype de la mère (38 ans) est: 46,XX.\nLe caryotype du père (45 ans) est: 46, XY\n(sorry we couldn't integrate the image, please check the pdf version)",
-                                    "type": "QROC",
-                                    "choices": null,
-                                    "requires_review": true
-                                },
+                                
                                 {
                                     "id": "GEN-TRI-07-Q13",
-                                    "clinical_context": null,
+                                    "clinical_context": "Un enfant âgé d'1 mois présente un phénotype évocateur de trisomie 21.\nLe caryotype de l'enfant est: 47, XY, 21\nLe caryotype de la mère (38 ans) est: 46,XX.\nLe caryotype du père (45 ans) est: 46, XY\n(sorry we couldn't integrate the image, please check the pdf version)",
                                     "question_text": "Quel est type de l'anomalie chromosomique chez cet enfant ?",
                                     "type": "QCM",
                                     "choices": [
