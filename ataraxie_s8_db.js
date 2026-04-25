@@ -24041,7 +24041,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "GEN-TRI-07-Q22",
                                     "clinical_context": "Un enfant âgé de 3 an, de sexe masculin, présentant un phénotype évoquant une trisomie 21. Le résultat des caryotypes partiels des parents sont représentés dans la figure ci-dessous :\n\n(sorry we couldn't integrate the image, please check the pdf version)",
-                                    "question_text": "Quelle est le risque de récurrence dans ce cas lors de la prochaine grossesse?",
+                                    "question_text": "Les résultats montrent chez cet enfant une trisomie 21 par translocation robertsonienne (21;21) transmise par le père \n Quelle est le risque de récurrence dans ce cas lors de la prochaine grossesse?",
                                     "type": "QCM",
                                     "choices": [
                                         "$100 \\%$",
@@ -24055,7 +24055,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "GEN-TRI-07-Q23",
                                     "clinical_context": "Un enfant âgé de 3 an, de sexe masculin, présentant un phénotype évoquant une trisomie 21. Le résultat des caryotypes partiels des parents sont représentés dans la figure ci-dessous :\n\n(sorry we couldn't integrate the image, please check the pdf version)",
-                                    "question_text": "Quelle est le risque de récurrence dans ce cas lors de la prochaine grossesse ?",
+                                    "question_text": "Les résultats montrent chez cet enfant une trisomie 21 par translocation robertsonienne (14;21) transmise par le père \n Quelle est le risque de récurrence dans ce cas lors de la prochaine grossesse ?",
                                     "type": "QCM",
                                     "choices": [
                                         "$0 \\%$",
