@@ -4155,7 +4155,8 @@ const ATARAXIE_S8_DB = {
                                         "Une fistule oeso-trachéale avec le niveau et le siège de la fistule",
                                         "Une diminution de la transparence pulmonaire dans la maladie des membranes hyalines",
                                         "Des clartés digestives en intra thoracique dans l'atrésie de l'œsophage",
-                                        "un syndrome alvéolo-interstitielle dans l'infection maternofoetale"
+                                        "un syndrome alvéolo-interstitielle dans l'infection maternofoetale",
+                                        "Des opacités alvéolaires en motte dans l'inhalation méconiale"
                                     ],
                                     "requires_review": false
                                 },
@@ -4187,6 +4188,7 @@ const ATARAXIE_S8_DB = {
                                         "Se manifeste 24 heures après la naissance",
                                         "Nécessite rarement une kinésithérapie",
                                         "Survient dans un contexte d’asphyxie périnatale",
+                                        "Nécessite une ventilation au masque à la salle de naissance",
                                         "La radiographie du thorax met en évidence des images en motte"
                                     ],
                                     "requires_review": false
@@ -4205,6 +4207,7 @@ const ATARAXIE_S8_DB = {
                                         "Est due à un défaut de résorption du liquide pulmonaire",
                                         "Survient après un intervalle libre de 48 heures",
                                         "La radiographie du thorax montre un poumon opaque dans les formes sévères",
+                                        "peut être prévenue par la corticothérapie anténatale",
                                         "La régression de la détresse respiratoire survient après le 5ème jour de vie"
                                     ],
                                     "requires_review": false
@@ -4223,6 +4226,7 @@ const ATARAXIE_S8_DB = {
                                         "Survient dans un contexte de prématurité",
                                         "La détresse respiratoire survient après un intervalle libre",
                                         "La radiographie pulmonaire se caractérise par une diminution diffuse de la transparence pulmonaire",
+                                        "L'antibiothérapie permet de raccourcir la durée d'évolution",
                                         "L’antibiothérapie permet la guérison",
                                         "Survient chez le prématuré né surtout par césarienne",
                                         "Début en salle de naissance",
@@ -4246,6 +4250,7 @@ const ATARAXIE_S8_DB = {
                                         "Commence après 48 heures de vie",
                                         "Survient surtout chez un nouveau-né qui est né dans une ambiance méconiale",
                                         "Son évolution est souvent favorable en trois à quatre jours de ventilation",
+                                        "L'antibiothérapie réduit sa gravité",
                                         "Le bilan biologique est normal"
                                     ],
                                     "requires_review": false
@@ -4278,6 +4283,7 @@ const ATARAXIE_S8_DB = {
                                         "Le début précoce ou tardif permet d'orienter le diagnostic",
                                         "Son évaluation clinique se base sur le score de Silvermann",
                                         "La radiographie thoraco-abdominale permet une première approche diagnostic",
+                                        "L'antibiothérapie réduit sa gravité",
                                         "Le surfactant permet d'améliorer le pronostic en cas de maladie des membranes hyalines"
                                     ],
                                     "requires_review": false
@@ -4295,7 +4301,8 @@ const ATARAXIE_S8_DB = {
                                         "La butée de la sonde et l'épreuve à la seringue négative doivent faire suspecter le diagnostic",
                                         "C'est une malformation cachée rechercher systématiquement à la naissance",
                                         "C'est une malformation à rechercher seulement en cas d'hypersialorrhée",
-                                        "Le test à la seringue est le test de vérification de la continuité de l'œsophage"
+                                        "Le test à la seringue est le test de vérification de la continuité de l'œsophage",
+                                        "Le test doit être fait avant toute alimentation orale"
                                     ],
                                     "requires_review": false
                                 },
