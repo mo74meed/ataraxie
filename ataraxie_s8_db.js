@@ -544,6 +544,7 @@ const ATARAXIE_S8_DB = {
                                         "Chez le nourrisson sous allaitement artificiel, un transit de 3 selles /jour est dit normal",
                                         "On peut qualifier une fréquence de selles entre 5 et 6 fois /j comme diarrhée chez le nourrisson sous allaitement maternel exclusif",
                                         "Une durée de 10 jours qualifie la diarrhée comme étant aiguë",
+                                        "Les germes les plus fréquents sont les salmonelles et les shigelles",
                                         "La coproculture est primordiale pour guider la prescription"
                                     ],
                                     "requires_review": false
@@ -554,7 +555,6 @@ const ATARAXIE_S8_DB = {
                                     "question_text": "Devant un nourrisson de 12 mois que vous voyez pour une diarrhée remontant à 7 jours avec une déshydratation modérée:",
                                     "type": "QCM",
                                     "choices": [
-                                        "Vous qualifiez sa diarrhée d'aigue ou chronique [RÉPONSE BARRE]",
                                         "La diarrhée peut être secondaire chez lui à une infection urinaire",
                                         "Le rotavirus est le principal agent microbien incriminė",
                                         "Nécessite la mise sous TTT antibiotique pour abréger l'évolution",
@@ -863,6 +863,7 @@ const ATARAXIE_S8_DB = {
                                         "Est une maladie dysimmunitaire de type immuno-allergique",
                                         "Déclenchée par l’ingestion de protéine de lait de vache",
                                         "Survient chez des Sujets génétiquement prédisposés avec un HLA B27",
+                                        "Ne peut être Dépistée que par l’examen histologique",
                                         "Son traitement est basé sur un régime d’exclusion transitoire",
                                         "Est une maladie auto-immunitaire",
                                         "Déclenchée par l’ingestion du gluten",
@@ -1573,6 +1574,7 @@ const ATARAXIE_S8_DB = {
                                         "Survient après la 1ère semaine de vie",
                                         "Le taux du facteur V est diminué",
                                         "On peut noter une thrombopénie au début",
+                                        "La forme classique donne un tableau clinique modéré",
                                         "La forme tardive doit faire rechercher une prise médicamenteuse chez la maman",
                                         "L’administration de 10 mg de vit K1 par voie orale peut être donnée pour le traitement curatif",
                                         "La naissance à domicile augmente le risque de sa survenue",
@@ -1766,6 +1768,7 @@ const ATARAXIE_S8_DB = {
                                         "Une hypoalbuminémie",
                                         "Une splénomégalie énorme",
                                         "Des adénopathies de grande taille",
+                                        "Une hypoprotidémie",
                                         "Une anémie",
                                         "La présence d’un syndrome inflammatoire",
                                         "Une énorme splénomégalie",
@@ -3083,6 +3086,7 @@ const ATARAXIE_S8_DB = {
                                         "Une hyperthyroïdie",
                                         "Une péritonite",
                                         "Des œdèmes d'allure inflammatoire",
+                                        "Un état de choc hypovolémique",
                                         "Des thromboses veineuses des membres inférieurs"
                                     ],
                                     "requires_review": false
@@ -3185,6 +3189,7 @@ const ATARAXIE_S8_DB = {
                                         "L'âge supérieur à 1 an",
                                         "Une protéinurie supérieure à 100 mg/kg/j",
                                         "Une insuffisance rénale organique",
+                                        "La corticorésistance",
                                         "Une hématurie microscopique",
                                         "L’âge est inférieur à 1 an",
                                         "La protéinurie est supérieure à 150 mg/kg/j",
@@ -3776,6 +3781,7 @@ const ATARAXIE_S8_DB = {
                                         "La ponction biopsie rénale est toujours nécessaire",
                                         "Des convulsions peuvent révéler la maladie",
                                         "l'hématurie microscopique peut durer pendant une année",
+                                        "Le complément doit se normaliser en 3 semaines",
                                         "Une insuffisance cardiaque peut être retrouvée"
                                     ],
                                     "requires_review": false
@@ -3849,6 +3855,7 @@ const ATARAXIE_S8_DB = {
                                         "Chez le fœtus, il y a deux shunts droit-gauche : le foramen ovale et le canal artériel. Leur persistance est une complication de la prématurité",
                                         "La leucomalacie périventriculaire est une complication très redoutable chez le prématuré",
                                         "Les corticoïdes ont permis de réduire considérablement la mortalité périnatale",
+                                        "Le sulfate de magnésium a permis de réduire considérablement la mortalité périnatale",
                                         "Une alimentation initiale par le lait maternel à faible quantité réduit le risque de l’entérocolite ulcéronécrosante chez les prématurés de moins de 1500g",
                                         "Définie par toute naissance avant 35 SA",
                                         "L’évaluation du terme en post-natal se base sur des critères morphologiques et neurologiques",
@@ -3956,6 +3963,7 @@ const ATARAXIE_S8_DB = {
                                         "L’hypothyroïdie congénitale fait partie des maladies à dépistage obligatoire",
                                         "Le pronostic est corrélé à la précocité de la mise en route du traitement",
                                         "Le dosage sanguin de la TSH ultrasensible doit être fait à partir du septième jour de vie",
+                                        "En l’absence de traitement, l’hypothyroïdie congénitale entraîne un retard du développement psychomoteur de la croissance",
                                         "Le dépistage peut être fait uniquement par la clinique",
                                         "La maladie est dépistée le jour de la naissance par prélèvement sur papier buvard au talon"
                                     ],
@@ -3988,7 +3996,8 @@ const ATARAXIE_S8_DB = {
                                         "L’hyperplasie congénitale des surrénales est causée par un déficit enzymatique surrénalien.",
                                         "L’hypothyroïdie congénitale est responsable d’un déficit neurologique complètement réversible après le traitement substitutif.",
                                         "Le dosage de la TSH se fait sur un prélèvement capillaire au talon à J3 de vie",
-                                        "L’hyperplasie congénitale des surrénales est responsable d'anomalie de différentiation sexuelle chez le nouveau-né de sexe féminin"
+                                        "L’hyperplasie congénitale des surrénales est responsable d'anomalie de différentiation sexuelle chez le nouveau-né de sexe féminin",
+                                        "Plusieurs maladies peuvent être dépistées sur le même prélèvement"
                                     ],
                                     "requires_review": false
                                 },
@@ -4034,7 +4043,8 @@ const ATARAXIE_S8_DB = {
                                         "Plusieurs maladies peuvent être dépistées sur le même prélèvement",
                                         "Un déficit neurologique installé de l'hypothyroïdie congénitale est irréversible même avec le traitement substitutif",
                                         "L'hyperplasie congénitale des surrénales est responsable d'anomalie de la différentiation sexuelle chez le nouveau-né de sexe féminin",
-                                        "La maladie dépistée doit être reconnue cliniquement à la naissance"
+                                        "La maladie dépistée doit être reconnue cliniquement à la naissance",
+                                        "Un déficit neurologique installé de l'hypothyroïdie congénitale est réversible avec le traitement substitutif"
                                     ],
                                     "requires_review": false
                                 },
@@ -4226,7 +4236,7 @@ const ATARAXIE_S8_DB = {
                                         "Survient dans un contexte de prématurité",
                                         "La détresse respiratoire survient après un intervalle libre",
                                         "La radiographie pulmonaire se caractérise par une diminution diffuse de la transparence pulmonaire",
-                                        "L'antibiothérapie permet de raccourcir la durée d'évolution",
+                                        "L’antibiothérapie permet de raccourcir la durée d’évolution",
                                         "L’antibiothérapie permet la guérison",
                                         "Survient chez le prématuré né surtout par césarienne",
                                         "Début en salle de naissance",
@@ -4250,7 +4260,7 @@ const ATARAXIE_S8_DB = {
                                         "Commence après 48 heures de vie",
                                         "Survient surtout chez un nouveau-né qui est né dans une ambiance méconiale",
                                         "Son évolution est souvent favorable en trois à quatre jours de ventilation",
-                                        "L'antibiothérapie réduit sa gravité",
+                                        "L’antibiothérapie réduit sa gravité",
                                         "Le bilan biologique est normal"
                                     ],
                                     "requires_review": false
@@ -4283,7 +4293,7 @@ const ATARAXIE_S8_DB = {
                                         "Le début précoce ou tardif permet d'orienter le diagnostic",
                                         "Son évaluation clinique se base sur le score de Silvermann",
                                         "La radiographie thoraco-abdominale permet une première approche diagnostic",
-                                        "L'antibiothérapie réduit sa gravité",
+                                        "L’antibiothérapie réduit sa gravité",
                                         "Le surfactant permet d'améliorer le pronostic en cas de maladie des membranes hyalines"
                                     ],
                                     "requires_review": false
@@ -4579,6 +4589,7 @@ const ATARAXIE_S8_DB = {
                                         "Un examen neurologique anormal au delà du 8eme jour de vie définit le stade I de la classification de Sarnat",
                                         "Les crises convulsives sont constantes dans le stade III de la classification de Sarnat",
                                         "Un examen neurologique normal à la fin des 48 premières heures de vie définit le stade III de la classification de Sarnat",
+                                        "Les crises convulsives sont constantes dans le stade I",
                                         "L'EEG à 24 heures de vie à une meilleure valeur pronostique",
                                         "L'encéphalopathie anoxo-ischémique sévère connaît une phase d'aggravation secondaire après la naissance",
                                         "Un examen neurologique normal à la fin des 24 premières heures de vie définit le stade I de la classification de Sarnat"
@@ -4674,6 +4685,7 @@ const ATARAXIE_S8_DB = {
                                         "Un ictère apparu dans les premières 24 heures suivant la naissance.",
                                         "Une naissance avant 35 semaines d'aménorrhée",
                                         "Une maman avec un Rhésus négatif.",
+                                        "Une grossesse gémellaire.",
                                         "Ictère sur un fond de pâleur"
                                     ],
                                     "requires_review": false
@@ -4807,6 +4819,7 @@ const ATARAXIE_S8_DB = {
                                         "Un ictère néonatal peut être secondaire à une hépatite B",
                                         "L’ictère cholestatique peut être physiologique",
                                         "L’ictère cholestatique est une urgence diagnostique et thérapeutique",
+                                        "L’incompatibilité rhésus est responsable d'un ictère à bilirubine libre sévère et précoce",
                                         "La présence d’une bosse séro-sanguine est un facteur favorisant l’apparition d’ictère",
                                         "L'Encéphalopathie hyperbilirubinémique est toujours réversible",
                                         "L’ictère nucléaire est une complication liée à la bilirubine liée à l’albumine",
@@ -5067,6 +5080,7 @@ const ATARAXIE_S8_DB = {
                                         "La détresse respiratoire néonatale sévère chez le nouveau-né à terme est très spécifique de l'infection bactérienne précoce",
                                         "Les infections néonatales bactériennes précoces se déclarent dans les 72 premières heures de vie",
                                         "La méningite et les ostéoarthrites constituent les manifestations cliniques d'une infection néonatale à streptocoque B forme tardive",
+                                        "Les infections associées aux soins sont évitables par le respect des règles d'hygiène",
                                         "Les infections associées aux soins sont graves avec une mortalité élevée",
                                         "La polypnée transitoire chez le nouveau-né né par césarienne est très spécifique de l'infection bactérienne précoce"
                                     ],
@@ -5100,6 +5114,7 @@ const ATARAXIE_S8_DB = {
                                         "Un portage vaginal à E. coli",
                                         "Une rupture de la poche des eaux supérieur à 12 heures",
                                         "Une prématurité expliquée par la prééclampsie",
+                                        "Prématurité inexpliquée",
                                         "Une fièvre maternelle"
                                     ],
                                     "requires_review": false
@@ -5163,6 +5178,7 @@ const ATARAXIE_S8_DB = {
                                         "Une prématurité spontanée inexpliquée",
                                         "Une prématurité de 32 SA spontanée inexpliquée",
                                         "Une détresse respiratoire grave chez un nouveau-né à terme",
+                                        "Une asphyxie périnatale suite à un accouchement dystocique",
                                         "Un antécédent d'infection materno-fœtale à streptocoque B dans la fratrie"
                                     ],
                                     "requires_review": false
@@ -5372,6 +5388,7 @@ const ATARAXIE_S8_DB = {
                                         "L'origine est toujours bactérienne",
                                         "Les calcifications intracrâniennes doivent faire évoquer une toxoplasmose congénitale",
                                         "Les malformations oculaires sont absentes dans la toxoplasmose et la .... congénitale",
+                                        "Le vaccin anti-rubéolique doit être administré chez les femmes enceintes séronégatives",
                                         "L'origine infectieuse peut être bactérienne, virale ou parasitaire",
                                         "La fœtopathie est le résultat d'une agression du fætus pendant le 2ème et le 3ème trimestre",
                                         "La toxoplasmose congénitale peut être responsable de malformations cérébrales et oculaires",
@@ -5395,6 +5412,7 @@ const ATARAXIE_S8_DB = {
                                         "Est ce bon pronostic si le retard est désharmonieux",
                                         "La taille est conservée dans le RCIU harmonieux",
                                         "Il y’a un risque important d’hypoglycémie néonatale",
+                                        "Les causes endogènes sont à l’origine de formes tardives",
                                         "Les infections virales peuvent être à l'origine des formes précoces"
                                     ],
                                     "requires_review": true
@@ -5666,6 +5684,7 @@ const ATARAXIE_S8_DB = {
                                         "Peut être due à des germes atypiques",
                                         "L’adénovirus donne des formes graves",
                                         "L’hospitalisation est obligatoire chez tous les nourrissons",
+                                        "l’antibiothérapie est indiquée en cas de fièvre avec foyer pulmonaire",
                                         "L’évolution est aggravée par par le tabagisme passif"
                                     ],
                                     "requires_review": false
@@ -5712,6 +5731,7 @@ const ATARAXIE_S8_DB = {
                                         "A pour porte d'entrée une infection cutanée ou pharyngée",
                                         "Le germe responsable est un staphylocoque doré",
                                         "Il est sensible à l'amoxicilline",
+                                        "Le germe peut être isolé à l'hémoculture",
                                         "Le traitement fait appel à une biantibiothérapie IV",
                                         "Touche surtout le nourrisson",
                                         "Ne nécessite pas d’hospitalisation",
@@ -5834,6 +5854,7 @@ const ATARAXIE_S8_DB = {
                                         "L'interrogatoire et l'examen clinique peuvent orienter vers le diagnostic",
                                         "La radiographie du thorax est nécessaire pour guider la prise en charge",
                                         "Le corps étranger doit être toujours évoqué chez le nourrisson",
+                                        "Le RGO peut-être écarté si l’enfant n'est pas connu vomisseur chronique",
                                         "L'antibiothérapie au long cours et nécessaire pour obtenir une guérison"
                                     ],
                                     "requires_review": false
@@ -5969,6 +5990,7 @@ const ATARAXIE_S8_DB = {
                                         "Une preuve bactériologique peu fréquente",
                                         "L'absence de contagiosité de l’enfant",
                                         "Le risque de développer une forme grave est plus rare",
+                                        "Un diagnostic plus difficile",
                                         "L’IDR à la tuberculine peut être négative",
                                         "Le risque de passage de la tuberculose-infection à la tuberculose-maladie est plus important chez l'enfant",
                                         "Son caractère pauci-bacillaire.",
@@ -6007,6 +6029,7 @@ const ATARAXIE_S8_DB = {
                                         "Le nourrisson est plus symptomatique que le grand enfant",
                                         "Le wheezing est un signe fréquent",
                                         "On peut avoir des diarrhées et/ou vomissements",
+                                        "Est souvent grave et symptomatique",
                                         "Le contaminateur est souvent un parent proche",
                                         "Le traitement antibiotique par voie IV peut entraîner la guérison",
                                         "La radiographie du thorax montre souvent une atteinte diffuse ou une miliaire",
@@ -6729,6 +6752,7 @@ const ATARAXIE_S8_DB = {
                                         "EST une maladie évitable par la vaccination",
                                         "Le vaccin antirougeoleux est administré seul à 9 mois",
                                         "Le vaccin antirougeoleux est administré combiné au vaccin antirubéole à 9 mois et 18 mois",
+                                        "Est responsable d'un exanthème scarlatiniforme",
                                         "Le signe de Koplick est pathognomonique de la rougeole"
                                     ],
                                     "requires_review": false
@@ -6776,6 +6800,7 @@ const ATARAXIE_S8_DB = {
                                         "L’incubation en cas de mégalérythème épidémique est de 3 à 5 jours",
                                         "L’énanthème est présent en cas de mégalérythème épidermique",
                                         "La scarlatine nécessite une antibiothérapie",
+                                        "La varicelle se caractérise par une éruption maculo-vésiculeuse avec des éléments d’âge différent: macule, vésicule, croûtes touchant le cuir chevelu",
                                         "La varicelle est une maladie non immunisante",
                                         "La rougeole est une éruption fébrile descendante avec catarrhe oculo-nasal et signe de koplick",
                                         "La rougeole est une maladie à déclaration obligatoire",
@@ -6820,6 +6845,7 @@ const ATARAXIE_S8_DB = {
                                         "L'exanthème subit est dû au parvovirus B19",
                                         "L'exanthème subit est dû au HV6",
                                         "La 5ème maladie est due au parvovirus B19",
+                                        "La 5ème maladie ne comporte pas d'énanthème",
                                         "Le mégalérythème épidémique intéresse l'enfant de 2 à 14 ans"
                                     ],
                                     "requires_review": false
@@ -8551,6 +8577,7 @@ const ATARAXIE_S8_DB = {
                                         "Associé à une rectorragie est en faveur du volvulus sur mésentère commun",
                                         "Ballonnement et épreuve à la sonde négative est un mégacôlon congénital",
                                         "Dans l'atrésie du grêle on a une épreuve à la sonde négative",
+                                        "La sténose hypertrophique du pylore est une des causes d'ONN",
                                         "Il faut laisser ce nouveau-né quelque jours pour l'opérer"
                                     ],
                                     "requires_review": false
@@ -8907,7 +8934,8 @@ const ATARAXIE_S8_DB = {
                                         "la dysmotilité intestinale est une complication digestive fréquente.",
                                         "Exposition prolongée des anses digestives à l’urine fœtale est responsable d’une péritonite plastique.",
                                         "Les anomalies chromosomiques sont fréquentes.",
-                                        "Le traitement est chirurgical."
+                                        "Le traitement est chirurgical.",
+                                        "Le pronostic est lié à la vitalité des anses herniées et au RCIU souvent associé"
                                     ],
                                     "requires_review": false
                                 },
@@ -9396,6 +9424,7 @@ const ATARAXIE_S8_DB = {
                                         "Nécessite une voie veineuse pour réhydratation",
                                         "Nécessite un cliché d'abdomen sans préparation couché",
                                         "Ce n'est pas une urgence, un traitement chirurgical sera envisagé ultérieurement",
+                                        "une réduction manuelle par manœuvre de taxis doit être réalisée",
                                         "Une chirurgie doit être faite sans délai, une fois le diagnostic fait"
                                     ],
                                     "requires_review": false
@@ -10017,6 +10046,7 @@ const ATARAXIE_S8_DB = {
                                         "On suspecte un syndrome de jonction bilatéral.",
                                         "On suspecte un reflux vésico-urétéral bilatéral.",
                                         "On suspecte une valve de l'urètre postérieur.",
+                                        "On doit s'assurer du bon jet urinaire.",
                                         "La décision du médecin est de faire une Urétrocystographie rétrograde avec clichés per mictionnel."
                                     ],
                                     "requires_review": false
@@ -10326,6 +10356,7 @@ const ATARAXIE_S8_DB = {
                                         "Sont particulières par leur fréquence.",
                                         "Sont particulières par leur rapidité de consolidation.",
                                         "Ne se remodèlent jamais.",
+                                        "Sont dans les majorités des cas justiciables d’un traitement orthopédique.",
                                         "Le traitement chirurgical est la règle.",
                                         "Lorsque le traitement chirurgical est indiqué, l’ostéosynthèse par plaque vissée est la règle"
                                     ],
@@ -10471,6 +10502,7 @@ const ATARAXIE_S8_DB = {
                                         "La petite taille de la tumeur",
                                         "La présence d'une image en éperon de codman",
                                         "Les limites nettes",
+                                        "La réaction périostée en bulbe d’oignon",
                                         "L’aspect bien limité",
                                         "Le point de départ intramédullaire",
                                         "La présence d'un liseré de condensation péritumoral",
@@ -10641,7 +10673,8 @@ const ATARAXIE_S8_DB = {
                                         "La présentation de siège",
                                         "La macrosomie",
                                         "Les antécédents familiaux de luxation congénitale de la hanche",
-                                        "L’hypotrophie"
+                                        "L’hypotrophie",
+                                        "La présence d’un pied bot varus équin et d’une plagiocéphalie chez le nouveau né"
                                     ],
                                     "requires_review": false
                                 },
@@ -10673,6 +10706,7 @@ const ATARAXIE_S8_DB = {
                                         "Son évolution spontanée se fait vers la réduction et la stabilisation",
                                         "Est une urgence orthopédique néonatale",
                                         "Elle est toujours antérieure pure",
+                                        "La luxation de la tête fémorale se fait souvent en antérieur",
                                         "Le ligament rond est atrophié ou absent",
                                         "Le ligament rond est absent",
                                         "Le ligament rond est hypotrophie ou absent",
@@ -10707,6 +10741,7 @@ const ATARAXIE_S8_DB = {
                                         "En période néonatale la radio standard fait partie des examens radiologiques à demander",
                                         "La radio de bassin est obligatoire à la naissance",
                                         "La radio standard est indispensable pour le diagnostic à la naissance",
+                                        "la radiographie du bassin trouve son indication à l’âge de 2 mois",
                                         "l’échographie de la hanche trouve son indication à l’âge de 4 mois",
                                         "Son traitement est une urgence thérapeutique"
                                     ],
@@ -10753,6 +10788,7 @@ const ATARAXIE_S8_DB = {
                                         "Le bas âge est un facteur de bon pronostic",
                                         "Est une cause de boiterie non douloureuse chez l’enfant",
                                         "Elle survient le plus souvent chez le garçon de 3 à 9 ans",
+                                        "Le diagnostic est clinique",
                                         "Le bilan biologique objective une CRP très élevée",
                                         "C’est une maladie qui évolue selon un mode cyclique",
                                         "Elle survient le plus souvent chez le garçon de 3 à 9 mois",
@@ -10818,6 +10854,7 @@ const ATARAXIE_S8_DB = {
                                         "Se définie comme étant le glissement de l'épiphyse par rapport à la métaphyse à travers le cartilage de croissance",
                                         "Dans la forme chronique la flexion de la hanche s'accompagne d'une rotation externe",
                                         "La radio de bassin de face et de profil suffit souvent au diagnostic",
+                                        "Survient chez l'enfant jeune avant l'âge de 7 ans",
                                         "Son traitement est souvent orthopédique",
                                         "Dans sa forme aiguë le signe de Dremman est positif"
                                     ],
@@ -10870,6 +10907,7 @@ const ATARAXIE_S8_DB = {
                                         "L‘épiphysiolyse fémorale supérieure est le premier diagnostic à évoquer",
                                         "Le traitement Antibiotique doit être mis en route immédiatement",
                                         "La radiographie de la hanche va confirmer le diagnostic",
+                                        "L'administration de l’antibiotique se fait par voie entérale",
                                         "La nécrose septique de la tête fémorale est la complication à redouter",
                                         "Le diagnostic de fracture du col du fémur est le premier diagnostic à évoquer",
                                         "L’arthrite de la hanche est la plus probable",
@@ -10996,6 +11034,7 @@ const ATARAXIE_S8_DB = {
                                         "Est définie comme étant une infection de l'os par voie hématogène",
                                         "L'inoculation de l’os peut se faire par voie directe",
                                         "Son tableau clinique associé une douleur osseuse métaphysaire et une fièvre",
+                                        "La douleur est de siège métaphysaire segmentaire et circonférentielle",
                                         "Le staphylocoque doré est le germe le plus souvent en cause",
                                         "Doit être évoquée devant une douleur osseuse associée à une fièvre",
                                         "est une complication des fractures ouvertes",
@@ -11061,6 +11100,7 @@ const ATARAXIE_S8_DB = {
                                         "L’infection peut se faire aussi par voie directe",
                                         "Le staphylocoque doré est le germe le plus souvent en cause",
                                         "Les grosses articulations sont le plus souvent touchées",
+                                        "Chez le nourrisson elle réalise souvent une ostéo arthrite",
                                         "Est une infection de l’articulation par voie hématogène"
                                     ],
                                     "requires_review": false
@@ -11226,6 +11266,7 @@ const ATARAXIE_S8_DB = {
                                         "la localisation de la scoliose",
                                         "l’âge du patient",
                                         "l’angle de cobb",
+                                        "L'étiologie de la scoliose",
                                         "L'angle de la scoliose (angle de Cobb)",
                                         "Le siège de la scoliose"
                                     ],
@@ -12154,6 +12195,7 @@ const ATARAXIE_S8_DB = {
                                         "Âge jeune",
                                         "Femme jeune",
                                         "Tabagisme.",
+                                        "Virus d'HPV.",
                                         "Hyperoestrogénie.",
                                         "Diabète type 2."
                                     ],
@@ -13469,6 +13511,7 @@ const ATARAXIE_S8_DB = {
                                         "Infiltrat inflammatoire",
                                         "Constante de granulome épithélioïde et gigantocellulaire",
                                         "D'anomalies épithéliales",
+                                        "De granulome épithélioïde et gigantocellulaire",
                                         "D'inclusion cytoplasmique",
                                         "D'une plasmocytose basale",
                                         "Glandes adénocarcinomateuses",
@@ -13771,7 +13814,8 @@ const ATARAXIE_S8_DB = {
                                         "sont classées en grades en fonction de l'expression du K167.",
                                         "Sont très fréquentes au niveau appendiculaire",
                                         "Prennent naissance à partir des cellules de Cajal",
-                                        "Sont marquées histologiquement par des cellules monomorphes"
+                                        "Sont marquées histologiquement par des cellules monomorphes",
+                                        "Sont positives en immunohistochimie pour la synaptophysine et la chromogranine"
                                     ],
                                     "requires_review": false
                                 },
@@ -16847,6 +16891,7 @@ const ATARAXIE_S8_DB = {
                                         "Est un déficit en immunité cellulaire et humorale",
                                         "Est dû à une disparition des IgG transférés de la maman au foetus",
                                         "Est dû à une absence totale de lymphocytes B matures",
+                                        "Est également appelé hypogammaglobulinémie commune et variable",
                                         "Est liée à l’absorption placentaire de l’igG"
                                     ],
                                     "requires_review": false
@@ -17143,6 +17188,7 @@ const ATARAXIE_S8_DB = {
                                         "Une anomalie de production des neutrophiles par la moelle osseuse",
                                         "Une anomalie de commutation isotypique",
                                         "Une anomalie de destruction intracellulaire des microorganismes infectieux",
+                                        "Une anomalie de transcription de TAP-2",
                                         "Une anomalie de fonction des lymphocytes T cytotoxiques",
                                         "Une immunostimulation"
                                     ],
@@ -17976,6 +18022,7 @@ const ATARAXIE_S8_DB = {
                                         "L'auto-immunité conduit toujours au développement de maladies auto-immunes",
                                         "Sont souvent associées à l'existence d'allèles HLA particuliers",
                                         "On ne trouve aucun lymphocyte B auto-réactif chez les individus normaux en bonne santé",
+                                        "Peuvent survenir chez des personnes atteintes de déficit héréditaires en apoptose",
                                         "Relèvent toujours d'une hypersensibilité de type II"
                                     ],
                                     "requires_review": false
@@ -18149,7 +18196,8 @@ const ATARAXIE_S8_DB = {
                                         "Principalement des IgA",
                                         "Ils sont les seuls éléments effecteurs de l'étiopathogénie des maladies auto immunes",
                                         "Peuvent être dirigés contre des antigènes nucléaires",
-                                        "Sont principalement de type IgE"
+                                        "Sont principalement de type IgE",
+                                        "Sont souvent spécifiques d'hormones"
                                     ],
                                     "requires_review": false
                                 },
@@ -18358,6 +18406,7 @@ const ATARAXIE_S8_DB = {
                                         "Les cellules présentatrices d'antigènes expriment fortement les molécules de costimulation.",
                                         "Il y a une inhibition du deuxième signal d'activation du lymphocyte T.",
                                         "Le lymphocyte T régulateur capte I'IL 2.",
+                                        "Il y a une inhibition du signal de costimulation du lymphocyte T.",
                                         "La régulation des lymphocytes B auto-réactifs peut être médiée par l'IL6.",
                                         "Le CTLA4 est exprimé par le lymphocyte T après activation par les antigènes du soi."
                                     ],
@@ -18377,6 +18426,7 @@ const ATARAXIE_S8_DB = {
                                         "Le suivi des patients se fait par la recherche régulière des ANA.",
                                         "Certains composants du système du complément peuvent être consommés.",
                                         "Une recherche des ANA par IFI fait partie du bilan initial.",
+                                        "Le dosage des anti-bêta 2 glycoprotéine I fait partie du bilan initial.",
                                         "Le dosage des ANCA fait partie du bilan initial.",
                                         "L'anticorps anti-nucléaire permet de poser le diagnostic positif."
                                     ],
@@ -18535,6 +18585,7 @@ const ATARAXIE_S8_DB = {
                                         "Elle est due au dépôt de complexes immuns sur la paroi de certains vaisseaux",
                                         "Elle est due à l’action cytotoxique d'anticorps dirigés contre des antigènes de certaines cellules de l'organisme",
                                         "Elle est due à l’action conjointe des macrophages et des lymphocytes T",
+                                        "Elle est due à l'activation des mastocytes et des basophiles",
                                         "survient toujours après un second contact avec l'antigène"
                                     ],
                                     "requires_review": false
@@ -18816,6 +18867,7 @@ const ATARAXIE_S8_DB = {
                                         "Les anticorps observés peuvent être dirigés contre les antigènes Rhésus",
                                         "Les auto-anticorps peuvent être une Ig G fixant le complément",
                                         "La destruction des érythrocytes fait intervenir des polynucléaires neutrophiles",
+                                        "La numération des éosinophiles aide à poser le diagnostic",
                                         "La destruction des érythrocytes fait intervenir la voie alterne du complément",
                                         "La destruction des érythrocytes fait intervenir la voie classique du complément.",
                                         "La destruction des érythrocytes fait intervenir des macrophages.",
@@ -19926,6 +19978,7 @@ const ATARAXIE_S8_DB = {
                                         "Un acrosyndrome paroxystique",
                                         "Diagnostiqué sur la succession des phases suivantes: syncopale-asphyxiante-hyperhémique",
                                         "Diagnostiqué sur la succession des phases suivantes: asphyxiante -syncopale- hyperhémique.",
+                                        "Diagnostiqué sur la succession des phases suivantes: syncopale-hyperhémique-asphyxiante.",
                                         "Diagnostiqué sur des arguments cliniques",
                                         "Diagnostiqué sur un faisceau d'argument clinique, biologique et radiologique.",
                                         "Diagnostiqué sur la succession de la phase hyperhémique, asphyxique et syncopale."
@@ -21474,6 +21527,7 @@ const ATARAXIE_S8_DB = {
                                     "choices": [
                                         "Une atteinte granulomateuse des vaisseaux de moyen calibre avec des lésions segmentaires et transmurales.",
                                         "Une atteinte neurologique périphérique faite surtout d’une mu Itinévrite plutôt distale, d’installation rapide des membres supérieurs et inférieurs.",
+                                        "Une atteinte rénale glomérulaire souvent redoutable avec dégradation très rapide de la fonction rénale.",
                                         "Un diagnostic de certitude qui de base sur la biopsie musculaire ou cutanée et/ou sur une artériographie à la recherche des anévrismes ou des occlusions des artères viscérales."
                                     ],
                                     "requires_review": false
@@ -23204,6 +23258,7 @@ const ATARAXIE_S8_DB = {
                                         "La consanguinité premier degré",
                                         "Le retard statural isolé chez le garçon",
                                         "Le bilan d'une procréation médicalement assistée",
+                                        "Âge maternel avancé",
                                         "Le retard statural chez la fille",
                                         "Syndrome polymalformatif évoquant une maladie monogénique."
                                     ],
@@ -23476,6 +23531,7 @@ const ATARAXIE_S8_DB = {
                                         "Elle permet d’analyser les bandes R des chromosomes.",
                                         "Elle permet d'étudier une région chromosomique précise.",
                                         "Elle permet le diagnostic des syndromes microdélétionnels.",
+                                        "Elle permet de mettre en évidence une translocation non détectée par un caryotype standard.",
                                         "Le diagnostic par FISH anténatal d'une aneuploïdie nécessite toujours une confirmation par caryotype.",
                                         "Elle permet d’analyser les bandes G des chromosomes.",
                                         "Elle permet de détecter des translocations chromosomiques équilibrées.",
@@ -23747,7 +23803,8 @@ const ATARAXIE_S8_DB = {
                                         "46,XX",
                                         "47,XXX",
                                         "47,XY,21",
-                                        "46,XY"
+                                        "46,XY",
+                                        "47,XX, .13"
                                     ],
                                     "requires_review": false
                                 },
