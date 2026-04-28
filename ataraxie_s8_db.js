@@ -11311,36 +11311,20 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "CHO-MAL-12-Q06",
                                     "clinical_context": null,
-                                    "question_text": "La scoliose :",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Définition",
-                                        "Anatomopathologie",
-                                        "Critère de surveillance d'une scoliose"
-                                    ],
+                                    "question_text": "La scoliose : \n-Définition \n-Anatomopathologie\n-Critère de surveillance d'une scoliose",
+                                    "type": "Redaction",
+                                    "choices": null,
                                     "requires_review": false
                                 },
                                 {
                                     "id": "CHO-MAL-12-Q07",
                                     "clinical_context": null,
-                                    "question_text": "Les scolioses",
+                                    "question_text": "Les scolioses :\n-Données de l’examen clinique\n-Critères cliniques et radiologiques d'évaluation et de suivi d'une scoliose.\n-Circonstances de découverte et signes cliniques\-Étiologies",
                                     "type": "QCM",
-                                    "choices": [
-                                        "Données de l’examen clinique",
-                                        "Critères cliniques et radiologiques d'évaluation et de suivi d'une scoliose.",
-                                        "Circonstances de découverte et signes cliniques",
-                                        "Étiologies"
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "MOD-SUB-03-Q08",
-                                    "clinical_context": null,
-                                    "question_text": "Le dépistage néonatal biologique :",
-                                    "type": "QROC",
                                     "choices": null,
                                     "requires_review": false
-                                }
+                                },
+                               
                             ]
                         },
                         {
