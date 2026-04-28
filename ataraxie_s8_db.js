@@ -11319,7 +11319,7 @@ const ATARAXIE_S8_DB = {
                                 {
                                     "id": "CHO-MAL-12-Q07",
                                     "clinical_context": null,
-                                    "question_text": "Les scolioses :\n-Données de l’examen clinique\n-Critères cliniques et radiologiques d'évaluation et de suivi d'une scoliose.\n-Circonstances de découverte et signes cliniques\-Étiologies",
+                                    "question_text": "Les scolioses :\n-Données de l’examen clinique\n-Critères cliniques et radiologiques d'évaluation et de suivi d'une scoliose.\n-Circonstances de découverte et signes cliniques\n-Étiologies",
                                     "type": "Redaction",
                                     "choices": null,
                                     "requires_review": false
