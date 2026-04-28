@@ -10751,7 +10751,7 @@ const ATARAXIE_S8_DB = {
                                     "id": "CHO-HAN-05-Q06",
                                     "clinical_context": null,
                                     "question_text": "La luxation congénitale de la hanche : \na.Définition\n b.Critères de hanche à risque\n c.Diagnostic positif chez le nouveau né\n d.Données de l'examen clinique chez le nouveau-né.",
-                                    "type": "QCM",
+                                    "type": "Redaction",
                                     "choices": null ,
                                     "requires_review": false
                                 }
