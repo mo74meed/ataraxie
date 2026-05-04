@@ -905,8 +905,9 @@ const ATARAXIE_S8_DB = {
                                         "Est confirmée par l’épreuve d’exclusion-réintroduction",
                                         "Nécessite un régime d’exclusion à vie",
                                         "La $\\beta$ lactoglobuline est considérée comme la plus antigénique",
-                                        "L’apparition des phénomènes d'allergie est plus fréquente chez le grand enfant",
+                                        "L’apparition des phénomènes d\'allergie est plus fréquente chez le grand enfant",
                                         "Peut être responsable de vomissements et une prise de poids insuffisante",
+                                        "Les IgE spécifiques caséine peuvent être négatifs .",
                                         "La prise en charge consiste en l’exclusion des protéines de lait de vache en utilisant un hydrolysat de ces protéines"
                                     ],
                                     "requires_review": false
@@ -5146,7 +5147,8 @@ const ATARAXIE_S8_DB = {
                                         "Un frère jumeau hospitalisé pour infection materno-fœtale",
                                         "Un prélèvement vaginal positif",
                                         "Un ombilic souillé",
-                                        "Une leucorrhée fétide au 3ème semestre de grossesse"
+                                        "Une leucorrhée fétide au 3ème semestre de grossesse",
+                                        "Un jumeau hypotrophe"
                                     ],
                                     "requires_review": false
                                 },
@@ -5666,6 +5668,7 @@ const ATARAXIE_S8_DB = {
                                         "L’âge inférieur à 6 mois",
                                         "Un refus de téter",
                                         "Une SaO2 inférieure à $92 \\%$",
+                                        "La présence de signes de lutte avec sueur",
                                         "Une SaO2 à $80 \\%$ à l’air ambiant"
                                     ],
                                     "requires_review": false
@@ -6312,10 +6315,11 @@ const ATARAXIE_S8_DB = {
                                         "La fièvre à $3 9 ^ { \\circ }$ est un critère majeur",
                                         "Peut laisser des séquelles au niveau des genoux",
                                         "La VS est supérieure à $1 6 0 ~ \\mathsf { m m } \\dot { \\mathsf { a } }$ la 1ère heure",
-                                        "La prophylaxie par l’Extencilline n'est nécessaire qu’en cas d'atteinte cardiaque",
+                                        "La prophylaxie par l’Extencilline n\'est nécessaire qu’en cas d\'atteinte cardiaque",
                                         "L’atteinte des articulations est fugace et migratrice",
                                         "Atteint les grosses articulations",
-                                        "Peut laisser des séquelles valvulaires"
+                                        "Peut laisser des séquelles valvulaires",
+                                        "Le bilan inflammatoire peut être normal"
                                     ],
                                     "requires_review": false
                                 },
@@ -7830,14 +7834,15 @@ const ATARAXIE_S8_DB = {
                                     "question_text": "Un nouveau-né admis en néonatologie à H6 de vie pour détresse respiratoire. L'examen clinique trouve un bébé polypnéique à 50 cycles/ min, une cyanose à l'air ambiant et des signes de lutte. Par ailleurs, l'hémithorax gauche bombé et immobile, contrastant avec un abdomen plat et rétracté, avec un aspect creusé de l'abdomen. L'auscultation thoracique révèle des bruits respiratoires absents du côté gauche",
                                     "type": "QCM",
                                     "choices": [
-                                        "L'oxygénation de ce bébé doit se faire au masque pour augmenter les apports en oxygène.",
-                                        "Le diagnostic à l'échographie anténatale est possible.",
+                                        "L\'oxygénation de ce bébé doit se faire au masque pour augmenter les apports en oxygène.",
+                                        "Le diagnostic à l\'échographie anténatale est possible.",
                                         "Une radiographie thoraco-abdominale est le premier examen à demander.",
                                         "Une TDM thoraco-abdominale confirme le diagnostic.",
-                                        "La hernie diaphragmatique est d'emblée chirurgicale.",
+                                        "La hernie diaphragmatique est d\'emblée chirurgicale.",
                                         "La hernie diaphragmatique congénitale est le diagnostic à évoquer en premier.",
                                         "La forme postérolatérale (de Bochdaleck) représente la forme la plus fréquente $( 9 5 \\% )$ ), elle siège à gauche dans $90 \\%$ des cas.",
-                                        "Le diagnostic à l'échographie anténatale est possible devant la présence des images anéchogènes intra-thoraciques correspondants à des structures digestives.",
+                                        "Le diagnostic à l\'échographie anténatale est possible devant la présence des images anéchogènes intra-thoraciques correspondants à des structures digestives.",
+                                        "La radiographie thoraco-abdominale recherche des clartés d’origine digestive,ascensionnées au niveau de la base thoracique gauche.",
                                         "Le traitement est chirurgical chez un enfant stabilisé."
                                     ],
                                     "requires_review": false
@@ -8092,16 +8097,17 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "Une sténose hypertrophique du pylore peut survenir pendant les premiers jours de la vie.",
-                                        "L'échographie confirme la sténose hypertrophique du pylore lorsque l'épaisseur du muscle pylorique est > 4mm et la longueur du canal pylorique est > 15 min.",
+                                        "L\'échographie confirme la sténose hypertrophique du pylore lorsque l\'épaisseur du muscle pylorique est > 4mm et la longueur du canal pylorique est > 15 min.",
                                         "Le transit oeso-gastroduodénale est nécessaire et doit être réalisé devant toute sténose hypertrophique du pylore.",
                                         "Les analyses de sang révéleront une acidose métabolique hyperkaliémique et hyperchlorémique.",
                                         "La pyloromyotomie reste la procédure standard pour la sténose Hypertrophique du pylore.",
-                                        "L'épaississement musculaire pylorique atteint plus de $4 0 \\mathsf { m m }$",
+                                        "L\'épaississement musculaire pylorique atteint plus de $4 0 \\mathsf { m m }$",
                                         "la sténose hypertrophique du pylore est une occlusion haute.",
-                                        "La symptomatologie clinique commence vers 3 à 4 semaines jusqu'à 2 à 3 mois chez un nourrisson en bonne santé.",
-                                        "L'échographie abdominale permet le diagnostic étiologique.",
+                                        "La symptomatologie clinique commence vers 3 à 4 semaines jusqu\'à 2 à 3 mois chez un nourrisson en bonne santé.",
+                                        "La symptomatologie est faite de vomissements de lait caille.",
+                                        "L\'échographie abdominale permet le diagnostic étiologique.",
                                         "La SHP est une étiologie des occlusions néonatales hautes.",
-                                        "L'échographie permet de poser le diagnostic en précisant les mensurations du pylore.",
+                                        "L\'échographie permet de poser le diagnostic en précisant les mensurations du pylore.",
                                         "La résection pylorique avec anastomose digestive est le traitement chirurgical pour la sténose Hypertrophique du pylore."
                                     ],
                                     "requires_review": false
@@ -9121,6 +9127,7 @@ const ATARAXIE_S8_DB = {
                                         "néphroblastome secrète les catabolites des catécholamines (HVA, VMA)",
                                         "Le neuroblastome touche le rein dans $9 5 \\%$ .",
                                         "Le neuroblastome touche le système sympathique.",
+                                        "Une masse kystique peut être un syndrome de jonction pyélo-urétéral",
                                         "Une imperforation de l’hymen est responsable, d’une masse abdomino-pelvienne"
                                     ],
                                     "requires_review": false
@@ -9914,13 +9921,14 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "Devant une urétéro-hydronéphrose unilatérale gauche à l’échographie on doit penser au reflux vésico-urétéral gauche",
-                                        "Devant une hydronéphrose unilatérale gauche à l'échographie on doit penser au syndrome de jonction pyélo-urétéral gauche",
+                                        "Devant une hydronéphrose unilatérale gauche à l\'échographie on doit penser au syndrome de jonction pyélo-urétéral gauche",
                                         "Le reflux vésico-urétéral est diagnostiqué par la scintigraphie vésicale au mag3+",
                                         "La scintigraphie permet d’évaluer le retentissement rénal du reflux vésico-urétéral.",
                                         "Le traitement de reflux vésico-urétéral est toujours chirurgical dans le stad I et II",
                                         "Le reflux vésico-urétéral est diagnostiqué par l’urétrocystographie rétrograde avec clichés permictionnels.",
                                         "La scintigraphie permet le diagnostic du reflux vésico-urétéral.",
                                         "Le traitement du reflux vésico-urétéral peut être uniquement médical.",
+                                        "Devant une urétéro-hydronéphrose unilatérale gauche à l’échographie on doit on doit penser au syndrome de jonction pyélo-urétéral gauche.",
                                         "Devant une hydronéphrose unilatérale gauche à l’échographie on doit on doit penser au reflux vésico-urétéral gauche."
                                     ],
                                     "requires_review": false
@@ -10093,6 +10101,7 @@ const ATARAXIE_S8_DB = {
                                         "Nécessite une échographie rénale et vésicale",
                                         "Une dilatation des uretères nécessite une cystographie rétrograde et mictionnelle",
                                         "Des reins dilatés nécessitent une scintiuranhie renais ou urographie intraveineui",
+                                        "Nécessite une cystomanométrie vésicale d\'emblée",
                                         "Le traitement du reflux vésico-urétéral à cet âge est chirurgical"
                                     ],
                                     "requires_review": false
@@ -10105,12 +10114,13 @@ const ATARAXIE_S8_DB = {
                                     "choices": [
                                         "Chercher chez elle des antécédents de gastroentérites à répétition au bas âge",
                                         "Demander un examen cytobactériologique des urines",
-                                        "l'infection urinaire de cene fille doit être traité médicalement",
+                                        "l\'infection urinaire de cene fille doit être traité médicalement",
                                         "Dans une infection urinaire $50 \\%$ des malades présentent un reflux vésico-urétéral",
                                         "Un sondage vésical est obligatoire.",
                                         "Nécessite une échographie rénale et vésicale",
                                         "Une dilatation des uretères nécessite une cystographie rétrograde et mictionnelle",
                                         "Un rein dilaté (hydronéphrose isolé) nécessite une urographie intraveineuse",
+                                        "Une cystographie est faite sans ECBU de contrôle",
                                         "Vu son âge, le traitement est chirurgical en cas de découverte du reflux grade II"
                                     ],
                                     "requires_review": false
@@ -10425,10 +10435,11 @@ const ATARAXIE_S8_DB = {
                                         "La palpation des repères du coude est obligatoire.",
                                         "La fracture supra condylienne est la plus fréquente des fractures.",
                                         "Le traitement orthopédique est la règle dans la fracture stade IV de Lagrange et Rigault.",
-                                        "Mal traitée, l'évolution va se faire vers la désaxation du coude.",
-                                        "Les fractures représentent $16 \\%$ de l'ensemble des fractures",
+                                        "Mal traitée, l\'évolution va se faire vers la désaxation du coude.",
+                                        "Les fractures représentent $16 \\%$ de l\'ensemble des fractures",
                                         "La fracture supracondylienne est la moins fréquente",
                                         "Le tableau clinique est spécifique de chaque type de fracture",
+                                        "Le traitement est toujours orthopédique",
                                         "Leur traitement est une urgence thérapeutique"
                                     ],
                                     "requires_review": false
@@ -11278,14 +11289,15 @@ const ATARAXIE_S8_DB = {
                                     "question_text": "En matière de scoliose",
                                     "type": "QCM",
                                     "choices": [
-                                        "La déviation de la colonne vertébrale se fait dans les trois plans de l'espace",
+                                        "La déviation de la colonne vertébrale se fait dans les trois plans de l\'espace",
                                         "La gibbosité peut manquer dans les petites scolioses",
                                         "La rotation vertébrale est présente dans toutes les scolioses",
-                                        "La déformation des vertèbres en coin s'installe progressivement dans les scolioses idiopathiques",
+                                        "La déformation des vertèbres en coin s\'installe progressivement dans les scolioses idiopathiques",
                                         "La douleur est le motif de consultation le plus fréquent",
                                         "la double scoliose est la plus fréquente",
                                         "la localisation dorsale représente $2 5 \\%$ des scolioses",
                                         "la scoliose cervico-dorsale est la plus rare",
+                                        "les scolioses secondaires sont les plus fréquentes",
                                         "la scoliose congénitale représente $10 \\%$ des scolioses"
                                     ],
                                     "requires_review": false
@@ -11298,12 +11310,13 @@ const ATARAXIE_S8_DB = {
                                     "choices": [
                                         "Se définie comme étant une déviation de la colonne vertébrale dans le plan sagittal:",
                                         "Est secondaire dans $70 \\%$ des cas",
-                                        "l'étiologie mal formative est la plus fréquente",
-                                        "s'associe systématiquement à une rotation vertébrale",
+                                        "l\'étiologie mal formative est la plus fréquente",
+                                        "s\'associe systématiquement à une rotation vertébrale",
                                         "la présence de la gibbosité est un signe pathognomonique de la scoliose",
                                         "Est une déviation de la colonne vertébrale dans le plan sagittal",
                                         "Elle est idiopathique dans $70 \\%$ des cas",
                                         "Elle disparaît en position couché",
+                                        "Son diagnostic est posé par la présence de la gibbosité",
                                         "La radio standard est suffisante pour confirmer son diagnostic"
                                     ],
                                     "requires_review": false
@@ -18866,14 +18879,15 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "Peut être due à une cytotoxicité complément dépendante",
-                                        "Peut être due au passage d'anticorps maternels de type IgM dans la circulation fœtale",
-                                        "Est le résultat d'une allo-immunisation maternelle",
+                                        "Peut être due au passage d\'anticorps maternels de type IgM dans la circulation fœtale",
+                                        "Est le résultat d\'une allo-immunisation maternelle",
                                         "Est due à une incompatibilité entre une mère RH- et un foetus RH+",
-                                        "Est due à l'action des anticorps produits lors de la réponse immunitaire primaire",
-                                        "Peut être due au passage d'anticorps maternels de type IgG dans la circulation foetale",
-                                        "Est le résultat d'une allo-immunisation maternelle.",
+                                        "Est due à l\'action des anticorps produits lors de la réponse immunitaire primaire",
+                                        "Peut être due au passage d\'anticorps maternels de type IgG dans la circulation foetale",
+                                        "Est le résultat d\'une allo-immunisation maternelle.",
                                         "Est due à une incompatibilité entre une mère $\\mathsf { R H } +$ et un fœtus RH-.",
-                                        "Est le résultat d'une allo-immunisation maternelle."
+                                        "Est due à l\'action des anticorps produits lors de la réponse immunitaire secondaire.",
+                                        "Est le résultat d\'une allo-immunisation maternelle."
                                     ],
                                     "requires_review": false
                                 },
@@ -23269,13 +23283,14 @@ const ATARAXIE_S8_DB = {
                                     "type": "QCM",
                                     "choices": [
                                         "L’ACPA permet la détection de perte ou de gain de régions génomiques",
-                                        "L 'ACPA permet de mettre en évidence une translocation robertsonienne",
+                                        "L \'ACPA permet de mettre en évidence une translocation robertsonienne",
                                         "L’ACPA permet de mettre en évidence une translocation réciproque",
                                         "L’ACPA permet de mettre en évidence une anomalie chromosomique en mosaïque si le taux de mosaïque est supérieur à $30 \\%$",
                                         "L’ACPA est basée sur les homologies de séquence de l’ADN",
                                         "Permet d’identifier des anomalies type délétion et duplications",
                                         "Permet de détecter les anomalies chromosomique déséquilibrées",
                                         "Examen de première intention devant un retard mental et ou du développement",
+                                        "Nécessite toujours une confirmation de l’anomalie détectée par FISH",
                                         "Une même qualité d’ADN témoin et d’ADN patient marquées par la même fluorochrome sont déposées sur la lame"
                                     ],
                                     "requires_review": false
