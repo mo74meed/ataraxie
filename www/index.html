@@ -364,12 +364,14 @@
             padding: 2px 6px;
             border-radius: 999px;
             font-family: 'JetBrains Mono', monospace;
-            white-space: nowrap
+            white-space: nowrap;
+            background: rgba(255, 255, 255, .04);
+            color: var(--tsd)
         }
 
-        .mb-default {
-            background: var(--s3);
-            color: var(--tsd)
+        .mb-started {
+            background: rgba(245, 158, 11, .12);
+            color: var(--a500)
         }
 
         .mb-done {
@@ -482,9 +484,19 @@
             flex-shrink: 0;
         }
 
+        .cb.started {
+            background: rgba(245, 158, 11, .12);
+            color: var(--a500);
+        }
+
         .cb:hover {
             background: rgba(74, 79, 244, .18);
             color: var(--b200);
+        }
+
+        .cb.started:hover {
+            background: rgba(245, 158, 11, .2);
+            color: var(--a600);
         }
 
         .cb.done {
@@ -1836,6 +1848,208 @@
             transform: scale(1.1)
         }
 
+        .ai-correct-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: 1.5px solid var(--b200);
+            background: var(--b50);
+            color: var(--b600);
+            font-family: inherit;
+            font-size: .7rem;
+            font-weight: 600;
+            transition: all .25s var(--ease);
+            margin-right: auto;
+        }
+
+        .ai-correct-btn:hover:not(:disabled) {
+            background: var(--b100);
+            border-color: var(--b400);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 10px rgba(74, 79, 244, .15);
+        }
+
+        .ai-correct-btn:disabled {
+            opacity: .55;
+            cursor: wait;
+        }
+
+        .ai-btn-spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(74, 79, 244, .22);
+            border-top-color: var(--b500);
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+            display: none;
+        }
+
+        .ai-correct-btn.loading .ai-btn-spinner {
+            display: block;
+        }
+
+        .ai-result {
+            margin: 0 20px 12px;
+            background: var(--pbs);
+            border: 1px solid var(--pb);
+            border-radius: 12px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .ai-result.vis {
+            display: block;
+        }
+
+        .ai-result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--pb);
+            gap: 10px;
+            flex-wrap: wrap;
+            background: #fff;
+        }
+
+        .ai-score-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-score-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 52px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: .7rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--b50);
+            color: var(--b600);
+            border: 1px solid var(--b100);
+        }
+
+        .ai-score-label {
+            font-size: .9rem;
+            font-weight: 700;
+            color: var(--t1);
+        }
+
+        .ai-score-sublabel {
+            font-size: .62rem;
+            color: var(--t3);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .ai-section {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--pb);
+            background: #fff;
+        }
+
+        .ai-section:last-child {
+            border-bottom: none;
+        }
+
+        .ai-section-title {
+            font-size: .6rem;
+            font-weight: 700;
+            color: var(--t3);
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .ai-sim-bar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-sim-bar-track {
+            flex: 1;
+            height: 4px;
+            background: var(--pb);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .ai-sim-bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            transition: width .5s ease;
+        }
+
+        .ai-sim-val {
+            font-size: .68rem;
+            color: var(--t2);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .ai-concepts-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .ai-concept-chip {
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: .68rem;
+            border: 1px solid;
+            font-weight: 600;
+        }
+
+        .ai-concept-chip.present {
+            border-color: var(--g400);
+            color: var(--g600);
+            background: var(--g50);
+        }
+
+        .ai-concept-chip.absent {
+            border-color: #fca5a5;
+            color: #b91c1c;
+            background: #fff7f7;
+        }
+
+        .ai-feedback-text {
+            font-size: .8rem;
+            color: var(--t2);
+            line-height: 1.7;
+        }
+
+        .ai-missing {
+            margin-top: 8px;
+            font-size: .72rem;
+            color: var(--a700);
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 8px;
+            padding: 8px 10px;
+        }
+
+        .ai-error {
+            margin: 0 20px 12px;
+            display: none;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #fca5a5;
+            background: #fff7f7;
+            color: #b91c1c;
+            font-size: .74rem;
+        }
+
+        .ai-error.vis {
+            display: block;
+        }
+
         /* ── Scroll top ── */
         .stt {
             position: fixed;
@@ -1986,6 +2200,13 @@
 
         .cmp-diff-row-grid:last-child {
             border-bottom: none;
+        }
+
+        .cmp-row-differs {
+            outline: 1px solid rgba(239, 68, 68, 0.35);
+            outline-offset: -1px;
+            box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.18), 0 0 6px rgba(239, 68, 68, 0.08);
+            border-radius: 0;
         }
 
         .cmp-diff-header {
@@ -3215,6 +3436,39 @@
             .offline-sync-actions-grid { grid-template-columns: 1fr; }
             .offline-sync-summary { grid-template-columns: 1fr; }
         }
+
+        /* ── Lab results lists ─────────────────────────────────── */
+        ul.lab-list, ul.marker-list {
+            list-style: none; padding: 6px 0; margin: 8px 0;
+            display: flex; flex-direction: column; gap: 4px;
+        }
+        ul.lab-list li {
+            display: flex; align-items: baseline; gap: 6px;
+            padding: 5px 10px; border-radius: 8px;
+            background: var(--s2); font-size: 0.88em; line-height: 1.4;
+        }
+        ul.lab-list li .lab-name {
+            font-weight: 600; color: var(--p0); min-width: 160px; flex-shrink: 0;
+        }
+        ul.lab-list li .lab-val { color: var(--b400); font-weight: 500; }
+        ul.lab-list li .lab-range { color: var(--t3); font-size: 0.9em; }
+
+        /* ── Marker badge grid ─────────────────────────────────── */
+        ul.marker-list {
+            flex-direction: row; flex-wrap: wrap; gap: 6px; padding: 4px 0;
+        }
+        ul.marker-list li {
+            display: flex; flex-direction: column; align-items: center; gap: 3px;
+            padding: 6px 10px; border-radius: 8px; background: var(--s2); font-size: 0.82em;
+        }
+        ul.marker-list li .marker-name { font-weight: 600; color: var(--p0); }
+        ul.marker-list li .marker-val {
+            font-weight: 700; border-radius: 50%;
+            width: 22px; height: 22px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        ul.marker-list li .marker-val.pos { background: var(--g100); color: var(--g600); }
+        ul.marker-list li .marker-val.neg { background: #fde8e8; color: #c0392b; }
     </style>
 
 
@@ -4102,7 +4356,7 @@
                     const head = document.createElement('div'); head.className = 'sb-mod-head';
                     const btn = document.createElement('button');
                     btn.className = 'sb-mod-btn' + (op ? ' exp' : '');
-                    btn.innerHTML = `<svg class="arr" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg><span class="mname"><span class="marquee-inner">${esc(mn)}</span></span><span class="mb ${vq === tq && tq > 0 ? 'mb-done' : 'mb-default'}" data-mb="${esc(mn)}">${vq}/${tq}</span>`;
+                    btn.innerHTML = `<svg class="arr" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg><span class="mname"><span class="marquee-inner">${esc(mn)}</span></span><span class="mb ${vq === tq && tq > 0 ? 'mb-done' : vq > 0 ? 'mb-started' : ''}" data-mb="${esc(mn)}">${vq}/${tq}</span>`;
                     requestAnimationFrame(() => {
                         const inner = btn.querySelector('.marquee-inner');
                         const container = btn.querySelector('.mname');
@@ -4132,7 +4386,7 @@
                         const ck = mk(e.module, e.chapitre), vc = cntChAns(e);
                         const cb = document.createElement('button');
                         cb.className = 'sb-ch' + (ak === ck ? ' active' : ''); cb.dataset.ck = ck;
-                        cb.innerHTML = `<span class="cname"><span class="marquee-inner">${esc(e.chapitre)}</span></span><span class="cb ${vc === e.questions.length && e.questions.length > 0 ? 'done' : ''}" data-cb="${esc(ck)}" title="Aller à la dernière question répondue">${vc}/${e.questions.length}</span>`;
+                        cb.innerHTML = `<span class="cname"><span class="marquee-inner">${esc(e.chapitre)}</span></span><span class="cb ${vc === e.questions.length && e.questions.length > 0 ? 'done' : vc > 0 ? 'started' : ''}" data-cb="${esc(ck)}" title="Aller à la dernière question répondue">${vc}/${e.questions.length}</span>`;
                         cb.addEventListener('click', (ev) => {
                             // If clicking the .cb badge, scroll to last answered question
                             if (ev.target.closest('.cb') && vc > 0) {
@@ -4322,7 +4576,7 @@
                                     <div class="ctx-title">Mise à jour du cas</div>
                                 </div>
                                 <div class="ctx-divider"></div>
-                                <div class="ctx-body">${esc(delta)}</div>
+                                <div class="ctx-body">${renderHtml(delta)}</div>
                             `;
                                     stream.appendChild(ct);
                                 }
@@ -4336,7 +4590,7 @@
                                     <div class="ctx-title">Cas Clinique / Contexte</div>
                                 </div>
                                 <div class="ctx-divider"></div>
-                                <div class="ctx-body">${esc(lastCtx)}</div>
+                                <div class="ctx-body">${renderHtml(lastCtx)}</div>
                             `;
                                 stream.appendChild(ct);
                             }
@@ -4426,6 +4680,7 @@
                             h += `<div class="qcard-ta-wrap"><div class="qcard-editor-shell"><div class="qcard-editor-meta"><span>Réponse formatée</span><span>Lecture seule</span></div><div class="qcard-editor">${sv2}</div></div></div>`;
                         } else {
                             h += `<div class="qcard-ta-wrap"><div class="qcard-editor-shell"><div class="qcard-editor-meta"><span>Réponse enrichie</span><span>Ctrl+B / Ctrl+I</span></div>${tools}<div class="qcard-editor qcard-editor-edit" contenteditable="true" spellcheck="true" data-placeholder="Rédigez votre réponse ici…" data-key="${esc(key)}">${sv2}</div></div></div>`;
+                            h += `<div class="ai-result" data-ai-box="${esc(key)}"></div><div class="ai-error" data-ai-err="${esc(key)}"></div>`;
                         }
                     }
 
@@ -4433,10 +4688,14 @@
                     if (!isOfficialMode) {
                         h += `<div class="qcard-foot">
                     
-                      <button class="copy-q-btn" data-key="${esc(key)}" title="Copier la question">
+                                            <button class="copy-q-btn" data-key="${esc(key)}" title="Copier la question">
                           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                           Copier
                       </button>
+                                            ${q.type === 'redaction' ? `<button class="ai-correct-btn" data-ai-correct="${esc(key)}" title="Corriger ma réponse avec IA">
+                                                <div class="ai-btn-spinner"></div>
+                                                <span class="ai-btn-text">Corriger avec IA</span>
+                                            </button>` : ''}
                       <button class="val-toggle${isVal ? ' on' : ''}" data-key="${esc(key)}">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${isVal ? 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' : 'M9 12l2 2 4-4'}"/></svg>
                         ${isVal ? 'Correction validée' : 'Marquer comme validée'}
@@ -4602,6 +4861,302 @@
                 refreshEditorToolbar(editor);
             }
 
+            const GROQ_PROXY_URL = 'https://ataraxie-groq-proxy.mo74meed.workers.dev';
+
+            function extractQuestionContext(card) {
+                let ctxText = '';
+                let prev = card ? card.previousElementSibling : null;
+                while (prev) {
+                    if (prev.classList.contains('ctx-update')) {
+                        const ctxBody = prev.querySelector('.ctx-body');
+                        if (ctxBody) ctxText = (ctxText ? ctxBody.textContent.trim() + '\n\n' + ctxText : ctxBody.textContent.trim());
+                        prev = prev.previousElementSibling;
+                        continue;
+                    }
+                    if (prev.classList.contains('ctx-panel')) {
+                        const ctxBody = prev.querySelector('.ctx-body');
+                        if (ctxBody) ctxText = ctxText ? ctxBody.textContent.trim() + '\n\n' + ctxText : ctxBody.textContent.trim();
+                        break;
+                    }
+                    if (prev.classList.contains('qcard')) break;
+                    prev = prev.previousElementSibling;
+                }
+                return ctxText;
+            }
+
+            function parseGroqResult(rawText) {
+                const raw = String(rawText || '');
+                const match = raw.match(/\{[\s\S]*\}/);
+                if (!match) throw new Error('Réponse non-JSON reçue.');
+                const obj = JSON.parse(match[0]);
+
+                const clamp = (n) => Math.max(0, Math.min(100, Math.round(Number(n) || 0)));
+                const concepts = Array.isArray(obj.concepts) ? obj.concepts : [];
+
+                return {
+                    similarite: clamp(obj.similarite),
+                    score_global: clamp(obj.score_global),
+                    niveau: String(obj.niveau || '').toLowerCase(),
+                    concepts: concepts
+                        .filter(c => c && typeof c === 'object')
+                        .map(c => ({ nom: String(c.nom || '').trim(), present: !!c.present }))
+                        .filter(c => c.nom)
+                        .slice(0, 8),
+                    feedback: String(obj.feedback || '').trim(),
+                    resume_manquant: String(obj.resume_manquant || '').trim(),
+                    reponse_modele_proposee: String(obj.reponse_modele_proposee || obj.reponse_modele || obj.model_answer || '').trim()
+                };
+            }
+
+            async function getGroqCorrection(payload) {
+                const res = await fetch(GROQ_PROXY_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        questionText: payload.questionText,
+                        contextText: payload.contextText,
+                        userAnswer: payload.userAnswer,
+                        modelAnswer: payload.modelAnswer
+                    })
+                });
+
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) {
+                    const msg = data?.error?.message || `HTTP ${res.status}`;
+                    const e = new Error(msg);
+                    e.status = res.status;
+                    throw e;
+                }
+
+                if (data?.result && typeof data.result === 'object') {
+                    return data.result;
+                }
+
+                const raw = data?.content || data?.raw || data?.choices?.[0]?.message?.content || '';
+                return parseGroqResult(raw);
+            }
+
+            function isExplicitNonAnswer(text) {
+                const t = String(text || '').toLowerCase().trim();
+                if (!t) return true;
+
+                const compact = t
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .replace(/[^a-z0-9\s']/g, ' ')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+
+                const patterns = [
+                    /\bje ne sais pas\b/,
+                    /\bje sais pas\b/,
+                    /\bjsp\b/,
+                    /\bnsp\b/,
+                    /\baucune idee\b/,
+                    /\bi don'?t know\b/,
+                    /\bdont know\b/,
+                    /\bno idea\b/,
+                    /\bidk\b/
+                ];
+
+                return patterns.some((re) => re.test(compact));
+            }
+
+            function normalizeForConceptMatching(text) {
+                return String(text || '')
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .replace(/\bgg\b/g, ' ganglion ')
+                    .replace(/[^a-z0-9\s-]/g, ' ')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+            }
+
+            function tokenizeForConceptMatching(text) {
+                return normalizeForConceptMatching(text)
+                    .replace(/-/g, ' ')
+                    .split(/\s+/)
+                    .filter(Boolean);
+            }
+
+            function isConceptSupportedByAnswer(conceptName, answerText) {
+                const rawConcept = String(conceptName || '').trim();
+                const rawAnswer = String(answerText || '').trim();
+                if (!rawConcept || !rawAnswer) return false;
+
+                const conceptNorm = normalizeForConceptMatching(rawConcept);
+                const answerNorm = normalizeForConceptMatching(rawAnswer);
+                const answerCompact = answerNorm.replace(/\s+/g, '');
+                const conceptCompact = conceptNorm.replace(/[\s-]+/g, '');
+                const answerTokens = new Set(tokenizeForConceptMatching(rawAnswer));
+
+                // Fast exact checks first (phrase, compact acronym/hyphenated form).
+                if (conceptNorm && answerNorm.includes(conceptNorm)) return true;
+                if (conceptCompact && answerCompact.includes(conceptCompact)) return true;
+
+                const conceptTokens = tokenizeForConceptMatching(rawConcept);
+                if (!conceptTokens.length) return false;
+
+                // Strict acronym handling: short concepts must appear as explicit tokens.
+                const isShortConcept = conceptCompact.length <= 5 || conceptTokens.every(t => t.length <= 4);
+                if (isShortConcept) {
+                    return conceptTokens.every(t => answerTokens.has(t));
+                }
+
+                // Remove weak function words and keep only meaningful tokens.
+                const stop = new Set(['de', 'la', 'le', 'les', 'du', 'des', 'd', 'l', 'et', 'ou', 'a', 'au', 'aux', 'en', 'pour', 'par', 'sur', 'avec', 'sans', 'the', 'and', 'or', 'of', 'to', 'in']);
+                const strongTokens = conceptTokens.filter(t => t.length >= 3 && !stop.has(t));
+                const required = strongTokens.length ? strongTokens : conceptTokens.filter(t => t.length >= 2);
+                if (!required.length) return false;
+
+                // Rigorous rule: all required tokens must be present.
+                return required.every(t => answerTokens.has(t));
+            }
+
+            function enforceRigorousConceptDetection(result, userAnswer) {
+                if (!result || !Array.isArray(result.concepts)) return result;
+
+                const answer = String(userAnswer || '');
+                const downgraded = result.concepts.map(c => {
+                    if (!c || typeof c !== 'object') return c;
+                    if (!c.present) return c;
+                    const supported = isConceptSupportedByAnswer(c.nom, answer);
+                    return supported ? c : { ...c, present: false };
+                });
+
+                const anyPositive = downgraded.some(c => c && c.present);
+                const hasNegatives = downgraded.some(c => c && !c.present);
+
+                const rawMissing = String(result.resume_manquant || '').trim();
+                const parsedMissing = rawMissing
+                    .replace(/^manquant\s*:\s*/i, '')
+                    .split(/[;,\n]|\s+\/\s+/)
+                    .map(x => String(x || '').trim())
+                    .filter(Boolean);
+
+                const verifiedMissing = parsedMissing.filter(item => !isConceptSupportedByAnswer(item, answer));
+                const correctedMissingCount = parsedMissing.length - verifiedMissing.length;
+                const cleanedMissing = verifiedMissing.join(', ');
+
+                const safeFeedback = correctedMissingCount > 0
+                    ? 'Analyse rigoureuse: certains elements annonces comme manquants etaient deja presents dans votre reponse. La liste des manquants a ete corrigee automatiquement.'
+                    : String(result.feedback || '').trim();
+
+                return {
+                    ...result,
+                    concepts: downgraded,
+                    niveau: anyPositive ? result.niveau : 'insuffisant',
+                    feedback: anyPositive
+                        ? safeFeedback
+                        : (safeFeedback || 'Concepts cles verifies strictement: aucun concept present confirme dans votre reponse.'),
+                    resume_manquant: cleanedMissing
+                        ? cleanedMissing
+                        : (hasNegatives ? '' : 'Ajoutez les termes medicaux cibles explicitement pour valider les concepts.')
+                };
+            }
+
+            function resolveModelAnswer(qObj, key) {
+                const candidates = [
+                    qObj && qObj.reponse,
+                    qObj && qObj.reponse_modele,
+                    qObj && qObj.modelAnswer,
+                    qObj && qObj.correction,
+                    qObj && qObj.corrige,
+                    qObj && qObj.answer
+                ];
+
+                for (const val of candidates) {
+                    if (Array.isArray(val) && val.length) {
+                        const txt = val.map(v => String(v || '').trim()).filter(Boolean).join(' ; ');
+                        if (txt) return txt;
+                    }
+                    if (typeof val === 'string') {
+                        const normalized = normalizeEditorHtml(val);
+                        if (hasEditorContent(normalized)) return getPlainTextFromHtml(normalized);
+                    }
+                }
+
+                const official = normalizeEditorHtml(st.official[key] || '');
+                if (hasEditorContent(official)) return getPlainTextFromHtml(official);
+                return '';
+            }
+
+            function clearAiState(card, key) {
+                const resultBox = card.querySelector(`[data-ai-box="${CSS.escape(key)}"]`);
+                const errorBox = card.querySelector(`[data-ai-err="${CSS.escape(key)}"]`);
+                if (resultBox) {
+                    resultBox.classList.remove('vis');
+                    resultBox.innerHTML = '';
+                }
+                if (errorBox) {
+                    errorBox.classList.remove('vis');
+                    errorBox.textContent = '';
+                }
+            }
+
+            function showAiError(card, key, msg) {
+                const errorBox = card.querySelector(`[data-ai-err="${CSS.escape(key)}"]`);
+                const resultBox = card.querySelector(`[data-ai-box="${CSS.escape(key)}"]`);
+                if (resultBox) resultBox.classList.remove('vis');
+                if (!errorBox) return;
+                errorBox.textContent = msg;
+                errorBox.classList.add('vis');
+            }
+
+            function renderAiResult(card, key, result, modelAnswer) {
+                const box = card.querySelector(`[data-ai-box="${CSS.escape(key)}"]`);
+                const errorBox = card.querySelector(`[data-ai-err="${CSS.escape(key)}"]`);
+                if (!box) return;
+                if (errorBox) errorBox.classList.remove('vis');
+
+                const score = Math.max(0, Math.min(100, Math.round(result.score_global || 0)));
+                const sim = Math.max(0, Math.min(100, Math.round(result.similarite || 0)));
+                const niveau = result.niveau || (score >= 85 ? 'excellent' : score >= 65 ? 'bon' : score >= 40 ? 'partiel' : 'insuffisant');
+                const niveauLabel = niveau === 'excellent' ? 'Excellent' : niveau === 'bon' ? 'Bien' : niveau === 'partiel' ? 'Partiel' : 'Insuffisant';
+                const simColor = sim >= 70 ? '#10b981' : sim >= 45 ? '#f59e0b' : '#ef4444';
+                const shownModelAnswer = (modelAnswer && modelAnswer.trim())
+                    ? modelAnswer
+                    : (result.reponse_modele_proposee || 'Non disponible');
+
+                const chips = (result.concepts || []).map(c =>
+                    `<span class="ai-concept-chip ${c.present ? 'present' : 'absent'}">${c.present ? '+' : '-'} ${esc(c.nom)}</span>`
+                ).join('');
+
+                box.innerHTML = `
+                    <div class="ai-result-header">
+                        <div class="ai-score-wrap">
+                            <span class="ai-score-pill">${score}%</span>
+                            <div>
+                                <div class="ai-score-label">${esc(niveauLabel)}</div>
+                                <div class="ai-score-sublabel">Score global</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-section">
+                        <div class="ai-section-title">Ressemblance semantique</div>
+                        <div class="ai-sim-bar-wrap">
+                            <div class="ai-sim-bar-track"><div class="ai-sim-bar-fill" style="width:${sim}%;background:${simColor}"></div></div>
+                            <span class="ai-sim-val">${sim}%</span>
+                        </div>
+                    </div>
+                    <div class="ai-section">
+                        <div class="ai-section-title">Concepts cles</div>
+                        <div class="ai-concepts-row">${chips || '<span style="color:var(--t4);font-size:.72rem">Aucun concept detecte</span>'}</div>
+                    </div>
+                    <div class="ai-section">
+                        <div class="ai-section-title">Feedback</div>
+                        <div class="ai-feedback-text">${esc(result.feedback || 'Aucun feedback renvoye')}</div>
+                        ${result.resume_manquant ? `<div class="ai-missing">Manquant: ${esc(result.resume_manquant)}</div>` : ''}
+                        <div class="ai-missing" style="margin-top:10px;background:#f8fafc;border-color:#e2e8f0;color:#334155">Reponse modele: ${esc(shownModelAnswer)}</div>
+                    </div>
+                `;
+
+                box.classList.add('vis');
+            }
+
             /* ══════════ WIRE EVENTS ══════════ */
             function wire(c, entry) {
                 const mod = entry.module, chap = entry.chapitre;
@@ -4615,25 +5170,7 @@
 
                         const enonce = card.querySelector('.qcard-enonce');
                         const qText = enonce ? enonce.textContent.trim() : '';
-
-                        let ctxText = '';
-                        let prev = card.previousElementSibling;
-                        while (prev) {
-                            if (prev.classList.contains('ctx-update')) {
-                                const ctxBody = prev.querySelector('.ctx-body');
-                                if (ctxBody) ctxText = (ctxText ? ctxBody.textContent.trim() + '\n\n' + ctxText : ctxBody.textContent.trim());
-                                // keep walking back to find the base ctx-panel too
-                                prev = prev.previousElementSibling;
-                                continue;
-                            }
-                            if (prev.classList.contains('ctx-panel')) {
-                                const ctxBody = prev.querySelector('.ctx-body');
-                                if (ctxBody) ctxText = ctxText ? ctxBody.textContent.trim() + '\n\n' + ctxText : ctxBody.textContent.trim();
-                                break;
-                            }
-                            if (prev.classList.contains('qcard')) break;
-                            prev = prev.previousElementSibling;
-                        }
+                        const ctxText = extractQuestionContext(card);
 
                         const optTiles = card.querySelectorAll('.opt-tile:not(.opt-blank)');
                         const isQCM = optTiles.length > 0;
@@ -4788,6 +5325,66 @@
                     });
                 });
 
+                c.querySelectorAll('.ai-correct-btn').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        const key = btn.dataset.aiCorrect;
+                        const card = btn.closest('.qcard');
+                        const editor = card ? card.querySelector('.qcard-editor-edit') : null;
+                        if (!card || !editor || !key) return;
+
+                        clearAiState(card, key);
+
+                        const userAnswerHtml = extractEditorStateHtml(editor);
+                        const userAnswer = getPlainTextFromHtml(userAnswerHtml);
+                        if (!userAnswer) {
+                            showAiError(card, key, 'Veuillez rediger votre reponse avant correction IA.');
+                            editor.focus();
+                            return;
+                        }
+
+                        const enonce = card.querySelector('.qcard-enonce');
+                        const questionText = enonce ? enonce.textContent.trim() : '';
+                        const contextText = extractQuestionContext(card);
+                        const qObj = findQ(key);
+                        const modelAnswer = resolveModelAnswer(qObj, key);
+
+                        if (isExplicitNonAnswer(userAnswer)) {
+                            renderAiResult(card, key, {
+                                similarite: 0,
+                                score_global: 0,
+                                niveau: 'insuffisant',
+                                concepts: [],
+                                feedback: 'Reponse non exploitable (ex: "je ne sais pas"). Aucun concept valide a evaluer.',
+                                resume_manquant: 'Fournissez une reponse medicale, meme breve, pour obtenir une correction fiable.',
+                                reponse_modele_proposee: ''
+                            }, modelAnswer);
+                            return;
+                        }
+
+                        const textEl = btn.querySelector('.ai-btn-text');
+                        btn.disabled = true;
+                        btn.classList.add('loading');
+                        if (textEl) textEl.textContent = 'Analyse...';
+
+                        try {
+                            const result = await getGroqCorrection({ questionText, contextText, userAnswer, modelAnswer });
+                            const strictResult = enforceRigorousConceptDetection(result, userAnswer);
+                            renderAiResult(card, key, strictResult, modelAnswer);
+                        } catch (err) {
+                            console.error('Groq correction error:', err);
+                            let msg = err && err.message ? err.message : 'Erreur IA inattendue';
+                            if (msg.includes('401') || msg.toLowerCase().includes('api key')) msg = 'Cle API invalide ou expirée.';
+                            else if (msg.includes('429')) msg = 'Quota depasse. Reessayez dans quelques instants.';
+                            else if (msg.includes('Failed to fetch') || msg.includes('NetworkError')) msg = 'Pas de connexion internet ou CORS bloque.';
+                            showAiError(card, key, msg);
+                        } finally {
+                            btn.disabled = false;
+                            btn.classList.remove('loading');
+                            if (textEl) textEl.textContent = 'Corriger avec IA';
+                        }
+                    });
+                });
+
                 c.querySelectorAll('.val-toggle').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const key = btn.dataset.key, card = btn.closest('.qcard'), was = btn.classList.contains('on');
@@ -4877,14 +5474,16 @@
                     const ck = b.dataset.cb, p = ck.split('§');
                     const e = D.find(d => d.module === p[0] && d.chapitre === p[1]); if (!e) return;
                     const vc = cntChAns(e); b.textContent = vc + '/' + e.questions.length;
-                    b.classList.toggle('done', vc === e.questions.length && e.questions.length > 0);
+                    b.classList.remove('started', 'done');
+                    if (vc === e.questions.length && e.questions.length > 0) b.classList.add('done');
+                    else if (vc > 0) b.classList.add('started');
                 });
                 const mods = new Map(); D.forEach(e => { if (!mods.has(e.module)) mods.set(e.module, []); mods.get(e.module).push(e) });
                 document.querySelectorAll('[data-mb]').forEach(b => {
                     const mn = b.dataset.mb, ents = mods.get(mn); if (!ents) return;
                     const tq = ents.reduce((s, e) => s + e.questions.length, 0), vq = cntModAns(ents);
                     b.textContent = vq + '/' + tq; b.classList.toggle('mb-done', vq === tq && tq > 0);
-                    b.classList.toggle('mb-default', vq !== tq || tq === 0);
+                    b.classList.toggle('mb-started', vq > 0 && (vq !== tq || tq === 0));
                 });
             }
             function togMob() {
@@ -4938,14 +5537,15 @@
                 return tpl.innerHTML;
             }
 
+            /* renderHtml: like esc() but lets our safe lab/marker list tags through as real HTML */
             function renderHtml(s) {
                 if (!s) return '';
                 const normalized = normalizeQuestionMarkup(s);
                 const SAFE_TAG = /(<\/?(ul|li|span|div)[^>]*>)/g;
                 const parts = normalized.split(SAFE_TAG);
                 return parts.map((p, i) => {
-                    if (i % 3 === 1) return p;
-                    if (i % 3 === 2) return '';
+                    if (i % 3 === 1) return p;  // safe tag — pass through
+                    if (i % 3 === 2) return '';  // tag-name capture — skip
                     const d = document.createElement('div'); d.textContent = p; return d.innerHTML;
                 }).join('');
             }
@@ -5034,8 +5634,20 @@
                             else l = myAns.map(i => L[i]).sort().join('');
 
                             if (!l) l = '-';
-                            const d = document.createElement('div'); d.className = 'cmp-item';
+                            const d = document.createElement('div'); d.className = 'cmp-item'; d.style.cursor = 'pointer';
                             d.innerHTML = `<div class="cmp-ans">${idx + 1}-${l}</div>`;
+                            d.addEventListener('click', () => {
+                                document.getElementById('cmp-close').click();
+                                const qcard = document.querySelector(`.qcard[data-key="${esc(key)}"]`);
+                                if (qcard) {
+                                    setTimeout(() => {
+                                        const hdrOffset = 80;
+                                        window.scrollTo({ top: qcard.getBoundingClientRect().top + window.pageYOffset - hdrOffset, behavior: 'smooth' });
+                                        qcard.classList.add('card-glow-focus');
+                                        setTimeout(() => qcard.classList.remove('card-glow-focus'), 1500);
+                                    }, 100);
+                                }
+                            });
                             b.appendChild(d);
                         } else {
                             const otherAns = targetQcm[key] || [];
@@ -5090,7 +5702,14 @@
                                 if (myAns.length && !otherAns.length) otherHtml = '<span class="cmp-letter match">-</span>';
                             }
 
-                            const d = document.createElement('div'); d.className = 'cmp-diff-row-grid';
+                            // Detect if answers differ between mine and other
+                            const answersDiffer = (() => {
+                                if (myAns === "BLANK" || otherAns === "BLANK") return myAns !== otherAns;
+                                const mySet = [...myAns].sort().join(',');
+                                const othSet = [...otherAns].sort().join(',');
+                                return mySet !== othSet;
+                            })();
+                            const d = document.createElement('div'); d.className = 'cmp-diff-row-grid' + (answersDiffer ? ' cmp-row-differs' : '');
                             d.innerHTML = `
                                 <div class="cmp-qnum-diff">Q${idx + 1}</div>
                                 <div class="cmp-diff-letters">${myHtml}${isMyVal ? '<span style="color:#10b981; font-weight:bold; font-size:.85rem; line-height:20px; flex-shrink:0" title="Validée (Réponse Correcte)">✓</span>' : ''}</div>

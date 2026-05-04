@@ -2202,6 +2202,13 @@
             border-bottom: none;
         }
 
+        .cmp-row-differs {
+            outline: 1px solid rgba(239, 68, 68, 0.35);
+            outline-offset: -1px;
+            box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.18), 0 0 6px rgba(239, 68, 68, 0.08);
+            border-radius: 0;
+        }
+
         .cmp-diff-header {
             display: grid;
             grid-template-columns: 36px minmax(0, 1fr) minmax(0, 1fr);
@@ -5627,8 +5634,20 @@
                             else l = myAns.map(i => L[i]).sort().join('');
 
                             if (!l) l = '-';
-                            const d = document.createElement('div'); d.className = 'cmp-item';
+                            const d = document.createElement('div'); d.className = 'cmp-item'; d.style.cursor = 'pointer';
                             d.innerHTML = `<div class="cmp-ans">${idx + 1}-${l}</div>`;
+                            d.addEventListener('click', () => {
+                                document.getElementById('cmp-close').click();
+                                const qcard = document.querySelector(`.qcard[data-key="${esc(key)}"]`);
+                                if (qcard) {
+                                    setTimeout(() => {
+                                        const hdrOffset = 80;
+                                        window.scrollTo({ top: qcard.getBoundingClientRect().top + window.pageYOffset - hdrOffset, behavior: 'smooth' });
+                                        qcard.classList.add('card-glow-focus');
+                                        setTimeout(() => qcard.classList.remove('card-glow-focus'), 1500);
+                                    }, 100);
+                                }
+                            });
                             b.appendChild(d);
                         } else {
                             const otherAns = targetQcm[key] || [];
@@ -5683,7 +5702,14 @@
                                 if (myAns.length && !otherAns.length) otherHtml = '<span class="cmp-letter match">-</span>';
                             }
 
-                            const d = document.createElement('div'); d.className = 'cmp-diff-row-grid';
+                            // Detect if answers differ between mine and other
+                            const answersDiffer = (() => {
+                                if (myAns === "BLANK" || otherAns === "BLANK") return myAns !== otherAns;
+                                const mySet = [...myAns].sort().join(',');
+                                const othSet = [...otherAns].sort().join(',');
+                                return mySet !== othSet;
+                            })();
+                            const d = document.createElement('div'); d.className = 'cmp-diff-row-grid' + (answersDiffer ? ' cmp-row-differs' : '');
                             d.innerHTML = `
                                 <div class="cmp-qnum-diff">Q${idx + 1}</div>
                                 <div class="cmp-diff-letters">${myHtml}${isMyVal ? '<span style="color:#10b981; font-weight:bold; font-size:.85rem; line-height:20px; flex-shrink:0" title="Validée (Réponse Correcte)">✓</span>' : ''}</div>
