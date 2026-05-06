@@ -2203,10 +2203,42 @@
         }
 
         .cmp-row-differs {
-            outline: 1px solid rgba(239, 68, 68, 0.35);
-            outline-offset: -1px;
-            box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.18), 0 0 6px rgba(239, 68, 68, 0.08);
-            border-radius: 0;
+            /* Differences are now indicated by the pulsing red dot in the question number cell */
+        }
+
+        /* Pulsing red dot for compare differences */
+        .cmp-diff-pulse {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ef4444;
+            margin-left: 5px;
+            flex-shrink: 0;
+            vertical-align: middle;
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+            animation: cmp-pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes cmp-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55); transform: scale(1); }
+            50%  { box-shadow: 0 0 0 5px rgba(239, 68, 68, 0); transform: scale(1.15); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); transform: scale(1); }
+        }
+
+        /* Pulsing red dot on main question cards (enonce number) */
+        .qnum-diff-pulse {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ef4444;
+            margin-left: 4px;
+            margin-bottom: 1px;
+            flex-shrink: 0;
+            vertical-align: middle;
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+            animation: cmp-pulse 2.4s ease-in-out infinite;
         }
 
         .cmp-diff-header {
@@ -4269,6 +4301,7 @@
                     cp.classList.remove('open');
                     document.getElementById('ov').classList.remove('vis');
                     document.body.style.overflow = '';
+                    document.querySelectorAll('.qnum-diff-pulse').forEach(el => el.remove());
                 });
 
                 document.getElementById('cmp-target-select').addEventListener('change', (e) => {
@@ -5709,9 +5742,18 @@
                                 const othSet = [...otherAns].sort().join(',');
                                 return mySet !== othSet;
                             })();
-                            const d = document.createElement('div'); d.className = 'cmp-diff-row-grid' + (answersDiffer ? ' cmp-row-differs' : '');
+
+                            // Both profiles have answered this question (non-empty)
+                            const myHasAns = myAns === "BLANK" || (Array.isArray(myAns) && myAns.length > 0);
+                            const othHasAns = otherAns === "BLANK" || (Array.isArray(otherAns) && otherAns.length > 0);
+                            const bothAnswered = myHasAns && othHasAns;
+
+                            // Show pulsing dot only when both answered AND answers differ
+                            const showDiffDot = answersDiffer && bothAnswered;
+
+                            const d = document.createElement('div'); d.className = 'cmp-diff-row-grid';
                             d.innerHTML = `
-                                <div class="cmp-qnum-diff">Q${idx + 1}</div>
+                                <div class="cmp-qnum-diff" style="display:flex;align-items:center;">Q${idx + 1}${showDiffDot ? '<span class="cmp-diff-pulse" title="Réponses différentes"></span>' : ''}</div>
                                 <div class="cmp-diff-letters">${myHtml}${isMyVal ? '<span style="color:#10b981; font-weight:bold; font-size:.85rem; line-height:20px; flex-shrink:0" title="Validée (Réponse Correcte)">✓</span>' : ''}</div>
                                 <div class="cmp-diff-letters">${otherHtml}${isOthVal ? '<span style="color:#10b981; font-weight:bold; font-size:.85rem; line-height:20px; flex-shrink:0" title="Validée (Réponse Correcte)">✓</span>' : ''}</div>
                             `;
@@ -5756,6 +5798,36 @@
                     b.innerHTML = '<div class="cmp-empty">Aucun QCM</div>';
                 }
                 renderMath(document.getElementById('cmp-panel'));
+
+                // Inject / remove pulsing diff dots on main question cards
+                document.querySelectorAll('.qnum-diff-pulse').forEach(el => el.remove());
+                if (isCompare) {
+                    e.questions.forEach((q, idx) => {
+                        if (q.type !== 'qcm' && q.type !== 'redaction') return;
+                        const key = mk(e.module, e.chapitre, q.id);
+                        const myAns = st.qcm[key] || [];
+                        const otherAns = targetQcm[key] || [];
+
+                        const myHasAns = myAns === "BLANK" || (Array.isArray(myAns) && myAns.length > 0);
+                        const othHasAns = otherAns === "BLANK" || (Array.isArray(otherAns) && otherAns.length > 0);
+                        if (!myHasAns || !othHasAns) return;
+
+                        const differs = (() => {
+                            if (myAns === "BLANK" || otherAns === "BLANK") return myAns !== otherAns;
+                            return [...myAns].sort().join(',') !== [...otherAns].sort().join(',');
+                        })();
+                        if (!differs) return;
+
+                        const qcard = document.querySelector(`.qcard[data-key="${CSS.escape(key)}"]`);
+                        if (!qcard) return;
+                        const strong = qcard.querySelector('.qcard-enonce > strong');
+                        if (!strong) return;
+                        const dot = document.createElement('span');
+                        dot.className = 'qnum-diff-pulse';
+                        dot.title = 'Réponses différentes';
+                        strong.appendChild(dot);
+                    });
+                }
             }
 
             function expProg() {
