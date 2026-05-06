@@ -1414,6 +1414,15 @@
             box-shadow: var(--shadow-card-hover)
         }
 
+        .qcard.has-official-answer {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+
+        .qcard.has-official-answer:hover {
+            box-shadow: var(--shadow-card-hover), 0 0 12px rgba(16, 185, 129, 0.15);
+        }
+
         /* Card header: type pill + question number + enonce */
         .qcard-head {
             padding: 22px 24px 0;
@@ -4641,7 +4650,7 @@
 
                     /* Card */
                     const card = document.createElement('div');
-                    card.className = 'qcard' + (isOfficialMode ? ' official-readonly' : ''); card.dataset.key = key;
+                    card.className = 'qcard' + (isOfficialMode ? ' official-readonly' : '') + (isVal ? ' has-official-answer' : ''); card.dataset.key = key;
                     card.style.animationDelay = delay + 'ms'; delay += 25;
 
                     let h = '';
@@ -5425,10 +5434,12 @@
                             delete st.val[key]; btn.classList.remove('on');
                             btn.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg> Marquer comme validée`;
                             const d = card.querySelector('.dot-val'); if (d) d.classList.remove('on');
+                            card.classList.remove('has-official-answer');
                         } else {
                             st.val[key] = true; btn.classList.add('on');
                             btn.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Correction validée`;
                             const d = card.querySelector('.dot-val'); if (d) d.classList.add('on');
+                            card.classList.add('has-official-answer');
                         }
                         const qId = key.split('§')[2];
                         sv(); addRecent(mod, chap, qId); upChStats(entry); upBadges();
