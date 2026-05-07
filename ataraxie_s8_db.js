@@ -3244,6 +3244,7 @@ const ATARAXIE_S8_DB = {
                                         "La hyalinose segmentaire et focale (HSF) est la forme anatomopathologique la plus fréquemment retrouvée en cas de biopsie rénale",
                                         "Une hyperlipémie est toujours présente",
                                         "Une protéinurie de 24H supérieure à 50 mg/kg/jour est suffisante pour le diagnostic positif",
+                                        "La Ponction biopsie rénale est indiqué en cas d'hématurie macroscopique",
                                         "Dans la plupart des cas il est secondaire à une maladie de système"
                                     ],
                                     "requires_review": false
