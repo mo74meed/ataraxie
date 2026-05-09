@@ -2059,11 +2059,11 @@ const ATARAXIE_S8_DB = {
                                     "question_text": "Les diagnostics à évoquer sont :",
                                     "type": "QCM",
                                     "choices": [
-                                        "Anémie hémolytique auto-immune",
-                                        "Thalassémie",
-                                        "Leucémie aiguë",
-                                        "Sphérocytose héréditaires",
-                                        "Drépanocytose"
+                                        "Une leishmaniose viscéralee",
+                                        "Une leucémie aigue",
+                                        "Un rhumatisme articulaire aigu",
+                                        "Une arthrite septique du genou",
+                                        "Un traumatisme du genoue"
                                     ],
                                     "requires_review": false
                                 },
