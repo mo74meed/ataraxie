@@ -4489,134 +4489,134 @@ const ATARAXIE_S8_DB = {
                             ]
                         },
                         {
-                            "subject_name": "L'asphyxie périnatale",
-                            "questions": [
-                                {
-                                    "id": "PED-NEO-21-Q01",
-                                    "clinical_context": null,
-                                    "question_text": "Une asphyxie périnatale sévère est définie par la présence d’un ou plusieurs des critères suivants :",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Un $\\\\mathsf { P H } > 7$ la 1ère heure de vie",
-                                        "Des crises convulsives précoces et constantes",
-                                        "Un Score d\'Apgar < 7 à 5 minutes de vie",
-                                        "Un tonus normal et réflexe de succion exagéré",
-                                        "Un électroencéphalogramme perturbé",
-                                        "Absence de crises convulsives",
-                                        "Un $\\\\mathsf { P H } > 7 { , } 2$ la première heure de vie",
-                                        "Des crises convulsives précoces et constantes",
-                                        "Une encéphalopathie sévère et précoce",
-                                        "Un $\\\\mathsf { P H } < 7$ au sang du cordon sur l’artère ombilicale",
-                                        "Un Score d’Apgar $< 7 \\\\dot { \\\\sf a } 5$ minute de vie",
-                                        "Un $\\\\mathsf { P H } { \\\\mathsf { > } } 7 , 4$ la première heure de vie"
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "PED-NEO-21-Q02",
-                                    "clinical_context": null,
-                                    "question_text": "Une asphyxie périnatale est définie par la présence d’un ou plusieurs des critères suivants :",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Un PH <7 la première heure de vie",
-                                        "Encéphalopathie précoce",
-                                        "Un Score d’Apgar < 7 à 5 minute de vie",
-                                        "Une hypoglycémie",
-                                        "Un électroencéphalogramme perturbé",
-                                        "Un $\\\\mathsf { P H } { < } 7$ au sang du cordon sur l\'artère ombilicale",
-                                        "Des crises convulsives dans les premières 24 heures de vie",
-                                        "Un Score d\'Apgar ≥ 7 à 5 minute de vie",
-                                        "Un rythme cardiaque fœtal > 160 battements /minute",
-                                        "Un rythme cardiaque fœtal entre 120 et 160 battement/minute",
-                                        "Une fréquence cardiaque fœtale $\\\\yen 100$ battement/minute en dehors des contractions utérines",
-                                        "Un $\\\\mathsf { P H } > 7$ au sang du cordon sur l’artère ombilicale",
-                                        "Une détresse neurologique précoce inexpliquée",
-                                        "Un Score d\'Apgar ≤ 5 à la 5eme minute de vie"
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "PED-NEO-21-Q03",
-                                    "clinical_context": null,
-                                    "question_text": "Parmi les signes suivants, quels sont les signes évocateurs d'asphyxie périnatale:",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Une fréquence cardiaque fœtale > 160 battement/minute",
-                                        "Une fréquence cardiaque fœtale $\\\\yen 100$ battement/minute en dehors des contractions utérines",
-                                        "Un $\\\\mathsf { P H } < 7$ du sang du cordon immédiatement à l’accouchement",
-                                        "Une détresse neurologique précoce inexpliquée",
-                                        "Un Score d\'Apgar ≥ 7 à la 5éme minute de vie",
-                                        "Un rythme cardiaque fœtal entre 120 et 160 battement/minute",
-                                        "Un $\\\\mathsf { P H } > 7$ au sang du cordon sur l’artère ombilicale",
-                                        "Un Score d\'Apgar $\\\\leq 5$ à la 5eme minute de vie",
-                                        "Un rythme cardiaque fœtal sup à 160 batt/ min",
-                                        "Un FC fœtale inférieur à 100 batt/min en dehors des contractions utérines",
-                                        "Un pH inférieur à 7 au sang du cordon de l\'artère ombilicale",
-                                        "Score d\'Apgar $= 5 - 1 0$ minutes de vie",
-                                        "Un Score d\'Apgar < 7 à 5 minute de vie",
-                                        "Un placenta preavea",
-                                        "Anomalies du RCF (rythme cardiaque fœtal)",
-                                        "Un $\\\\mathsf { P H } { < } 7$ à 24 heures de vie",
-                                        "Une détresse neurologique précoce inexpliquée",
-                                        "Un cri vigoureux après stimulation tactile du nouveau-né",
-                                        "Double circulaire du cordon",
-                                        "Un PH > 7 à 24 heures de vie",
-                                        "Un Apgar 7 à 5 min de vie",
-                                        "Un EEG normal à la naissance"
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "PED-NEO-21-Q04",
-                                    "clinical_context": null,
-                                    "question_text": "Parmi les propositions suivantes quelles sont celles valables pour l'asphyxie périnatale:",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "L'encéphalopathie anoxo-ischémique connaît une phase d'aggravation secondaire après la naissance",
-                                        "Un examen neurologique normal à la fin des 48 premières heures de vie définit le stade Il de la classification de Sarnat",
-                                        "Les crises convulsives sont constantes dans le stade I de la classification de Sarnat",
-                                        "L’EEG précoce durant les premières 24 heures de vie a une meilleure valeur pronostique",
-                                        "Un EEG perturbé à la fin de la première semaine est un facteur de mauvais pronostic."
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "PED-NEO-21-Q05",
-                                    "clinical_context": null,
-                                    "question_text": "L'encéphalopathie anoxo-ischémique:",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "L'encéphalopathie anoxo-ischémique sévère connaît une phase d'aggravation secondaire après la naissance",
-                                        "Un examen neurologique normal à la fin des 48 premières heures de vie définit le stade II de la classification de Sarnat",
-                                        "Les crises convulsives sont constantes dans le stade I de la classification de sarnat",
-                                        "L'EEG précoce durant les premières 24 heures de vie a une meilleure valeur pronostique",
-                                        "Un EEG perturbé à la fin de la première semaine est un facteur de mauvais pronostic.",
-                                        "Un examen neurologique anormal au delà du 8eme jour de vie définit le stade I de la classification de Sarnat",
-                                        "Les crises convulsives sont constantes dans le stade III de la classification de Sarnat",
-                                        "Un examen neurologique normal à la fin des 48 premières heures de vie définit le stade III de la classification de Sarnat",
-                                        "Les crises convulsives sont constantes dans le stade I",
-                                        "L'EEG à 24 heures de vie à une meilleure valeur pronostique",
-                                        "L'encéphalopathie anoxo-ischémique sévère connaît une phase d'aggravation secondaire après la naissance",
-                                        "Un examen neurologique normal à la fin des 24 premières heures de vie définit le stade I de la classification de Sarnat"
-                                    ],
-                                    "requires_review": false
-                                },
-                                {
-                                    "id": "PED-NEO-21-Q06",
-                                    "clinical_context": null,
-                                    "question_text": "Parmi les propositions suivantes quelles sont celles valables pour la prise en charge d’une asphyxie périnatale :",
-                                    "type": "QCM",
-                                    "choices": [
-                                        "Une réanimation cardiopulmonaire à la naissance",
-                                        "Une hypothermie contrôlée pour les nouveau-nés à terme",
-                                        "Un traitement anticonvulsivant systématique",
-                                        "Un traitement antibiotique systémique",
-                                        "Une corticothérapie"
-                                    ],
-                                    "requires_review": false
-                                }
-                            ]
-                        },
+  "subject_name": "L'asphyxie périnatale",
+  "questions": [
+    {
+      "id": "PED-NEO-21-Q01",
+      "clinical_context": null,
+      "question_text": "Une asphyxie périnatale sévère est définie par la présence d’un ou plusieurs des critères suivants :",
+      "type": "QCM",
+      "choices": [
+        "Un pH > 7 la 1ère heure de vie",
+        "Des crises convulsives précoces et constantes",
+        "Un score d’Apgar < 7 à 5 minutes de vie",
+        "Un tonus normal et réflexe de succion exagéré",
+        "Un électroencéphalogramme perturbé",
+        "Absence de crises convulsives",
+        "Un pH > 7,2 la première heure de vie",
+        "Des crises convulsives précoces et constantes",
+        "Une encéphalopathie sévère et précoce",
+        "Un pH < 7 au sang du cordon sur l’artère ombilicale",
+        "Un score d’Apgar < 7 à la 5e minute de vie",
+        "Un pH > 7,4 la première heure de vie"
+      ],
+      "requires_review": false
+    },
+    {
+      "id": "PED-NEO-21-Q02",
+      "clinical_context": null,
+      "question_text": "Une asphyxie périnatale est définie par la présence d’un ou plusieurs des critères suivants :",
+      "type": "QCM",
+      "choices": [
+        "Un pH < 7 la première heure de vie",
+        "Encéphalopathie précoce",
+        "Un score d’Apgar < 7 à 5 minutes de vie",
+        "Une hypoglycémie",
+        "Un électroencéphalogramme perturbé",
+        "Un pH < 7 au sang du cordon sur l’artère ombilicale",
+        "Des crises convulsives dans les premières 24 heures de vie",
+        "Un score d’Apgar ≥ 7 à 5 minutes de vie",
+        "Un rythme cardiaque fœtal > 160 battements/minute",
+        "Un rythme cardiaque fœtal entre 120 et 160 battements/minute",
+        "Une fréquence cardiaque fœtale ≤ 100 battements/minute en dehors des contractions utérines",
+        "Un pH > 7 au sang du cordon sur l’artère ombilicale",
+        "Une détresse neurologique précoce inexpliquée",
+        "Un score d’Apgar ≤ 5 à la 5e minute de vie"
+      ],
+      "requires_review": false
+    },
+    {
+      "id": "PED-NEO-21-Q03",
+      "clinical_context": null,
+      "question_text": "Parmi les signes suivants, quels sont les signes évocateurs d'asphyxie périnatale :",
+      "type": "QCM",
+      "choices": [
+        "Une fréquence cardiaque fœtale > 160 battements/minute",
+        "Une fréquence cardiaque fœtale ≤ 100 battements/minute en dehors des contractions utérines",
+        "Un pH < 7 du sang du cordon immédiatement à l’accouchement",
+        "Une détresse neurologique précoce inexpliquée",
+        "Un score d’Apgar ≥ 7 à la 5e minute de vie",
+        "Un rythme cardiaque fœtal entre 120 et 160 battements/minute",
+        "Un pH > 7 au sang du cordon sur l’artère ombilicale",
+        "Un score d’Apgar ≤ 5 à la 5e minute de vie",
+        "Un rythme cardiaque fœtal > 160 battements/minute",
+        "Une FC fœtale inférieure à 100 battements/minute en dehors des contractions utérines",
+        "Un pH inférieur à 7 au sang du cordon de l’artère ombilicale",
+        "Score d’Apgar = 5 à 10 minutes de vie",
+        "Un score d’Apgar < 7 à 5 minutes de vie",
+        "Un placenta prævia",
+        "Anomalies du RCF (rythme cardiaque fœtal)",
+        "Un pH < 7 à 24 heures de vie",
+        "Une détresse neurologique précoce inexpliquée",
+        "Un cri vigoureux après stimulation tactile du nouveau-né",
+        "Double circulaire du cordon",
+        "Un pH > 7 à 24 heures de vie",
+        "Un Apgar ≥ 7 à 5 minutes de vie",
+        "Un EEG normal à la naissance"
+      ],
+      "requires_review": false
+    },
+    {
+      "id": "PED-NEO-21-Q04",
+      "clinical_context": null,
+      "question_text": "Parmi les propositions suivantes quelles sont celles valables pour l'asphyxie périnatale :",
+      "type": "QCM",
+      "choices": [
+        "L'encéphalopathie anoxo-ischémique connaît une phase d'aggravation secondaire après la naissance",
+        "Un examen neurologique normal à la fin des 48 premières heures de vie définit le stade II de la classification de Sarnat",
+        "Les crises convulsives sont constantes dans le stade I de la classification de Sarnat",
+        "L’EEG précoce durant les premières 24 heures de vie a une meilleure valeur pronostique",
+        "Un EEG perturbé à la fin de la première semaine est un facteur de mauvais pronostic"
+      ],
+      "requires_review": false
+    },
+    {
+      "id": "PED-NEO-21-Q05",
+      "clinical_context": null,
+      "question_text": "L'encéphalopathie anoxo-ischémique :",
+      "type": "QCM",
+      "choices": [
+        "L'encéphalopathie anoxo-ischémique sévère connaît une phase d'aggravation secondaire après la naissance",
+        "Un examen neurologique normal à la fin des 48 premières heures de vie définit le stade II de la classification de Sarnat",
+        "Les crises convulsives sont constantes dans le stade I de la classification de Sarnat",
+        "L'EEG précoce durant les premières 24 heures de vie a une meilleure valeur pronostique",
+        "Un EEG perturbé à la fin de la première semaine est un facteur de mauvais pronostic",
+        "Un examen neurologique anormal au-delà du 8e jour de vie définit le stade I de la classification de Sarnat",
+        "Les crises convulsives sont constantes dans le stade III de la classification de Sarnat",
+        "Un examen neurologique normal à la fin des 48 premières heures de vie définit le stade III de la classification de Sarnat",
+        "Les crises convulsives sont constantes dans le stade I",
+        "L'EEG à 24 heures de vie a une meilleure valeur pronostique",
+        "L'encéphalopathie anoxo-ischémique sévère connaît une phase d'aggravation secondaire après la naissance",
+        "Un examen neurologique normal à la fin des 24 premières heures de vie définit le stade I de la classification de Sarnat"
+      ],
+      "requires_review": false
+    },
+    {
+      "id": "PED-NEO-21-Q06",
+      "clinical_context": null,
+      "question_text": "Parmi les propositions suivantes quelles sont celles valables pour la prise en charge d’une asphyxie périnatale :",
+      "type": "QCM",
+      "choices": [
+        "Une réanimation cardiopulmonaire à la naissance",
+        "Une hypothermie contrôlée pour les nouveau-nés à terme",
+        "Un traitement anticonvulsivant systématique",
+        "Un traitement antibiotique systémique",
+        "Une corticothérapie"
+      ],
+      "requires_review": false
+    }
+  ]
+},
                         {
                             "subject_name": "Ictère du nouveau-né",
                             "questions": [
