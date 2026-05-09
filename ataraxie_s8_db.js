@@ -1957,7 +1957,7 @@ const ATARAXIE_S8_DB = {
                                 },
                                 {
                                     "id": "PED-HEM-10-Q04",
-                                    "clinical_context": null,
+                                    "clinical_context": "Hanae, jeune fille âgée de 8 ans, sans ATCD pathologiques particuliers, consulte aux urgences pédiatriques pour une éruption cutanée d’installation brutale et une fièvre. L’examen somatique objective une patiente consciente, GCS = 15, fébrile à 39,5°c. TA = 07/04 cmHg, FC = 180 battements/min, conjonctives normocolorées, présentant des lésions cutanées diffuses sur le corps ne s’effaçant pas à la vitropression dont certaines sont nécrotiques.",
                                     "question_text": "Le diagnostic le plus probable devant ce tableau est :",
                                     "type": "QCM",
                                     "choices": [
